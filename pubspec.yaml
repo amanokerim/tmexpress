@@ -1,4 +1,4 @@
-name: TmExpress
+name: tmexpress
 description: An app for delivering goods from China
 
 # Run flutter pub upgrade --major-versions to upgrade all dependencies
