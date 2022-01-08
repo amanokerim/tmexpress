@@ -1,0 +1,29 @@
+flutter_native_splash:
+  # flutter pub run flutter_native_splash:create
+  # flutter pub run flutter_native_splash:remove
+
+  color: "#ffffff"
+  # background_image: "assets/images/splash_background.png"
+  image: assets/images/splash_image.png
+
+  color_dark: "#FFFFFF"
+  # background_image_dark: "assets/images/splash_image.png"
+  image_dark: assets/images/splash_image.png
+
+  android: true
+  ios: true
+  web: false
+
+  # android_gravity can be one of the following Android Gravity (see
+  # https://developer.android.com/reference/android/view/Gravity): bottom, center,
+  # center_horizontal, center_vertical, clip_horizontal, clip_vertical, end, fill, fill_horizontal,
+  # fill_vertical, left, right, start, or top.
+  # android_gravity: fill
+  #
+  # ios_content_mode can be one of the following iOS UIView.ContentMode (see
+  # https://developer.apple.com/documentation/uikit/uiview/contentmode): scaleToFill,
+  # scaleAspectFit, scaleAspectFill, center, top, bottom, left, right, topLeft, topRight,
+  # bottomLeft, or bottomRight.
+  # ios_content_mode: center
+
+  #fullscreen: true

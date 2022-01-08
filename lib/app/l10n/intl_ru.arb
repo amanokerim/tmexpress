@@ -1,0 +1,37 @@
+{
+  "@@locale": "ru",
+  "lang": "Русский",
+
+  "tab0": "Tab 0",
+  "tab1": "Tab 1",
+  "tab2": "Tab 2",
+  "tab3": "Tab 3",
+
+  "userAgreementLink": "media/user_agreement.pdf",
+  "privacyPolicyLink": "media/privacy_policy.pdf",
+  
+  "retry": "Попробуйте еще раз",
+  "doubleBackToExit": "Нажмите еще раз для выхода",
+
+  "somethingWentWrong": "Что-то пошло не так",
+  "serverError": "Внутренняя ошибка сервера",
+  "loadError": "Нет интернета",
+  "forbidden": "У вас не достаточно прав для выполнения данного действия",
+  "connectionError": "Не удалось подключиться к серверу",
+  "invalidFormat": "Неверный формат",
+  "unknownError": "Операция временно недоступна.\nПопробуйте позднее.",
+  "wrongFormat": "Неверный формат",
+  "invalidVerificationCode": "Неверный код",
+  "requiredField": "Обязательное поле",
+  "wrongEmail": "Некорректный email",
+
+  "today": "Сегодня",
+  "yesterday": "Вчера",
+  "in_": "в",
+
+  "cancel": "Отмена",
+
+
+
+  "": ""
+}
