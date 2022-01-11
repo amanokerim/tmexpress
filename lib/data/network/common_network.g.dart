@@ -14,19 +14,20 @@ class _CommonNetwork implements CommonNetwork {
   String? baseUrl;
 
   @override
-  Future<List<ProductResponse>> fetchProducts() async {
+  Future<List<CategoryResponse>> fetchCategories() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<ProductResponse>>(
+        _setStreamType<List<CategoryResponse>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'https://fakestoreapi.com/products',
+                .compose(_dio.options, 'api/products/categoryList/',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => ProductResponse.fromJson(i as Map<String, dynamic>))
+        .map(
+            (dynamic i) => CategoryResponse.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

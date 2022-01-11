@@ -47,7 +47,7 @@ class AppFlash {
             )
           ],
           borderRadius: BorderRadius.circular(20),
-          backgroundColor: AppColors.dark3,
+          backgroundColor: AppColors.dark,
           forwardAnimationCurve: Curves.easeInCirc,
           reverseAnimationCurve: Curves.easeInCirc,
           child: FlashBar(
@@ -91,7 +91,7 @@ class AppFlash {
           alignment: const Alignment(0, -.92),
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           borderRadius: const BorderRadius.all(Radius.circular(16)),
-          backgroundColor: AppColors.dark3,
+          backgroundColor: AppColors.dark,
           boxShadows: const [
             BoxShadow(
               color: Colors.black12,

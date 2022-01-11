@@ -60,41 +60,51 @@ class S {
     );
   }
 
-  /// `Tab 0`
-  String get tab0 {
+  /// `Baş sahypa`
+  String get homeScreen {
     return Intl.message(
-      'Tab 0',
-      name: 'tab0',
+      'Baş sahypa',
+      name: 'homeScreen',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tab 1`
-  String get tab1 {
+  /// `Bölümler`
+  String get categories {
     return Intl.message(
-      'Tab 1',
-      name: 'tab1',
+      'Bölümler',
+      name: 'categories',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tab 2`
-  String get tab2 {
+  /// `Gyzgyn harytlar`
+  String get hot {
     return Intl.message(
-      'Tab 2',
-      name: 'tab2',
+      'Gyzgyn harytlar',
+      name: 'hot',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tab 3`
-  String get tab3 {
+  /// `Sebet`
+  String get cart {
     return Intl.message(
-      'Tab 3',
-      name: 'tab3',
+      'Sebet',
+      name: 'cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profil`
+  String get profile {
+    return Intl.message(
+      'Profil',
+      name: 'profile',
       desc: '',
       args: [],
     );
@@ -120,150 +130,150 @@ class S {
     );
   }
 
-  /// `Попробуйте еще раз`
+  /// `Täzeden synanyşyň`
   String get retry {
     return Intl.message(
-      'Попробуйте еще раз',
+      'Täzeden synanyşyň',
       name: 'retry',
       desc: '',
       args: [],
     );
   }
 
-  /// `Нажмите еще раз для выхода`
+  /// `Çykmak üçin ýene bir gezek basyň`
   String get doubleBackToExit {
     return Intl.message(
-      'Нажмите еще раз для выхода',
+      'Çykmak üçin ýene bir gezek basyň',
       name: 'doubleBackToExit',
       desc: '',
       args: [],
     );
   }
 
-  /// `Что-то пошло не так`
+  /// `Näsazlyk ýüze çykdy`
   String get somethingWentWrong {
     return Intl.message(
-      'Что-то пошло не так',
+      'Näsazlyk ýüze çykdy',
       name: 'somethingWentWrong',
       desc: '',
       args: [],
     );
   }
 
-  /// `Внутренняя ошибка сервера`
+  /// `Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris.`
   String get serverError {
     return Intl.message(
-      'Внутренняя ошибка сервера',
+      'Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris.',
       name: 'serverError',
       desc: '',
       args: [],
     );
   }
 
-  /// `Нет интернета`
+  /// `Internet ýok`
   String get loadError {
     return Intl.message(
-      'Нет интернета',
+      'Internet ýok',
       name: 'loadError',
       desc: '',
       args: [],
     );
   }
 
-  /// `У вас не достаточно прав для выполнения данного действия`
+  /// `Bu amaly ýerine ýetirmek üçin sizde ýeterlik hukuk ýok`
   String get forbidden {
     return Intl.message(
-      'У вас не достаточно прав для выполнения данного действия',
+      'Bu amaly ýerine ýetirmek üçin sizde ýeterlik hukuk ýok',
       name: 'forbidden',
       desc: '',
       args: [],
     );
   }
 
-  /// `Не удалось подключиться к серверу`
+  /// `Serwere baglanyp bolmady`
   String get connectionError {
     return Intl.message(
-      'Не удалось подключиться к серверу',
+      'Serwere baglanyp bolmady',
       name: 'connectionError',
       desc: '',
       args: [],
     );
   }
 
-  /// `Неверный формат`
+  /// `Nädogry format`
   String get invalidFormat {
     return Intl.message(
-      'Неверный формат',
+      'Nädogry format',
       name: 'invalidFormat',
       desc: '',
       args: [],
     );
   }
 
-  /// `Операция временно недоступна.\nПопробуйте позднее.`
+  /// `Amal wagtlaýyn elýeter däl.\nBiraz wagtdan synanyşyp görüň.`
   String get unknownError {
     return Intl.message(
-      'Операция временно недоступна.\nПопробуйте позднее.',
+      'Amal wagtlaýyn elýeter däl.\nBiraz wagtdan synanyşyp görüň.',
       name: 'unknownError',
       desc: '',
       args: [],
     );
   }
 
-  /// `Неверный формат`
+  /// `Nädogry format`
   String get wrongFormat {
     return Intl.message(
-      'Неверный формат',
+      'Nädogry format',
       name: 'wrongFormat',
       desc: '',
       args: [],
     );
   }
 
-  /// `Неверный код`
+  /// `Nädogry kod`
   String get invalidVerificationCode {
     return Intl.message(
-      'Неверный код',
+      'Nädogry kod',
       name: 'invalidVerificationCode',
       desc: '',
       args: [],
     );
   }
 
-  /// `Обязательное поле`
+  /// `Boş bolmaly däl`
   String get requiredField {
     return Intl.message(
-      'Обязательное поле',
+      'Boş bolmaly däl',
       name: 'requiredField',
       desc: '',
       args: [],
     );
   }
 
-  /// `Некорректный email`
+  /// `Nädogry email`
   String get wrongEmail {
     return Intl.message(
-      'Некорректный email',
+      'Nädogry email',
       name: 'wrongEmail',
       desc: '',
       args: [],
     );
   }
 
-  /// `Сегодня`
+  /// `Bu gün`
   String get today {
     return Intl.message(
-      'Сегодня',
+      'Bu gün',
       name: 'today',
       desc: '',
       args: [],
     );
   }
 
-  /// `Вчера`
+  /// `Düýn`
   String get yesterday {
     return Intl.message(
-      'Вчера',
+      'Düýn',
       name: 'yesterday',
       desc: '',
       args: [],
@@ -280,10 +290,10 @@ class S {
     );
   }
 
-  /// `Отмена`
+  /// `Togtatmak`
   String get cancel {
     return Intl.message(
-      'Отмена',
+      'Togtatmak',
       name: 'cancel',
       desc: '',
       args: [],

@@ -17,7 +17,7 @@ final appTheme = ThemeData(
     headline6: AppTextStyle.headline6,
   ),
   bottomSheetTheme: BottomSheetThemeData(
-    backgroundColor: AppColors.background,
+    backgroundColor: AppColors.bg,
   ),
 );
 
@@ -77,38 +77,18 @@ abstract class AppTextStyle {
 
 // TODO Change colors
 abstract class AppColors {
-  static Color get primary => red;
-  static Color get background => const Color(0xFFf4f4f4);
+  static Color get primary => const Color(0xFF31313b);
+  static Color get secondary => const Color(0xFFEB5757);
 
-  static Color get red => const Color(0xFFEB5757);
-  static Color get red2 => const Color(0xFFE15537);
-  static Color get red3 => const Color(0xFFF45B5B);
-  static Color get red4 => const Color(0xFFEB5757);
+  static Color get bg => const Color(0xFFFEFEFE);
+  static Color get bg2 => const Color(0xFFFAFAFA);
 
-  static Color get red30 => red.withOpacity(.3);
-  static Color get red10 => red.withOpacity(.1);
-  static Color get bgMain => const Color(0xFFF8F8F8);
+  static Color get bgMain => const Color(0xFFFFFFFF);
   static Color get tabBarInactive => const Color(0xFFB7BDC3);
 
   static Color get dark => const Color(0xFF212121);
-  static Color get dark2 => const Color(0xFF343B47);
-  static Color get dark3 => const Color(0xFFd1d2d5);
-  static Color get grey3 => const Color(0xFFCFD3D9); // data and time icons
-  static Color get grey4 => const Color(0xFFCFD5DA);
-  static Color get grey5 => const Color(0xFFE5E5E5);
-  static Color get grey6 => const Color(0xFFEEEEEE);
-  static Color get grey7 => const Color(0xFFEEEFF2);
-  static Color get grey8 => const Color(0xFFB3B8C0);
-  static Color get grey9 => const Color(0xFF969696);
-  static Color get grey10 => const Color(0xFFF8F8F8); //real bg main
-  static Color get grey11 => const Color(0xFFF0F0F0);
-  static Color get grey12 => const Color(0xFFEAEAEA);
-  static Color get grey13 => const Color(0xFFEEEFF2);
-  static Color get grey14 => const Color(0xFFF6F7F9);
-  static Color get grey15 => const Color(0xFF9A9FA9);
-  static Color get grey16 => const Color(0xFFAEB2BA);
-  static Color get grey17 => const Color(0xFF737373);
-  static Color get grey18 => const Color(0xFFececec);
+  static Color get grey => const Color(0xFF999999);
+  static Color get lGrey => const Color(0xFFDDDDDD);
 
   static Color get white => Colors.white;
 

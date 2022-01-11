@@ -67,7 +67,7 @@ class _AppImageState extends State<AppImage>
     return Container(
       height: widget.size.height,
       width: widget.size.width,
-      color: AppColors.grey18,
+      color: AppColors.grey,
       padding: EdgeInsets.all(widget.size.height * .3),
       child: SvgPicture.asset('assets/icons/union.svg'),
     );

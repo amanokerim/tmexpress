@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import '../theme/app_theme.dart';
 
 class AppButton extends ElevatedButton {
-  // TODO Style the button
   AppButton({
     required String label,
     required VoidCallback? onPressed,
@@ -24,7 +23,7 @@ class AppButton extends ElevatedButton {
             onSurface: type.background,
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 1),
             shadowColor: Colors.black38,
-            onPrimary: AppColors.grey5,
+            onPrimary: AppColors.grey,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(mini ? 13 : 20),
               side: type == ButtonType.outline && !borderLess
@@ -81,29 +80,22 @@ class AppButton extends ElevatedButton {
         );
 }
 
-enum ButtonType { red, black, outline, red2, grey, red3 }
+enum ButtonType { red, black, outline }
 
 extension ButtonTypeExtension on ButtonType {
   Color get background {
     switch (this) {
       case ButtonType.red:
-        return AppColors.red;
-      case ButtonType.red2:
-        return AppColors.red2;
-      case ButtonType.red3:
-        return AppColors.red3;
+        return AppColors.secondary;
       case ButtonType.black:
         return AppColors.dark;
       case ButtonType.outline:
         return AppColors.white;
-      case ButtonType.grey:
-        return AppColors.grey10;
     }
   }
 
   Color get foreground {
     if (this == ButtonType.outline) return AppColors.dark;
-    if (this == ButtonType.grey) return AppColors.dark2;
     return AppColors.white;
   }
 }
