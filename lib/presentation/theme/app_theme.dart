@@ -9,12 +9,12 @@ final appTheme = ThemeData(
   textTheme: TextTheme(
     bodyText1: AppTextStyle.dark18,
     bodyText2: AppTextStyle.dark16,
-    headline1: AppTextStyle.headline1,
-    headline2: AppTextStyle.headline2,
-    headline3: AppTextStyle.headline3,
-    headline4: AppTextStyle.headline4,
-    headline5: AppTextStyle.headline5,
-    headline6: AppTextStyle.headline6,
+    headline1: AppTextStyle.bold32,
+    headline2: AppTextStyle.bold26,
+    headline3: AppTextStyle.bold24,
+    headline4: AppTextStyle.bold20,
+    headline5: AppTextStyle.bold18,
+    headline6: AppTextStyle.bold16,
   ),
   bottomSheetTheme: BottomSheetThemeData(
     backgroundColor: AppColors.bg,
@@ -23,28 +23,21 @@ final appTheme = ThemeData(
 
 abstract class AppTextStyle {
   // Headlines
-  static TextStyle get headline1 => TextStyle(
+  static TextStyle get bold32 => TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.w500,
         color: AppColors.textMain,
       );
-  static TextStyle get headline2 => headline1.copyWith(fontSize: 26);
-  static TextStyle get headline3 => headline1.copyWith(fontSize: 24);
-  static TextStyle get headline4 => headline1.copyWith(fontSize: 20);
-  static TextStyle get headline5 => headline1.copyWith(fontSize: 18);
-  static TextStyle get headline6 => headline1.copyWith(fontSize: 16);
-  static TextStyle get headline7 => headline1.copyWith(fontSize: 14);
-  static TextStyle get headline8 => headline1.copyWith(fontSize: 12);
-
-  // Lights
-  static TextStyle get headline1w =>
-      headline1.copyWith(color: AppColors.white, fontWeight: FontWeight.w700);
-  static TextStyle get headline3w =>
-      headline3.copyWith(color: AppColors.white, fontWeight: FontWeight.w700);
+  static TextStyle get bold26 => bold32.copyWith(fontSize: 26);
+  static TextStyle get bold24 => bold32.copyWith(fontSize: 24);
+  static TextStyle get bold20 => bold32.copyWith(fontSize: 20);
+  static TextStyle get bold18 => bold32.copyWith(fontSize: 18);
+  static TextStyle get bold16 => bold32.copyWith(fontSize: 16);
+  static TextStyle get bold14 => bold32.copyWith(fontSize: 14);
+  static TextStyle get bold12 => bold32.copyWith(fontSize: 12);
 
   // Primary styles (normal text, dark color)
-  static TextStyle get dark20 =>
-      headline4.copyWith(fontWeight: FontWeight.w400);
+  static TextStyle get dark20 => bold20.copyWith(fontWeight: FontWeight.w400);
   static TextStyle get dark18 => dark20.copyWith(fontSize: 18);
   static TextStyle get dark16 => dark20.copyWith(fontSize: 16);
   static TextStyle get dark16_2 => dark20.copyWith(

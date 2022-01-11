@@ -17,19 +17,21 @@ class CategoryBloc extends AppBloc<CategoryEvent, CategoryState> {
         (failure) => CategoryLoadError(mapError(failure)),
         (categories) {
           this.categories = categories;
-          return CategoryLoadSuccess(categories, 0);
+          selected = categories[0];
+          return CategoryLoadSuccess(categories, selected);
         },
       ));
     });
 
     on<CategorySelected>((event, emit) async {
-      selectedId = event.id;
-      emit(CategoryLoadSuccess(categories, selectedId));
+      selected = categories.firstWhere((c) => c.id == event.id);
+
+      emit(CategoryLoadSuccess(categories, selected));
     });
   }
 
   final FetchProductsUseCase _fetchProductsUseCase;
 
-  int selectedId = 0;
+  late Category selected;
   List<Category> categories = [];
 }

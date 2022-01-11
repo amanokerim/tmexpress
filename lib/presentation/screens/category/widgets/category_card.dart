@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/entities/category/category.dart';
 import '../../../theme/app_theme.dart';
+import '../../../widgets/app_image.dart';
 import '../bloc/category_bloc.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -20,16 +21,17 @@ class CategoryCard extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         height: 84,
         decoration: BoxDecoration(
-            color: selected ? AppColors.bg : AppColors.bg2,
+            color: selected ? AppColors.white : AppColors.bg2,
             border: selected
                 ? Border(left: BorderSide(color: AppColors.secondary, width: 3))
                 : null),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(
+            AppImage(
               category.categoryImage,
               height: 32,
+              borderRadius: BorderRadius.circular(0),
               color: selected ? AppColors.dark : AppColors.textSec,
             ),
             const SizedBox(height: 4),

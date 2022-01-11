@@ -35,7 +35,7 @@ class AppConfirmDialog extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(32, 0, 32, 16),
                 child: Text(
                   title!,
-                  style: AppTextStyle.headline4,
+                  style: AppTextStyle.bold20,
                   textAlign: TextAlign.center,
                 ),
               ),

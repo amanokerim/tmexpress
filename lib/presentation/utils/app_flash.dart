@@ -29,7 +29,7 @@ class AppFlash {
           },
           child: Text(
             buttonLabel ?? S.current.retry,
-            style: AppTextStyle.headline7,
+            style: AppTextStyle.bold14,
           ),
         );
         return Flash<void>(

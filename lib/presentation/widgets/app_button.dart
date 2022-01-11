@@ -61,7 +61,7 @@ class AppButton extends ElevatedButton {
                     ],
                     Text(
                       label,
-                      style: AppTextStyle.headline6.copyWith(
+                      style: AppTextStyle.bold16.copyWith(
                         fontSize: mini ? 12 : fontSize,
                         color: type.foreground,
                       ),

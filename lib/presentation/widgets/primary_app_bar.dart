@@ -8,7 +8,7 @@ class PrimaryAppBar extends AppBar {
           key: key,
           elevation: 0,
           centerTitle: false,
-          title: Text(label, style: AppTextStyle.headline2),
+          title: Text(label, style: AppTextStyle.bold26),
           backgroundColor: AppColors.white,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(

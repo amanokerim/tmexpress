@@ -12,12 +12,12 @@ class CategoryInitial extends CategoryState {}
 class CategoryLoadInProgress extends CategoryState {}
 
 class CategoryLoadSuccess extends CategoryState {
-  const CategoryLoadSuccess(this.categories, this.selectedId);
+  const CategoryLoadSuccess(this.categories, this.selected);
   final List<Category> categories;
-  final int selectedId;
+  final Category selected;
 
   @override
-  List<Object> get props => [categories, selectedId];
+  List<Object> get props => [categories, selected];
 }
 
 class CategoryLoadError extends CategoryState {

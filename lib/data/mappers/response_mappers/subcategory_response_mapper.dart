@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 
+import '../../../app/env/env.dart';
 import '../../../domain/entities/category/subcategory.dart';
 import '../../network/response_models/subcategory_response.dart';
 import '../mapper.dart';
@@ -11,6 +12,6 @@ class SubcategoryResponseMapper
   Subcategory map(SubcategoryResponse? entity) => Subcategory(
         id: entity?.id ?? 0,
         title: entity?.title ?? '',
-        subCategoryImage: entity?.subCategoryImage ?? '',
+        subCategoryImage: '${Env.value.baseUrl}${entity?.subCategoryImage}',
       );
 }
