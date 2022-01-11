@@ -9,42 +9,35 @@ final appTheme = ThemeData(
   textTheme: TextTheme(
     bodyText1: AppTextStyle.dark18,
     bodyText2: AppTextStyle.dark16,
-    headline1: AppTextStyle.headline1,
-    headline2: AppTextStyle.headline2,
-    headline3: AppTextStyle.headline3,
-    headline4: AppTextStyle.headline4,
-    headline5: AppTextStyle.headline5,
-    headline6: AppTextStyle.headline6,
+    headline1: AppTextStyle.bold32,
+    headline2: AppTextStyle.bold26,
+    headline3: AppTextStyle.bold24,
+    headline4: AppTextStyle.bold20,
+    headline5: AppTextStyle.bold18,
+    headline6: AppTextStyle.bold16,
   ),
   bottomSheetTheme: BottomSheetThemeData(
-    backgroundColor: AppColors.background,
+    backgroundColor: AppColors.bg,
   ),
 );
 
 abstract class AppTextStyle {
   // Headlines
-  static TextStyle get headline1 => TextStyle(
+  static TextStyle get bold32 => TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.w500,
         color: AppColors.textMain,
       );
-  static TextStyle get headline2 => headline1.copyWith(fontSize: 26);
-  static TextStyle get headline3 => headline1.copyWith(fontSize: 24);
-  static TextStyle get headline4 => headline1.copyWith(fontSize: 20);
-  static TextStyle get headline5 => headline1.copyWith(fontSize: 18);
-  static TextStyle get headline6 => headline1.copyWith(fontSize: 16);
-  static TextStyle get headline7 => headline1.copyWith(fontSize: 14);
-  static TextStyle get headline8 => headline1.copyWith(fontSize: 12);
-
-  // Lights
-  static TextStyle get headline1w =>
-      headline1.copyWith(color: AppColors.white, fontWeight: FontWeight.w700);
-  static TextStyle get headline3w =>
-      headline3.copyWith(color: AppColors.white, fontWeight: FontWeight.w700);
+  static TextStyle get bold26 => bold32.copyWith(fontSize: 26);
+  static TextStyle get bold24 => bold32.copyWith(fontSize: 24);
+  static TextStyle get bold20 => bold32.copyWith(fontSize: 20);
+  static TextStyle get bold18 => bold32.copyWith(fontSize: 18);
+  static TextStyle get bold16 => bold32.copyWith(fontSize: 16);
+  static TextStyle get bold14 => bold32.copyWith(fontSize: 14);
+  static TextStyle get bold12 => bold32.copyWith(fontSize: 12);
 
   // Primary styles (normal text, dark color)
-  static TextStyle get dark20 =>
-      headline4.copyWith(fontWeight: FontWeight.w400);
+  static TextStyle get dark20 => bold20.copyWith(fontWeight: FontWeight.w400);
   static TextStyle get dark18 => dark20.copyWith(fontSize: 18);
   static TextStyle get dark16 => dark20.copyWith(fontSize: 16);
   static TextStyle get dark16_2 => dark20.copyWith(
@@ -77,38 +70,18 @@ abstract class AppTextStyle {
 
 // TODO Change colors
 abstract class AppColors {
-  static Color get primary => red;
-  static Color get background => const Color(0xFFf4f4f4);
+  static Color get primary => const Color(0xFF31313b);
+  static Color get secondary => const Color(0xFFEB5757);
 
-  static Color get red => const Color(0xFFEB5757);
-  static Color get red2 => const Color(0xFFE15537);
-  static Color get red3 => const Color(0xFFF45B5B);
-  static Color get red4 => const Color(0xFFEB5757);
+  static Color get bg => const Color(0xFFFEFEFE);
+  static Color get bg2 => const Color(0xFFFAFAFA);
 
-  static Color get red30 => red.withOpacity(.3);
-  static Color get red10 => red.withOpacity(.1);
-  static Color get bgMain => const Color(0xFFF8F8F8);
+  static Color get bgMain => const Color(0xFFFFFFFF);
   static Color get tabBarInactive => const Color(0xFFB7BDC3);
 
   static Color get dark => const Color(0xFF212121);
-  static Color get dark2 => const Color(0xFF343B47);
-  static Color get dark3 => const Color(0xFFd1d2d5);
-  static Color get grey3 => const Color(0xFFCFD3D9); // data and time icons
-  static Color get grey4 => const Color(0xFFCFD5DA);
-  static Color get grey5 => const Color(0xFFE5E5E5);
-  static Color get grey6 => const Color(0xFFEEEEEE);
-  static Color get grey7 => const Color(0xFFEEEFF2);
-  static Color get grey8 => const Color(0xFFB3B8C0);
-  static Color get grey9 => const Color(0xFF969696);
-  static Color get grey10 => const Color(0xFFF8F8F8); //real bg main
-  static Color get grey11 => const Color(0xFFF0F0F0);
-  static Color get grey12 => const Color(0xFFEAEAEA);
-  static Color get grey13 => const Color(0xFFEEEFF2);
-  static Color get grey14 => const Color(0xFFF6F7F9);
-  static Color get grey15 => const Color(0xFF9A9FA9);
-  static Color get grey16 => const Color(0xFFAEB2BA);
-  static Color get grey17 => const Color(0xFF737373);
-  static Color get grey18 => const Color(0xFFececec);
+  static Color get grey => const Color(0xFF999999);
+  static Color get lGrey => const Color(0xFFDDDDDD);
 
   static Color get white => Colors.white;
 

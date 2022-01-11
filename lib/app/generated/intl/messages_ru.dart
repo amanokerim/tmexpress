@@ -22,41 +22,40 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "cancel": MessageLookupByLibrary.simpleMessage("Отмена"),
-        "connectionError": MessageLookupByLibrary.simpleMessage(
-            "Не удалось подключиться к серверу"),
-        "doubleBackToExit":
-            MessageLookupByLibrary.simpleMessage("Нажмите еще раз для выхода"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Togtatmak"),
+        "cart": MessageLookupByLibrary.simpleMessage("Sebet"),
+        "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
+        "connectionError":
+            MessageLookupByLibrary.simpleMessage("Serwere baglanyp bolmady"),
+        "doubleBackToExit": MessageLookupByLibrary.simpleMessage(
+            "Çykmak üçin ýene bir gezek basyň"),
         "forbidden": MessageLookupByLibrary.simpleMessage(
-            "У вас не достаточно прав для выполнения данного действия"),
+            "Bu amaly ýerine ýetirmek üçin sizde ýeterlik hukuk ýok"),
+        "homeScreen": MessageLookupByLibrary.simpleMessage("Baş sahypa"),
+        "hot": MessageLookupByLibrary.simpleMessage("Gyzgyn harytlar"),
         "in_": MessageLookupByLibrary.simpleMessage("в"),
-        "invalidFormat":
-            MessageLookupByLibrary.simpleMessage("Неверный формат"),
+        "invalidFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
         "invalidVerificationCode":
-            MessageLookupByLibrary.simpleMessage("Неверный код"),
+            MessageLookupByLibrary.simpleMessage("Nädogry kod"),
         "lang": MessageLookupByLibrary.simpleMessage("Русский"),
-        "loadError": MessageLookupByLibrary.simpleMessage("Нет интернета"),
+        "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profil"),
         "requiredField":
-            MessageLookupByLibrary.simpleMessage("Обязательное поле"),
-        "retry": MessageLookupByLibrary.simpleMessage("Попробуйте еще раз"),
-        "serverError":
-            MessageLookupByLibrary.simpleMessage("Внутренняя ошибка сервера"),
+            MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
+        "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
+        "serverError": MessageLookupByLibrary.simpleMessage(
+            "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "somethingWentWrong":
-            MessageLookupByLibrary.simpleMessage("Что-то пошло не так"),
-        "tab0": MessageLookupByLibrary.simpleMessage("Tab 0"),
-        "tab1": MessageLookupByLibrary.simpleMessage("Tab 1"),
-        "tab2": MessageLookupByLibrary.simpleMessage("Tab 2"),
-        "tab3": MessageLookupByLibrary.simpleMessage("Tab 3"),
-        "today": MessageLookupByLibrary.simpleMessage("Сегодня"),
+            MessageLookupByLibrary.simpleMessage("Näsazlyk ýüze çykdy"),
+        "today": MessageLookupByLibrary.simpleMessage("Bu gün"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
-            "Операция временно недоступна.\nПопробуйте позднее."),
+            "Amal wagtlaýyn elýeter däl.\nBiraz wagtdan synanyşyp görüň."),
         "userAgreementLink":
             MessageLookupByLibrary.simpleMessage("media/user_agreement.pdf"),
-        "wrongEmail":
-            MessageLookupByLibrary.simpleMessage("Некорректный email"),
-        "wrongFormat": MessageLookupByLibrary.simpleMessage("Неверный формат"),
-        "yesterday": MessageLookupByLibrary.simpleMessage("Вчера")
+        "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),
+        "wrongFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
+        "yesterday": MessageLookupByLibrary.simpleMessage("Düýn")
       };
 }

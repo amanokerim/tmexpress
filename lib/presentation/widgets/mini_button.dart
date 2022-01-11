@@ -17,7 +17,7 @@ class MiniButton extends ElevatedButton {
             maximumSize: const Size(54, 54),
             primary: type.background,
             shadowColor: Colors.black38,
-            onPrimary: AppColors.grey5,
+            onPrimary: AppColors.grey,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
               side: BorderSide(
