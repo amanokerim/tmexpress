@@ -1,8 +1,11 @@
+import 'package:injectable/injectable.dart';
+
 import '../../../domain/entities/product_mini.dart';
 import '../../../domain/entities/tag.dart';
 import '../../network/response_models/tag_response.dart';
 import '../mapper.dart';
 
+@lazySingleton
 class TagResponseMapper extends Mapper<TagResponse, Tag> {
   @override
   Tag map(TagResponse? entity) => Tag(

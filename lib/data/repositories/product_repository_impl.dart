@@ -1,9 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/entities/banner.dart';
 import '../../domain/entities/category.dart';
-import '../../domain/entities/tag.dart';
+import '../../domain/entities/home.dart';
 import '../../domain/errors/failures.dart';
 import '../../domain/repositories/product_repository.dart';
 import '../error/exception_handler.dart';
@@ -37,21 +36,15 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<Failure, List<Banner>>> fetchBanners() {
+  Future<Either<Failure, Home>> fetchHome() {
     return _exception.handle(() async {
       final banners = await _commonNetwork
           .fetchBanners()
           .then(_bannerResponseMapper.mapList);
-      return banners;
-    });
-  }
-
-  @override
-  Future<Either<Failure, List<Tag>>> fetchTags() {
-    return _exception.handle(() async {
       final tags =
           await _commonNetwork.fetchTags().then(_tagResponseMapper.mapList);
-      return tags;
+
+      return Home(banners: banners, tags: tags);
     });
   }
 }

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:device_preview/device_preview.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -45,10 +44,11 @@ class Env {
         await _initFirebase();
 
         BlocOverrides.runZoned(
-          () => runApp(DevicePreview(
-            enabled: value.showAlice,
-            builder: (context) => FlutterApp(this),
-          )),
+          // () => runApp(DevicePreview(
+          //   enabled: value.showAlice,
+          //   builder: (context) => FlutterApp(this),
+          // )),
+          () => runApp(FlutterApp(this)),
           blocObserver: AppBlocObserver(),
         );
       },

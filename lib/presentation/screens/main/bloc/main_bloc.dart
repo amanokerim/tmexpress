@@ -6,6 +6,7 @@ import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/interface/bottom_tab.dart';
 import '../../../bloc/app_bloc.dart';
 import '../../category/category_page.dart';
+import '../../home/home_page.dart';
 
 part 'main_event.dart';
 
@@ -16,7 +17,7 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
             index: 0,
             title: S.current.homeScreen,
             icon: Icons.ac_unit,
-            screen: const Text('Main'))) {
+            screen: const HomePage())) {
     on<MainTabChanged>((event, emit) => emit(bottomTabs[event.index]));
   }
 
@@ -25,7 +26,7 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
       index: 0,
       title: S.current.homeScreen,
       icon: Icons.ac_unit,
-      screen: const Text('Main'),
+      screen: const HomePage(),
     ),
     BottomTab(
       index: 1,
