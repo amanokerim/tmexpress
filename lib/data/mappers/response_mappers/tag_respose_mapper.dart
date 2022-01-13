@@ -19,7 +19,8 @@ class TagResponseMapper extends Mapper<TagResponse, Tag> {
                 ourRating: 4.3,
                 discount: 0,
                 normalPrice: 12.0 * e,
-                imageMini: ''))
+                imageMini:
+                    'http://ecommerce.sanlyachar-clients.website/products/photo-1543163521-1bf539c55dd2_2Nc8Pr8.jpeg'))
             .toList(),
       );
 }

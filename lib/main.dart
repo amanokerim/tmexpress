@@ -25,19 +25,18 @@ class FlutterApp extends StatelessWidget {
         child: BlocProvider<MainBloc>(
           create: (_) => getIt(),
           child: MaterialApp(
-            title: kAppName,
-            supportedLocales: S.delegate.supportedLocales,
-            debugShowCheckedModeBanner: false,
-            navigatorKey: getIt<Alice>().getNavigatorKey(),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            theme: appTheme,
-            home: const StartScreen(),
-          ),
+              title: kAppName,
+              supportedLocales: S.delegate.supportedLocales,
+              debugShowCheckedModeBanner: false,
+              navigatorKey: getIt<Alice>().getNavigatorKey(),
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              theme: appTheme,
+              home: const StartScreen()),
         ),
       );
 }

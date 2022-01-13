@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../widgets/my_carousel_slider.dart';
 import 'bloc/home_bloc.dart';
+import 'widgets/tag_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,7 +14,15 @@ class HomeScreen extends StatelessWidget {
       if (state is HomeLoadSuccess) {
         return ListView(
           children: [
+            const SizedBox(height: 16),
             MyCarouselSlider(state.home.banners),
+            ListView.builder(
+              padding: const EdgeInsets.all(16),
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: state.home.tags.length,
+              itemBuilder: (_, index) => TagWidget(state.home.tags[index]),
+            ),
           ],
         );
       } else if (state is HomeLoadError) {

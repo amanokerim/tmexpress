@@ -30,8 +30,10 @@ class StartScreen extends StatelessWidget {
             },
             child: AnimatedSwitcher(
               duration: kAnimationDuration,
+              // ignore: avoid_unnecessary_containers
               child: Container(
-                key: UniqueKey(),
+                // TODO Uncomment on production
+                // key: UniqueKey(),
                 child: Builder(
                   builder: (_) {
                     if (state is StartShowOnboarding) {
