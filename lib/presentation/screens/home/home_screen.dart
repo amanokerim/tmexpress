@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../widgets/my_carousel_slider.dart';
+import '../../widgets/app_carousel_slider.dart';
+import '../../widgets/app_progress_indicator.dart';
 import 'bloc/home_bloc.dart';
 import 'widgets/tag_widget.dart';
 
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         return ListView(
           children: [
             const SizedBox(height: 16),
-            MyCarouselSlider(state.home.banners),
+            AppCarouselSlider(state.home.banners),
             ListView.builder(
               padding: const EdgeInsets.all(16),
               shrinkWrap: true,
@@ -28,7 +29,7 @@ class HomeScreen extends StatelessWidget {
       } else if (state is HomeLoadError) {
         return Center(child: Text(state.message));
       }
-      return const CircularProgressIndicator();
+      return const AppProgressIndicator();
     });
   }
 }

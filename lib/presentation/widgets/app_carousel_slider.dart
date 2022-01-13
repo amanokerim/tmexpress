@@ -5,15 +5,15 @@ import 'package:flutter/material.dart' hide Banner;
 import '../../domain/entities/banner.dart';
 import '../theme/app_theme.dart';
 
-class MyCarouselSlider extends StatefulWidget {
-  const MyCarouselSlider(this.banners, {Key? key}) : super(key: key);
+class AppCarouselSlider extends StatefulWidget {
+  const AppCarouselSlider(this.banners, {Key? key}) : super(key: key);
   final List<Banner> banners;
 
   @override
-  _MyCarouselSliderState createState() => _MyCarouselSliderState();
+  _AppCarouselSliderState createState() => _AppCarouselSliderState();
 }
 
-class _MyCarouselSliderState extends State<MyCarouselSlider> {
+class _AppCarouselSliderState extends State<AppCarouselSlider> {
   int _index = 0;
 
   @override
