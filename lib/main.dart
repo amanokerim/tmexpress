@@ -7,7 +7,7 @@ import 'app/env/development.dart';
 import 'app/env/env.dart';
 import 'app/generated/l10n.dart';
 import 'app/injection/injection.dart';
-import 'presentation/screens/home/bloc/home_bloc.dart';
+import 'presentation/screens/main/bloc/main_bloc.dart';
 import 'presentation/screens/start/bloc/start_bloc.dart';
 import 'presentation/screens/start/start_screen.dart';
 import 'presentation/theme/app_theme.dart';
@@ -22,7 +22,7 @@ class FlutterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocProvider<StartBloc>(
         create: (_) => getIt(),
-        child: BlocProvider<HomeBloc>(
+        child: BlocProvider<MainBloc>(
           create: (_) => getIt(),
           child: MaterialApp(
             title: kAppName,
