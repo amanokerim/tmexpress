@@ -9,6 +9,7 @@ import '../../../app/generated/l10n.dart';
 import '../../../app/injection/injection.dart';
 import '../../utils/app_flash.dart';
 import '../../utils/constants.dart';
+import '../../widgets/app_progress_indicator.dart';
 import '../main/main_screen.dart';
 import 'bloc/start_bloc.dart';
 
@@ -48,7 +49,7 @@ class StartScreen extends StatelessWidget {
                       return const Center(child: Text('Please Update an app'));
                     }
                     return const Scaffold(
-                      body: Center(child: CircularProgressIndicator()),
+                      body: AppProgressIndicator(),
                     );
                   },
                 ),

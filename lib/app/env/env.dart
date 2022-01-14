@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,14 +60,14 @@ class Env {
         options: DefaultFirebaseOptions.currentPlatform);
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
         Env.value.envType != EnvType.development);
-    await FirebaseAnalytics.instance.logAppOpen();
+    // await FirebaseAnalytics.instance.logAppOpen();
 
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-    final remoteConfig = RemoteConfig.instance;
-    await remoteConfig.setConfigSettings(RemoteConfigSettings(
-      fetchTimeout: const Duration(seconds: 10),
-      minimumFetchInterval: const Duration(seconds: 30),
-    ));
+    // final remoteConfig = RemoteConfig.instance;
+    // await remoteConfig.setConfigSettings(RemoteConfigSettings(
+    //   fetchTimeout: const Duration(seconds: 10),
+    //   minimumFetchInterval: const Duration(seconds: 30),
+    // ));
   }
 }
 

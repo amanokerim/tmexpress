@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../theme/app_theme.dart';
+import '../../widgets/app_progress_indicator.dart';
 import 'bloc/category_bloc.dart';
 import 'widgets/category_card.dart';
 import 'widgets/group_widget.dart';
@@ -47,7 +48,7 @@ class CategoryScreen extends StatelessWidget {
       } else if (state is CategoryLoadError) {
         return Text(state.message);
       }
-      return const Center(child: CircularProgressIndicator());
+      return const AppProgressIndicator();
     });
   }
 }
