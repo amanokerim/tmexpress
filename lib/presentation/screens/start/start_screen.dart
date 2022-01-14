@@ -9,7 +9,8 @@ import '../../../app/generated/l10n.dart';
 import '../../../app/injection/injection.dart';
 import '../../utils/app_flash.dart';
 import '../../utils/constants.dart';
-import '../home/home_screen.dart';
+import '../../widgets/app_progress_indicator.dart';
+import '../main/main_screen.dart';
 import 'bloc/start_bloc.dart';
 
 bool _backButtonPressedOneTime = false;
@@ -30,8 +31,10 @@ class StartScreen extends StatelessWidget {
             },
             child: AnimatedSwitcher(
               duration: kAnimationDuration,
+              // ignore: avoid_unnecessary_containers
               child: Container(
-                key: UniqueKey(),
+                // TODO Uncomment on production
+                // key: UniqueKey(),
                 child: Builder(
                   builder: (_) {
                     if (state is StartShowOnboarding) {
@@ -39,14 +42,14 @@ class StartScreen extends StatelessWidget {
                     } else if (state is StartShowAuth) {
                       // TODO return auth page
                     } else if (state is StartShowHome) {
-                      return const HomeScreen();
+                      return const MainScreen();
                     } else if (state is StartShowTechnicalWorksScreen) {
                       return const Center(child: Text('Technical works'));
                     } else if (state is StartShowUpdateScreen) {
                       return const Center(child: Text('Please Update an app'));
                     }
                     return const Scaffold(
-                      body: Center(child: CircularProgressIndicator()),
+                      body: AppProgressIndicator(),
                     );
                   },
                 ),

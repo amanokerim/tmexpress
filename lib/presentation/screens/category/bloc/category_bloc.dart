@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../domain/entities/category/category.dart';
-import '../../../../domain/usecases/category/fetch_categories_usecase.dart';
+import '../../../../domain/entities/category.dart';
+import '../../../../domain/usecases/fetch_categories_usecase.dart';
 import '../../../bloc/app_bloc.dart';
 
 part 'category_event.dart';
@@ -30,7 +30,7 @@ class CategoryBloc extends AppBloc<CategoryEvent, CategoryState> {
     });
   }
 
-  final FetchProductsUseCase _fetchProductsUseCase;
+  final FetchCategoriesUseCase _fetchProductsUseCase;
 
   late Category selected;
   List<Category> categories = [];

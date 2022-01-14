@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../screens/home/bloc/home_bloc.dart';
+import '../screens/main/bloc/main_bloc.dart';
 import '../theme/app_theme.dart';
 import 'app_bottom_nav_bar_item.dart';
 
@@ -14,7 +14,7 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeBloc = context.read<HomeBloc>();
+    final homeBloc = context.read<MainBloc>();
     return Container(
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
@@ -34,7 +34,7 @@ class AppBottomNavigationBar extends StatelessWidget {
           currentIndex: currentIndex,
           selectedFontSize: 12,
           unselectedFontSize: 12,
-          onTap: (index) => homeBloc.add(HomeTabChanged(index: index)),
+          onTap: (index) => homeBloc.add(MainTabChanged(index: index)),
           items: homeBloc.bottomTabs
               .map<BottomNavigationBarItem>((tab) =>
                   AppBottomNavBarItem(iconFile: tab.icon, label: tab.title))

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../theme/app_theme.dart';
+import '../../widgets/app_progress_indicator.dart';
 import 'bloc/category_bloc.dart';
-import 'widgets/category_card.dart';
-import 'widgets/group_widget.dart';
+import 'widgets/category.w.dart';
+import 'widgets/group.w.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -21,8 +22,9 @@ class CategoryScreen extends StatelessWidget {
                 borderRadius:
                     const BorderRadius.horizontal(left: Radius.circular(16)),
                 child: ListView.separated(
+                  physics: const BouncingScrollPhysics(),
                   itemCount: state.categories.length,
-                  itemBuilder: (_, index) => CategoryCard(
+                  itemBuilder: (_, index) => CategoryW(
                     state.categories[index],
                     selected: state.selected.id == state.categories[index].id,
                   ),
@@ -35,11 +37,11 @@ class CategoryScreen extends StatelessWidget {
             Expanded(
               flex: 3,
               child: ListView.separated(
+                physics: const BouncingScrollPhysics(),
                 separatorBuilder: (_, __) => const SizedBox(height: 20),
                 itemCount: state.selected.groups.length,
                 itemBuilder: (_, index) =>
                     GroupWidget(state.selected.groups[index]),
-                physics: const BouncingScrollPhysics(),
               ),
             ),
           ]),
@@ -47,7 +49,7 @@ class CategoryScreen extends StatelessWidget {
       } else if (state is CategoryLoadError) {
         return Text(state.message);
       }
-      return const Center(child: CircularProgressIndicator());
+      return const AppProgressIndicator();
     });
   }
 }

@@ -1,7 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
+import 'response_models/banner_response.dart';
 import 'response_models/category_response.dart';
+import 'response_models/pagination_response.dart';
+import 'response_models/product_mini_response.dart';
+import 'response_models/tag_response.dart';
 
 part 'common_network.g.dart';
 
@@ -11,4 +15,20 @@ abstract class CommonNetwork {
 
   @GET('api/products/categoryList/')
   Future<List<CategoryResponse>> fetchCategories();
+
+  @GET('api/products/bannerList/')
+  Future<List<BannerResponse>> fetchBanners();
+
+  @GET('api/products/tagsList/')
+  Future<List<TagResponse>> fetchTags();
+
+  @GET('api/products/subCategoryProducts/{id}/')
+  Future<PaginationResponse<ProductMiniResponse>> fetchSubcategoryProducts(
+    @Path('id') int id,
+  );
+
+  @GET('api/products/tagProudcts/{id}/')
+  Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
+    @Path('id') int id,
+  );
 }

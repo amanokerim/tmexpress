@@ -1,17 +1,28 @@
+import 'interface/image.dart';
+import 'size.dart';
+
 class Product {
   Product({
     required this.id,
     required this.title,
-    required this.price,
     required this.description,
-    required this.category,
-    required this.image,
+    required this.weight,
+    required this.ourRating,
+    required this.discount,
+    required this.productImages,
+    required this.size,
+    required this.expressPrice,
+    required this.normalPrice,
   });
 
   final int id;
   final String title;
-  final double price;
   final String description;
-  final String category;
-  final String image;
+  final double weight;
+  final double ourRating;
+  final double discount;
+  final List<Image> productImages;
+  final List<Size> size;
+  final double expressPrice;
+  final double normalPrice;
 }

@@ -7,12 +7,4 @@ abstract class HomeEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class HomeTabChanged extends HomeEvent {
-  const HomeTabChanged({
-    required this.index,
-  });
-  final int index;
-
-  @override
-  List<Object> get props => [index];
-}
+class HomeRequested extends HomeEvent {}

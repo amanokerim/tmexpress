@@ -1,0 +1,17 @@
+import 'package:dartz/dartz.dart';
+
+import '../entities/category.dart';
+import '../entities/home.dart';
+import '../entities/pagination.dart';
+import '../entities/product_mini.dart';
+import '../errors/failures.dart';
+import '../usecases/fetch_products_usecase.dart';
+
+abstract class ProductRepository {
+  Future<Either<Failure, List<Category>>> fetchCategories();
+
+  Future<Either<Failure, Home>> fetchHome();
+
+  Future<Either<Failure, Pagination<ProductMini>>> fetchProducts(
+      FetchProductsParams params);
+}

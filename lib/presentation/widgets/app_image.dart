@@ -4,10 +4,11 @@ import '../theme/app_theme.dart';
 
 class AppImage extends StatelessWidget {
   const AppImage(this.url,
-      {this.height, this.color, this.borderRadius, Key? key})
+      {this.height, this.width, this.color, this.borderRadius, Key? key})
       : super(key: key);
   final String url;
   final double? height;
+  final double? width;
   final Color? color;
   final BorderRadius? borderRadius;
 
@@ -19,6 +20,7 @@ class AppImage extends StatelessWidget {
         fadeInDuration: const Duration(milliseconds: 0),
         fit: BoxFit.cover,
         height: height,
+        width: width,
         color: color,
         imageUrl: url,
         errorWidget: (_, __, ___) => noImage(),

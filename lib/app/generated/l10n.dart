@@ -300,6 +300,16 @@ class S {
     );
   }
 
+  /// `Ählisi`
+  String get all {
+    return Intl.message(
+      'Ählisi',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 
