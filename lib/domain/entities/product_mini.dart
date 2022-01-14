@@ -1,3 +1,5 @@
+enum ProductsScreenType { subcategory, tag }
+
 class ProductMini {
   ProductMini({
     required this.id,
