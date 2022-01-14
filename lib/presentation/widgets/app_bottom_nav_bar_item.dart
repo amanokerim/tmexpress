@@ -5,12 +5,19 @@ import '../theme/app_theme.dart';
 class AppBottomNavBarItem extends BottomNavigationBarItem {
   AppBottomNavBarItem({
     required this.iconFile,
-    required this.label,
   }) : super(
-          icon: Icon(iconFile, color: AppColors.tabBarInactive),
-          activeIcon: Icon(iconFile, color: AppColors.dark),
-          label: label,
+          icon: Image.asset('assets/icons/$iconFile.png',
+              color: AppColors.dark, width: 26),
+          activeIcon: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(17),
+              color: AppColors.secondary,
+            ),
+            child: Image.asset('assets/icons/$iconFile.png',
+                color: AppColors.white, width: 26),
+          ),
+          label: '',
         );
-  final IconData iconFile;
-  final String label;
+  final String iconFile;
 }
