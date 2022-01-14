@@ -24,7 +24,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
   void initState() {
     super.initState();
     pagingController.addPageRequestListener((next) {
-      context.read<ProductsBloc>().add(ProductsRequested(next: next));
+      context
+          .read<ProductsBloc>()
+          .add(ProductsRequested(next: next, id: widget.id, type: widget.type));
     });
   }
 

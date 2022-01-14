@@ -15,8 +15,8 @@ class ProductsBloc extends AppBloc<ProductsEvent, ProductsState> {
       if (event.type != null) type = event.type!;
       if (event.id != null) id = event.id!;
 
-      final result = await _fetchProductsUseCase(
-          FetchProductsParams(type: event.type ?? type, id: event.id ?? id));
+      final result = await _fetchProductsUseCase(FetchProductsParams(
+          type: event.type ?? type, id: event.id ?? id, next: next));
       emit(result.fold(
         (failure) => ProductsLoadError(mapError(failure)),
         (pagination) {

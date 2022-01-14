@@ -6,8 +6,8 @@ import '../../../theme/app_theme.dart';
 import '../../../widgets/app_image.dart';
 import '../bloc/category_bloc.dart';
 
-class CategoryCard extends StatelessWidget {
-  const CategoryCard(this.category, {this.selected = false, Key? key})
+class CategoryW extends StatelessWidget {
+  const CategoryW(this.category, {this.selected = false, Key? key})
       : super(key: key);
   final Category category;
   final bool selected;

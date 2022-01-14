@@ -58,6 +58,7 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, Pagination<ProductMini>>> fetchProducts(
       FetchProductsParams params) {
     return _exception.handle(() async {
+      // if(params.next!=null)
       final response = params.type == ProductsScreenType.tag
           ? _commonNetwork.fetchTagProducts(params.id)
           : _commonNetwork.fetchSubcategoryProducts(params.id);

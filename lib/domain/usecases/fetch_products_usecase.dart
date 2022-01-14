@@ -23,7 +23,9 @@ class FetchProductsParams {
   const FetchProductsParams({
     required this.type,
     required this.id,
+    this.next,
   });
   final ProductsScreenType type;
   final int id;
+  final String? next;
 }
