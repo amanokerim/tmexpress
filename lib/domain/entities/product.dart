@@ -1,4 +1,4 @@
-import 'interface/image.dart';
+import 'image.dart';
 import 'size.dart';
 
 class Product {

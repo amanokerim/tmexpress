@@ -5,7 +5,7 @@ import '../../../../domain/entities/product_mini.dart';
 import '../../../../domain/entities/tag.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/product_card.dart';
-import '../products/products_page.dart';
+import '../../products/products_page.dart';
 
 class TagWidget extends StatelessWidget {
   const TagWidget(this.tag, {Key? key}) : super(key: key);

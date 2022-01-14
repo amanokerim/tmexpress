@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../../domain/entities/product_mini.dart';
-import '../../../../../domain/usecases/fetch_products_usecase.dart';
-import '../../../../bloc/app_bloc.dart';
+import '../../../../domain/entities/product_mini.dart';
+import '../../../../domain/usecases/fetch_products_usecase.dart';
+import '../../../bloc/app_bloc.dart';
 
 part 'products_event.dart';
 part 'products_state.dart';
