@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tmexpress/presentation/widgets/app_error.dart';
 
 import '../../theme/app_theme.dart';
 import '../../widgets/app_progress_indicator.dart';
@@ -47,7 +48,10 @@ class CategoryScreen extends StatelessWidget {
           ]),
         );
       } else if (state is CategoryLoadError) {
-        return Text(state.message);
+        return AppError(
+            message: state.message,
+            onPressed: () =>
+                context.read<CategoryBloc>().add(CategoriesReuqested()));
       }
       return const AppProgressIndicator();
     });

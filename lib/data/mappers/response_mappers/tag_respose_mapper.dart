@@ -15,7 +15,7 @@ class TagResponseMapper extends Mapper<TagResponse, Tag> {
         product: (entity?.product ?? [])
             .map((e) => ProductMini(
                 id: e,
-                title: 'Product $e',
+                title: 'Lorem ipsum dolor sit amet, consectetur adipiscing $e',
                 ourRating: 4.3,
                 discount: 0,
                 normalPrice: 12.0 * e,

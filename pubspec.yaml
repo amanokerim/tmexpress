@@ -31,7 +31,7 @@ dependencies:
   shared_preferences: ^2.0.6
 
   # UI
-  flutter_svg: ^1.0.0
+  flutter_svg: ^0.22.0
   flash: ^2.0.1
   url_launcher: ^6.0.9
   infinite_scroll_pagination: ^3.1.0
@@ -86,15 +86,16 @@ flutter:
   
   assets:
     - assets/animations/
+    - assets/illustrations/
     - assets/icons/
-  # fonts:
-  #   - family: Roboto
-  #     fonts:
-  #       - asset: assets/fonts/Roboto-Regular.ttf
-  #       - asset: assets/fonts/Roboto-Medium.ttf
-  #         weight: 500
-  #       - asset: assets/fonts/Roboto-Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+        - asset: assets/fonts/Nunito-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Nunito-Medium.ttf
+          weight: 700
 
 flutter_intl: 
   enabled: true

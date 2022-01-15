@@ -18,9 +18,10 @@ class HomeLoadSuccess extends HomeState {
 }
 
 class HomeLoadError extends HomeState {
-  const HomeLoadError(this.message);
+  const HomeLoadError(this.message, this.key);
   final String message;
+  final Key key;
 
   @override
-  List<Object> get props => [message];
+  List<Object> get props => [key];
 }

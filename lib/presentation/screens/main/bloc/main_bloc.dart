@@ -38,19 +38,19 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
       index: 2,
       title: S.current.hot,
       icon: 'fire',
-      screen: Text(S.current.hot),
+      screen: Center(child: Text(S.current.hot)),
     ),
     BottomTab(
       index: 3,
       title: S.current.cart,
       icon: 'basket',
-      screen: Text(S.current.cart),
+      screen: Center(child: Text(S.current.cart)),
     ),
     BottomTab(
       index: 4,
       title: S.current.profile,
       icon: 'account',
-      screen: Text(S.current.profile),
+      screen: Center(child: Text(S.current.profile)),
     ),
   ];
 }

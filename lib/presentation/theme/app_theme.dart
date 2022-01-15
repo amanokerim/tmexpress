@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 final appTheme = ThemeData(
-  fontFamily: 'Roboto',
+  fontFamily: 'Nunito',
   primaryColor: AppColors.primary,
   primarySwatch: _primarySwatch,
   visualDensity: VisualDensity.adaptivePlatformDensity,

@@ -11,26 +11,34 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => Navigator.of(context)
-          .push(MaterialPageRoute<void>(builder: (_) => DetailPage(product))),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AppImage(product.imageMini, height: 100, width: 100),
-          const SizedBox(height: 8),
-          Text(product.title,
+    return AspectRatio(
+      aspectRatio: .7,
+      child: InkWell(
+        onTap: () => Navigator.of(context)
+            .push(MaterialPageRoute<void>(builder: (_) => DetailPage(product))),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppImage(product.imageMini, height: 100, width: 100),
+            const SizedBox(height: 8),
+            Text(
+              product.title,
               style: AppTextStyle.bold14,
               maxLines: 1,
-              textAlign: TextAlign.center),
-          const SizedBox(height: 4),
-          Text(
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 4),
+            Text(
               '${product.normalPrice.toStringAsFixed(0)} m.'
               '  ⭐️ ${product.ourRating}',
               style: AppTextStyle.grey14,
               maxLines: 1,
-              textAlign: TextAlign.center),
-        ],
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -11,8 +11,7 @@ class ProductMiniResponseMapper
   ProductMini map(ProductMiniResponse? entity) => ProductMini(
         id: entity?.id ?? 0,
         title: entity?.title ?? '',
-        // TODO Remove parsing to double
-        ourRating: double.tryParse(entity?.ourRating ?? '') ?? 0,
+        ourRating: entity?.ourRating ?? 0,
         discount: entity?.discount ?? 0,
         normalPrice: entity?.normalPrice ?? 0,
         imageMini: entity?.imageMini ?? '',

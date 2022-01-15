@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/home.dart';
@@ -12,9 +13,10 @@ part 'home_state.dart';
 class HomeBloc extends AppBloc<HomeEvent, HomeState> {
   HomeBloc(this._fetchHomeUseCase) : super(HomeLoadInProgress()) {
     on<HomeRequested>((event, emit) async {
+      emit(HomeLoadInProgress());
       final result = await _fetchHomeUseCase();
       emit(result.fold(
-        (failure) => HomeLoadError(mapError(failure)),
+        (failure) => HomeLoadError(mapError(failure), UniqueKey()),
         (home) => HomeLoadSuccess(home),
       ));
     });
