@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/entities/product_mini.dart';
 import '../../../../domain/entities/subcategory.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_image.dart';
@@ -15,8 +14,7 @@ class SubcategoryW extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
-          builder: (_) =>
-              ProductsPage(type: ProductsScreenType.subcategory, id: sub.id),
+          builder: (_) => ProductsPage(productParent: sub),
         ),
       ),
       child: Column(

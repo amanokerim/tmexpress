@@ -3,14 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../../domain/entities/product_mini.dart';
+import '../../../domain/entities/product_parent.dart';
+import '../../widgets/primary_app_bar.dart';
 import '../../widgets/product_paged_grid_view.dart';
 import 'bloc/products_bloc.dart';
 
 class ProductsScreen extends StatefulWidget {
-  const ProductsScreen({required this.id, required this.type, Key? key})
+  const ProductsScreen({required this.productParent, Key? key})
       : super(key: key);
-  final ProductsScreenType type;
-  final int id;
+  final ProductParent productParent;
 
   @override
   State<ProductsScreen> createState() => _ProductsScreenState();
@@ -24,9 +25,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
   void initState() {
     super.initState();
     pagingController.addPageRequestListener((next) {
-      context
-          .read<ProductsBloc>()
-          .add(ProductsRequested(next: next, id: widget.id, type: widget.type));
+      context.read<ProductsBloc>().add(
+          ProductsRequested(next: next, productParent: widget.productParent));
     });
   }
 
@@ -39,6 +39,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PrimaryAppBar(label: widget.productParent.title),
       body: BlocListener<ProductsBloc, ProductsState>(
         listener: (_, state) {
           if (state is ProductsLoadSuccess) {

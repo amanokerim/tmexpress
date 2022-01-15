@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/entities/product_mini.dart';
 import '../../../../domain/entities/tag.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/product_card.dart';
@@ -23,8 +22,7 @@ class TagWidget extends StatelessWidget {
             TextButton(
                 onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(
-                        builder: (_) => ProductsPage(
-                            type: ProductsScreenType.tag, id: tag.id),
+                        builder: (_) => ProductsPage(productParent: tag),
                       ),
                     ),
                 child: Text(S.current.all)),

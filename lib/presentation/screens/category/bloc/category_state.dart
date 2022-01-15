@@ -21,9 +21,10 @@ class CategoryLoadSuccess extends CategoryState {
 }
 
 class CategoryLoadError extends CategoryState {
-  const CategoryLoadError(this.message);
+  const CategoryLoadError(this.message, this.key);
   final String message;
+  final Key key;
 
   @override
-  List<Object> get props => [message];
+  List<Object> get props => [key];
 }

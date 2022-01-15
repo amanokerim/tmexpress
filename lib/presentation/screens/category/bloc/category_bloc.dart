@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/category.dart';
@@ -14,7 +15,7 @@ class CategoryBloc extends AppBloc<CategoryEvent, CategoryState> {
     on<CategoriesReuqested>((event, emit) async {
       final result = await _fetchProductsUseCase();
       emit(result.fold(
-        (failure) => CategoryLoadError(mapError(failure)),
+        (failure) => CategoryLoadError(mapError(failure), UniqueKey()),
         (categories) {
           this.categories = categories;
           selected = categories[0];
