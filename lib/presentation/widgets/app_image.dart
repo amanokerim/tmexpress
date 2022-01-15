@@ -31,6 +31,6 @@ class AppImage extends StatelessWidget {
 
   Container noImage() => Container(
         color: AppColors.bg2,
-        child: const Icon(Icons.photo),
+        child: Icon(Icons.photo, color: AppColors.lGrey, size: 30),
       );
 }

@@ -30,7 +30,7 @@ class TagWidget extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: 150,
+          height: 180,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: tag.product.length,

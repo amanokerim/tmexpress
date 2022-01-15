@@ -5,7 +5,7 @@ const kToastDuration = Duration(seconds: 3);
 const kResendSeconds = 60;
 
 // Count of items in one page
-const kLimit = 10;
+const kLimit = 15;
 
 // TODO Spacify app name
 const kAppName = '';

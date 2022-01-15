@@ -5,7 +5,7 @@ import '../../widgets/app_carousel_slider.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
 import 'bloc/home_bloc.dart';
-import 'widgets/tag_widget.dart';
+import 'widgets/tag.w.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

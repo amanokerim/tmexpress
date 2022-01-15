@@ -38,6 +38,7 @@ class AppError extends StatelessWidget {
           AppButton(
               label: S.current.retry,
               type: ButtonType.outline,
+              iconFile: 'refresh.png',
               onPressed: onPressed),
           if (padding == null) const SizedBox(height: 16)
         ],

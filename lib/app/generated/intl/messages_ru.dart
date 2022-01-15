@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nädogry kod"),
         "lang": MessageLookupByLibrary.simpleMessage("Русский"),
         "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
+        "noProducts": MessageLookupByLibrary.simpleMessage(
+            "Bu ýerde häzirlikçe haryt ýok ("),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),
         "profile": MessageLookupByLibrary.simpleMessage("Profil"),

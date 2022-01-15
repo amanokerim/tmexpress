@@ -310,6 +310,16 @@ class S {
     );
   }
 
+  /// `Bu ýerde häzirlikçe haryt ýok (`
+  String get noProducts {
+    return Intl.message(
+      'Bu ýerde häzirlikçe haryt ýok (',
+      name: 'noProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

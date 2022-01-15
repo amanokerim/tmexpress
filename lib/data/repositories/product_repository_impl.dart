@@ -6,9 +6,11 @@ import '../../domain/entities/home.dart';
 import '../../domain/entities/pagination.dart';
 import '../../domain/entities/product.dart';
 import '../../domain/entities/product_mini.dart';
+import '../../domain/entities/tag.dart';
 import '../../domain/errors/failures.dart';
 import '../../domain/repositories/product_repository.dart';
 import '../../domain/usecases/fetch_products_usecase.dart';
+import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../mappers/response_mappers/banner_response_mapper.dart';
 import '../mappers/response_mappers/category_response_mapper.dart';
@@ -62,10 +64,15 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, Pagination<ProductMini>>> fetchProducts(
       FetchProductsParams params) {
     return _exception.handle(() async {
-      // if(params.next!=null)
-      final response = params.type == ProductsScreenType.tag
-          ? _commonNetwork.fetchTagProducts(params.id)
-          : _commonNetwork.fetchSubcategoryProducts(params.id);
+      String? offset;
+      if (params.next != null) {
+        final uri = Uri.parse(params.next!);
+        offset = uri.queryParameters['offset'];
+      }
+      final id = params.productParent.id;
+      final response = params.productParent is Tag
+          ? _commonNetwork.fetchTagProducts(id, offset, kLimit)
+          : _commonNetwork.fetchSubcategoryProducts(id, offset, kLimit);
 
       final products =
           await response.then(_productPaginationResponseMapper.map);

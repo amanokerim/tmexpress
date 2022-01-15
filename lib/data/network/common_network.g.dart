@@ -70,9 +70,13 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> fetchSubcategoryProducts(
-      id) async {
+      id, offset, limit) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -90,9 +94,14 @@ class _CommonNetwork implements CommonNetwork {
   }
 
   @override
-  Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(id) async {
+  Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
+      id, offset, limit) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(

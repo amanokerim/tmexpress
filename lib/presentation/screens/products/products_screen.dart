@@ -43,7 +43,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
       body: BlocListener<ProductsBloc, ProductsState>(
         listener: (_, state) {
           if (state is ProductsLoadSuccess) {
-            print(state.products);
             if (state.clear) pagingController.itemList?.clear();
             if (state.next == null) {
               pagingController.appendLastPage(state.products);

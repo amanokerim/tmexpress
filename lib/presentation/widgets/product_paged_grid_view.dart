@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-
+import '../../app/generated/l10n.dart';
 import '../../domain/entities/product_mini.dart';
 import 'app_error.dart';
 import 'app_progress_indicator.dart';
@@ -30,7 +30,7 @@ class ProductPagedGridView extends StatelessWidget {
         newPageProgressIndicatorBuilder: (_) => const Padding(
             padding: EdgeInsets.fromLTRB(0, 30, 0, 50),
             child: AppProgressIndicator()),
-        noItemsFoundIndicatorBuilder: (_) => const Emtpy('no_products'),
+        noItemsFoundIndicatorBuilder: (_) => Emtpy(S.current.noProducts),
       );
 
   @override
@@ -40,10 +40,10 @@ class ProductPagedGridView extends StatelessWidget {
       pagingController: pagingController,
       padding: const EdgeInsets.all(16),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: .7,
+        childAspectRatio: .6,
         crossAxisCount: 3,
-        mainAxisSpacing: 1,
-        crossAxisSpacing: 1,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
       ),
       showNewPageProgressIndicatorAsGridChild: false,
       showNewPageErrorIndicatorAsGridChild: false,

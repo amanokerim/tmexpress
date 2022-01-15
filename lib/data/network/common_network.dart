@@ -26,11 +26,15 @@ abstract class CommonNetwork {
   @GET('api/products/subCategoryProducts/{id}/')
   Future<PaginationResponse<ProductMiniResponse>> fetchSubcategoryProducts(
     @Path('id') int id,
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
   );
 
   @GET('api/products/tagProudcts/{id}/')
   Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
     @Path('id') int id,
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
   );
 
   @GET('api/products/singleProduct/{id}/')
