@@ -50,6 +50,7 @@ class AppButton extends ElevatedButton {
                   mainAxisAlignment: isCentered
                       ? MainAxisAlignment.center
                       : MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (iconFile != null) ...[
                       Image.asset(

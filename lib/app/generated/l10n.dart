@@ -320,6 +320,96 @@ class S {
     );
   }
 
+  /// `Reňkler`
+  String get productColors {
+    return Intl.message(
+      'Reňkler',
+      name: 'productColors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ölçegler`
+  String get productSizes {
+    return Intl.message(
+      'Ölçegler',
+      name: 'productSizes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bahasy`
+  String get productPrice {
+    return Intl.message(
+      'Bahasy',
+      name: 'productPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Adaty (45 gün)`
+  String get productPriceNormal {
+    return Intl.message(
+      'Adaty (45 gün)',
+      name: 'productPriceNormal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Express (15 gün)`
+  String get productPriceExpress {
+    return Intl.message(
+      'Express (15 gün)',
+      name: 'productPriceExpress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lomaý baha`
+  String get productPriceWholesale {
+    return Intl.message(
+      'Lomaý baha',
+      name: 'productPriceWholesale',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count}+ alynanda`
+  String productWholesaleDesc(Object count) {
+    return Intl.message(
+      '$count+ alynanda',
+      name: 'productWholesaleDesc',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Agramy`
+  String get productWeight {
+    return Intl.message(
+      'Agramy',
+      name: 'productWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sebede goşmak`
+  String get addToCart {
+    return Intl.message(
+      'Sebede goşmak',
+      name: 'addToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

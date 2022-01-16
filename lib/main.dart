@@ -41,8 +41,4 @@ class FlutterApp extends StatelessWidget {
       );
 }
 
-// TODO Test Firebase Analytics (no data on Firebase console)
-// TODO Install second splash screen with custom animation
-// TODO Write CheckList for starting project with template
-// TODO 
-// TODO 
+// TODO Back button in a same birghtness with status bar

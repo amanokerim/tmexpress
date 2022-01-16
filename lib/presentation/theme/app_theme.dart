@@ -52,20 +52,15 @@ abstract class AppTextStyle {
   static TextStyle get grey20 => dark20.copyWith(color: AppColors.textSec);
   static TextStyle get grey18 => grey20.copyWith(fontSize: 18);
   static TextStyle get grey16 => grey20.copyWith(fontSize: 16);
-  static TextStyle get grey16_2 => grey20.copyWith(
-        fontSize: 16,
-        letterSpacing: 0.256,
-        height: 1.5,
-      );
-  static TextStyle get grey16_3 =>
-      grey20.copyWith(fontSize: 16, fontWeight: FontWeight.w500);
-
   static TextStyle get grey14 => grey20.copyWith(fontSize: 14);
   static TextStyle get grey12 => grey20.copyWith(fontSize: 12);
-  static TextStyle get grey10 =>
-      grey20.copyWith(fontSize: 10, color: AppColors.textData);
 
   static TextStyle get white16 => dark16.copyWith(color: AppColors.white);
+  static TextStyle get black20 => bold20.copyWith(fontWeight: FontWeight.w700);
+  static TextStyle get black16 => bold16.copyWith(fontWeight: FontWeight.w700);
+
+  static TextStyle get priceTitle => TextStyle(
+      color: Colors.grey[400], fontWeight: FontWeight.w300, fontSize: 14);
 }
 
 // TODO Change colors

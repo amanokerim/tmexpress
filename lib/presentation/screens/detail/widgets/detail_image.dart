@@ -15,6 +15,7 @@ class DetailImage extends StatelessWidget {
         AppImage(
           state.product.productImages[0].url,
           borderRadius: BorderRadius.circular(0),
+          placeholderHeight: 300,
         ),
         Positioned(
           bottom: 0,
