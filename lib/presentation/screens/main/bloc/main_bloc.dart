@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/interface/bottom_tab.dart';
 import '../../../bloc/app_bloc.dart';
+import '../../cart/cart_screen.dart';
 import '../../category/category_page.dart';
 import '../../home/home_page.dart';
 
@@ -44,7 +45,7 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
       index: 3,
       title: S.current.cart,
       icon: 'basket',
-      screen: Center(child: Text(S.current.cart)),
+      screen: const CartScreen(),
     ),
     BottomTab(
       index: 4,

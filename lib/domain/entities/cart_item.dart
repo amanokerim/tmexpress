@@ -26,4 +26,17 @@ class CartItem extends Equatable {
         size: size,
         color: color,
       );
+
+  CartItem copyWith({
+    Product? product,
+    int? count,
+    Size? size,
+    Image? color,
+  }) =>
+      CartItem(
+        product: product ?? this.product,
+        count: count ?? this.count,
+        size: size ?? this.size,
+        color: color ?? this.color,
+      );
 }
