@@ -1,8 +1,10 @@
+import 'package:equatable/equatable.dart';
+
 import 'image.dart';
 import 'size.dart';
 
-class Product {
-  Product({
+class Product extends Equatable {
+  const Product({
     required this.id,
     required this.title,
     required this.description,
@@ -31,4 +33,7 @@ class Product {
   final double expressPriceW;
   final double normalPriceW;
   final int wholesaleLimit;
+
+  @override
+  List<Object?> get props => [id];
 }

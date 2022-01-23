@@ -7,6 +7,7 @@ import 'app/env/development.dart';
 import 'app/env/env.dart';
 import 'app/generated/l10n.dart';
 import 'app/injection/injection.dart';
+import 'presentation/screens/cart/bloc/cart_bloc.dart';
 import 'presentation/screens/main/bloc/main_bloc.dart';
 import 'presentation/screens/start/bloc/start_bloc.dart';
 import 'presentation/screens/start/start_screen.dart';
@@ -20,8 +21,11 @@ class FlutterApp extends StatelessWidget {
   final Env env;
 
   @override
-  Widget build(BuildContext context) => BlocProvider<StartBloc>(
-        create: (_) => getIt(),
+  Widget build(BuildContext context) => MultiBlocProvider(
+        providers: [
+          BlocProvider<StartBloc>(create: (_) => getIt()),
+          BlocProvider<CartBloc>(create: (_) => getIt()),
+        ],
         child: BlocProvider<MainBloc>(
           create: (_) => getIt(),
           child: MaterialApp(

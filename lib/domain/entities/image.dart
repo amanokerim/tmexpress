@@ -1,5 +1,7 @@
-class Image {
-  Image({
+import 'package:equatable/equatable.dart';
+
+class Image extends Equatable {
+  const Image({
     required this.id,
     required this.url,
     required this.urlMini,
@@ -8,4 +10,7 @@ class Image {
   final int id;
   final String url;
   final String urlMini;
+
+  @override
+  List<Object?> get props => [id];
 }

@@ -18,7 +18,7 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DetailBloc, DetailState>(builder: (_, state) {
       if (state is DetailLoadSuccess) {
-        final productWidgets = ProductWidgets(state.product);
+        final productWidgets = ProductWidgets(state);
         return Scaffold(
           body: ListView(
             padding: EdgeInsets.zero,
@@ -41,7 +41,7 @@ class DetailScreen extends StatelessWidget {
               ),
             ],
           ),
-          bottomNavigationBar: productWidgets.addToCardButton(),
+          bottomNavigationBar: productWidgets.addToCardButton(context),
         );
       } else if (state is DetailLoadError) {
         return Scaffold(
