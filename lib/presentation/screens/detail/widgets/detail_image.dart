@@ -13,7 +13,7 @@ class DetailImage extends StatelessWidget {
     return Stack(
       children: [
         AppImage(
-          state.product.productImages[0].url,
+          state.selectedColor?.url ?? state.product.productImages[0].url,
           borderRadius: BorderRadius.circular(0),
           placeholderHeight: 300,
         ),
@@ -24,10 +24,11 @@ class DetailImage extends StatelessWidget {
           child: Container(
             height: 32,
             decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(32),
-                )),
+              color: AppColors.white,
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(32),
+              ),
+            ),
           ),
         )
       ],

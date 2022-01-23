@@ -1,34 +1,31 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/entities/product.dart';
 import '../../../theme/app_theme.dart';
+import '../bloc/detail_bloc.dart';
+import 'size_card.dart';
 
 class ProductSizes extends StatelessWidget {
-  const ProductSizes(this.product, {Key? key}) : super(key: key);
-  final Product product;
+  const ProductSizes(this.state, {Key? key}) : super(key: key);
+  final DetailLoadSuccess state;
 
   List<Widget> widgets() {
+    final sizes = state.product.size;
     return [
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 24, 20, 10),
         child: Text(S.current.productSizes, style: AppTextStyle.bold16),
       ),
       SizedBox(
-        height: 36,
-        child: ListView.separated(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+        height: 48,
+        child: ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 14),
           physics: const BouncingScrollPhysics(),
-          itemCount: product.size.length,
-          itemBuilder: (_, index) => Container(
-            padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.lGrey, width: .5),
-            ),
-            child: Text(product.size[index].title, style: AppTextStyle.bold14),
+          itemCount: sizes.length,
+          itemBuilder: (_, index) => SizeCard(
+            sizes[index],
+            selected: sizes[index] == state.selectedSize,
           ),
-          separatorBuilder: (_, __) => const SizedBox(width: 12),
           scrollDirection: Axis.horizontal,
         ),
       )

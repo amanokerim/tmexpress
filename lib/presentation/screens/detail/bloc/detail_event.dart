@@ -14,3 +14,19 @@ class DetailRequested extends DetailEvent {
   @override
   List<Object> get props => [id];
 }
+
+class DetailSizeChanged extends DetailEvent {
+  const DetailSizeChanged(this.size);
+  final Size size;
+
+  @override
+  List<Object> get props => [size];
+}
+
+class DetailColorChanged extends DetailEvent {
+  const DetailColorChanged(this.color);
+  final Image color;
+
+  @override
+  List<Object> get props => [color];
+}
