@@ -9,8 +9,9 @@ part of 'tag_response.dart';
 TagResponse _$TagResponseFromJson(Map<String, dynamic> json) => TagResponse(
       id: json['id'] as int?,
       title: json['title'] as String?,
-      product:
-          (json['product'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      product: (json['product'] as List<dynamic>?)
+          ?.map((e) => ProductMiniResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$TagResponseToJson(TagResponse instance) =>

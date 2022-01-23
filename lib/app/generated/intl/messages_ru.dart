@@ -20,8 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
+  static String m0(count) => "${count}+ alynanda";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addToCart": MessageLookupByLibrary.simpleMessage("Sebede goşmak"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
         "cancel": MessageLookupByLibrary.simpleMessage("Togtatmak"),
         "cart": MessageLookupByLibrary.simpleMessage("Sebet"),
@@ -40,8 +43,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nädogry kod"),
         "lang": MessageLookupByLibrary.simpleMessage("Русский"),
         "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
+        "noProducts": MessageLookupByLibrary.simpleMessage(
+            "Bu ýerde häzirlikçe haryt ýok ("),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),
+        "productColors": MessageLookupByLibrary.simpleMessage("Reňkler"),
+        "productPrice": MessageLookupByLibrary.simpleMessage("Bahasy"),
+        "productPriceExpress":
+            MessageLookupByLibrary.simpleMessage("Express (15 gün)"),
+        "productPriceNormal":
+            MessageLookupByLibrary.simpleMessage("Adaty (45 gün)"),
+        "productPriceWholesale":
+            MessageLookupByLibrary.simpleMessage("Lomaý baha"),
+        "productSizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
+        "productWeight": MessageLookupByLibrary.simpleMessage("Agramy"),
+        "productWholesaleDesc": m0,
         "profile": MessageLookupByLibrary.simpleMessage("Profil"),
         "requiredField":
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),

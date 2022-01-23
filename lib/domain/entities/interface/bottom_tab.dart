@@ -11,7 +11,7 @@ class BottomTab extends Equatable {
 
   final int index;
   final String title;
-  final IconData icon;
+  final String icon;
   final Widget screen;
 
   @override

@@ -9,11 +9,9 @@ abstract class ProductsEvent extends Equatable {
 
 class ProductsRequested extends ProductsEvent {
   const ProductsRequested({
+    required this.productParent,
     this.next,
-    this.type,
-    this.id,
   });
-  final ProductsScreenType? type;
-  final int? id;
+  final ProductParent productParent;
   final String? next;
 }

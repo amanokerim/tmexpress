@@ -16,19 +16,16 @@ class AppBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final homeBloc = context.read<MainBloc>();
     return Container(
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-          color: AppColors.bg2,
-          spreadRadius: 10,
-          blurRadius: 10,
-        ),
-      ]),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+        border: Border.all(color: AppColors.lGrey, width: .3),
+      ),
       child: ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
         child: BottomNavigationBar(
           backgroundColor: AppColors.white,
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: AppColors.dark,
           currentIndex: currentIndex,
@@ -36,8 +33,8 @@ class AppBottomNavigationBar extends StatelessWidget {
           unselectedFontSize: 12,
           onTap: (index) => homeBloc.add(MainTabChanged(index: index)),
           items: homeBloc.bottomTabs
-              .map<BottomNavigationBarItem>((tab) =>
-                  AppBottomNavBarItem(iconFile: tab.icon, label: tab.title))
+              .map<BottomNavigationBarItem>(
+                  (tab) => AppBottomNavBarItem(iconFile: tab.icon))
               .toList(),
         ),
       ),

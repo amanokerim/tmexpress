@@ -13,13 +13,14 @@ class Emtpy extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset('assets/svg/empty.svg', width: 100),
+          SvgPicture.asset('assets/illustrations/empty.svg', height: 300),
           const SizedBox(height: 20),
           Text(
             title,
-            style: AppTextStyle.bold16,
+            style: AppTextStyle.grey18,
             textAlign: TextAlign.center,
           ),
+          const SizedBox(height: 80),
         ],
       ),
     );

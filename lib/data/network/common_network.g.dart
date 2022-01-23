@@ -70,9 +70,13 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> fetchSubcategoryProducts(
-      id) async {
+      id, offset, limit) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -90,9 +94,14 @@ class _CommonNetwork implements CommonNetwork {
   }
 
   @override
-  Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(id) async {
+  Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
+      id, offset, limit) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -105,6 +114,22 @@ class _CommonNetwork implements CommonNetwork {
       _result.data!,
       (json) => ProductMiniResponse.fromJson(json as Map<String, dynamic>),
     );
+    return value;
+  }
+
+  @override
+  Future<ProductResponse> fetchProduct(id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ProductResponse>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, 'api/products/singleProduct/${id}/',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ProductResponse.fromJson(_result.data!);
     return value;
   }
 

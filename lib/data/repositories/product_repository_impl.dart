@@ -4,14 +4,18 @@ import 'package:injectable/injectable.dart';
 import '../../domain/entities/category.dart';
 import '../../domain/entities/home.dart';
 import '../../domain/entities/pagination.dart';
+import '../../domain/entities/product.dart';
 import '../../domain/entities/product_mini.dart';
+import '../../domain/entities/tag.dart';
 import '../../domain/errors/failures.dart';
 import '../../domain/repositories/product_repository.dart';
 import '../../domain/usecases/fetch_products_usecase.dart';
+import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../mappers/response_mappers/banner_response_mapper.dart';
 import '../mappers/response_mappers/category_response_mapper.dart';
 import '../mappers/response_mappers/product_pagination_response_mapper.dart';
+import '../mappers/response_mappers/product_response_mapper.dart';
 import '../mappers/response_mappers/tag_respose_mapper.dart';
 import '../network/common_network.dart';
 
@@ -23,13 +27,15 @@ class ProductRepositoryImpl implements ProductRepository {
       this._categoryResponseMapper,
       this._bannerResponseMapper,
       this._tagResponseMapper,
-      this._productPaginationResponseMapper);
+      this._productPaginationResponseMapper,
+      this._productResponseMapper);
   final ExceptionHandler _exception;
   final CommonNetwork _commonNetwork;
   final CategoryResponseMapper _categoryResponseMapper;
   final BannerResponseMapper _bannerResponseMapper;
   final TagResponseMapper _tagResponseMapper;
   final ProductPaginationResponseMapper _productPaginationResponseMapper;
+  final ProductResponseMapper _productResponseMapper;
 
   @override
   Future<Either<Failure, List<Category>>> fetchCategories() {
@@ -58,14 +64,29 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, Pagination<ProductMini>>> fetchProducts(
       FetchProductsParams params) {
     return _exception.handle(() async {
-      // if(params.next!=null)
-      final response = params.type == ProductsScreenType.tag
-          ? _commonNetwork.fetchTagProducts(params.id)
-          : _commonNetwork.fetchSubcategoryProducts(params.id);
+      String? offset;
+      if (params.next != null) {
+        final uri = Uri.parse(params.next!);
+        offset = uri.queryParameters['offset'];
+      }
+      final id = params.productParent.id;
+      final response = params.productParent is Tag
+          ? _commonNetwork.fetchTagProducts(id, offset, kLimit)
+          : _commonNetwork.fetchSubcategoryProducts(id, offset, kLimit);
 
       final products =
           await response.then(_productPaginationResponseMapper.map);
       return products;
+    });
+  }
+
+  @override
+  Future<Either<Failure, Product>> fetchProduct(int id) {
+    return _exception.handle(() async {
+      final product =
+          _commonNetwork.fetchProduct(id).then(_productResponseMapper.map);
+
+      return product;
     });
   }
 }

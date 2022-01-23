@@ -13,8 +13,10 @@ class GroupWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(group.title, style: AppTextStyle.bold20),
-        const SizedBox(height: 16),
+        if (!group.title.startsWith('_')) ...[
+          Text(group.title, style: AppTextStyle.bold20),
+          const SizedBox(height: 16)
+        ],
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),

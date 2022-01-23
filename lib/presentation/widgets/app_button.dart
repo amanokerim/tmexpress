@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../theme/app_theme.dart';
 
@@ -51,11 +50,13 @@ class AppButton extends ElevatedButton {
                   mainAxisAlignment: isCentered
                       ? MainAxisAlignment.center
                       : MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (iconFile != null) ...[
-                      SvgPicture.asset(
+                      Image.asset(
                         'assets/icons/$iconFile',
                         color: paintIcon ? type.foreground : null,
+                        width: 20,
                       ),
                       const SizedBox(width: 8),
                     ],

@@ -1,4 +1,4 @@
-import 'interface/image.dart';
+import 'image.dart';
 import 'size.dart';
 
 class Product {
@@ -13,6 +13,9 @@ class Product {
     required this.size,
     required this.expressPrice,
     required this.normalPrice,
+    required this.expressPriceW,
+    required this.normalPriceW,
+    required this.wholesaleLimit,
   });
 
   final int id;
@@ -25,4 +28,7 @@ class Product {
   final List<Size> size;
   final double expressPrice;
   final double normalPrice;
+  final double expressPriceW;
+  final double normalPriceW;
+  final int wholesaleLimit;
 }

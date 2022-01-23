@@ -32,6 +32,17 @@
 
   "cancel": "Togtatmak",
   "all": "Ählisi",
+  "noProducts": "Bu ýerde häzirlikçe haryt ýok (",
+
+  "productColors": "Reňkler",
+  "productSizes": "Ölçegler",
+  "productPrice": "Bahasy",
+  "productPriceNormal": "Adaty (45 gün)",
+  "productPriceExpress": "Express (15 gün)",
+  "productPriceWholesale": "Lomaý baha",
+  "productWholesaleDesc": "{count}+ alynanda",
+  "productWeight": "Agramy",
+  "addToCart": "Sebede goşmak",
 
 
 

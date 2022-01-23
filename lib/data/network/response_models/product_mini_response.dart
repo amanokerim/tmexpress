@@ -18,8 +18,7 @@ class ProductMiniResponse {
 
   final int? id;
   final String? title;
-  // TODO Change ourRating to double
-  final String? ourRating;
+  final double? ourRating;
   final double? discount;
   final double? normalPrice;
   final String? imageMini;

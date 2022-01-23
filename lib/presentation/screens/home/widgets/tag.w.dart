@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/entities/product_mini.dart';
 import '../../../../domain/entities/tag.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/product_card.dart';
-import '../products/products_page.dart';
+import '../../products/products_page.dart';
 
 class TagWidget extends StatelessWidget {
   const TagWidget(this.tag, {Key? key}) : super(key: key);
@@ -23,8 +22,7 @@ class TagWidget extends StatelessWidget {
             TextButton(
                 onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(
-                        builder: (_) => ProductsPage(
-                            type: ProductsScreenType.tag, id: tag.id),
+                        builder: (_) => ProductsPage(productParent: tag),
                       ),
                     ),
                 child: Text(S.current.all)),
@@ -32,7 +30,7 @@ class TagWidget extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: 150,
+          height: 180,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: tag.product.length,

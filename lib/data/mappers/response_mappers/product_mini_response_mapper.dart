@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 
+import '../../../app/env/env.dart';
 import '../../../domain/entities/product_mini.dart';
 import '../../network/response_models/product_mini_response.dart';
 import '../mapper.dart';
@@ -11,10 +12,9 @@ class ProductMiniResponseMapper
   ProductMini map(ProductMiniResponse? entity) => ProductMini(
         id: entity?.id ?? 0,
         title: entity?.title ?? '',
-        // TODO Remove parsing to double
-        ourRating: double.tryParse(entity?.ourRating ?? '') ?? 0,
+        ourRating: entity?.ourRating ?? 0,
         discount: entity?.discount ?? 0,
         normalPrice: entity?.normalPrice ?? 0,
-        imageMini: entity?.imageMini ?? '',
+        imageMini: '${Env.value.baseUrl}${entity?.imageMini}',
       );
 }

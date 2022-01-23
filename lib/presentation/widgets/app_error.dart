@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../theme/app_theme.dart';
@@ -30,11 +31,15 @@ class AppError extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
-          Image.asset('assets/images/no_internet.png'),
+          SvgPicture.asset('assets/illustrations/error.svg', height: 300),
           const SizedBox(height: 24),
-          Text(message, style: AppTextStyle.grey16),
+          Text(message, style: AppTextStyle.grey20),
           const Spacer(),
-          AppButton(label: S.current.retry, onPressed: onPressed),
+          AppButton(
+              label: S.current.retry,
+              type: ButtonType.outline,
+              iconFile: 'refresh.png',
+              onPressed: onPressed),
           if (padding == null) const SizedBox(height: 16)
         ],
       ),

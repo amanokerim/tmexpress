@@ -17,7 +17,7 @@ abstract class RegisterModule {
 
   @lazySingleton
   Alice get alice => Alice(
-        showNotification: false,
+        showNotification: true,
         showInspectorOnShake: Env.value.showAlice,
       );
 

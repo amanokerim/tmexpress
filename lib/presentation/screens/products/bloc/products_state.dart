@@ -24,9 +24,10 @@ class ProductsLoadSuccess extends ProductsState {
 }
 
 class ProductsLoadError extends ProductsState {
-  const ProductsLoadError(this.message);
+  const ProductsLoadError(this.message, this.key);
   final String message;
+  final Key key;
 
   @override
-  List<Object> get props => [message];
+  List<Object> get props => [key];
 }

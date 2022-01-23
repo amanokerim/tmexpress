@@ -58,7 +58,7 @@ class AppConfirmDialog extends StatelessWidget {
                     onTap: () => Navigator.of(context).pop(false),
                     child: Text(
                       S.current.cancel,
-                      style: AppTextStyle.grey16_3,
+                      style: AppTextStyle.grey16,
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -73,7 +73,7 @@ class AppConfirmDialog extends StatelessWidget {
                     onTap: () => Navigator.of(context).pop(true),
                     child: Text(
                       positiveButtonLabel,
-                      style: AppTextStyle.grey16_3,
+                      style: AppTextStyle.grey16,
                       textAlign: TextAlign.center,
                     ),
                   ),

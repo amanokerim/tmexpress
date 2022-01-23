@@ -5,6 +5,7 @@ import 'response_models/banner_response.dart';
 import 'response_models/category_response.dart';
 import 'response_models/pagination_response.dart';
 import 'response_models/product_mini_response.dart';
+import 'response_models/product_response.dart';
 import 'response_models/tag_response.dart';
 
 part 'common_network.g.dart';
@@ -25,10 +26,19 @@ abstract class CommonNetwork {
   @GET('api/products/subCategoryProducts/{id}/')
   Future<PaginationResponse<ProductMiniResponse>> fetchSubcategoryProducts(
     @Path('id') int id,
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
   );
 
   @GET('api/products/tagProudcts/{id}/')
   Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
+    @Path('id') int id,
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
+  );
+
+  @GET('api/products/singleProduct/{id}/')
+  Future<ProductResponse> fetchProduct(
     @Path('id') int id,
   );
 }

@@ -37,9 +37,10 @@ class CategoryW extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               category.title,
-              style: selected ? AppTextStyle.dark14 : AppTextStyle.grey14,
+              style: selected ? AppTextStyle.dark12 : AppTextStyle.grey12,
               maxLines: 2,
               textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
             )
           ],
         ),

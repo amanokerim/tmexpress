@@ -5,6 +5,8 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:injectable/injectable.dart';
 
 import '../../firebase_options.dart';
@@ -40,6 +42,7 @@ class Env {
         );
 
         await _initFirebase();
+        _preCache();
 
         BlocOverrides.runZoned(
           // () => runApp(DevicePreview(
@@ -68,6 +71,19 @@ class Env {
     //   fetchTimeout: const Duration(seconds: 10),
     //   minimumFetchInterval: const Duration(seconds: 30),
     // ));
+  }
+
+  void _preCache() {
+    Future.wait([
+      precachePicture(
+          ExactAssetPicture(
+              SvgPicture.svgStringDecoder, 'assets/illustrations/empty.svg'),
+          null),
+      precachePicture(
+          ExactAssetPicture(
+              SvgPicture.svgStringDecoder, 'assets/illustrations/error.svg'),
+          null),
+    ]);
   }
 }
 
