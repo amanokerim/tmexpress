@@ -57,13 +57,13 @@ class ProductWidgets extends StatelessWidget {
       const SizedBox(height: 20),
       Text(
           '${S.current.productPriceWholesale} '
-          '(${S.current.productWholesaleDesc(100)}):',
+          '(${S.current.productWholesaleDesc(product.wholesaleLimit)}):',
           style: AppTextStyle.bold16),
       const SizedBox(height: 8),
       Row(
         children: [
-          PriceW(S.current.productPriceNormal, product.normalPrice),
-          PriceW(S.current.productPriceExpress, product.expressPrice),
+          PriceW(S.current.productPriceNormal, product.normalPriceW),
+          PriceW(S.current.productPriceExpress, product.expressPriceW),
         ],
       ),
       const SizedBox(height: 20),

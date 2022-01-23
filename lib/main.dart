@@ -42,3 +42,5 @@ class FlutterApp extends StatelessWidget {
 }
 
 // TODO Back button in a same birghtness with status bar
+// TODO Setup slivers to the detail screen
+

@@ -24,5 +24,8 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
         size: _sizeResponseMapper.mapList(entity?.size),
         expressPrice: entity?.expressPrice ?? 0,
         normalPrice: entity?.normalPrice ?? 0,
+        expressPriceW: entity?.expressPriceW ?? 0,
+        normalPriceW: entity?.normalPriceW ?? 0,
+        wholesaleLimit: entity?.wholesaleLimit ?? 0,
       );
 }

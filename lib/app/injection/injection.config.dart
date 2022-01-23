@@ -81,7 +81,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i14.SizeResponseMapper>(() => _i14.SizeResponseMapper());
   gh.lazySingleton<_i15.SubcategoryResponseMapper>(
       () => _i15.SubcategoryResponseMapper());
-  gh.lazySingleton<_i16.TagResponseMapper>(() => _i16.TagResponseMapper());
+  gh.lazySingleton<_i16.TagResponseMapper>(
+      () => _i16.TagResponseMapper(get<_i11.ProductMiniResponseMapper>()));
   gh.lazySingleton<_i17.GroupResponseMapper>(
       () => _i17.GroupResponseMapper(get<_i15.SubcategoryResponseMapper>()));
   gh.lazySingleton<_i18.Preferences>(

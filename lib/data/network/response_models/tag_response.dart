@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'product_mini_response.dart';
+
 part 'tag_response.g.dart';
 
 @JsonSerializable()
@@ -15,6 +17,5 @@ class TagResponse {
 
   final int? id;
   final String? title;
-  // TODO Change to ProductMiniResponse
-  final List<int>? product;
+  final List<ProductMiniResponse>? product;
 }
