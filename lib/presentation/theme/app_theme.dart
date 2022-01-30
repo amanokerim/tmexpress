@@ -6,6 +6,16 @@ final appTheme = ThemeData(
   primarySwatch: _primarySwatch,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   scaffoldBackgroundColor: AppColors.bgMain,
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: AppColors.inputBg,
+    border: InputBorder.none,
+    labelStyle: AppTextStyle.grey16,
+    enabledBorder: inputBorder,
+    focusedBorder: inputBorder,
+    // errorBorder: inputErrorBorder,
+    // focusedErrorBorder: inputErrorBorder,
+  ),
   textTheme: TextTheme(
     bodyText1: AppTextStyle.dark18,
     bodyText2: AppTextStyle.dark16,
@@ -19,6 +29,15 @@ final appTheme = ThemeData(
   bottomSheetTheme: BottomSheetThemeData(
     backgroundColor: AppColors.bg,
   ),
+);
+
+final inputBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(16),
+  borderSide: BorderSide.none,
+);
+final inputErrorBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.circular(16),
+  borderSide: BorderSide.none,
 );
 
 abstract class AppTextStyle {
@@ -70,6 +89,7 @@ abstract class AppColors {
 
   static Color get bg => const Color(0xFFFEFEFE);
   static Color get bg2 => const Color(0xFFFAFAFA);
+  static Color get inputBg => const Color(0xFFF7F7F7);
 
   static Color get bgMain => const Color(0xFFFFFFFF);
   static Color get tabBarInactive => const Color(0xFFB7BDC3);
@@ -82,10 +102,7 @@ abstract class AppColors {
 
   static Color get black => const Color(0xFF000000);
 
-  static Color get blue => const Color(0xFF456297);
-  static Color get blue2 => const Color(0xFFB9D0F2);
-
-  static Color get lightBlue => const Color(0xFFBAD1FB);
+  static Color get lightBlue => const Color(0xFFebf3ff);
   static Color get pink => const Color(0xFFEFA097);
   static Color get pink2 => const Color(0xFFF7DFDF);
 

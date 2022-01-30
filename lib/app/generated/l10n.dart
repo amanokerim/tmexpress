@@ -420,6 +420,26 @@ class S {
     );
   }
 
+  /// `Hasaba girmek`
+  String get login {
+    return Intl.message(
+      'Hasaba girmek',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Telefon`
+  String get phone {
+    return Intl.message(
+      'Telefon',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 
