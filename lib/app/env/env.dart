@@ -77,6 +77,10 @@ class Env {
     Future.wait([
       precachePicture(
           ExactAssetPicture(
+              SvgPicture.svgStringDecoder, 'assets/illustrations/auth.svg'),
+          null),
+      precachePicture(
+          ExactAssetPicture(
               SvgPicture.svgStringDecoder, 'assets/illustrations/empty.svg'),
           null),
       precachePicture(

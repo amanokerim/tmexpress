@@ -410,6 +410,16 @@ class S {
     );
   }
 
+  /// `Ölçeg`
+  String get size {
+    return Intl.message(
+      'Ölçeg',
+      name: 'size',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

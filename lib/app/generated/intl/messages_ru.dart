@@ -64,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
+        "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Näsazlyk ýüze çykdy"),
         "today": MessageLookupByLibrary.simpleMessage("Bu gün"),
