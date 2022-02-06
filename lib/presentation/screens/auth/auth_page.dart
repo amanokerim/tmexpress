@@ -10,7 +10,7 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AuthBloc>(
-      create: (context) => getIt(),
+      create: (context) => getIt()..add(AuthStarted()),
       child: const AuthScreen(),
     );
   }

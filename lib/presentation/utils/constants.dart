@@ -7,8 +7,8 @@ const kResendSeconds = 60;
 // Count of items in one page
 const kLimit = 15;
 
-// TODO Spacify app name
-const kAppName = '';
+const kAppName = 'TmExpress';
+const kVerificationPhone = '+993 64 921507';
 
 // RemoteConfig keys
 const kTechnicalWorks = 'technicalWorks';

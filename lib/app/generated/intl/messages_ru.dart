@@ -22,11 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(count) => "${count}+ alynanda";
 
+  static String m1(phone, code) =>
+      "Hasaba girmek üçin, \n${phone} belgä ${code} kody SMS arkaly ugradyň we programma dolanyň.";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addToCart": MessageLookupByLibrary.simpleMessage("Sebede goşmak"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
         "cancel": MessageLookupByLibrary.simpleMessage("Togtatmak"),
+        "cantNavigateToSMSApp": MessageLookupByLibrary.simpleMessage(
+            "SMS programmany açmakda näsazlyk ýüze çykdy. SMS programma geçip, bellenen nomere bellenen kody ugratmagyňyzy haýyş edýäris."),
         "cart": MessageLookupByLibrary.simpleMessage("Sebet"),
         "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
         "connectionError":
@@ -64,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "requiredField":
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
+        "sendSms": MessageLookupByLibrary.simpleMessage("SMS ugratmak"),
+        "sendSmsExpalanation": m1,
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
@@ -74,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Amal wagtlaýyn elýeter däl.\nBiraz wagtdan synanyşyp görüň."),
         "userAgreementLink":
             MessageLookupByLibrary.simpleMessage("media/user_agreement.pdf"),
+        "waitingVerificationText": MessageLookupByLibrary.simpleMessage(
+            "Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)"),
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),
         "wrongFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
         "yesterday": MessageLookupByLibrary.simpleMessage("Düýn")

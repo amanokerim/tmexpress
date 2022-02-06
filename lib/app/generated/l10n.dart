@@ -260,6 +260,16 @@ class S {
     );
   }
 
+  /// `SMS programmany açmakda näsazlyk ýüze çykdy. SMS programma geçip, bellenen nomere bellenen kody ugratmagyňyzy haýyş edýäris.`
+  String get cantNavigateToSMSApp {
+    return Intl.message(
+      'SMS programmany açmakda näsazlyk ýüze çykdy. SMS programma geçip, bellenen nomere bellenen kody ugratmagyňyzy haýyş edýäris.',
+      name: 'cantNavigateToSMSApp',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Bu gün`
   String get today {
     return Intl.message(
@@ -435,6 +445,36 @@ class S {
     return Intl.message(
       'Telefon',
       name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SMS ugratmak`
+  String get sendSms {
+    return Intl.message(
+      'SMS ugratmak',
+      name: 'sendSms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hasaba girmek üçin, \n{phone} belgä {code} kody SMS arkaly ugradyň we programma dolanyň.`
+  String sendSmsExpalanation(Object phone, Object code) {
+    return Intl.message(
+      'Hasaba girmek üçin, \n$phone belgä $code kody SMS arkaly ugradyň we programma dolanyň.',
+      name: 'sendSmsExpalanation',
+      desc: '',
+      args: [phone, code],
+    );
+  }
+
+  /// `Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)`
+  String get waitingVerificationText {
+    return Intl.message(
+      'Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)',
+      name: 'waitingVerificationText',
       desc: '',
       args: [],
     );
