@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:tmexpress/presentation/utils/app_validator.dart';
 
 import '../../../app/generated/l10n.dart';
 import '../../theme/app_theme.dart';
@@ -12,8 +13,28 @@ import '../../widgets/app_info.dart';
 import '../../widgets/app_progress_indicator.dart';
 import 'bloc/auth_bloc.dart';
 
-class AuthScreen extends StatelessWidget {
+class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
+
+  @override
+  State<AuthScreen> createState() => _AuthScreenState();
+}
+
+class _AuthScreenState extends State<AuthScreen> {
+  late TextEditingController _phoneController;
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _phoneController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _phoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +59,21 @@ class AuthScreen extends StatelessWidget {
             if (state is AuthError || state is AuthInitial) {
               return Column(
                 children: [
-                  TextField(
-                    inputFormatters: [
-                      MaskTextInputFormatter(mask: '## ######')
-                    ],
-                    decoration: InputDecoration(
-                      label: Text(S.current.phone),
-                      prefix: const Text('+993 '),
-                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                  Form(
+                    key: _formKey,
+                    child: TextFormField(
+                      controller: _phoneController,
+                      validator: AppValidator.phone,
+                      onFieldSubmitted: (_) => _submit(),
+                      inputFormatters: [
+                        MaskTextInputFormatter(mask: '## ######')
+                      ],
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        label: Text(S.current.phone),
+                        prefix: const Text('+993 '),
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -55,8 +83,7 @@ class AuthScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   AppButton(
                     label: S.current.sendSms,
-                    onPressed: () =>
-                        context.read<AuthBloc>().add(AuthVerificationStarted()),
+                    onPressed: _submit,
                     type: ButtonType.black,
                   ),
                 ],
@@ -82,5 +109,13 @@ class AuthScreen extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _submit() {
+    if (_formKey.currentState?.validate() ?? false) {
+      context
+          .read<AuthBloc>()
+          .add(AuthVerificationStarted(phone: _phoneController.text));
+    }
   }
 }

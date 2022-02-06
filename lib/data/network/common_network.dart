@@ -7,6 +7,7 @@ import 'response_models/pagination_response.dart';
 import 'response_models/product_mini_response.dart';
 import 'response_models/product_response.dart';
 import 'response_models/tag_response.dart';
+import 'response_models/token_response.dart';
 
 part 'common_network.g.dart';
 
@@ -40,5 +41,11 @@ abstract class CommonNetwork {
   @GET('api/products/singleProduct/{id}/')
   Future<ProductResponse> fetchProduct(
     @Path('id') int id,
+  );
+
+  @POST('api/auth/login/')
+  Future<TokenResponse> auth(
+    @Field('username') String phone,
+    @Field('password') int code,
   );
 }

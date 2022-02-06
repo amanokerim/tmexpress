@@ -133,6 +133,22 @@ class _CommonNetwork implements CommonNetwork {
     return value;
   }
 
+  @override
+  Future<TokenResponse> auth(phone, code) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = {'username': phone, 'password': code};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<TokenResponse>(
+            Options(method: 'POST', headers: _headers, extra: _extra)
+                .compose(_dio.options, 'api/auth/login/',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = TokenResponse.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

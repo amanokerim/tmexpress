@@ -480,6 +480,16 @@ class S {
     );
   }
 
+  /// `Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň`
+  String get canNotVerify {
+    return Intl.message(
+      'Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň',
+      name: 'canNotVerify',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

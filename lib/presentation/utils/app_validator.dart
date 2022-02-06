@@ -21,4 +21,10 @@ class AppValidator {
     if (text == null || text.isEmpty) return S.current.requiredField;
     return null;
   }
+
+  static String? phone(String? phone) {
+    if (phone == null || phone.isEmpty) return S.current.requiredField;
+    if (phone.length < 9) return S.current.wrongFormat;
+    return null;
+  }
 }

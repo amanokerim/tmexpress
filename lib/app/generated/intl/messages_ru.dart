@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addToCart": MessageLookupByLibrary.simpleMessage("Sebede goşmak"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
+        "canNotVerify": MessageLookupByLibrary.simpleMessage(
+            "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň"),
         "cancel": MessageLookupByLibrary.simpleMessage("Togtatmak"),
         "cantNavigateToSMSApp": MessageLookupByLibrary.simpleMessage(
             "SMS programmany açmakda näsazlyk ýüze çykdy. SMS programma geçip, bellenen nomere bellenen kody ugratmagyňyzy haýyş edýäris."),

@@ -13,8 +13,8 @@ final appTheme = ThemeData(
     labelStyle: AppTextStyle.grey16,
     enabledBorder: inputBorder,
     focusedBorder: inputBorder,
-    // errorBorder: inputErrorBorder,
-    // focusedErrorBorder: inputErrorBorder,
+    errorBorder: inputBorder,
+    focusedErrorBorder: inputBorder,
   ),
   textTheme: TextTheme(
     bodyText1: AppTextStyle.dark18,
