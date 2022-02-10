@@ -11,10 +11,7 @@ class Preferences {
   final SharedPreferences _sharedPreferences;
 
   String? getJwt() {
-    // Dev Token
-    // return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY4MDA2NTE3LCJqdGkiOiIwNTQ0MmM0MjEzNmE0ZWE5YWVjYzMwNTBjNDI3OTQ5MSIsInVzZXJfaWQiOjEwfQ.L9e0BlRhDyTCS8NwXHJ6F9vNnx6BqV7efq3Afw7osPI';
-    // Release Token
-    // return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY2NzY1Njk5LCJqdGkiOiI1YmRkODFhZDRjZmE0Y2E2OWY1NTljNGY1NzQwZmVjZSIsInVzZXJfaWQiOjExfQ.26TrGhlF7WvTe-DQVYSJWYL27e4GhqmoOz1idme0z_c';
+    return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MDQyMjI2LCJqdGkiOiJlZjM4YWY2ZjFlMzA0NmRkODAwMzAyNzg5YjQzNDY0MSIsInVzZXJfaWQiOjd9.8i1rTHA80vMFdKgaolJXHlDd47hhIsp5f7urg4gDVjw';
     return _sharedPreferences.getString(pJWT);
   }
 

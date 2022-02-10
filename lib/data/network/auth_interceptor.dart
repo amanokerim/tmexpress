@@ -11,7 +11,7 @@ class AuthInterceptor extends InterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers.addAll({
-      'Authorization': 'JWT ${_preferences.getJwt()}',
+      'Authorization': 'Bearer ${_preferences.getJwt()}',
     });
     handler.next(options);
   }

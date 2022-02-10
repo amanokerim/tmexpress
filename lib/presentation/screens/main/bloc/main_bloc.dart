@@ -5,10 +5,10 @@ import 'package:injectable/injectable.dart';
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/interface/bottom_tab.dart';
 import '../../../bloc/app_bloc.dart';
-import '../../auth/auth_page.dart';
 import '../../cart/cart_screen.dart';
 import '../../category/category_page.dart';
 import '../../home/home_page.dart';
+import '../../profile/profile_page.dart';
 
 part 'main_event.dart';
 
@@ -52,7 +52,7 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
       index: 4,
       title: S.current.profile,
       icon: 'account',
-      screen: const AuthPage(),
+      screen: const ProfilePage(),
     ),
   ];
 }

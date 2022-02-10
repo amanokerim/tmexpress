@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/usecases/auth/auth_usecase.dart';
+import '../../../../domain/usecases/profile/auth_usecase.dart';
 import '../../../bloc/app_bloc.dart';
 import '../../../utils/constants.dart';
 
