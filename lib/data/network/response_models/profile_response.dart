@@ -17,8 +17,8 @@ class ProfileResponse {
   Map<String, dynamic> toJson() => _$ProfileResponseToJson(this);
 
   final String? name;
-  final String? gender;
+  final bool? gender;
   final String? region;
   final String? address;
-  final int? username;
+  final String? username;
 }

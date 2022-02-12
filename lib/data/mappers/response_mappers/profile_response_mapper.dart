@@ -8,11 +8,14 @@ import '../mapper.dart';
 class ProfileResponseMapper extends Mapper<ProfileResponse, Profile> {
   @override
   Profile map(ProfileResponse? entity) => Profile(
-        // TODO Make phone dynamic, change gender and region implementation
-        phone: '+993 64 921507',
+        phone: entity?.username ?? '',
         name: entity?.name,
         address: entity?.address,
-        gender: entity?.gender,
+        gender: entity?.gender != null
+            ? entity!.gender!
+                ? Gender.woman
+                : Gender.man
+            : null,
         region: entity?.region,
       );
 }

@@ -9,10 +9,10 @@ part of 'profile_response.dart';
 ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
     ProfileResponse(
       name: json['name'] as String?,
-      gender: json['gender'] as String?,
+      gender: json['gender'] as bool?,
       region: json['region'] as String?,
       address: json['address'] as String?,
-      username: json['username'] as int?,
+      username: json['username'] as String?,
     );
 
 Map<String, dynamic> _$ProfileResponseToJson(ProfileResponse instance) =>

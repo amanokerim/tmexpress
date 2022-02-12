@@ -43,7 +43,7 @@ class AuthBloc extends AppBloc<AuthEvent, AuthState> {
         emit(st);
       } else {
         await Future<void>.delayed(const Duration(seconds: 3));
-        if (++attempts < 4) {
+        if (++attempts < 40) {
           add(AuthCheckRequested());
         } else {
           emit(AuthError(S.current.canNotVerify, code));

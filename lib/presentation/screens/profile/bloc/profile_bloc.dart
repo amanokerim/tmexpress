@@ -16,9 +16,7 @@ class ProfileBloc extends AppBloc<ProfileEvent, ProfileState> {
       : super(ProfileLoadInProgress()) {
     on<ProfileStarted>((event, emit) async {
       final jwtR = await _getStringPreferenceUseCase(pJWT);
-      final jwt =
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MDQyMDY4LCJqdGkiOiI2Mjg1ZWIyNDNhZTk0ODM1YWQ3OTBhYzM2NTYwZjdhZSIsInVzZXJfaWQiOjd9.y27Fc7PGZUkuthhZ4uAJuRMQFf7L97UuuQsOA7PFF6s';
-      //jwtR.fold((l) => null, (r) => r);
+      final jwt = jwtR.fold((l) => null, (r) => r);
 
       if (jwt == null) {
         emit(ProfileNotAuthorised());

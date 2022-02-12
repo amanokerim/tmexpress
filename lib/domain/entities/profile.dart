@@ -1,3 +1,5 @@
+enum Gender { man, woman }
+
 class Profile {
   Profile({
     required this.phone,
@@ -9,7 +11,7 @@ class Profile {
 
   final String phone;
   final String? name;
-  final String? gender;
+  final Gender? gender;
   final String? region;
   final String? address;
 }

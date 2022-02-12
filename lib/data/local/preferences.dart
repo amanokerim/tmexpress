@@ -11,7 +11,6 @@ class Preferences {
   final SharedPreferences _sharedPreferences;
 
   String? getJwt() {
-    return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MDQyMjI2LCJqdGkiOiJlZjM4YWY2ZjFlMzA0NmRkODAwMzAyNzg5YjQzNDY0MSIsInVzZXJfaWQiOjd9.8i1rTHA80vMFdKgaolJXHlDd47hhIsp5f7urg4gDVjw';
     return _sharedPreferences.getString(pJWT);
   }
 
