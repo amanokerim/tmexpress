@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../app/generated/l10n.dart';
 import '../../../domain/entities/product_mini.dart';
+import '../../widgets/app_button.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
 import 'bloc/detail_bloc.dart';
@@ -36,14 +38,35 @@ class DetailScreen extends StatelessWidget {
                       ...ProductImages(state).widgets(),
                     ...ProductSizes(state).widgets(),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 16),
+                      padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ...productWidgets.prices(),
                           ...productWidgets.description(),
                           ...productWidgets.description(),
-                          ...productWidgets.weight()
+                          ...productWidgets.weight(),
+                          const SizedBox(height: 16),
+                          AppButton(
+                            label: 'Paýlaşmak',
+                            type: ButtonType.outline,
+                            iconFile: 'share.png',
+                            onPressed: () => context
+                                .read<DetailBloc>()
+                                .add(DetailProductShared()),
+                          ),
+                          const SizedBox(height: 16),
+                          AppButton(
+                              label: state.product.isLiked
+                                  ? S.current.removeFromFavorites
+                                  : S.current.addToFavorites,
+                              type: state.product.isLiked
+                                  ? ButtonType.red
+                                  : ButtonType.outline,
+                              iconFile: 'like.png',
+                              onPressed: () => context
+                                  .read<DetailBloc>()
+                                  .add(DetailProductLikeToggled())),
                         ],
                       ),
                     )

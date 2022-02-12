@@ -65,7 +65,7 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get minExtent => 120;
+  double get minExtent => titleHeight + 32; // 32 is top border area
 
   @override
   bool shouldRebuild(covariant SliverImageDelegate oldDelegate) =>

@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/product_mini.dart';
 import '../../../../domain/entities/product_parent.dart';
-import '../../../../domain/usecases/fetch_products_usecase.dart';
+import '../../../../domain/usecases/products/fetch_products_usecase.dart';
 import '../../../bloc/app_bloc.dart';
 
 part 'products_event.dart';

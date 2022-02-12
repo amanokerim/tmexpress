@@ -30,3 +30,7 @@ class DetailColorChanged extends DetailEvent {
   @override
   List<Object> get props => [color];
 }
+
+class DetailProductLikeToggled extends DetailEvent {}
+
+class DetailProductShared extends DetailEvent {}

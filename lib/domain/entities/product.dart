@@ -18,6 +18,7 @@ class Product extends Equatable {
     required this.expressPriceW,
     required this.normalPriceW,
     required this.wholesaleLimit,
+    required this.isLiked,
   });
 
   final int id;
@@ -33,7 +34,42 @@ class Product extends Equatable {
   final double expressPriceW;
   final double normalPriceW;
   final int wholesaleLimit;
+  final bool isLiked;
 
   @override
-  List<Object?> get props => [id];
+  List<Object?> get props => [id, isLiked];
+
+  Product copyWith({
+    int? id,
+    String? title,
+    String? description,
+    double? weight,
+    double? ourRating,
+    double? discount,
+    List<Image>? productImages,
+    List<Size>? size,
+    double? expressPrice,
+    double? normalPrice,
+    double? expressPriceW,
+    double? normalPriceW,
+    int? wholesaleLimit,
+    bool? isLiked,
+  }) {
+    return Product(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      weight: weight ?? this.weight,
+      ourRating: ourRating ?? this.ourRating,
+      discount: discount ?? this.discount,
+      productImages: productImages ?? this.productImages,
+      size: size ?? this.size,
+      expressPrice: expressPrice ?? this.expressPrice,
+      normalPrice: normalPrice ?? this.normalPrice,
+      expressPriceW: expressPriceW ?? this.expressPriceW,
+      normalPriceW: normalPriceW ?? this.normalPriceW,
+      wholesaleLimit: wholesaleLimit ?? this.wholesaleLimit,
+      isLiked: isLiked ?? this.isLiked,
+    );
+  }
 }

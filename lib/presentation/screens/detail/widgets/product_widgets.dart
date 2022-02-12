@@ -26,9 +26,13 @@ class ProductWidgets extends StatelessWidget {
         label: S.current.addToCart,
         onPressed: () {
           if (state.selectedColor == null) {
-            AppFlash.toast(context: context, message: S.current.selectColor);
+            AppFlash.toast(
+                context: context,
+                message: S.current.selectColor,
+                isError: true);
           } else if (state.selectedSize == null) {
-            AppFlash.toast(context: context, message: S.current.selectSize);
+            AppFlash.toast(
+                context: context, message: S.current.selectSize, isError: true);
           } else if (state.selectedColor != null &&
               state.selectedSize != null) {
             final cartItem = CartItem(
@@ -37,7 +41,10 @@ class ProductWidgets extends StatelessWidget {
                 size: state.selectedSize!,
                 color: state.selectedColor!);
             context.read<CartBloc>().add(CartItemAdded(cartItem));
-            AppFlash.toast(context: context, message: S.current.addedToCart);
+            AppFlash.toast(
+                context: context,
+                message: S.current.addedToCart,
+                isError: true);
           }
         },
         iconFile: 'basket.png',

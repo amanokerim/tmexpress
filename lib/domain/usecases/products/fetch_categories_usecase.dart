@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../entities/category.dart';
-import '../errors/failures.dart';
-import '../repositories/product_repository.dart';
-import 'usecase.dart';
+import '../../entities/category.dart';
+import '../../errors/failures.dart';
+import '../../repositories/product_repository.dart';
+import '../usecase.dart';
 
 @lazySingleton
 class FetchCategoriesUseCase extends UseCaseWithoutParams<List<Category>> {

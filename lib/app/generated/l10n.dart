@@ -450,6 +450,56 @@ class S {
     );
   }
 
+  /// `Halanlaryma goşmak`
+  String get addToFavorites {
+    return Intl.message(
+      'Halanlaryma goşmak',
+      name: 'addToFavorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlarymdan aýyrmak`
+  String get removeFromFavorites {
+    return Intl.message(
+      'Halanlarymdan aýyrmak',
+      name: 'removeFromFavorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlaryňyza goşmakda näsazlyk ýüze çykdy`
+  String get addToFavoritesError {
+    return Intl.message(
+      'Halanlaryňyza goşmakda näsazlyk ýüze çykdy',
+      name: 'addToFavoritesError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy`
+  String get removeFromFavoritesError {
+    return Intl.message(
+      'Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy',
+      name: 'removeFromFavoritesError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paýlaşmak`
+  String get share {
+    return Intl.message(
+      'Paýlaşmak',
+      name: 'share',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ölçeg`
   String get size {
     return Intl.message(

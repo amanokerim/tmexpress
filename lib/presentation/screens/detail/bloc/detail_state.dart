@@ -10,14 +10,20 @@ abstract class DetailState extends Equatable {
 class DetailLoadInProgress extends DetailState {}
 
 class DetailLoadSuccess extends DetailState {
-  const DetailLoadSuccess(this.product,
-      {this.selectedColor, this.selectedSize});
+  const DetailLoadSuccess(
+    this.product, {
+    this.selectedColor,
+    this.selectedSize,
+    this.flashMessage,
+  });
   final Product product;
   final Image? selectedColor;
   final Size? selectedSize;
+  final String? flashMessage;
 
   @override
-  List<Object?> get props => [product, selectedColor, selectedSize];
+  List<Object?> get props =>
+      [product, selectedColor, selectedSize, flashMessage];
 }
 
 class DetailLoadError extends DetailState {
