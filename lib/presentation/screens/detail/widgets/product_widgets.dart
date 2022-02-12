@@ -5,6 +5,7 @@ import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/cart_item.dart';
 import '../../../../domain/entities/product.dart';
 import '../../../theme/app_theme.dart';
+import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../bloc/detail_bloc.dart';
@@ -24,13 +25,19 @@ class ProductWidgets extends StatelessWidget {
       child: AppButton(
         label: S.current.addToCart,
         onPressed: () {
-          if (state.selectedColor != null && state.selectedSize != null) {
+          if (state.selectedColor == null) {
+            AppFlash.toast(context: context, message: S.current.selectColor);
+          } else if (state.selectedSize == null) {
+            AppFlash.toast(context: context, message: S.current.selectSize);
+          } else if (state.selectedColor != null &&
+              state.selectedSize != null) {
             final cartItem = CartItem(
                 product: _product,
                 count: 1,
                 size: state.selectedSize!,
                 color: state.selectedColor!);
             context.read<CartBloc>().add(CartItemAdded(cartItem));
+            AppFlash.toast(context: context, message: S.current.addedToCart);
           }
         },
         iconFile: 'basket.png',

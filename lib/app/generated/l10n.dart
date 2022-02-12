@@ -420,6 +420,36 @@ class S {
     );
   }
 
+  /// `Reňk saýlaň`
+  String get selectColor {
+    return Intl.message(
+      'Reňk saýlaň',
+      name: 'selectColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ölçeg saýlaň`
+  String get selectSize {
+    return Intl.message(
+      'Ölçeg saýlaň',
+      name: 'selectSize',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sebede goşuldy`
+  String get addedToCart {
+    return Intl.message(
+      'Sebede goşuldy',
+      name: 'addedToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ölçeg`
   String get size {
     return Intl.message(

@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addToCart": MessageLookupByLibrary.simpleMessage("Sebede goşmak"),
+        "addedToCart": MessageLookupByLibrary.simpleMessage("Sebede goşuldy"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
         "canNotVerify": MessageLookupByLibrary.simpleMessage(
             "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň"),
@@ -71,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "requiredField":
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
+        "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
+        "selectSize": MessageLookupByLibrary.simpleMessage("Ölçeg saýlaň"),
         "sendSms": MessageLookupByLibrary.simpleMessage("SMS ugratmak"),
         "sendSmsExpalanation": m1,
         "serverError": MessageLookupByLibrary.simpleMessage(

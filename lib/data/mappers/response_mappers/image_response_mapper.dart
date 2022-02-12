@@ -10,7 +10,9 @@ class ImageResponseMapper extends Mapper<ImageResponse, Image> {
   @override
   Image map(ImageResponse? entity) => Image(
         id: entity?.id ?? 0,
-        url: '${Env.value.baseUrl}${entity?.urlMini}',
+        url: '${Env.value.baseUrl}${entity?.url}',
         urlMini: '${Env.value.baseUrl}${entity?.urlMini}',
+        width: double.tryParse(entity?.imageWidth ?? '') ?? 0,
+        height: double.tryParse(entity?.imageHeight ?? '') ?? 0,
       );
 }

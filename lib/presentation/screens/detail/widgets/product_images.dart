@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/entities/product.dart';
 import '../../../theme/app_theme.dart';
-import '../../../widgets/app_image.dart';
 import '../bloc/detail_bloc.dart';
+import 'color_card.dart';
 
 class ProductImages extends StatelessWidget {
-  const ProductImages(this.product, {Key? key}) : super(key: key);
-  final Product product;
+  const ProductImages(this.state, {Key? key}) : super(key: key);
+  final DetailLoadSuccess state;
 
   List<Widget> widgets() {
+    final productImages = state.product.productImages;
     return [
       Padding(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 2),
         child: Text(S.current.productColors, style: AppTextStyle.bold16),
       ),
       SizedBox(
-        height: 64,
-        child: ListView.separated(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+        height: 64 + 12,
+        child: ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 20 - 6),
           physics: const BouncingScrollPhysics(),
-          itemCount: product.productImages.length,
-          itemBuilder: (context, index) => InkWell(
-              borderRadius: BorderRadius.circular(16),
-              onTap: () => context
-                  .read<DetailBloc>()
-                  .add(DetailColorChanged(product.productImages[index])),
-              child: AppImage(product.productImages[index].urlMini, width: 64)),
-          separatorBuilder: (_, __) => const SizedBox(width: 12),
+          itemCount: productImages.length,
+          itemBuilder: (context, index) => ColorCard(
+            productImages[index],
+            isSelected: state.selectedColor == productImages[index],
+          ),
           scrollDirection: Axis.horizontal,
         ),
       ),

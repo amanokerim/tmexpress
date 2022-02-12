@@ -13,7 +13,7 @@ class ProductSizes extends StatelessWidget {
     final sizes = state.product.size;
     return [
       Padding(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 10),
+        padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 10 - 6),
         child: Text(S.current.productSizes, style: AppTextStyle.bold16),
       ),
       SizedBox(

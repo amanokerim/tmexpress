@@ -26,10 +26,10 @@ class DetailScreen extends StatelessWidget {
               DetailImage(state),
               productWidgets.title(),
               if (state.product.productImages.length > 1)
-                ...ProductImages(state.product).widgets(),
+                ...ProductImages(state).widgets(),
               ...ProductSizes(state).widgets(),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
+                padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

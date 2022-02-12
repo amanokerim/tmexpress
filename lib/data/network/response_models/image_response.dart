@@ -8,6 +8,8 @@ class ImageResponse {
     this.id,
     this.url,
     this.urlMini,
+    this.imageHeight,
+    this.imageWidth,
   });
 
   factory ImageResponse.fromJson(Map<String, dynamic> json) =>
@@ -17,4 +19,6 @@ class ImageResponse {
   final int? id;
   final String? url;
   final String? urlMini;
+  final String? imageWidth;
+  final String? imageHeight;
 }

@@ -11,6 +11,8 @@ ImageResponse _$ImageResponseFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int?,
       url: json['url'] as String?,
       urlMini: json['urlMini'] as String?,
+      imageHeight: json['imageHeight'] as String?,
+      imageWidth: json['imageWidth'] as String?,
     );
 
 Map<String, dynamic> _$ImageResponseToJson(ImageResponse instance) =>
@@ -18,4 +20,6 @@ Map<String, dynamic> _$ImageResponseToJson(ImageResponse instance) =>
       'id': instance.id,
       'url': instance.url,
       'urlMini': instance.urlMini,
+      'imageWidth': instance.imageWidth,
+      'imageHeight': instance.imageHeight,
     };
