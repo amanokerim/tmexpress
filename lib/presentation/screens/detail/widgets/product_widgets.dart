@@ -46,6 +46,26 @@ class ProductWidgets extends StatelessWidget {
     );
   }
 
+  Widget get title => Row(
+        children: [
+          Expanded(
+            child: Text(
+              state.product.title,
+              style: AppTextStyle.bold20,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Image.asset('assets/icons/favorite.png',
+              color: Colors.amber, width: 22),
+          const SizedBox(width: 4),
+          Text(
+            state.product.ourRating.toStringAsFixed(1),
+            style: AppTextStyle.bold16,
+          ),
+        ],
+      );
+
   List<Widget> weight() {
     return [
       Row(
@@ -92,28 +112,6 @@ class ProductWidgets extends StatelessWidget {
       ),
       const SizedBox(height: 20),
     ];
-  }
-
-  Widget title() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          Expanded(
-              child: Text(_product.title,
-                  style: AppTextStyle.bold20,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis)),
-          Image.asset('assets/icons/favorite.png',
-              color: Colors.amber, width: 22),
-          const SizedBox(width: 4),
-          Text(
-            _product.ourRating.toStringAsFixed(1),
-            style: AppTextStyle.bold16,
-          ),
-        ],
-      ),
-    );
   }
 
   @override
