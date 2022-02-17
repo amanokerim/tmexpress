@@ -10,33 +10,53 @@ class CartItem extends Equatable {
     required this.count,
     required this.size,
     required this.color,
+    required this.price,
+    required this.expressPrice,
   });
 
   final Product product;
   final int count;
   final Size size;
   final Image color;
+  // retail or whole sale price with normal delivery
+  final double price;
+  // retail or whole sale price with express delivery
+  final double expressPrice;
 
   @override
   List<Object?> get props => [product, size, color];
 
-  CartItem increase(int count) => CartItem(
-        product: product,
-        count: this.count + count,
-        size: size,
-        color: color,
-      );
+  CartItem increase(int count) {
+    final newCount = this.count + count;
+    return CartItem(
+      product: product,
+      count: newCount,
+      size: size,
+      color: color,
+      // control wholesale here
+      price: newCount >= product.wholesaleLimit
+          ? product.normalPriceW
+          : product.normalPrice,
+      expressPrice: newCount >= product.wholesaleLimit
+          ? product.expressPriceW
+          : product.expressPrice,
+    );
+  }
 
   CartItem copyWith({
     Product? product,
     int? count,
     Size? size,
     Image? color,
+    double? price,
+    double? expressPrice,
   }) =>
       CartItem(
         product: product ?? this.product,
         count: count ?? this.count,
         size: size ?? this.size,
         color: color ?? this.color,
+        price: price ?? this.price,
+        expressPrice: expressPrice ?? this.expressPrice,
       );
 }

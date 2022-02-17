@@ -36,10 +36,13 @@ class ProductWidgets extends StatelessWidget {
           } else if (state.selectedColor != null &&
               state.selectedSize != null) {
             final cartItem = CartItem(
-                product: _product,
-                count: 1,
-                size: state.selectedSize!,
-                color: state.selectedColor!);
+              product: _product,
+              count: 1,
+              size: state.selectedSize!,
+              color: state.selectedColor!,
+              price: _product.normalPrice,
+              expressPrice: _product.expressPrice,
+            );
             context.read<CartBloc>().add(CartItemAdded(cartItem));
             AppFlash.toast(
                 context: context,

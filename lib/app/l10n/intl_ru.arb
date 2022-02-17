@@ -62,6 +62,17 @@
   "waitingVerificationText": "Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)",
   "canNotVerify": "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň",
 
+  "normal": "Adaty",
+  "express": "Express",
+  "normalSubtitle": "45 günde gowuşýar",
+  "expressSubtitle": "15 günde gowuşýar",
+  "continueButton": "Dowam etmek",
+  "makeOrder": "Sargyt etmek",
+  "total": "Jemi:\n",
+  "nMan": "{total} man.",
+
+
+
 
   "": ""
 }

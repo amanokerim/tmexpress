@@ -48,7 +48,7 @@ class DetailScreen extends StatelessWidget {
                           ...productWidgets.weight(),
                           const SizedBox(height: 16),
                           AppButton(
-                            label: 'Paýlaşmak',
+                            label: S.current.share,
                             type: ButtonType.outline,
                             iconFile: 'share.png',
                             onPressed: () => context

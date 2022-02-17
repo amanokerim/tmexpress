@@ -570,6 +570,86 @@ class S {
     );
   }
 
+  /// `Adaty`
+  String get normal {
+    return Intl.message(
+      'Adaty',
+      name: 'normal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Express`
+  String get express {
+    return Intl.message(
+      'Express',
+      name: 'express',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `45 günde gowuşýar`
+  String get normalSubtitle {
+    return Intl.message(
+      '45 günde gowuşýar',
+      name: 'normalSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `15 günde gowuşýar`
+  String get expressSubtitle {
+    return Intl.message(
+      '15 günde gowuşýar',
+      name: 'expressSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dowam etmek`
+  String get continueButton {
+    return Intl.message(
+      'Dowam etmek',
+      name: 'continueButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sargyt etmek`
+  String get makeOrder {
+    return Intl.message(
+      'Sargyt etmek',
+      name: 'makeOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Jemi:\n`
+  String get total {
+    return Intl.message(
+      'Jemi:\n',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{total} man.`
+  String nMan(Object total) {
+    return Intl.message(
+      '$total man.',
+      name: 'nMan',
+      desc: '',
+      args: [total],
+    );
+  }
+
   // skipped getter for the '' key
 }
 
