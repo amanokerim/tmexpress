@@ -21,6 +21,7 @@ class ProductResponse {
     this.expressPriceW,
     this.normalPriceW,
     this.wholesaleLimit,
+    this.isLiked,
   });
 
   factory ProductResponse.fromJson(Map<String, dynamic> json) =>
@@ -40,4 +41,5 @@ class ProductResponse {
   final double? expressPriceW;
   final double? normalPriceW;
   final int? wholesaleLimit;
+  final bool? isLiked;
 }

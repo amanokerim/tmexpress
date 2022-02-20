@@ -420,6 +420,86 @@ class S {
     );
   }
 
+  /// `Reňk saýlaň`
+  String get selectColor {
+    return Intl.message(
+      'Reňk saýlaň',
+      name: 'selectColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ölçeg saýlaň`
+  String get selectSize {
+    return Intl.message(
+      'Ölçeg saýlaň',
+      name: 'selectSize',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sebede goşuldy`
+  String get addedToCart {
+    return Intl.message(
+      'Sebede goşuldy',
+      name: 'addedToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlaryma goşmak`
+  String get addToFavorites {
+    return Intl.message(
+      'Halanlaryma goşmak',
+      name: 'addToFavorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlarymdan aýyrmak`
+  String get removeFromFavorites {
+    return Intl.message(
+      'Halanlarymdan aýyrmak',
+      name: 'removeFromFavorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlaryňyza goşmakda näsazlyk ýüze çykdy`
+  String get addToFavoritesError {
+    return Intl.message(
+      'Halanlaryňyza goşmakda näsazlyk ýüze çykdy',
+      name: 'addToFavoritesError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy`
+  String get removeFromFavoritesError {
+    return Intl.message(
+      'Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy',
+      name: 'removeFromFavoritesError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paýlaşmak`
+  String get share {
+    return Intl.message(
+      'Paýlaşmak',
+      name: 'share',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ölçeg`
   String get size {
     return Intl.message(
@@ -487,6 +567,86 @@ class S {
       name: 'canNotVerify',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Adaty`
+  String get normal {
+    return Intl.message(
+      'Adaty',
+      name: 'normal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Express`
+  String get express {
+    return Intl.message(
+      'Express',
+      name: 'express',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `45 günde gowuşýar`
+  String get normalSubtitle {
+    return Intl.message(
+      '45 günde gowuşýar',
+      name: 'normalSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `15 günde gowuşýar`
+  String get expressSubtitle {
+    return Intl.message(
+      '15 günde gowuşýar',
+      name: 'expressSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dowam etmek`
+  String get continueButton {
+    return Intl.message(
+      'Dowam etmek',
+      name: 'continueButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sargyt etmek`
+  String get makeOrder {
+    return Intl.message(
+      'Sargyt etmek',
+      name: 'makeOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Jemi:\n`
+  String get total {
+    return Intl.message(
+      'Jemi:\n',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{total} man.`
+  String nMan(Object total) {
+    return Intl.message(
+      '$total man.',
+      name: 'nMan',
+      desc: '',
+      args: [total],
     );
   }
 

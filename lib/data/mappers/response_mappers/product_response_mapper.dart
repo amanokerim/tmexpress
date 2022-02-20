@@ -27,5 +27,6 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
         expressPriceW: entity?.expressPriceW ?? 0,
         normalPriceW: entity?.normalPriceW ?? 0,
         wholesaleLimit: entity?.wholesaleLimit ?? 0,
+        isLiked: entity?.isLiked ?? false,
       );
 }

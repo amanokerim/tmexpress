@@ -39,10 +39,6 @@ import '../../data/repositories/profile_repository_impl.dart' as _i26;
 import '../../domain/repositories/preferences_repository.dart' as _i22;
 import '../../domain/repositories/product_repository.dart' as _i36;
 import '../../domain/repositories/profile_repository.dart' as _i25;
-import '../../domain/usecases/fetch_categories_usecase.dart' as _i41;
-import '../../domain/usecases/fetch_home_usecase.dart' as _i42;
-import '../../domain/usecases/fetch_product_usecase.dart' as _i43;
-import '../../domain/usecases/fetch_products_usecase.dart' as _i44;
 import '../../domain/usecases/preferences/get_bool_preference_usecase.dart'
     as _i32;
 import '../../domain/usecases/preferences/get_double_preference_usecase.dart'
@@ -52,18 +48,24 @@ import '../../domain/usecases/preferences/get_int_preference_usecase.dart'
 import '../../domain/usecases/preferences/get_string_preference_usecase.dart'
     as _i35;
 import '../../domain/usecases/preferences/set_preference_usecase.dart' as _i27;
+import '../../domain/usecases/products/fetch_categories_usecase.dart' as _i42;
+import '../../domain/usecases/products/fetch_home_usecase.dart' as _i43;
+import '../../domain/usecases/products/fetch_product_usecase.dart' as _i44;
+import '../../domain/usecases/products/fetch_products_usecase.dart' as _i45;
+import '../../domain/usecases/products/like_product_usecase.dart' as _i47;
+import '../../domain/usecases/products/share_product_usecase.dart' as _i39;
 import '../../domain/usecases/profile/auth_usecase.dart' as _i29;
 import '../../domain/usecases/profile/fetch_profile_usecase.dart' as _i31;
-import '../../presentation/screens/auth/bloc/auth_bloc.dart' as _i40;
+import '../../presentation/screens/auth/bloc/auth_bloc.dart' as _i41;
 import '../../presentation/screens/cart/bloc/cart_bloc.dart' as _i6;
-import '../../presentation/screens/category/bloc/category_bloc.dart' as _i47;
-import '../../presentation/screens/detail/bloc/detail_bloc.dart' as _i48;
-import '../../presentation/screens/home/bloc/home_bloc.dart' as _i45;
+import '../../presentation/screens/category/bloc/category_bloc.dart' as _i49;
+import '../../presentation/screens/detail/bloc/detail_bloc.dart' as _i50;
+import '../../presentation/screens/home/bloc/home_bloc.dart' as _i46;
 import '../../presentation/screens/main/bloc/main_bloc.dart' as _i11;
-import '../../presentation/screens/products/bloc/products_bloc.dart' as _i46;
+import '../../presentation/screens/products/bloc/products_bloc.dart' as _i48;
 import '../../presentation/screens/profile/bloc/profile_bloc.dart' as _i38;
-import '../../presentation/screens/start/bloc/start_bloc.dart' as _i39;
-import 'register_module.dart' as _i49; // ignore_for_file: unnecessary_lambdas
+import '../../presentation/screens/start/bloc/start_bloc.dart' as _i40;
+import 'register_module.dart' as _i51; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -134,6 +136,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i36.ProductRepository>(() => _i37.ProductRepositoryImpl(
       get<_i9.ExceptionHandler>(),
       get<_i7.CommonNetwork>(),
+      get<_i4.AuthNetwork>(),
       get<_i30.CategoryResponseMapper>(),
       get<_i5.BannerResponseMapper>(),
       get<_i18.TagResponseMapper>(),
@@ -141,27 +144,33 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       get<_i24.ProductResponseMapper>()));
   gh.factory<_i38.ProfileBloc>(() => _i38.ProfileBloc(
       get<_i35.GetStringPreferenceUseCase>(), get<_i31.FetchProfileUseCase>()));
-  gh.factory<_i39.StartBloc>(() => _i39.StartBloc(
+  gh.lazySingleton<_i39.ShareProductUseCase>(
+      () => _i39.ShareProductUseCase(get<_i36.ProductRepository>()));
+  gh.factory<_i40.StartBloc>(() => _i40.StartBloc(
       get<_i32.GetBoolPreferenceUseCase>(),
       get<_i35.GetStringPreferenceUseCase>(),
       get<_i27.SetPreferenceUseCase>()));
-  gh.factory<_i40.AuthBloc>(() => _i40.AuthBloc(get<_i29.AuthUseCase>()));
-  gh.lazySingleton<_i41.FetchCategoriesUseCase>(
-      () => _i41.FetchCategoriesUseCase(get<_i36.ProductRepository>()));
-  gh.lazySingleton<_i42.FetchHomeUseCase>(
-      () => _i42.FetchHomeUseCase(get<_i36.ProductRepository>()));
-  gh.lazySingleton<_i43.FetchProductUseCase>(
-      () => _i43.FetchProductUseCase(get<_i36.ProductRepository>()));
-  gh.lazySingleton<_i44.FetchProductsUseCase>(
-      () => _i44.FetchProductsUseCase(get<_i36.ProductRepository>()));
-  gh.factory<_i45.HomeBloc>(() => _i45.HomeBloc(get<_i42.FetchHomeUseCase>()));
-  gh.factory<_i46.ProductsBloc>(
-      () => _i46.ProductsBloc(get<_i44.FetchProductsUseCase>()));
-  gh.factory<_i47.CategoryBloc>(
-      () => _i47.CategoryBloc(get<_i41.FetchCategoriesUseCase>()));
-  gh.factory<_i48.DetailBloc>(
-      () => _i48.DetailBloc(get<_i43.FetchProductUseCase>()));
+  gh.factory<_i41.AuthBloc>(() => _i41.AuthBloc(get<_i29.AuthUseCase>()));
+  gh.lazySingleton<_i42.FetchCategoriesUseCase>(
+      () => _i42.FetchCategoriesUseCase(get<_i36.ProductRepository>()));
+  gh.lazySingleton<_i43.FetchHomeUseCase>(
+      () => _i43.FetchHomeUseCase(get<_i36.ProductRepository>()));
+  gh.lazySingleton<_i44.FetchProductUseCase>(
+      () => _i44.FetchProductUseCase(get<_i36.ProductRepository>()));
+  gh.lazySingleton<_i45.FetchProductsUseCase>(
+      () => _i45.FetchProductsUseCase(get<_i36.ProductRepository>()));
+  gh.factory<_i46.HomeBloc>(() => _i46.HomeBloc(get<_i43.FetchHomeUseCase>()));
+  gh.lazySingleton<_i47.LikeProductUseCase>(
+      () => _i47.LikeProductUseCase(get<_i36.ProductRepository>()));
+  gh.factory<_i48.ProductsBloc>(
+      () => _i48.ProductsBloc(get<_i45.FetchProductsUseCase>()));
+  gh.factory<_i49.CategoryBloc>(
+      () => _i49.CategoryBloc(get<_i42.FetchCategoriesUseCase>()));
+  gh.factory<_i50.DetailBloc>(() => _i50.DetailBloc(
+      get<_i44.FetchProductUseCase>(),
+      get<_i47.LikeProductUseCase>(),
+      get<_i39.ShareProductUseCase>()));
   return get;
 }
 
-class _$RegisterModule extends _i49.RegisterModule {}
+class _$RegisterModule extends _i51.RegisterModule {}

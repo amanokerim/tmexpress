@@ -44,6 +44,14 @@
   "productWholesaleDesc": "{count}+ alynanda",
   "productWeight": "Agramy",
   "addToCart": "Sebede goşmak",
+  "selectColor": "Reňk saýlaň",
+  "selectSize": "Ölçeg saýlaň",
+  "addedToCart": "Sebede goşuldy",
+  "addToFavorites": "Halanlaryma goşmak",
+  "removeFromFavorites": "Halanlarymdan aýyrmak",
+  "addToFavoritesError": "Halanlaryňyza goşmakda näsazlyk ýüze çykdy",
+  "removeFromFavoritesError": "Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy",
+  "share": "Paýlaşmak",
   
   "size": "Ölçeg",
 
@@ -53,6 +61,17 @@
   "sendSmsExpalanation": "Hasaba girmek üçin, \n{phone} belgä {code} kody SMS arkaly ugradyň we programma dolanyň.",
   "waitingVerificationText": "Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)",
   "canNotVerify": "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň",
+
+  "normal": "Adaty",
+  "express": "Express",
+  "normalSubtitle": "45 günde gowuşýar",
+  "expressSubtitle": "15 günde gowuşýar",
+  "continueButton": "Dowam etmek",
+  "makeOrder": "Sargyt etmek",
+  "total": "Jemi:\n",
+  "nMan": "{total} man.",
+
+
 
 
   "": ""

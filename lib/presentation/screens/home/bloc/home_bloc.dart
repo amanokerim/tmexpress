@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/home.dart';
-import '../../../../domain/usecases/fetch_home_usecase.dart';
+import '../../../../domain/usecases/products/fetch_home_usecase.dart';
 import '../../../bloc/app_bloc.dart';
 
 part 'home_event.dart';

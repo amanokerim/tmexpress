@@ -11,4 +11,15 @@ abstract class AuthNetwork {
 
   @GET('api/auth/profile/')
   Future<ProfileResponse> fetchProfile();
+
+  @PATCH('api/products/singleProductLike/{id}/')
+  Future<void> like(@Path('id') int id);
+
+  @PATCH('api/products/singleProductShare/{id}/')
+  Future<void> share(@Path('id') int id);
+
+  @POST('api/order/order-create')
+  Future<void> createOrder(
+    
+  );
 }

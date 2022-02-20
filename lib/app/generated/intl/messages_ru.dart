@@ -20,14 +20,21 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
-  static String m0(count) => "${count}+ alynanda";
+  static String m0(total) => "${total} man.";
 
-  static String m1(phone, code) =>
+  static String m1(count) => "${count}+ alynanda";
+
+  static String m2(phone, code) =>
       "Hasaba girmek üçin, \n${phone} belgä ${code} kody SMS arkaly ugradyň we programma dolanyň.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addToCart": MessageLookupByLibrary.simpleMessage("Sebede goşmak"),
+        "addToFavorites":
+            MessageLookupByLibrary.simpleMessage("Halanlaryma goşmak"),
+        "addToFavoritesError": MessageLookupByLibrary.simpleMessage(
+            "Halanlaryňyza goşmakda näsazlyk ýüze çykdy"),
+        "addedToCart": MessageLookupByLibrary.simpleMessage("Sebede goşuldy"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
         "canNotVerify": MessageLookupByLibrary.simpleMessage(
             "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň"),
@@ -38,8 +45,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
         "connectionError":
             MessageLookupByLibrary.simpleMessage("Serwere baglanyp bolmady"),
+        "continueButton": MessageLookupByLibrary.simpleMessage("Dowam etmek"),
         "doubleBackToExit": MessageLookupByLibrary.simpleMessage(
             "Çykmak üçin ýene bir gezek basyň"),
+        "express": MessageLookupByLibrary.simpleMessage("Express"),
+        "expressSubtitle":
+            MessageLookupByLibrary.simpleMessage("15 günde gowuşýar"),
         "forbidden": MessageLookupByLibrary.simpleMessage(
             "Bu amaly ýerine ýetirmek üçin sizde ýeterlik hukuk ýok"),
         "homeScreen": MessageLookupByLibrary.simpleMessage("Baş sahypa"),
@@ -51,8 +62,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "lang": MessageLookupByLibrary.simpleMessage("Русский"),
         "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
         "login": MessageLookupByLibrary.simpleMessage("Hasaba girmek"),
+        "makeOrder": MessageLookupByLibrary.simpleMessage("Sargyt etmek"),
+        "nMan": m0,
         "noProducts": MessageLookupByLibrary.simpleMessage(
             "Bu ýerde häzirlikçe haryt ýok ("),
+        "normal": MessageLookupByLibrary.simpleMessage("Adaty"),
+        "normalSubtitle":
+            MessageLookupByLibrary.simpleMessage("45 günde gowuşýar"),
         "phone": MessageLookupByLibrary.simpleMessage("Telefon"),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),
@@ -66,19 +82,27 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lomaý baha"),
         "productSizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
         "productWeight": MessageLookupByLibrary.simpleMessage("Agramy"),
-        "productWholesaleDesc": m0,
+        "productWholesaleDesc": m1,
         "profile": MessageLookupByLibrary.simpleMessage("Profil"),
+        "removeFromFavorites":
+            MessageLookupByLibrary.simpleMessage("Halanlarymdan aýyrmak"),
+        "removeFromFavoritesError": MessageLookupByLibrary.simpleMessage(
+            "Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy"),
         "requiredField":
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
+        "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
+        "selectSize": MessageLookupByLibrary.simpleMessage("Ölçeg saýlaň"),
         "sendSms": MessageLookupByLibrary.simpleMessage("SMS ugratmak"),
-        "sendSmsExpalanation": m1,
+        "sendSmsExpalanation": m2,
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
+        "share": MessageLookupByLibrary.simpleMessage("Paýlaşmak"),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Näsazlyk ýüze çykdy"),
         "today": MessageLookupByLibrary.simpleMessage("Bu gün"),
+        "total": MessageLookupByLibrary.simpleMessage("Jemi:\n"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Amal wagtlaýyn elýeter däl.\nBiraz wagtdan synanyşyp görüň."),
         "userAgreementLink":

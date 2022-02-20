@@ -1,6 +1,6 @@
 {
 	"Import language file": {
-	  "prefix": ["ln"],
+	  "prefix": ["imln"],
 	  "body": ["import 'package:tmexpress/app/generated/l10n.dart';"],
 	  "description": "Import language file"
 	}

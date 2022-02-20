@@ -76,6 +76,7 @@ class AppFlash {
   static Future<void>? toast({
     required BuildContext context,
     required String message,
+    bool isError = false,
   }) {
     if (_previousController?.isDisposed == false) {
       _previousController?.dismiss();
@@ -91,19 +92,18 @@ class AppFlash {
           alignment: const Alignment(0, -.92),
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           borderRadius: const BorderRadius.all(Radius.circular(16)),
-          backgroundColor: AppColors.dark,
-          boxShadows: const [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 2,
-              offset: Offset(0, 1),
-            )
-          ],
+          backgroundColor:
+              isError ? Colors.red.withOpacity(.8) : Colors.white54,
           child: GestureDetector(
             onTapDown: controller.dismiss,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              child: Text(message),
+              child: Text(
+                message,
+                style: TextStyle(
+                  color: isError ? AppColors.white : AppColors.dark,
+                ),
+              ),
             ),
           ),
         );

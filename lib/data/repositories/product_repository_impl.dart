@@ -9,7 +9,7 @@ import '../../domain/entities/product_mini.dart';
 import '../../domain/entities/tag.dart';
 import '../../domain/errors/failures.dart';
 import '../../domain/repositories/product_repository.dart';
-import '../../domain/usecases/fetch_products_usecase.dart';
+import '../../domain/usecases/products/fetch_products_usecase.dart';
 import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../mappers/response_mappers/banner_response_mapper.dart';
@@ -17,6 +17,7 @@ import '../mappers/response_mappers/category_response_mapper.dart';
 import '../mappers/response_mappers/product_pagination_response_mapper.dart';
 import '../mappers/response_mappers/product_response_mapper.dart';
 import '../mappers/response_mappers/tag_respose_mapper.dart';
+import '../network/auth_network.dart';
 import '../network/common_network.dart';
 
 @LazySingleton(as: ProductRepository)
@@ -24,13 +25,16 @@ class ProductRepositoryImpl implements ProductRepository {
   ProductRepositoryImpl(
       this._exception,
       this._commonNetwork,
+      this._authNetwork,
       this._categoryResponseMapper,
       this._bannerResponseMapper,
       this._tagResponseMapper,
       this._productPaginationResponseMapper,
       this._productResponseMapper);
+
   final ExceptionHandler _exception;
   final CommonNetwork _commonNetwork;
+  final AuthNetwork _authNetwork;
   final CategoryResponseMapper _categoryResponseMapper;
   final BannerResponseMapper _bannerResponseMapper;
   final TagResponseMapper _tagResponseMapper;
@@ -87,6 +91,20 @@ class ProductRepositoryImpl implements ProductRepository {
           _commonNetwork.fetchProduct(id).then(_productResponseMapper.map);
 
       return product;
+    });
+  }
+
+  @override
+  Future<Either<Failure, void>> like(int id) {
+    return _exception.handle(() async {
+      await _authNetwork.like(id);
+    });
+  }
+
+  @override
+  Future<Either<Failure, void>> share(int id) {
+    return _exception.handle(() async {
+      await _authNetwork.share(id);
     });
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
+import 'app_progress_indicator.dart';
 
 class AppButton extends ElevatedButton {
   AppButton({
@@ -8,13 +9,7 @@ class AppButton extends ElevatedButton {
     required VoidCallback? onPressed,
     ButtonType type = ButtonType.red,
     String? iconFile,
-    double? fontSize,
-    bool paintIcon = true,
     bool isLoading = false,
-    bool isCentered = true,
-    bool mini = false,
-    bool shrinkWrap = false,
-    bool borderLess = false,
   }) : super(
           style: ElevatedButton.styleFrom(
             elevation: 0,
@@ -24,8 +19,8 @@ class AppButton extends ElevatedButton {
             shadowColor: Colors.black38,
             onPrimary: AppColors.grey,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(mini ? 13 : 20),
-              side: type == ButtonType.outline && !borderLess
+              borderRadius: BorderRadius.circular(20),
+              side: type == ButtonType.outline
                   ? BorderSide(
                       color: AppColors.textSec,
                       width: .5,
@@ -34,49 +29,33 @@ class AppButton extends ElevatedButton {
             ),
           ),
           onPressed: isLoading ? null : onPressed,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(
-                  0,
-                  mini ? 10 : 16,
-                  0,
-                  mini ? 10 : (isLoading ? 12 : 14),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 16, 0, 14),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (isLoading) ...[
+                  const AppProgressIndicator(size: 16),
+                  const SizedBox(width: 8),
+                ],
+                if (iconFile != null) ...[
+                  Image.asset(
+                    'assets/icons/$iconFile',
+                    color: type.foreground,
+                    width: 20,
+                  ),
+                  const SizedBox(width: 8),
+                ],
+                Text(
+                  label,
+                  style: AppTextStyle.bold16.copyWith(
+                    color: type.foreground,
+                  ),
                 ),
-                child: Row(
-                  mainAxisSize:
-                      shrinkWrap ? MainAxisSize.min : MainAxisSize.max,
-                  mainAxisAlignment: isCentered
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (iconFile != null) ...[
-                      Image.asset(
-                        'assets/icons/$iconFile',
-                        color: paintIcon ? type.foreground : null,
-                        width: 20,
-                      ),
-                      const SizedBox(width: 8),
-                    ],
-                    Text(
-                      label,
-                      style: AppTextStyle.bold16.copyWith(
-                        fontSize: mini ? 12 : fontSize,
-                        color: type.foreground,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              if (isLoading)
-                LinearProgressIndicator(
-                  backgroundColor: type.background,
-                  valueColor: AlwaysStoppedAnimation<Color>(type.foreground),
-                  minHeight: 2,
-                )
-            ],
+              ],
+            ),
           ),
         );
 }

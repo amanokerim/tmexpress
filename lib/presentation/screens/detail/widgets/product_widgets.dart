@@ -5,6 +5,7 @@ import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/cart_item.dart';
 import '../../../../domain/entities/product.dart';
 import '../../../theme/app_theme.dart';
+import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../bloc/detail_bloc.dart';
@@ -24,13 +25,29 @@ class ProductWidgets extends StatelessWidget {
       child: AppButton(
         label: S.current.addToCart,
         onPressed: () {
-          if (state.selectedColor != null && state.selectedSize != null) {
+          if (state.selectedColor == null) {
+            AppFlash.toast(
+                context: context,
+                message: S.current.selectColor,
+                isError: true);
+          } else if (state.selectedSize == null) {
+            AppFlash.toast(
+                context: context, message: S.current.selectSize, isError: true);
+          } else if (state.selectedColor != null &&
+              state.selectedSize != null) {
             final cartItem = CartItem(
-                product: _product,
-                count: 1,
-                size: state.selectedSize!,
-                color: state.selectedColor!);
+              product: _product,
+              count: 1,
+              size: state.selectedSize!,
+              color: state.selectedColor!,
+              price: _product.normalPrice,
+              expressPrice: _product.expressPrice,
+            );
             context.read<CartBloc>().add(CartItemAdded(cartItem));
+            AppFlash.toast(
+                context: context,
+                message: S.current.addedToCart,
+                isError: true);
           }
         },
         iconFile: 'basket.png',
@@ -38,6 +55,26 @@ class ProductWidgets extends StatelessWidget {
       ),
     );
   }
+
+  Widget get title => Row(
+        children: [
+          Expanded(
+            child: Text(
+              state.product.title,
+              style: AppTextStyle.bold20,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Image.asset('assets/icons/favorite.png',
+              color: Colors.amber, width: 22),
+          const SizedBox(width: 4),
+          Text(
+            state.product.ourRating.toStringAsFixed(1),
+            style: AppTextStyle.bold16,
+          ),
+        ],
+      );
 
   List<Widget> weight() {
     return [
@@ -85,28 +122,6 @@ class ProductWidgets extends StatelessWidget {
       ),
       const SizedBox(height: 20),
     ];
-  }
-
-  Widget title() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          Expanded(
-              child: Text(_product.title,
-                  style: AppTextStyle.bold20,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis)),
-          Image.asset('assets/icons/favorite.png',
-              color: Colors.amber, width: 22),
-          const SizedBox(width: 4),
-          Text(
-            _product.ourRating.toStringAsFixed(1),
-            style: AppTextStyle.bold16,
-          ),
-        ],
-      ),
-    );
   }
 
   @override
