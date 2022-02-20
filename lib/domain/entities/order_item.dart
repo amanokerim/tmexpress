@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class OrderItem {
   const OrderItem({
     required this.product,

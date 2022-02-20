@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/cart_item.dart';

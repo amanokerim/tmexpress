@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/generated/l10n.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_button.dart';
-import '../../../widgets/app_confirm_dialog.dart';
 import '../bloc/cart_bloc.dart';
 
 class ContinueOrderButton extends StatelessWidget {

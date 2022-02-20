@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../app/generated/l10n.dart';
@@ -8,6 +7,7 @@ import '../../../bloc/app_bloc.dart';
 import '../../cart/cart_screen.dart';
 import '../../category/category_page.dart';
 import '../../home/home_page.dart';
+import '../../hot/hot_page.dart';
 import '../../profile/profile_page.dart';
 
 part 'main_event.dart';
@@ -40,7 +40,7 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
       index: 2,
       title: S.current.hot,
       icon: 'fire',
-      screen: Center(child: Text(S.current.hot)),
+      screen: const HotPage(),
     ),
     BottomTab(
       index: 3,
