@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 import '../../app/generated/l10n.dart';
 import '../theme/app_theme.dart';
 
-class AppConfirmDialog extends StatelessWidget {
-  const AppConfirmDialog({
+class AppDialog extends StatelessWidget {
+  const AppDialog({
     required this.content,
     required this.positiveButtonLabel,
     this.title,
+    this.showNegativeButton = true,
     Key? key,
   }) : super(key: key);
   final String content;
   final String positiveButtonLabel;
   final String? title;
+  final bool showNegativeButton;
 
   @override
   Widget build(BuildContext context) {
@@ -51,34 +53,38 @@ class AppConfirmDialog extends StatelessWidget {
               height: 1,
               color: AppColors.textInvisible,
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: InkWell(
-                    onTap: () => Navigator.of(context).pop(false),
-                    child: Text(
-                      S.current.cancel,
-                      style: AppTextStyle.grey16,
-                      textAlign: TextAlign.center,
+            SizedBox(
+              height: 50,
+              child: Row(
+                children: [
+                  if (showNegativeButton) ...[
+                    Expanded(
+                      child: InkWell(
+                        onTap: () => Navigator.of(context).pop(false),
+                        child: Text(
+                          S.current.cancel,
+                          style: AppTextStyle.grey16,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 1,
+                      color: AppColors.textInvisible,
+                    ),
+                  ],
+                  Expanded(
+                    child: InkWell(
+                      onTap: () => Navigator.of(context).pop(true),
+                      child: Text(
+                        positiveButtonLabel,
+                        style: AppTextStyle.grey16,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  height: 50,
-                  width: 1,
-                  color: AppColors.textInvisible,
-                ),
-                Expanded(
-                  child: InkWell(
-                    onTap: () => Navigator.of(context).pop(true),
-                    child: Text(
-                      positiveButtonLabel,
-                      style: AppTextStyle.grey16,
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             )
           ],
         ),
