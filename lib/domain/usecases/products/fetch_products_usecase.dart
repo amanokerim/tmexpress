@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../entities/pagination.dart';
 import '../../entities/product_mini.dart';
-import '../../entities/product_parent.dart';
+import '../../entities/sub_tag.dart';
 import '../../errors/failures.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
@@ -26,6 +26,6 @@ class FetchProductsParams {
     required this.productParent,
     this.next,
   });
-  final ProductParent productParent;
+  final SubTag productParent;
   final String? next;
 }

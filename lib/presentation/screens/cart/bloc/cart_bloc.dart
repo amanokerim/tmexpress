@@ -1,52 +1,77 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/cart_item.dart';
+import '../../../../domain/entities/order.dart';
+import '../../../../domain/entities/order_item.dart';
+import '../../../../domain/usecases/order/create_order_usecase.dart';
 import '../../../bloc/app_bloc.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
 
+const _initialState = CartState(CartSt.initial, [], 0, isExpress: false);
+
 @injectable
 class CartBloc extends AppBloc<CartEvent, CartState> {
-  CartBloc() : super(const CartState([], 0, isExpress: false)) {
+  CartBloc(this._createOrderUseCase) : super(_initialState) {
     on<CartItemAdded>((event, emit) {
-      final index = items.indexWhere((item) => item == event.cartItem);
+      final index = _items.indexWhere((item) => item == event.cartItem);
       if (index != -1) {
-        items[index] = items[index].increase(event.cartItem.count);
+        _items[index] = _items[index].increase(event.cartItem.count);
       } else {
-        items.add(event.cartItem);
+        _items.add(event.cartItem);
       }
-      emit(st);
+      emit(cartState());
     });
 
     on<CartItemRemoved>((event, emit) {
-      items.remove(event.cartItem);
-      emit(st);
+      _items.remove(event.cartItem);
+      emit(cartState());
     });
 
     on<CartCleared>((event, emit) {
-      items.clear();
-      emit(st);
+      _items.clear();
+      emit(cartState());
     });
 
     on<CartDeliveryMethodChanged>((event, emit) {
-      isExpress = !isExpress;
-      emit(st);
+      _isExpress = !_isExpress;
+      emit(cartState());
+    });
+
+    on<CartOrderPlaced>((event, emit) async {
+      emit(cartState(st: CartSt.loading));
+      final orderItems = _items
+          .map((item) => OrderItem(
+              product: item.product.id,
+              qty: item.count,
+              size: item.size.id,
+              color: item.color.id))
+          .toList();
+      final order = Order(orderitems: orderItems, isExpress: _isExpress);
+      final r = await _createOrderUseCase(order);
+      emit(r.fold(
+        (failure) => cartState(message: mapError(failure)),
+        (r) => cartState(st: CartSt.done),
+      ));
     });
   }
 
-  CartState get st => CartState(List.from(items), total, isExpress: isExpress);
+  CartState cartState({CartSt st = CartSt.initial, String? message}) =>
+      CartState(st, List.from(_items), total, isExpress: _isExpress);
 
   double get total {
     var t = 0.0;
-    for (final c in items) {
-      t += c.count * (isExpress ? c.expressPrice : c.price);
+    for (final c in _items) {
+      t += c.count * (_isExpress ? c.expressPrice : c.price);
     }
     return t;
   }
 
-  List<CartItem> items = [];
-  bool isExpress = false;
-  bool key = false;
+  final _items = <CartItem>[];
+  var _isExpress = false;
+
+  final CreateOrderUseCase _createOrderUseCase;
 }

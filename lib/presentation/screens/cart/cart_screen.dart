@@ -11,7 +11,10 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CartBloc, CartState>(
+    return BlocConsumer<CartBloc, CartState>(
+      listener: (_, state) {
+        print(state);
+      },
       builder: (_, state) => Column(
         children: [
           Expanded(

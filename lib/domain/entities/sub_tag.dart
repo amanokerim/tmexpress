@@ -1,7 +1,8 @@
 import 'package:equatable/equatable.dart';
 
-abstract class ProductParent extends Equatable {
-  const ProductParent(this.id, this.title);
+/// Parent of Tag and Subcategory
+abstract class SubTag extends Equatable {
+  const SubTag(this.id, this.title);
   final int id;
   final String title;
 

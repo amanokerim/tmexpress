@@ -1,6 +1,6 @@
-import 'product_parent.dart';
+import 'sub_tag.dart';
 
-class Subcategory extends ProductParent {
+class Subcategory extends SubTag {
   const Subcategory({
     required this.id,
     required this.title,

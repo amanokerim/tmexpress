@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../domain/entities/order.dart';
 import 'response_models/profile_response.dart';
 
 part 'auth_network.g.dart';
@@ -18,8 +19,8 @@ abstract class AuthNetwork {
   @PATCH('api/products/singleProductShare/{id}/')
   Future<void> share(@Path('id') int id);
 
-  @POST('api/order/order-create')
+  @POST('api/order/order-create/')
   Future<void> createOrder(
-    
+    @Body() Order order,
   );
 }
