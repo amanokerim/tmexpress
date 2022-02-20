@@ -3,21 +3,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../../domain/entities/product_mini.dart';
-import '../../../domain/entities/sub_tag.dart';
-import '../../widgets/primary_app_bar.dart';
 import '../../widgets/product_paged_grid_view.dart';
-import 'bloc/products_bloc.dart';
+import 'bloc/hot_bloc.dart';
 
-class ProductsScreen extends StatefulWidget {
-  const ProductsScreen({required this.productParent, Key? key})
-      : super(key: key);
-  final SubTag productParent;
+class HotScreen extends StatefulWidget {
+  const HotScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProductsScreen> createState() => _ProductsScreenState();
+  State<HotScreen> createState() => _HotScreenState();
 }
 
-class _ProductsScreenState extends State<ProductsScreen> {
+class _HotScreenState extends State<HotScreen> {
   PagingController<String?, ProductMini> pagingController =
       PagingController(firstPageKey: null);
 
@@ -25,8 +21,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
   void initState() {
     super.initState();
     pagingController.addPageRequestListener((next) {
-      context.read<ProductsBloc>().add(
-          ProductsRequested(next: next, productParent: widget.productParent));
+      context.read<HotBloc>().add(HotRequested(next: next));
     });
   }
 
@@ -39,17 +34,15 @@ class _ProductsScreenState extends State<ProductsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBar(label: widget.productParent.title),
-      body: BlocListener<ProductsBloc, ProductsState>(
+      body: BlocListener<HotBloc, HotState>(
         listener: (_, state) {
-          if (state is ProductsLoadSuccess) {
-            if (state.clear) pagingController.itemList?.clear();
+          if (state is HotLoadSuccess) {
             if (state.next == null) {
               pagingController.appendLastPage(state.products);
             } else {
               pagingController.appendPage(state.products, state.next);
             }
-          } else if (state is ProductsLoadError) {
+          } else if (state is HotLoadError) {
             pagingController.error = state.message;
           }
         },

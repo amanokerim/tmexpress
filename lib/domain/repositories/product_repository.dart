@@ -16,6 +16,9 @@ abstract class ProductRepository {
   Future<Either<Failure, Pagination<ProductMini>>> fetchProducts(
       FetchProductsParams params);
 
+  Future<Either<Failure, Pagination<ProductMini>>> fetchHotProducts(
+      String? next);
+
   Future<Either<Failure, Product>> fetchProduct(int id);
 
   Future<Either<Failure, void>> like(int id);

@@ -1,7 +1,7 @@
 import 'product_mini.dart';
-import 'product_parent.dart';
+import 'sub_tag.dart';
 
-class Tag extends ProductParent {
+class Tag extends SubTag {
   const Tag({
     required this.id,
     required this.title,

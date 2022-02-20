@@ -38,6 +38,12 @@ abstract class CommonNetwork {
     @Query('limit') int limit,
   );
 
+  @GET('api/products/productsOrderByHotList/')
+  Future<PaginationResponse<ProductMiniResponse>> fetchHotProducts(
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
+  );
+
   @GET('api/products/singleProduct/{id}/')
   Future<ProductResponse> fetchProduct(
     @Path('id') int id,

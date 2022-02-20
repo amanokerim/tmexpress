@@ -28,3 +28,5 @@ class CartCleared extends CartEvent {}
 class CardOrderMade extends CartEvent {}
 
 class CartDeliveryMethodChanged extends CartEvent {}
+
+class CartOrderPlaced extends CartEvent {}

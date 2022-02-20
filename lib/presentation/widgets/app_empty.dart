@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../theme/app_theme.dart';
 
@@ -21,13 +22,22 @@ class AppEmpty extends StatelessWidget {
       padding: padding,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset('assets/images/empty.png'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: SvgPicture.asset(
+              'assets/illustrations/empty.svg',
+              width: 300,
+            ),
+          ),
           const SizedBox(height: 24),
-          Text(message,
-              style: AppTextStyle.grey16.copyWith(height: 1.5),
-              textAlign: TextAlign.center),
+          Text(
+            message,
+            style: AppTextStyle.grey16.copyWith(height: 1.5),
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );

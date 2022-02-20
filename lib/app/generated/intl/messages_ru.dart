@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cantNavigateToSMSApp": MessageLookupByLibrary.simpleMessage(
             "SMS programmany açmakda näsazlyk ýüze çykdy. SMS programma geçip, bellenen nomere bellenen kody ugratmagyňyzy haýyş edýäris."),
         "cart": MessageLookupByLibrary.simpleMessage("Sebet"),
+        "cartEmpty": MessageLookupByLibrary.simpleMessage("Sebetde haryt ýok"),
         "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
         "connectionError":
             MessageLookupByLibrary.simpleMessage("Serwere baglanyp bolmady"),
@@ -69,6 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "normal": MessageLookupByLibrary.simpleMessage("Adaty"),
         "normalSubtitle":
             MessageLookupByLibrary.simpleMessage("45 günde gowuşýar"),
+        "ok": MessageLookupByLibrary.simpleMessage("Bolýar"),
+        "orderCreated": MessageLookupByLibrary.simpleMessage(
+            "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
         "phone": MessageLookupByLibrary.simpleMessage("Telefon"),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),

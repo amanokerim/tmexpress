@@ -12,6 +12,6 @@ class ProductsRequested extends ProductsEvent {
     required this.productParent,
     this.next,
   });
-  final ProductParent productParent;
+  final SubTag productParent;
   final String? next;
 }

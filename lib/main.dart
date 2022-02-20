@@ -45,10 +45,18 @@ class FlutterApp extends StatelessWidget {
       );
 }
 
-// 1. 
+// Make order
+// Hot
+// Filter/sort
+// Profile
+// Show profile data confirming dialog on order place
+// Show orders in profile
+// Referral system
+// Test/refine/refactor
 
 
-// TODO Back button in a same birghtness with status bar
+
+// TODO Back button in a same brightness with status bar
 // TODO Setup slivers to the detail screen
 // TODO Encode code in login and register
 

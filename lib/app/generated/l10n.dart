@@ -650,6 +650,36 @@ class S {
     );
   }
 
+  /// `Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!`
+  String get orderCreated {
+    return Intl.message(
+      'Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!',
+      name: 'orderCreated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bolýar`
+  String get ok {
+    return Intl.message(
+      'Bolýar',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sebetde haryt ýok`
+  String get cartEmpty {
+    return Intl.message(
+      'Sebetde haryt ýok',
+      name: 'cartEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

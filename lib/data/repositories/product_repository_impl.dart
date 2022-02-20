@@ -107,4 +107,18 @@ class ProductRepositoryImpl implements ProductRepository {
       await _authNetwork.share(id);
     });
   }
+
+  @override
+  Future<Either<Failure, Pagination<ProductMini>>> fetchHotProducts(
+      String? next) {
+    return _exception.handle(() async {
+      String? offset;
+      if (next != null) {
+        final uri = Uri.parse(next);
+        offset = uri.queryParameters['offset'];
+      }
+      final response = _commonNetwork.fetchHotProducts(offset, kLimit);
+      return response.then(_productPaginationResponseMapper.map);
+    });
+  }
 }
