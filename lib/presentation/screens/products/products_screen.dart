@@ -7,6 +7,7 @@ import '../../../domain/entities/sub_tag.dart';
 import '../../widgets/primary_app_bar.dart';
 import '../../widgets/product_paged_grid_view.dart';
 import 'bloc/products_bloc.dart';
+import 'widgets/sort_filter_header.dart';
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen({required this.productParent, Key? key})
@@ -53,7 +54,16 @@ class _ProductsScreenState extends State<ProductsScreen> {
             pagingController.error = state.message;
           }
         },
-        child: ProductPagedGridView(pagingController),
+        child: CustomScrollView(
+          slivers: [
+            SliverPersistentHeader(
+                delegate: SortFilterHeaderDelegate(pagingController),
+                floating: true),
+            SliverPadding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                sliver: ProductPagedGridView(pagingController)),
+          ],
+        ),
       ),
     );
   }

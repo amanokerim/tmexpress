@@ -7,6 +7,7 @@ class PrimaryAppBar extends AppBar {
       : super(
           key: key,
           elevation: 0,
+          toolbarHeight: 40,
           centerTitle: false,
           iconTheme: IconThemeData(color: AppColors.dark),
           title: Text(label, style: AppTextStyle.bold20),

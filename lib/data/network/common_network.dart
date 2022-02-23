@@ -29,6 +29,7 @@ abstract class CommonNetwork {
     @Path('id') int id,
     @Query('offset') String? offset,
     @Query('limit') int limit,
+    @Query('orderBy') String orderBy,
   );
 
   @GET('api/products/tagProudcts/{id}/')

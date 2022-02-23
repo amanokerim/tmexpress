@@ -70,11 +70,12 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> fetchSubcategoryProducts(
-      id, offset, limit) async {
+      id, offset, limit, orderBy) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'offset': offset,
-      r'limit': limit
+      r'limit': limit,
+      r'orderBy': orderBy
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

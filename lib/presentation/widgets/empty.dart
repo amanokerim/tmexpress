@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../theme/app_theme.dart';
 
-class Emtpy extends StatelessWidget {
-  const Emtpy(this.title);
+class Empty extends StatelessWidget {
+  const Empty(this.title);
   final String title;
 
   @override

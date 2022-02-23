@@ -45,14 +45,13 @@ class FlutterApp extends StatelessWidget {
       );
 }
 
-// Make order
-// Hot
 // Filter/sort
 // Profile
 // Show profile data confirming dialog on order place
 // Show orders in profile
 // Referral system
 // Test/refine/refactor
+// Logo/splash
 
 
 
@@ -68,3 +67,6 @@ class FlutterApp extends StatelessWidget {
 
 //////////////////////////////////////
 // https://iconscout.com/contributors/manypixels-gallery
+// https://smashicons.com/
+// https://www.flaticon.com/authors/inkubators
+// https://www.freepik.com/

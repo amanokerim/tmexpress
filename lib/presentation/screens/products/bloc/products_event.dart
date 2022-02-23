@@ -4,7 +4,7 @@ abstract class ProductsEvent extends Equatable {
   const ProductsEvent();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 class ProductsRequested extends ProductsEvent {
@@ -14,4 +14,15 @@ class ProductsRequested extends ProductsEvent {
   });
   final SubTag productParent;
   final String? next;
+
+  @override
+  List<Object?> get props => [productParent, next];
+}
+
+class ProductsSortTypeChanged extends ProductsEvent {
+  const ProductsSortTypeChanged(this.sortType);
+  final SortType sortType;
+
+  @override
+  List<Object> get props => [sortType];
 }

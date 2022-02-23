@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/category.dart';
+import '../../domain/entities/enums/sort_types.dart';
 import '../../domain/entities/home.dart';
 import '../../domain/entities/pagination.dart';
 import '../../domain/entities/product.dart';
@@ -74,9 +75,11 @@ class ProductRepositoryImpl implements ProductRepository {
         offset = uri.queryParameters['offset'];
       }
       final id = params.productParent.id;
+      final orderBy = params.sortType.orderBy;
       final response = params.productParent is Tag
           ? _commonNetwork.fetchTagProducts(id, offset, kLimit)
-          : _commonNetwork.fetchSubcategoryProducts(id, offset, kLimit);
+          : _commonNetwork.fetchSubcategoryProducts(
+              id, offset, kLimit, orderBy);
 
       final products =
           await response.then(_productPaginationResponseMapper.map);
