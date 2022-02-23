@@ -70,11 +70,15 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> fetchSubcategoryProducts(
-      id, offset, limit) async {
+      id, offset, limit, orderBy,
+      {isDiscounted, sizes}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'offset': offset,
-      r'limit': limit
+      r'limit': limit,
+      r'orderBy': orderBy,
+      r'isDiscounted': isDiscounted,
+      r'sizes': sizes
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -95,11 +99,12 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
-      id, offset, limit) async {
+      id, offset, limit, orderBy) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'offset': offset,
-      r'limit': limit
+      r'limit': limit,
+      r'orderBy': orderBy
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -170,6 +175,22 @@ class _CommonNetwork implements CommonNetwork {
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = TokenResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<SubcategoryResponse> fetchSubcategorySizes(id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<SubcategoryResponse>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, 'api/products/subCategorySizes/${id}/',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = SubcategoryResponse.fromJson(_result.data!);
     return value;
   }
 

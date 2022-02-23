@@ -680,6 +680,136 @@ class S {
     );
   }
 
+  /// `Tertip`
+  String get sort {
+    return Intl.message(
+      'Tertip',
+      name: 'sort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filtr`
+  String get filter {
+    return Intl.message(
+      'Filtr',
+      name: 'filter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Täzeler başda`
+  String get sortTime {
+    return Intl.message(
+      'Täzeler başda',
+      name: 'sortTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arzanlar başda`
+  String get sortPriceAsc {
+    return Intl.message(
+      'Arzanlar başda',
+      name: 'sortPriceAsc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gymmatlar başda`
+  String get sortPriceDesc {
+    return Intl.message(
+      'Gymmatlar başda',
+      name: 'sortPriceDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Biziň gowy baha berenlerimiz başda`
+  String get sortOurRating {
+    return Intl.message(
+      'Biziň gowy baha berenlerimiz başda',
+      name: 'sortOurRating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gyzgynlar başda`
+  String get sortHot {
+    return Intl.message(
+      'Gyzgynlar başda',
+      name: 'sortHot',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ýeňiller başda`
+  String get sortWeightAsc {
+    return Intl.message(
+      'Ýeňiller başda',
+      name: 'sortWeightAsc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Agyrlar başda`
+  String get sortWeightDesc {
+    return Intl.message(
+      'Agyrlar başda',
+      name: 'sortWeightDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kabul etmek`
+  String get apply {
+    return Intl.message(
+      'Kabul etmek',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arzanladyş`
+  String get isDiscounted {
+    return Intl.message(
+      'Arzanladyş',
+      name: 'isDiscounted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ölçegler`
+  String get sizes {
+    return Intl.message(
+      'Ölçegler',
+      name: 'sizes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ählisini saýla`
+  String get selectAll {
+    return Intl.message(
+      'Ählisini saýla',
+      name: 'selectAll',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

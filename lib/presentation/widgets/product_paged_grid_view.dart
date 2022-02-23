@@ -30,25 +30,23 @@ class ProductPagedGridView extends StatelessWidget {
         newPageProgressIndicatorBuilder: (_) => const Padding(
             padding: EdgeInsets.fromLTRB(0, 30, 0, 50),
             child: AppProgressIndicator()),
-        noItemsFoundIndicatorBuilder: (_) => Emtpy(S.current.noProducts),
+        noItemsFoundIndicatorBuilder: (_) => Empty(S.current.noProducts),
       );
 
   @override
   Widget build(BuildContext context) {
-    return PagedGridView<String?, ProductMini>(
-      physics: const BouncingScrollPhysics(),
+    return PagedSliverGrid(
       pagingController: pagingController,
-      padding: const EdgeInsets.all(16),
+      builderDelegate: delegate,
+      showNewPageProgressIndicatorAsGridChild: false,
+      showNewPageErrorIndicatorAsGridChild: false,
+      showNoMoreItemsIndicatorAsGridChild: false,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         childAspectRatio: .6,
         crossAxisCount: 3,
         mainAxisSpacing: 8,
         crossAxisSpacing: 8,
       ),
-      showNewPageProgressIndicatorAsGridChild: false,
-      showNewPageErrorIndicatorAsGridChild: false,
-      showNoMoreItemsIndicatorAsGridChild: false,
-      builderDelegate: delegate,
     );
   }
 }

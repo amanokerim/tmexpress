@@ -74,6 +74,20 @@
   "ok": "Bolýar",
   "cartEmpty": "Sebetde haryt ýok",
 
+  "sort": "Tertip",
+  "filter": "Filtr",
+  "sortTime":"Täzeler başda",
+  "sortPriceAsc":"Arzanlar başda",
+  "sortPriceDesc":"Gymmatlar başda",
+  "sortOurRating":"Biziň gowy baha berenlerimiz başda",
+  "sortHot":"Gyzgynlar başda",
+  "sortWeightAsc":"Ýeňiller başda",
+  "sortWeightDesc":"Agyrlar başda",
+  "apply": "Kabul etmek",
+  "isDiscounted": "Arzanladyş",
+  "sizes": "Ölçegler",
+  "selectAll": "Ählisini saýla",
+
 
 
 

@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/entities/size.dart';
 import '../../../theme/app_theme.dart';
-import '../bloc/detail_bloc.dart';
 
 class SizeCard extends StatelessWidget {
-  const SizeCard(this.size, {this.selected = false, Key? key})
+  const SizeCard(this.size,
+      {required this.onPressed, this.selected = false, Key? key})
       : super(key: key);
   final Size size;
   final bool selected;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(12),
-      onTap: () => context.read<DetailBloc>().add(DetailSizeChanged(size)),
+      onTap: onPressed,
       child: Container(
         margin: const EdgeInsets.all(6),
         padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
@@ -24,7 +24,12 @@ class SizeCard extends StatelessWidget {
           border: Border.all(
               color: selected ? AppColors.dark : AppColors.lGrey, width: .5),
         ),
-        child: Text(size.title, style: AppTextStyle.bold14),
+        child: Text(
+          size.title,
+          style: AppTextStyle.bold14.copyWith(
+            color: selected ? AppColors.dark : AppColors.grey,
+          ),
+        ),
       ),
     );
   }

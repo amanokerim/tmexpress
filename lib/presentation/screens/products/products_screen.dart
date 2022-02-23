@@ -4,9 +4,11 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../../domain/entities/product_mini.dart';
 import '../../../domain/entities/sub_tag.dart';
+import '../../../domain/entities/subcategory.dart';
 import '../../widgets/primary_app_bar.dart';
 import '../../widgets/product_paged_grid_view.dart';
 import 'bloc/products_bloc.dart';
+import 'widgets/sort_filter_header.dart';
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen({required this.productParent, Key? key})
@@ -38,8 +40,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final sortFilterHeaderDelegate =
+        SortFilterHeaderDelegate(pagingController, widget.productParent);
     return Scaffold(
-      appBar: PrimaryAppBar(label: widget.productParent.title),
+      appBar: PrimaryAppBar(
+        label: widget.productParent.title,
+        action: _buildSortButton(sortFilterHeaderDelegate, context),
+      ),
       body: BlocListener<ProductsBloc, ProductsState>(
         listener: (_, state) {
           if (state is ProductsLoadSuccess) {
@@ -53,8 +60,30 @@ class _ProductsScreenState extends State<ProductsScreen> {
             pagingController.error = state.message;
           }
         },
-        child: ProductPagedGridView(pagingController),
+        child: CustomScrollView(
+          slivers: [
+            if (widget.productParent is Subcategory)
+              SliverPersistentHeader(
+                  delegate: sortFilterHeaderDelegate, floating: true),
+            SliverPadding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                sliver: ProductPagedGridView(pagingController)),
+          ],
+        ),
       ),
     );
+  }
+
+  Padding? _buildSortButton(
+      SortFilterHeaderDelegate sortFilterHeaderDelegate, BuildContext context) {
+    return widget.productParent is Subcategory
+        ? null
+        : Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: GestureDetector(
+              onTap: () => sortFilterHeaderDelegate.onSortPressed(context),
+              child: Image.asset('assets/icons/sort.png', width: 18),
+            ),
+          );
   }
 }

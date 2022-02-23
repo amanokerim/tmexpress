@@ -2,10 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/category.dart';
+import '../../domain/entities/enums/sort_types.dart';
 import '../../domain/entities/home.dart';
 import '../../domain/entities/pagination.dart';
 import '../../domain/entities/product.dart';
 import '../../domain/entities/product_mini.dart';
+import '../../domain/entities/size.dart';
 import '../../domain/entities/tag.dart';
 import '../../domain/errors/failures.dart';
 import '../../domain/repositories/product_repository.dart';
@@ -16,7 +18,8 @@ import '../mappers/response_mappers/banner_response_mapper.dart';
 import '../mappers/response_mappers/category_response_mapper.dart';
 import '../mappers/response_mappers/product_pagination_response_mapper.dart';
 import '../mappers/response_mappers/product_response_mapper.dart';
-import '../mappers/response_mappers/tag_respose_mapper.dart';
+import '../mappers/response_mappers/size_response_mapper.dart';
+import '../mappers/response_mappers/tag_response_mapper.dart';
 import '../network/auth_network.dart';
 import '../network/common_network.dart';
 
@@ -30,7 +33,8 @@ class ProductRepositoryImpl implements ProductRepository {
       this._bannerResponseMapper,
       this._tagResponseMapper,
       this._productPaginationResponseMapper,
-      this._productResponseMapper);
+      this._productResponseMapper,
+      this._sizeRespMapper);
 
   final ExceptionHandler _exception;
   final CommonNetwork _commonNetwork;
@@ -40,6 +44,7 @@ class ProductRepositoryImpl implements ProductRepository {
   final TagResponseMapper _tagResponseMapper;
   final ProductPaginationResponseMapper _productPaginationResponseMapper;
   final ProductResponseMapper _productResponseMapper;
+  final SizeResponseMapper _sizeRespMapper;
 
   @override
   Future<Either<Failure, List<Category>>> fetchCategories() {
@@ -74,9 +79,17 @@ class ProductRepositoryImpl implements ProductRepository {
         offset = uri.queryParameters['offset'];
       }
       final id = params.productParent.id;
+      final orderBy = params.sortType.orderBy;
+      final isDiscounted =
+          params.filterOptions?.isDiscounted == true ? 1 : null;
+      final sizes = (params.filterOptions?.sizes ?? []).isEmpty
+          ? null
+          : params.filterOptions!.sizes.map((s) => s.id).join(',');
+
       final response = params.productParent is Tag
-          ? _commonNetwork.fetchTagProducts(id, offset, kLimit)
-          : _commonNetwork.fetchSubcategoryProducts(id, offset, kLimit);
+          ? _commonNetwork.fetchTagProducts(id, offset, kLimit, orderBy)
+          : _commonNetwork.fetchSubcategoryProducts(id, offset, kLimit, orderBy,
+              isDiscounted: isDiscounted, sizes: sizes);
 
       final products =
           await response.then(_productPaginationResponseMapper.map);
@@ -119,6 +132,15 @@ class ProductRepositoryImpl implements ProductRepository {
       }
       final response = _commonNetwork.fetchHotProducts(offset, kLimit);
       return response.then(_productPaginationResponseMapper.map);
+    });
+  }
+
+  @override
+  Future<Either<Failure, List<Size>>> fetchSubcategorySizes(int id) {
+    return _exception.handle(() {
+      return _commonNetwork.fetchSubcategorySizes(id).then(
+            (sub) => _sizeRespMapper.mapList(sub.subcategorysizes),
+          );
     });
   }
 }

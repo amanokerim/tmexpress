@@ -6,6 +6,7 @@ import 'response_models/category_response.dart';
 import 'response_models/pagination_response.dart';
 import 'response_models/product_mini_response.dart';
 import 'response_models/product_response.dart';
+import 'response_models/subcategory_response.dart';
 import 'response_models/tag_response.dart';
 import 'response_models/token_response.dart';
 
@@ -29,13 +30,17 @@ abstract class CommonNetwork {
     @Path('id') int id,
     @Query('offset') String? offset,
     @Query('limit') int limit,
-  );
+    @Query('orderBy') String orderBy, {
+    @Query('isDiscounted') int? isDiscounted,
+    @Query('sizes') String? sizes,
+  });
 
   @GET('api/products/tagProudcts/{id}/')
   Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
     @Path('id') int id,
     @Query('offset') String? offset,
     @Query('limit') int limit,
+    @Query('orderBy') String orderBy,
   );
 
   @GET('api/products/productsOrderByHotList/')
@@ -53,5 +58,10 @@ abstract class CommonNetwork {
   Future<TokenResponse> auth(
     @Field('username') String phone,
     @Field('password') int code,
+  );
+
+  @GET('api/products/subCategorySizes/{id}/')
+  Future<SubcategoryResponse> fetchSubcategorySizes(
+    @Path() int id,
   );
 }
