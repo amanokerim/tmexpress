@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(builder: (_, state) {
-      if (state is ProfileNotAuthorised) return const AuthPage();
+      if (state is ProfileNotAuthorized) return const AuthPage();
 
       return Text(state.toString());
     });

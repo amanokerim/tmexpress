@@ -19,7 +19,7 @@ class ProfileBloc extends AppBloc<ProfileEvent, ProfileState> {
       final jwt = jwtR.fold((l) => null, (r) => r);
 
       if (jwt == null) {
-        emit(ProfileNotAuthorised());
+        emit(ProfileNotAuthorized());
       } else {
         final r = await _fetchProfileUseCase();
         emit(r.fold(
