@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/entities/enums/sort_types.dart';
+import '../../../../domain/entities/interface/filter_options.dart';
+import '../../../../domain/entities/size.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_error.dart';
 import '../../../widgets/app_progress_indicator.dart';
@@ -21,22 +22,44 @@ class FilterBottomSheet extends StatelessWidget {
         if (state is FilterSuccess) {
           return SortFilterBottomSheet(
             title: S.current.filter,
-            child: Column(
-              children: [
-                SwitchListTile(
-                  title:
-                      Text(S.current.isDiscounted, style: AppTextStyle.bold16),
-                  value: state.isDiscounted,
-                  onChanged: (_) {},
-                ),
-                Wrap(
-                  children: state.sizes
-                      .map((size) => SizeCard(size, onPressed: () {}))
-                      .toList(),
-                ),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SwitchListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(S.current.isDiscounted,
+                        style: AppTextStyle.bold16),
+                    value: state.isDiscounted,
+                    onChanged: (_) => context
+                        .read<FilterBloc>()
+                        .add(FilterDiscountedToggled()),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(S.current.sizes, style: AppTextStyle.bold16),
+                      TextButton(
+                          onPressed: () => context
+                              .read<FilterBloc>()
+                              .add(FilterAllSizesSelected()),
+                          child: Text(S.current.selectAll))
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    children: state.sizes
+                        .map((size) => _toSizeCard(context, size))
+                        .toList(),
+                  ),
+                ],
+              ),
             ),
-            onPressed: null,
+            onPressed: state.sizes.any((size) => size.selected)
+                ? () => _applyButtonPressed(context, state)
+                : null,
           );
         } else if (state is FilterError) {
           return AppError(
@@ -46,8 +69,22 @@ class FilterBottomSheet extends StatelessWidget {
                 .add(FilterSizesRequested(subcategoryId)),
           );
         }
-        return const AppProgressIndicator();
+        return const AppProgressIndicator(size: 80);
       },
     );
+  }
+
+  SizeCard _toSizeCard(BuildContext context, Size size) => SizeCard(
+        size,
+        onPressed: () =>
+            context.read<FilterBloc>().add(FilterSizeToggled(size)),
+        selected: size.selected,
+      );
+
+  void _applyButtonPressed(BuildContext context, FilterSuccess state) {
+    final selectedSizes = state.sizes.where((size) => size.selected).toList();
+    final filterOptions =
+        FilterOptions(isDiscounted: state.isDiscounted, sizes: selectedSizes);
+    Navigator.of(context).pop(filterOptions);
   }
 }

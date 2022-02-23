@@ -16,12 +16,12 @@ part 'products_state.dart';
 class ProductsBloc extends AppBloc<ProductsEvent, ProductsState> {
   ProductsBloc(this._fetchProductsUseCase) : super(ProductsLoadInProgress()) {
     on<ProductsRequested>((event, emit) async {
-      productParent = event.productParent;
+      _productParent = event.productParent;
       final result = await _fetchProductsUseCase(FetchProductsParams(
-        productParent: productParent,
-        next: next,
-        sortType: sortType,
-      ));
+          productParent: _productParent,
+          next: next,
+          sortType: sortType,
+          filterOptions: _filterOptions));
       emit(result.fold(
         (failure) => ProductsLoadError(mapError(failure), UniqueKey()),
         (pagination) {
@@ -36,14 +36,14 @@ class ProductsBloc extends AppBloc<ProductsEvent, ProductsState> {
     });
 
     on<ProductsFilterOptionsChanged>((event, emit) {
-      filterOptions = event.filterOptions;
+      _filterOptions = event.filterOptions;
     });
   }
   String? next;
   SortType sortType = SortType.time;
-  FilterOptions filterOptions =
+  FilterOptions _filterOptions =
       const FilterOptions(isDiscounted: false, sizes: []);
-  late SubTag productParent;
+  late SubTag _productParent;
 
   final FetchProductsUseCase _fetchProductsUseCase;
 }

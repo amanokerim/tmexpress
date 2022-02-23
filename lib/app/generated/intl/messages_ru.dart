@@ -98,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "requiredField":
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
+        "selectAll": MessageLookupByLibrary.simpleMessage("Ählisini saýla"),
         "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
         "selectSize": MessageLookupByLibrary.simpleMessage("Ölçeg saýlaň"),
         "sendSms": MessageLookupByLibrary.simpleMessage("SMS ugratmak"),

@@ -21,11 +21,13 @@ class FilterSuccess extends FilterState {
   const FilterSuccess({
     required this.isDiscounted,
     required this.sizes,
+    required this.key,
   });
 
   final bool isDiscounted;
   final List<Size> sizes;
+  final bool key;
 
   @override
-  List<Object?> get props => [sizes, isDiscounted];
+  List<Object?> get props => [key];
 }

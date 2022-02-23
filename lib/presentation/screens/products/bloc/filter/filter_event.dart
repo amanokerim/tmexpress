@@ -14,3 +14,15 @@ class FilterSizesRequested extends FilterEvent {
   @override
   List<Object> get props => [subcategoryId];
 }
+
+class FilterSizeToggled extends FilterEvent {
+  const FilterSizeToggled(this.size);
+  final Size size;
+
+  @override
+  List<Object> get props => [size];
+}
+
+class FilterDiscountedToggled extends FilterEvent {}
+
+class FilterAllSizesSelected extends FilterEvent {}

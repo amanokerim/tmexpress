@@ -80,10 +80,16 @@ class ProductRepositoryImpl implements ProductRepository {
       }
       final id = params.productParent.id;
       final orderBy = params.sortType.orderBy;
+      final isDiscounted =
+          params.filterOptions?.isDiscounted == true ? 1 : null;
+      final sizes = (params.filterOptions?.sizes ?? []).isEmpty
+          ? null
+          : params.filterOptions!.sizes.map((s) => s.id).join(',');
+
       final response = params.productParent is Tag
-          ? _commonNetwork.fetchTagProducts(id, offset, kLimit)
-          : _commonNetwork.fetchSubcategoryProducts(
-              id, offset, kLimit, orderBy);
+          ? _commonNetwork.fetchTagProducts(id, offset, kLimit, orderBy)
+          : _commonNetwork.fetchSubcategoryProducts(id, offset, kLimit, orderBy,
+              isDiscounted: isDiscounted, sizes: sizes);
 
       final products =
           await response.then(_productPaginationResponseMapper.map);

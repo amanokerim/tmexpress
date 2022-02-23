@@ -800,6 +800,16 @@ class S {
     );
   }
 
+  /// `Ählisini saýla`
+  String get selectAll {
+    return Intl.message(
+      'Ählisini saýla',
+      name: 'selectAll',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 
