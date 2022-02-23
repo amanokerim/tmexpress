@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/generated/l10n.dart';
 import '../../../theme/app_theme.dart';
 import '../bloc/detail_bloc.dart';
@@ -9,7 +10,7 @@ class ProductSizes extends StatelessWidget {
   const ProductSizes(this.state, {Key? key}) : super(key: key);
   final DetailLoadSuccess state;
 
-  List<Widget> widgets() {
+  List<Widget> widgets(BuildContext context) {
     final sizes = state.product.size;
     return [
       Padding(
@@ -25,6 +26,8 @@ class ProductSizes extends StatelessWidget {
           itemBuilder: (_, index) => SizeCard(
             sizes[index],
             selected: sizes[index] == state.selectedSize,
+            onPressed: () =>
+                context.read<DetailBloc>().add(DetailSizeChanged(sizes[index])),
           ),
           scrollDirection: Axis.horizontal,
         ),

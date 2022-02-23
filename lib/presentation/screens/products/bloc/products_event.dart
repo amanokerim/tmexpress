@@ -26,3 +26,11 @@ class ProductsSortTypeChanged extends ProductsEvent {
   @override
   List<Object> get props => [sortType];
 }
+
+class ProductsFilterOptionsChanged extends ProductsEvent {
+  const ProductsFilterOptionsChanged(this.filterOptions);
+  final FilterOptions filterOptions;
+
+  @override
+  List<Object> get props => [filterOptions];
+}

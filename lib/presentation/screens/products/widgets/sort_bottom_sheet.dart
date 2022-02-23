@@ -24,20 +24,18 @@ class _SortBottomSheetState extends State<SortBottomSheet> {
   Widget build(BuildContext context) {
     return SortFilterBottomSheet(
       title: S.current.sort,
-      child: Expanded(
-        child: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          itemCount: SortType.values.length,
-          itemBuilder: (_, index) => RadioListTile<SortType>(
-            value: SortType.values[index],
-            groupValue: _selected,
-            onChanged: (sortType) => setState(() => _selected = sortType),
-            contentPadding: EdgeInsets.zero,
-            title: Text(SortType.values[index].title),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          ),
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        itemCount: SortType.values.length,
+        itemBuilder: (_, index) => RadioListTile<SortType>(
+          value: SortType.values[index],
+          groupValue: _selected,
+          onChanged: (sortType) => setState(() => _selected = sortType),
+          contentPadding: EdgeInsets.zero,
+          title: Text(SortType.values[index].title),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         ),
       ),
       onPressed:

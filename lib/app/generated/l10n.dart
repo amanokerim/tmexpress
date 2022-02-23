@@ -780,6 +780,26 @@ class S {
     );
   }
 
+  /// `Arzanladyş`
+  String get isDiscounted {
+    return Intl.message(
+      'Arzanladyş',
+      name: 'isDiscounted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ölçegler`
+  String get sizes {
+    return Intl.message(
+      'Ölçegler',
+      name: 'sizes',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

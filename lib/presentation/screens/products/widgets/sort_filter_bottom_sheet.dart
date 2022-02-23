@@ -17,39 +17,30 @@ class SortFilterBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomSheet(
-      enableDrag: false,
-      backgroundColor: AppColors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-        side: BorderSide(color: AppColors.lGrey, width: .5),
-      ),
-      onClosing: () {},
-      builder: (_) => SizedBox(
-        height: MediaQuery.of(context).size.height * .6,
-        width: double.infinity,
-        child: Column(
-          children: [
-            Container(
-              width: 20,
-              height: 3,
-              margin: const EdgeInsets.only(top: 8, bottom: 16),
-              decoration: BoxDecoration(
-                color: AppColors.lGrey,
-                borderRadius: BorderRadius.circular(4),
-              ),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .6,
+      width: double.infinity,
+      child: Column(
+        children: [
+          Container(
+            width: 20,
+            height: 3,
+            margin: const EdgeInsets.only(top: 8, bottom: 16),
+            decoration: BoxDecoration(
+              color: AppColors.lGrey,
+              borderRadius: BorderRadius.circular(4),
             ),
-            Text(title, style: AppTextStyle.bold18),
-            child,
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: AppButton(
-                label: S.current.apply,
-                onPressed: onPressed,
-              ),
+          ),
+          Text(title, style: AppTextStyle.bold18),
+          Expanded(child: child),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: AppButton(
+              label: S.current.apply,
+              onPressed: onPressed,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

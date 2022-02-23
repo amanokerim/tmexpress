@@ -11,6 +11,9 @@ SubcategoryResponse _$SubcategoryResponseFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int?,
       title: json['title'] as String?,
       subCategoryImage: json['subCategoryImage'] as String?,
+      subcategorysizes: (json['subcategorysizes'] as List<dynamic>?)
+          ?.map((e) => SizeResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$SubcategoryResponseToJson(
@@ -19,4 +22,5 @@ Map<String, dynamic> _$SubcategoryResponseToJson(
       'id': instance.id,
       'title': instance.title,
       'subCategoryImage': instance.subCategoryImage,
+      'subcategorysizes': instance.subcategorysizes,
     };

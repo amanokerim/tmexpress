@@ -62,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
         "invalidVerificationCode":
             MessageLookupByLibrary.simpleMessage("Nädogry kod"),
+        "isDiscounted": MessageLookupByLibrary.simpleMessage("Arzanladyş"),
         "lang": MessageLookupByLibrary.simpleMessage("Русский"),
         "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
         "login": MessageLookupByLibrary.simpleMessage("Hasaba girmek"),
@@ -105,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Paýlaşmak"),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
+        "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Näsazlyk ýüze çykdy"),
         "sort": MessageLookupByLibrary.simpleMessage("Tertip"),

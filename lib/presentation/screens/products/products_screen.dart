@@ -57,7 +57,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
         child: CustomScrollView(
           slivers: [
             SliverPersistentHeader(
-                delegate: SortFilterHeaderDelegate(pagingController),
+                delegate: SortFilterHeaderDelegate(
+                    pagingController, widget.productParent.id),
                 floating: true),
             SliverPadding(
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),

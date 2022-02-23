@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/enums/sort_types.dart';
+import '../../../../domain/entities/interface/filter_options.dart';
 import '../../../../domain/entities/product_mini.dart';
 import '../../../../domain/entities/sub_tag.dart';
 import '../../../../domain/usecases/products/fetch_products_usecase.dart';
@@ -33,9 +34,15 @@ class ProductsBloc extends AppBloc<ProductsEvent, ProductsState> {
     on<ProductsSortTypeChanged>((event, emit) {
       sortType = event.sortType;
     });
+
+    on<ProductsFilterOptionsChanged>((event, emit) {
+      filterOptions = event.filterOptions;
+    });
   }
   String? next;
   SortType sortType = SortType.time;
+  FilterOptions filterOptions =
+      const FilterOptions(isDiscounted: false, sizes: []);
   late SubTag productParent;
 
   final FetchProductsUseCase _fetchProductsUseCase;
