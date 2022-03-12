@@ -60,13 +60,9 @@ class FlutterApp extends StatelessWidget {
 // TODO Encode code in login and register
 
 
-
-
-
-
-
 //////////////////////////////////////
 // https://iconscout.com/contributors/manypixels-gallery
 // https://smashicons.com/
 // https://www.flaticon.com/authors/inkubators
 // https://www.freepik.com/
+// https://www.flaticon.com/authors/vitaly-gorbachev

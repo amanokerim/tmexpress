@@ -11,6 +11,7 @@ import '../../utils/constants.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_info.dart';
 import '../../widgets/app_progress_indicator.dart';
+import '../profile/bloc/profile_bloc.dart';
 import 'bloc/auth_bloc.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -42,18 +43,18 @@ class _AuthScreenState extends State<AuthScreen> {
     return ListView(
       padding: const EdgeInsets.all(30),
       children: [
-        LottieBuilder.asset(
-          'assets/animations/auth.json',
-          height: w * .7,
-        ),
+        LottieBuilder.asset('assets/animations/auth.json', height: w * .7),
         const SizedBox(height: 28),
         Text(S.current.login, style: AppTextStyle.bold26),
         const SizedBox(height: 16),
         BlocConsumer<AuthBloc, AuthState>(
-          listenWhen: (_, state) => state is AuthError,
           listener: (_, state) {
-            AppFlash.toast(
-                context: context, message: (state as AuthError).message);
+            if (state is AuthError) {
+              AppFlash.toast(context: context, message: state.message);
+            } else if (state is AuthVerificationSuccess) {
+              // add event for fetching profile
+              context.read<ProfileBloc>().add(ProfileStarted());
+            }
           },
           builder: (context, state) {
             if (state is AuthError || state is AuthInitial) {
@@ -77,9 +78,8 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // TODO Meybe show phone and code bold with markup or html?
                   AppInfo(S.current
-                      .sendSmsExpalanation(kVerificationPhone, state.code!)),
+                      .sendSmsExplanation(kVerificationPhone, state.code!)),
                   const SizedBox(height: 16),
                   AppButton(
                     label: S.current.sendSms,
@@ -104,7 +104,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ],
               );
             }
-            return Text(state.toString());
+            return const SizedBox();
           },
         ),
       ],

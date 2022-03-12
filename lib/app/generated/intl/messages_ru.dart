@@ -35,8 +35,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "addToFavoritesError": MessageLookupByLibrary.simpleMessage(
             "Halanlaryňyza goşmakda näsazlyk ýüze çykdy"),
         "addedToCart": MessageLookupByLibrary.simpleMessage("Sebede goşuldy"),
+        "ag": MessageLookupByLibrary.simpleMessage("Aşgabat"),
+        "ah": MessageLookupByLibrary.simpleMessage("Ahal"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
         "apply": MessageLookupByLibrary.simpleMessage("Kabul etmek"),
+        "bn": MessageLookupByLibrary.simpleMessage("Balkan"),
         "canNotVerify": MessageLookupByLibrary.simpleMessage(
             "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň"),
         "cancel": MessageLookupByLibrary.simpleMessage("Togtatmak"),
@@ -50,9 +53,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "continueButton": MessageLookupByLibrary.simpleMessage("Dowam etmek"),
         "doubleBackToExit": MessageLookupByLibrary.simpleMessage(
             "Çykmak üçin ýene bir gezek basyň"),
+        "dz": MessageLookupByLibrary.simpleMessage("Daşoguz"),
+        "edit": MessageLookupByLibrary.simpleMessage("Üýtgetmek"),
         "express": MessageLookupByLibrary.simpleMessage("Express"),
         "expressSubtitle":
             MessageLookupByLibrary.simpleMessage("15 günde gowuşýar"),
+        "fill": MessageLookupByLibrary.simpleMessage("Doldurmak"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtr"),
         "forbidden": MessageLookupByLibrary.simpleMessage(
             "Bu amaly ýerine ýetirmek üçin sizde ýeterlik hukuk ýok"),
@@ -64,9 +70,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nädogry kod"),
         "isDiscounted": MessageLookupByLibrary.simpleMessage("Arzanladyş"),
         "lang": MessageLookupByLibrary.simpleMessage("Русский"),
+        "lb": MessageLookupByLibrary.simpleMessage("Lebap"),
         "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
         "login": MessageLookupByLibrary.simpleMessage("Hasaba girmek"),
         "makeOrder": MessageLookupByLibrary.simpleMessage("Sargyt etmek"),
+        "man": MessageLookupByLibrary.simpleMessage("Erkek"),
+        "mr": MessageLookupByLibrary.simpleMessage("Mary"),
         "nMan": m0,
         "noProducts": MessageLookupByLibrary.simpleMessage(
             "Bu ýerde häzirlikçe haryt ýok ("),
@@ -76,7 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("Bolýar"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
-        "phone": MessageLookupByLibrary.simpleMessage("Telefon"),
+        "phone": MessageLookupByLibrary.simpleMessage("Telefon belgiňiz"),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),
         "productColors": MessageLookupByLibrary.simpleMessage("Reňkler"),
@@ -102,7 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
         "selectSize": MessageLookupByLibrary.simpleMessage("Ölçeg saýlaň"),
         "sendSms": MessageLookupByLibrary.simpleMessage("SMS ugratmak"),
-        "sendSmsExpalanation": m2,
+        "sendSmsExplanation": m2,
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Paýlaşmak"),
@@ -128,6 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("media/user_agreement.pdf"),
         "waitingVerificationText": MessageLookupByLibrary.simpleMessage(
             "Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)"),
+        "woman": MessageLookupByLibrary.simpleMessage("Zenan"),
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),
         "wrongFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
         "yesterday": MessageLookupByLibrary.simpleMessage("Düýn")

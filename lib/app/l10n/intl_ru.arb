@@ -56,9 +56,9 @@
   "size": "Ölçeg",
 
   "login": "Hasaba girmek",
-  "phone": "Telefon",
+  "phone": "Telefon belgiňiz",
   "sendSms": "SMS ugratmak",
-  "sendSmsExpalanation": "Hasaba girmek üçin, \n{phone} belgä {code} kody SMS arkaly ugradyň we programma dolanyň.",
+  "sendSmsExplanation": "Hasaba girmek üçin, \n{phone} belgä {code} kody SMS arkaly ugradyň we programma dolanyň.",
   "waitingVerificationText": "Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)",
   "canNotVerify": "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň",
 
@@ -87,6 +87,17 @@
   "isDiscounted": "Arzanladyş",
   "sizes": "Ölçegler",
   "selectAll": "Ählisini saýla",
+
+  "man": "Erkek",
+  "woman": "Zenan",
+  "ag": "Aşgabat",
+  "ah": "Ahal",
+  "bn": "Balkan",
+  "dz": "Daşoguz",
+  "lb": "Lebap",
+  "mr": "Mary",
+  "edit": "Üýtgetmek",
+  "fill": "Doldurmak",
 
 
 

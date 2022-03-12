@@ -520,10 +520,10 @@ class S {
     );
   }
 
-  /// `Telefon`
+  /// `Telefon belgiňiz`
   String get phone {
     return Intl.message(
-      'Telefon',
+      'Telefon belgiňiz',
       name: 'phone',
       desc: '',
       args: [],
@@ -541,10 +541,10 @@ class S {
   }
 
   /// `Hasaba girmek üçin, \n{phone} belgä {code} kody SMS arkaly ugradyň we programma dolanyň.`
-  String sendSmsExpalanation(Object phone, Object code) {
+  String sendSmsExplanation(Object phone, Object code) {
     return Intl.message(
       'Hasaba girmek üçin, \n$phone belgä $code kody SMS arkaly ugradyň we programma dolanyň.',
-      name: 'sendSmsExpalanation',
+      name: 'sendSmsExplanation',
       desc: '',
       args: [phone, code],
     );
@@ -805,6 +805,106 @@ class S {
     return Intl.message(
       'Ählisini saýla',
       name: 'selectAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Erkek`
+  String get man {
+    return Intl.message(
+      'Erkek',
+      name: 'man',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Zenan`
+  String get woman {
+    return Intl.message(
+      'Zenan',
+      name: 'woman',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aşgabat`
+  String get ag {
+    return Intl.message(
+      'Aşgabat',
+      name: 'ag',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ahal`
+  String get ah {
+    return Intl.message(
+      'Ahal',
+      name: 'ah',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Balkan`
+  String get bn {
+    return Intl.message(
+      'Balkan',
+      name: 'bn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Daşoguz`
+  String get dz {
+    return Intl.message(
+      'Daşoguz',
+      name: 'dz',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lebap`
+  String get lb {
+    return Intl.message(
+      'Lebap',
+      name: 'lb',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mary`
+  String get mr {
+    return Intl.message(
+      'Mary',
+      name: 'mr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Üýtgetmek`
+  String get edit {
+    return Intl.message(
+      'Üýtgetmek',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doldurmak`
+  String get fill {
+    return Intl.message(
+      'Doldurmak',
+      name: 'fill',
       desc: '',
       args: [],
     );

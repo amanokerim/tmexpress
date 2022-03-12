@@ -10,6 +10,8 @@ class ProfileResponse {
     this.region,
     this.address,
     this.username,
+    this.referalEarning,
+    this.referalUserCount,
   });
 
   factory ProfileResponse.fromJson(Map<String, dynamic> json) =>
@@ -17,8 +19,10 @@ class ProfileResponse {
   Map<String, dynamic> toJson() => _$ProfileResponseToJson(this);
 
   final String? name;
-  final bool? gender;
-  final String? region;
+  final int? gender;
+  final int? region;
   final String? address;
   final String? username;
+  final int? referalUserCount;
+  final double? referalEarning;
 }

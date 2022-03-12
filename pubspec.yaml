@@ -98,6 +98,8 @@ flutter:
           weight: 300
         - asset: assets/fonts/Nunito-Medium.ttf
           weight: 700
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 900
 
 flutter_intl: 
   enabled: true
