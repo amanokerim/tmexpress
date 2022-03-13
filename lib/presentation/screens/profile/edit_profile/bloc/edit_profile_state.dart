@@ -1,6 +1,6 @@
 part of 'edit_profile_bloc.dart';
 
-class EditProfileState extends Equatable {
+class EditProfileState {
   const EditProfileState(
       this.gender, this.region, this.loadState, this.message);
   final Gender? gender;
@@ -8,6 +8,6 @@ class EditProfileState extends Equatable {
   final LoadState loadState;
   final String? message;
 
-  @override
-  List<Object?> get props => [gender, region, loadState, message];
+  // @override
+  // List<Object?> get props => [gender, region, loadState, message];
 }

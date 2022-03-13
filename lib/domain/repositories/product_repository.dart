@@ -5,6 +5,7 @@ import '../entities/home.dart';
 import '../entities/pagination.dart';
 import '../entities/product.dart';
 import '../entities/product_mini.dart';
+import '../entities/saved_product.dart';
 import '../entities/size.dart';
 import '../errors/failures.dart';
 import '../usecases/products/fetch_products_usecase.dart';
@@ -22,7 +23,7 @@ abstract class ProductRepository {
 
   Future<Either<Failure, Product>> fetchProduct(int id);
 
-  Future<Either<Failure, void>> like(int id);
+  Future<Either<Failure, void>> toggleLike(SavedProduct product);
 
   Future<Either<Failure, void>> share(int id);
 

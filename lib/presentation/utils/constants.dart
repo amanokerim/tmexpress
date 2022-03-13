@@ -17,3 +17,6 @@ const kReferralProductPercent = 3;
 const kTechnicalWorks = 'technicalWorks';
 const kFlutterActualVersion = 'flutterActualVersion';
 const kFlutterMinimalVersion = 'flutterMinimalVersion';
+
+// Hive boxes
+const kFavoritesBox = 'favoritesBox';

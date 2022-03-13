@@ -37,11 +37,8 @@ class AppDropDown<T> extends StatelessWidget {
               children: [
                 Expanded(
                   child: selected != null
-                      ? Text(
-                          toStr(selected!),
-                          style: AppTextStyle.dark16,
-                        )
-                      : Text(label, style: AppTextStyle.dark16),
+                      ? Text(toStr(selected!), style: AppTextStyle.dark16)
+                      : Text(label, style: AppTextStyle.grey16),
                 ),
                 Icon(Icons.keyboard_arrow_down_rounded, color: AppColors.dark)
               ],

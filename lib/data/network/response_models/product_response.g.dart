@@ -25,7 +25,6 @@ ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) =>
       expressPriceW: (json['expressPriceW'] as num?)?.toDouble(),
       normalPriceW: (json['normalPriceW'] as num?)?.toDouble(),
       wholesaleLimit: json['wholesaleLimit'] as int?,
-      isLiked: json['isLiked'] as bool?,
     );
 
 Map<String, dynamic> _$ProductResponseToJson(ProductResponse instance) =>
@@ -43,5 +42,4 @@ Map<String, dynamic> _$ProductResponseToJson(ProductResponse instance) =>
       'expressPriceW': instance.expressPriceW,
       'normalPriceW': instance.normalPriceW,
       'wholesaleLimit': instance.wholesaleLimit,
-      'isLiked': instance.isLiked,
     };

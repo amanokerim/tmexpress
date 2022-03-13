@@ -6,12 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'package:injectable/injectable.dart';
 
+import '../../domain/entities/saved_product.dart';
 import '../../firebase_options.dart';
 import '../../main.dart';
 import '../../presentation/bloc/app_bloc_observer.dart';
+import '../../presentation/utils/constants.dart';
 import '../injection/injection.dart';
 
 class Env {
@@ -40,6 +43,9 @@ class Env {
               statusBarColor: Colors.transparent,
               statusBarBrightness: Brightness.light),
         );
+
+        await Hive.initFlutter();
+        await Hive.openBox<Map<String, dynamic>>(kFavoritesBox);
 
         await _initFirebase();
         _preCache();

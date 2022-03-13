@@ -49,7 +49,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: BlocConsumer<EditProfileBloc, EditProfileState>(
           listener: (_, state) {
             if (state.message != null) {
-              AppFlash.toast(context: context, message: state.message!);
+              AppFlash.toast(
+                  context: context, message: state.message!, isError: true);
             }
             if (state.loadState == LoadState.success) {
               final newProfile = widget.profile.copyWith(

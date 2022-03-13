@@ -30,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
             AppButton(
               label: S.current.favorites,
               type: ButtonType.outline,
-              iconFile: 'favorite.png',
+              iconFile: 'like.png',
               onPressed: () {},
             ),
             const SizedBox(height: 16),

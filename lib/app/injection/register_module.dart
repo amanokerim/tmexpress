@@ -1,11 +1,14 @@
 import 'package:alice/alice.dart';
 import 'package:dio/dio.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/network/auth_interceptor.dart';
 import '../../data/network/auth_network.dart';
 import '../../data/network/common_network.dart';
+import '../../domain/entities/saved_product.dart';
+import '../../presentation/utils/constants.dart';
 import '../env/env.dart';
 import 'injection.dart';
 
@@ -20,6 +23,9 @@ abstract class RegisterModule {
         showNotification: true,
         showInspectorOnShake: Env.value.showAlice,
       );
+
+  @lazySingleton
+  Box<Map<String, dynamic>> get favoritesBox => Hive.box(kFavoritesBox);
 
   @lazySingleton
   CommonNetwork get commonNetwork {
