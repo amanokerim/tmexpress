@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../data/network/auth_interceptor.dart';
 import '../../data/network/auth_network.dart';
 import '../../data/network/common_network.dart';
-import '../../domain/entities/saved_product.dart';
 import '../../presentation/utils/constants.dart';
 import '../env/env.dart';
 import 'injection.dart';
@@ -25,7 +24,7 @@ abstract class RegisterModule {
       );
 
   @lazySingleton
-  Box<Map<String, dynamic>> get favoritesBox => Hive.box(kFavoritesBox);
+  Box<Map<dynamic, dynamic>> get favoritesBox => Hive.box(kFavoritesBox);
 
   @lazySingleton
   CommonNetwork get commonNetwork {

@@ -94,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("Adyňyz"),
         "noData": MessageLookupByLibrary.simpleMessage(
             "Maglumatlaryňyz girizilmedik"),
+        "noFavorites":
+            MessageLookupByLibrary.simpleMessage("Sizde halanan haryt ýok"),
         "noProducts": MessageLookupByLibrary.simpleMessage(
             "Bu ýerde häzirlikçe haryt ýok ("),
         "normal": MessageLookupByLibrary.simpleMessage("Adaty"),

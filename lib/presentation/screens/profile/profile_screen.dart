@@ -7,6 +7,7 @@ import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
 import '../auth/auth_page.dart';
 import 'bloc/profile_bloc.dart';
+import 'favorites_screen.dart';
 import 'widgets/profile_card.dart';
 import 'widgets/referral_card.dart';
 
@@ -31,7 +32,10 @@ class ProfileScreen extends StatelessWidget {
               label: S.current.favorites,
               type: ButtonType.outline,
               iconFile: 'like.png',
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                    builder: (_) => const FavoritesScreen()),
+              ),
             ),
             const SizedBox(height: 16),
             AppButton(

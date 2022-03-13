@@ -48,7 +48,10 @@ class DetailBloc extends AppBloc<DetailEvent, DetailState> {
       product = product.copyWith(isLiked: !product.isLiked);
       emit(success());
 
-      final sp = SavedProduct(id: product.id, title: product.title);
+      final sp = SavedProduct(
+          id: product.id,
+          title: product.title,
+          image: product.productImages[0].urlMini);
       final r = await _likeProductUseCase(sp);
       final failed = r.fold((l) => true, (r) => false);
 

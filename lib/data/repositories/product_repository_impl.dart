@@ -48,7 +48,7 @@ class ProductRepositoryImpl implements ProductRepository {
   final ProductPaginationResponseMapper _productPaginationResponseMapper;
   final ProductResponseMapper _productResponseMapper;
   final SizeResponseMapper _sizeRespMapper;
-  final Box<Map<String, dynamic>> favoritesBox;
+  final Box<Map<dynamic, dynamic>> favoritesBox;
 
   @override
   Future<Either<Failure, List<Category>>> fetchCategories() {
@@ -156,5 +156,12 @@ class ProductRepositoryImpl implements ProductRepository {
             (sub) => _sizeRespMapper.mapList(sub.subcategorysizes),
           );
     });
+  }
+
+  @override
+  Future<Either<Failure, List<SavedProduct>>> fetchFavoriteProducts() {
+    return _exception.handle(
+      () => favoritesBox.values.map((e) => SavedProduct.fromJson(e)).toList(),
+    );
   }
 }

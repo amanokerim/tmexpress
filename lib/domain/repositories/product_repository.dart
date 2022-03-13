@@ -28,4 +28,6 @@ abstract class ProductRepository {
   Future<Either<Failure, void>> share(int id);
 
   Future<Either<Failure, List<Size>>> fetchSubcategorySizes(int id);
+
+  Future<Either<Failure, List<SavedProduct>>> fetchFavoriteProducts();
 }

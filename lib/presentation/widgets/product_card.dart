@@ -14,8 +14,8 @@ class ProductCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: .7,
       child: GestureDetector(
-        onTap: () => Navigator.of(context)
-            .push(MaterialPageRoute<void>(builder: (_) => DetailPage(product))),
+        onTap: () => Navigator.of(context).push(
+            MaterialPageRoute<void>(builder: (_) => DetailPage(product.id))),
         child: Column(
           children: [
             AppImage(product.imageMini, height: 100, width: 100),

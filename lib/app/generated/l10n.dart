@@ -1080,6 +1080,16 @@ class S {
     );
   }
 
+  /// `Sizde halanan haryt ýok`
+  String get noFavorites {
+    return Intl.message(
+      'Sizde halanan haryt ýok',
+      name: 'noFavorites',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 
