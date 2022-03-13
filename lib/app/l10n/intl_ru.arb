@@ -51,7 +51,7 @@
   "removeFromFavorites": "Halanlarymdan aýyrmak",
   "addToFavoritesError": "Halanlaryňyza goşmakda näsazlyk ýüze çykdy",
   "removeFromFavoritesError": "Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy",
-  "share": "Paýlaşmak",
+  "share": "Maslahat bermek",
   
   "size": "Ölçeg",
 
@@ -98,6 +98,23 @@
   "mr": "Mary",
   "edit": "Üýtgetmek",
   "fill": "Doldurmak",
+  "noData": "Maglumatlaryňyz girizilmedik",
+  "referralUsers": "Arzanladyş:",
+  "referralUsersDescription": "Siz programmany beýleki ulanyjylara maslahat bereniňizde, siziň indiki söwdaňyzda {percent}% arzanladyş edilýär. Bu san ýene näçe söwdany arzanladyşly etjekdigiňizi görkezýär.\n\nSiziň maslahatyňyz bilen programma ulanyjy girse, bu san köpelýär, söwda edeniňizde azalýar.",
+  "referralEarning": "Girdeji:",
+  "referralEarningDescription": "Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) {percent}% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.",
+  "count": "sany",
+  "manat": "manat",
+  "whatIsThis": "Bu näme?",
+  "logOut": "Hasapdan çykmak",
+  "favorites": "Halanlarym",
+  "orders": "Sargytlarym",
+  "editProfile": "Maglumatlary üýtgetmek",
+  "name":"Adyňyz",
+  "address":"Salgy",
+  "gender":"Jynsyňyz",
+  "region":"Welaýat (şäher)",
+  "selectGenderAndRegion":"Jyns we welaýat hökman saýlanmaly",
 
 
 

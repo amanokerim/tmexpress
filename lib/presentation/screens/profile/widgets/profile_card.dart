@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/generated/l10n.dart';
-import '../../../domain/entities/enums/region.dart';
-import '../../../domain/entities/profile.dart';
-import '../../theme/app_theme.dart';
-import '../../widgets/app_button.dart';
-import 'widgets/profile_image.dart';
+import '../../../../app/generated/l10n.dart';
+import '../../../../domain/entities/enums/region.dart';
+import '../../../../domain/entities/profile.dart';
+import '../../../theme/app_theme.dart';
+import '../../../widgets/app_button.dart';
+import '../../../widgets/card_wrapper.dart';
+import '../bloc/profile_bloc.dart';
+import '../edit_profile/edit_profile_page.dart';
+import 'profile_image.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard(this.profile, {Key? key}) : super(key: key);
   final Profile profile;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: AppColors.bg2,
-        borderRadius: BorderRadius.circular(20),
-      ),
+    return CardWrapper(
+      padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -48,9 +48,14 @@ class ProfileCard extends StatelessWidget {
           const SizedBox(height: 16),
           AppButton(
             label: profile.name != null ? S.current.edit : S.current.fill,
-            type: ButtonType.outline,
+            type: ButtonType.black,
             iconFile: 'edit.png',
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
+              builder: (_) => BlocProvider<ProfileBloc>.value(
+                value: context.read<ProfileBloc>(),
+                child: EditProfilePage(profile),
+              ),
+            )),
           )
         ],
       ),

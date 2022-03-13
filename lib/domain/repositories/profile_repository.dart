@@ -8,4 +8,6 @@ abstract class ProfileRepository {
   Future<Either<Failure, bool>> auth(AuthParams params);
 
   Future<Either<Failure, Profile>> fetchProfile();
+
+  Future<Either<Failure, void>> editProfile(Profile profile);
 }

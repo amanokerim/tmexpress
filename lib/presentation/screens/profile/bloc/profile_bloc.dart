@@ -29,6 +29,10 @@ class ProfileBloc extends AppBloc<ProfileEvent, ProfileState> {
         ));
       }
     });
+
+    on<ProfileChanged>((event, emit) {
+      emit(ProfileLoadSuccess(event.profile));
+    });
   }
 
   final GetStringPreferenceUseCase _getStringPreferenceUseCase;

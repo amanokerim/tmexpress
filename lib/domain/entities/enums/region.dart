@@ -1,6 +1,8 @@
 import '../../../app/generated/l10n.dart';
 
 enum Region { none, ag, ah, bn, dz, lb, mr }
+List<Region> get regions =>
+    [Region.ag, Region.ah, Region.bn, Region.dz, Region.lb, Region.mr];
 
 extension RegionX on Region {
   String get str {

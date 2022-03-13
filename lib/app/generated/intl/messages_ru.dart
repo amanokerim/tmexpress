@@ -24,7 +24,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(count) => "${count}+ alynanda";
 
-  static String m2(phone, code) =>
+  static String m2(percent) =>
+      "Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) ${percent}% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.";
+
+  static String m3(percent) =>
+      "Siz programmany beýleki ulanyjylara maslahat bereniňizde, siziň indiki söwdaňyzda ${percent}% arzanladyş edilýär. Bu san ýene näçe söwdany arzanladyşly etjekdigiňizi görkezýär.\n\nSiziň maslahatyňyz bilen programma ulanyjy girse, bu san köpelýär, söwda edeniňizde azalýar.";
+
+  static String m4(phone, code) =>
       "Hasaba girmek üçin, \n${phone} belgä ${code} kody SMS arkaly ugradyň we programma dolanyň.";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -35,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addToFavoritesError": MessageLookupByLibrary.simpleMessage(
             "Halanlaryňyza goşmakda näsazlyk ýüze çykdy"),
         "addedToCart": MessageLookupByLibrary.simpleMessage("Sebede goşuldy"),
+        "address": MessageLookupByLibrary.simpleMessage("Salgy"),
         "ag": MessageLookupByLibrary.simpleMessage("Aşgabat"),
         "ah": MessageLookupByLibrary.simpleMessage("Ahal"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
@@ -51,17 +58,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "connectionError":
             MessageLookupByLibrary.simpleMessage("Serwere baglanyp bolmady"),
         "continueButton": MessageLookupByLibrary.simpleMessage("Dowam etmek"),
+        "count": MessageLookupByLibrary.simpleMessage("sany"),
         "doubleBackToExit": MessageLookupByLibrary.simpleMessage(
             "Çykmak üçin ýene bir gezek basyň"),
         "dz": MessageLookupByLibrary.simpleMessage("Daşoguz"),
         "edit": MessageLookupByLibrary.simpleMessage("Üýtgetmek"),
+        "editProfile":
+            MessageLookupByLibrary.simpleMessage("Maglumatlary üýtgetmek"),
         "express": MessageLookupByLibrary.simpleMessage("Express"),
         "expressSubtitle":
             MessageLookupByLibrary.simpleMessage("15 günde gowuşýar"),
+        "favorites": MessageLookupByLibrary.simpleMessage("Halanlarym"),
         "fill": MessageLookupByLibrary.simpleMessage("Doldurmak"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtr"),
         "forbidden": MessageLookupByLibrary.simpleMessage(
             "Bu amaly ýerine ýetirmek üçin sizde ýeterlik hukuk ýok"),
+        "gender": MessageLookupByLibrary.simpleMessage("Jynsyňyz"),
         "homeScreen": MessageLookupByLibrary.simpleMessage("Baş sahypa"),
         "hot": MessageLookupByLibrary.simpleMessage("Gyzgyn harytlar"),
         "in_": MessageLookupByLibrary.simpleMessage("в"),
@@ -72,11 +84,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "lang": MessageLookupByLibrary.simpleMessage("Русский"),
         "lb": MessageLookupByLibrary.simpleMessage("Lebap"),
         "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Hasapdan çykmak"),
         "login": MessageLookupByLibrary.simpleMessage("Hasaba girmek"),
         "makeOrder": MessageLookupByLibrary.simpleMessage("Sargyt etmek"),
         "man": MessageLookupByLibrary.simpleMessage("Erkek"),
+        "manat": MessageLookupByLibrary.simpleMessage("manat"),
         "mr": MessageLookupByLibrary.simpleMessage("Mary"),
         "nMan": m0,
+        "name": MessageLookupByLibrary.simpleMessage("Adyňyz"),
+        "noData": MessageLookupByLibrary.simpleMessage(
+            "Maglumatlaryňyz girizilmedik"),
         "noProducts": MessageLookupByLibrary.simpleMessage(
             "Bu ýerde häzirlikçe haryt ýok ("),
         "normal": MessageLookupByLibrary.simpleMessage("Adaty"),
@@ -85,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("Bolýar"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
+        "orders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
         "phone": MessageLookupByLibrary.simpleMessage("Telefon belgiňiz"),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),
@@ -100,6 +118,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "productWeight": MessageLookupByLibrary.simpleMessage("Agramy"),
         "productWholesaleDesc": m1,
         "profile": MessageLookupByLibrary.simpleMessage("Profil"),
+        "referralEarning": MessageLookupByLibrary.simpleMessage("Girdeji:"),
+        "referralEarningDescription": m2,
+        "referralUsers": MessageLookupByLibrary.simpleMessage("Arzanladyş:"),
+        "referralUsersDescription": m3,
+        "region": MessageLookupByLibrary.simpleMessage("Welaýat (şäher)"),
         "removeFromFavorites":
             MessageLookupByLibrary.simpleMessage("Halanlarymdan aýyrmak"),
         "removeFromFavoritesError": MessageLookupByLibrary.simpleMessage(
@@ -109,12 +132,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
         "selectAll": MessageLookupByLibrary.simpleMessage("Ählisini saýla"),
         "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
+        "selectGenderAndRegion": MessageLookupByLibrary.simpleMessage(
+            "Jyns we welaýat hökman saýlanmaly"),
         "selectSize": MessageLookupByLibrary.simpleMessage("Ölçeg saýlaň"),
         "sendSms": MessageLookupByLibrary.simpleMessage("SMS ugratmak"),
-        "sendSmsExplanation": m2,
+        "sendSmsExplanation": m4,
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
-        "share": MessageLookupByLibrary.simpleMessage("Paýlaşmak"),
+        "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
         "somethingWentWrong":
@@ -137,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("media/user_agreement.pdf"),
         "waitingVerificationText": MessageLookupByLibrary.simpleMessage(
             "Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)"),
+        "whatIsThis": MessageLookupByLibrary.simpleMessage("Bu näme?"),
         "woman": MessageLookupByLibrary.simpleMessage("Zenan"),
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),
         "wrongFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),

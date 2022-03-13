@@ -49,4 +49,11 @@ class ProfileRepositoryImpl implements ProfileRepository {
       return profile;
     });
   }
+
+  @override
+  Future<Either<Failure, void>> editProfile(Profile profile) {
+    return _exception.handle(() async {
+      await _authNetwork.editProfile(profile);
+    });
+  }
 }

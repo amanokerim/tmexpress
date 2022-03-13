@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../domain/entities/order.dart';
+import '../../domain/entities/profile.dart';
 import 'response_models/profile_response.dart';
 
 part 'auth_network.g.dart';
@@ -22,5 +23,10 @@ abstract class AuthNetwork {
   @POST('api/order/order-create/')
   Future<void> createOrder(
     @Body() Order order,
+  );
+
+  @PUT('api/auth/profile/')
+  Future<void> editProfile(
+    @Body() Profile profile,
   );
 }

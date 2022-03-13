@@ -52,6 +52,11 @@ class FlutterApp extends StatelessWidget {
 // Referral system
 // Test/refine/refactor
 // Logo/splash
+// dio cache
+
+
+// Refine ideas
+// Shrink and pin profile card on scroll
 
 
 

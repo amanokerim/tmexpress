@@ -15,6 +15,7 @@ final appTheme = ThemeData(
     focusedBorder: inputBorder,
     errorBorder: inputBorder,
     focusedErrorBorder: inputBorder,
+    floatingLabelBehavior: FloatingLabelBehavior.never,
   ),
   textTheme: TextTheme(
     bodyText1: AppTextStyle.dark18,
@@ -38,6 +39,10 @@ final inputBorder = OutlineInputBorder(
 final inputErrorBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(16),
   borderSide: BorderSide.none,
+);
+final inputDecoration = BoxDecoration(
+  color: AppColors.inputBg,
+  borderRadius: const BorderRadius.all(Radius.circular(16)),
 );
 
 abstract class AppTextStyle {

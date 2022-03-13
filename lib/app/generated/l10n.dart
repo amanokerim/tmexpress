@@ -490,10 +490,10 @@ class S {
     );
   }
 
-  /// `Paýlaşmak`
+  /// `Maslahat bermek`
   String get share {
     return Intl.message(
-      'Paýlaşmak',
+      'Maslahat bermek',
       name: 'share',
       desc: '',
       args: [],
@@ -905,6 +905,176 @@ class S {
     return Intl.message(
       'Doldurmak',
       name: 'fill',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maglumatlaryňyz girizilmedik`
+  String get noData {
+    return Intl.message(
+      'Maglumatlaryňyz girizilmedik',
+      name: 'noData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arzanladyş:`
+  String get referralUsers {
+    return Intl.message(
+      'Arzanladyş:',
+      name: 'referralUsers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Siz programmany beýleki ulanyjylara maslahat bereniňizde, siziň indiki söwdaňyzda {percent}% arzanladyş edilýär. Bu san ýene näçe söwdany arzanladyşly etjekdigiňizi görkezýär.\n\nSiziň maslahatyňyz bilen programma ulanyjy girse, bu san köpelýär, söwda edeniňizde azalýar.`
+  String referralUsersDescription(Object percent) {
+    return Intl.message(
+      'Siz programmany beýleki ulanyjylara maslahat bereniňizde, siziň indiki söwdaňyzda $percent% arzanladyş edilýär. Bu san ýene näçe söwdany arzanladyşly etjekdigiňizi görkezýär.\n\nSiziň maslahatyňyz bilen programma ulanyjy girse, bu san köpelýär, söwda edeniňizde azalýar.',
+      name: 'referralUsersDescription',
+      desc: '',
+      args: [percent],
+    );
+  }
+
+  /// `Girdeji:`
+  String get referralEarning {
+    return Intl.message(
+      'Girdeji:',
+      name: 'referralEarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) {percent}% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.`
+  String referralEarningDescription(Object percent) {
+    return Intl.message(
+      'Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) $percent% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.',
+      name: 'referralEarningDescription',
+      desc: '',
+      args: [percent],
+    );
+  }
+
+  /// `sany`
+  String get count {
+    return Intl.message(
+      'sany',
+      name: 'count',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `manat`
+  String get manat {
+    return Intl.message(
+      'manat',
+      name: 'manat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bu näme?`
+  String get whatIsThis {
+    return Intl.message(
+      'Bu näme?',
+      name: 'whatIsThis',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hasapdan çykmak`
+  String get logOut {
+    return Intl.message(
+      'Hasapdan çykmak',
+      name: 'logOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlarym`
+  String get favorites {
+    return Intl.message(
+      'Halanlarym',
+      name: 'favorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sargytlarym`
+  String get orders {
+    return Intl.message(
+      'Sargytlarym',
+      name: 'orders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maglumatlary üýtgetmek`
+  String get editProfile {
+    return Intl.message(
+      'Maglumatlary üýtgetmek',
+      name: 'editProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Adyňyz`
+  String get name {
+    return Intl.message(
+      'Adyňyz',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Salgy`
+  String get address {
+    return Intl.message(
+      'Salgy',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Jynsyňyz`
+  String get gender {
+    return Intl.message(
+      'Jynsyňyz',
+      name: 'gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welaýat (şäher)`
+  String get region {
+    return Intl.message(
+      'Welaýat (şäher)',
+      name: 'region',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Jyns we welaýat hökman saýlanmaly`
+  String get selectGenderAndRegion {
+    return Intl.message(
+      'Jyns we welaýat hökman saýlanmaly',
+      name: 'selectGenderAndRegion',
       desc: '',
       args: [],
     );
