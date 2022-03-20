@@ -25,7 +25,6 @@ class Env {
   bool showAlice = false;
   bool writeLogs = false;
   EnvType envType = EnvType.unknown;
-  String siteUrl = '';
 
   Future<dynamic> init() async {
     await runZonedGuarded<Future<void>>(

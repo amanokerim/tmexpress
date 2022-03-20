@@ -13,8 +13,6 @@ class StartLoadInProgress extends StartState {}
 
 class StartShowOnboarding extends StartState {}
 
-class StartShowAuth extends StartState {}
-
 class StartShowQuestionnaire extends StartState {}
 
 class StartShowHome extends StartState {

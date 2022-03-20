@@ -87,7 +87,6 @@ abstract class AppTextStyle {
       color: Colors.grey[400], fontWeight: FontWeight.w300, fontSize: 14);
 }
 
-// TODO Change colors
 abstract class AppColors {
   static Color get primary => const Color(0xFF31313b);
   static Color get secondary => const Color(0xFFD0021B);

@@ -3,8 +3,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../theme/app_theme.dart';
 
-// TODO Style it
-
 /// Widget for showing empty screen
 class AppEmpty extends StatelessWidget {
   const AppEmpty({

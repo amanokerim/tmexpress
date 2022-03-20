@@ -46,14 +46,13 @@ class FlutterApp extends StatelessWidget {
 }
 
 // Filter/sort
-// Profile
 // Show profile data confirming dialog on order place
 // Referral system
 // Test/refine/refactor
 // Logo/splash
 // dio cache
 // handle 401
-
+// onboarding
 
 // Refine ideas
 // Shrink and pin profile card on scroll

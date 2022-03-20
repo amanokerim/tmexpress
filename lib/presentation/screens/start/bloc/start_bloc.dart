@@ -25,24 +25,23 @@ class StartBloc extends AppBloc<StartEvent, StartState> {
       //   yield StartShowOnboarding();
       //   return;
       // }
-      // final jwt = (await _getStringPreferenceUseCase(pJWT))
-      //     .fold((_) => null, (jwt) => jwt);
-      // if (jwt == null || jwt.isEmpty) {
-      //   yield StartShowAuth();
-      //   return;
-      // }
 
       emit(const StartShowHome(tab: 0));
     });
+
     on<StartOnboardingComplete>((event, emit) async {
       await _setPreferenceUseCase(
           SetPreferenceParams(key: pFirstOpen, val: false));
-      emit(StartShowAuth());
+      emit(const StartShowHome(tab: 0));
     });
+
     on<StartNavigatedToHome>(
       (event, emit) => emit(StartShowHome(tab: event.tab)),
     );
-    on<StartAuthErrorOcurred>((event, emit) => emit(StartShowAuth()));
+
+    on<StartAuthErrorOcurred>(
+        (event, emit) => emit(const StartShowHome(tab: 4)));
+
     add(StartInitialized());
   }
 

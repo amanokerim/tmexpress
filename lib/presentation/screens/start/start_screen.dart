@@ -39,8 +39,6 @@ class StartScreen extends StatelessWidget {
                   builder: (_) {
                     if (state is StartShowOnboarding) {
                       // TODO return onboarding page
-                    } else if (state is StartShowAuth) {
-                      // TODO return auth page
                     } else if (state is StartShowHome) {
                       return const MainScreen();
                     } else if (state is StartShowTechnicalWorksScreen) {

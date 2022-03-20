@@ -5,8 +5,6 @@ import '../../../../app/generated/l10n.dart';
 import '../theme/app_theme.dart';
 import 'app_button.dart';
 
-// TODO Style it
-
 /// Widget for showing error screen
 class AppError extends StatelessWidget {
   const AppError({
