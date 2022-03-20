@@ -5,7 +5,7 @@ description: An app for delivering goods from China
 
 publish_to: 'none'
 
-version: 0.0.1+1
+version: 0.0.2+2
 
 environment:
   sdk: '>=2.13.0 <3.0.0'
@@ -29,6 +29,9 @@ dependencies:
 
   # Local storage
   shared_preferences: ^2.0.6
+  hive: ^2.0.6
+  hive_flutter: ^1.1.0
+
 
   # UI
   flutter_svg: ^0.22.0
@@ -41,6 +44,7 @@ dependencies:
   lottie: ^1.2.1
   mask_text_input_formatter: ^2.1.0
   share_plus: ^3.0.4
+  menu_button: ^1.4.2+1
   
   # Network
   built_value: ^8.0.6
@@ -90,6 +94,7 @@ flutter:
     - assets/animations/
     - assets/illustrations/
     - assets/icons/
+    - assets/icons/order_statuses/
   fonts:
     - family: Nunito
       fonts:
@@ -98,6 +103,8 @@ flutter:
           weight: 300
         - asset: assets/fonts/Nunito-Medium.ttf
           weight: 700
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 900
 
 flutter_intl: 
   enabled: true

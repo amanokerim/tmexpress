@@ -163,11 +163,11 @@ class _CommonNetwork implements CommonNetwork {
   }
 
   @override
-  Future<TokenResponse> auth(phone, code) async {
+  Future<TokenResponse> auth(phone, code, userId) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = {'username': phone, 'password': code};
+    final _data = {'username': phone, 'password': code, 'userId': userId};
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<TokenResponse>(
             Options(method: 'POST', headers: _headers, extra: _extra)

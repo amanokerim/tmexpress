@@ -104,8 +104,8 @@ class ProductWidgets extends StatelessWidget {
       const SizedBox(height: 8),
       Row(
         children: [
-          PriceW(S.current.productPriceNormal, _product.normalPrice),
-          PriceW(S.current.productPriceExpress, _product.expressPrice),
+          PriceW(S.current.productPriceNormal, _product.normalPrice).exp,
+          PriceW(S.current.productPriceExpress, _product.expressPrice).exp,
         ],
       ),
       const SizedBox(height: 20),
@@ -116,8 +116,8 @@ class ProductWidgets extends StatelessWidget {
       const SizedBox(height: 8),
       Row(
         children: [
-          PriceW(S.current.productPriceNormal, _product.normalPriceW),
-          PriceW(S.current.productPriceExpress, _product.expressPriceW),
+          PriceW(S.current.productPriceNormal, _product.normalPriceW).exp,
+          PriceW(S.current.productPriceExpress, _product.expressPriceW).exp,
         ],
       ),
       const SizedBox(height: 20),

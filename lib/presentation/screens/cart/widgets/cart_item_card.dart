@@ -31,7 +31,7 @@ class CartItemCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
-                  Text('${S.current.size} ${cartItem.size.title}',
+                  Text('${S.current.size}: ${cartItem.size.title}',
                       style: AppTextStyle.grey14),
                   const SizedBox(height: 4),
                   Text('${cartItem.price} man.', style: AppTextStyle.black16),

@@ -10,10 +10,7 @@ class Preferences {
   Preferences(this._sharedPreferences);
   final SharedPreferences _sharedPreferences;
 
-  String? getJwt() {
-    return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjE5ODY4LCJqdGkiOiJlMDM0OGM4ZGJlNGI0NjkzOGFmZjFlNjY4OWVlNjY1ZCIsInVzZXJfaWQiOjh9.hb2oU8N0Af-nC8nUgA-EoJcypdj2kd3Hw1gc3jKop60';
-    return _sharedPreferences.getString(pJWT);
-  }
+  String? getJwt() => _sharedPreferences.getString(pJWT);
 
   Future<bool> setJwt(String? jwt) {
     if (jwt == null) {

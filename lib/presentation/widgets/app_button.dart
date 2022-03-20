@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
-import 'app_progress_indicator.dart';
 
 class AppButton extends ElevatedButton {
   AppButton({
@@ -37,7 +36,11 @@ class AppButton extends ElevatedButton {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (isLoading) ...[
-                  const AppProgressIndicator(size: 16),
+                  SizedBox(
+                      height: 18,
+                      width: 18,
+                      child: CircularProgressIndicator(
+                          color: type.foreground, strokeWidth: 2)),
                   const SizedBox(width: 8),
                 ],
                 if (iconFile != null) ...[

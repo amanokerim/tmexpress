@@ -15,6 +15,7 @@ final appTheme = ThemeData(
     focusedBorder: inputBorder,
     errorBorder: inputBorder,
     focusedErrorBorder: inputBorder,
+    floatingLabelBehavior: FloatingLabelBehavior.never,
   ),
   textTheme: TextTheme(
     bodyText1: AppTextStyle.dark18,
@@ -38,6 +39,10 @@ final inputBorder = OutlineInputBorder(
 final inputErrorBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(16),
   borderSide: BorderSide.none,
+);
+final inputDecoration = BoxDecoration(
+  color: AppColors.inputBg,
+  borderRadius: const BorderRadius.all(Radius.circular(16)),
 );
 
 abstract class AppTextStyle {
@@ -82,7 +87,6 @@ abstract class AppTextStyle {
       color: Colors.grey[400], fontWeight: FontWeight.w300, fontSize: 14);
 }
 
-// TODO Change colors
 abstract class AppColors {
   static Color get primary => const Color(0xFF31313b);
   static Color get secondary => const Color(0xFFD0021B);

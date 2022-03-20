@@ -17,8 +17,9 @@ class AuthUseCase extends UseCase<bool, AuthParams> {
 }
 
 class AuthParams {
-  AuthParams(this.phone, this.code);
+  AuthParams(this.phone, this.code, this.userId);
 
-  final String phone;
-  final int code;
+  final String phone; // own phone number
+  final int code; // code from sms
+  final int userId; // referral user
 }

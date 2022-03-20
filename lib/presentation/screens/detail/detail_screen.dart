@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/generated/l10n.dart';
-import '../../../domain/entities/product_mini.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
@@ -15,8 +14,8 @@ import 'widgets/sliver_image_delegate.dart';
 const titleHeight = 53.0;
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen(this.product, {Key? key}) : super(key: key);
-  final ProductMini product;
+  const DetailScreen(this.productId, {Key? key}) : super(key: key);
+  final int productId;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +81,7 @@ class DetailScreen extends StatelessWidget {
             body: AppError(
           message: state.message,
           onPressed: () =>
-              context.read<DetailBloc>().add(DetailRequested(product.id)),
+              context.read<DetailBloc>().add(DetailRequested(productId)),
         ));
       }
       return const Scaffold(body: AppProgressIndicator());

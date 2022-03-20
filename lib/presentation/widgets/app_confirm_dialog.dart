@@ -18,7 +18,6 @@ class AppDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO Style it, if needed
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -62,7 +61,7 @@ class AppDialog extends StatelessWidget {
                       child: InkWell(
                         onTap: () => Navigator.of(context).pop(false),
                         child: Text(
-                          S.current.cancel,
+                          S.current.close,
                           style: AppTextStyle.grey16,
                           textAlign: TextAlign.center,
                         ),

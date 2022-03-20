@@ -7,5 +7,4 @@ class Development extends Env {
   final String baseUrl = 'http://ecommerce.sanlyachar-clients.website/';
   final bool showAlice = true;
   final bool writeLogs = true;
-  final String siteUrl = 'https://appcraft.pro/?utm_source=clientapp';
 }

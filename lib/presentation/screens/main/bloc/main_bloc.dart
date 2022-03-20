@@ -51,7 +51,7 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
     BottomTab(
       index: 4,
       title: S.current.profile,
-      icon: 'account',
+      icon: 'profile',
       screen: const ProfilePage(),
     ),
   ];

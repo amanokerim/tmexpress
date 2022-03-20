@@ -46,13 +46,16 @@ class FlutterApp extends StatelessWidget {
 }
 
 // Filter/sort
-// Profile
 // Show profile data confirming dialog on order place
-// Show orders in profile
 // Referral system
 // Test/refine/refactor
 // Logo/splash
+// dio cache
+// handle 401
+// onboarding
 
+// Refine ideas
+// Shrink and pin profile card on scroll
 
 
 // TODO Back button in a same brightness with status bar
@@ -60,13 +63,10 @@ class FlutterApp extends StatelessWidget {
 // TODO Encode code in login and register
 
 
-
-
-
-
-
 //////////////////////////////////////
 // https://iconscout.com/contributors/manypixels-gallery
 // https://smashicons.com/
 // https://www.flaticon.com/authors/inkubators
 // https://www.freepik.com/
+// https://www.flaticon.com/authors/vitaly-gorbachev
+// https://www.flaticon.com/authors/icongeek26

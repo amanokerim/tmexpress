@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/category.dart';
@@ -7,6 +8,7 @@ import '../../domain/entities/home.dart';
 import '../../domain/entities/pagination.dart';
 import '../../domain/entities/product.dart';
 import '../../domain/entities/product_mini.dart';
+import '../../domain/entities/saved_product.dart';
 import '../../domain/entities/size.dart';
 import '../../domain/entities/tag.dart';
 import '../../domain/errors/failures.dart';
@@ -34,7 +36,8 @@ class ProductRepositoryImpl implements ProductRepository {
       this._tagResponseMapper,
       this._productPaginationResponseMapper,
       this._productResponseMapper,
-      this._sizeRespMapper);
+      this._sizeRespMapper,
+      this.favoritesBox);
 
   final ExceptionHandler _exception;
   final CommonNetwork _commonNetwork;
@@ -45,6 +48,7 @@ class ProductRepositoryImpl implements ProductRepository {
   final ProductPaginationResponseMapper _productPaginationResponseMapper;
   final ProductResponseMapper _productResponseMapper;
   final SizeResponseMapper _sizeRespMapper;
+  final Box<Map<dynamic, dynamic>> favoritesBox;
 
   @override
   Future<Either<Failure, List<Category>>> fetchCategories() {
@@ -100,17 +104,27 @@ class ProductRepositoryImpl implements ProductRepository {
   @override
   Future<Either<Failure, Product>> fetchProduct(int id) {
     return _exception.handle(() async {
-      final product =
-          _commonNetwork.fetchProduct(id).then(_productResponseMapper.map);
-
+      final product = await _commonNetwork
+          .fetchProduct(id)
+          .then(_productResponseMapper.map);
+      if (favoritesBox.containsKey(product.id)) {
+        return product.copyWith(isLiked: true);
+      }
       return product;
     });
   }
 
   @override
-  Future<Either<Failure, void>> like(int id) {
+  Future<Either<Failure, void>> toggleLike(SavedProduct product) {
     return _exception.handle(() async {
-      await _authNetwork.like(id);
+      final id = product.id;
+      if (favoritesBox.containsKey(id)) {
+        await _authNetwork.unLike(id);
+        await favoritesBox.delete(id);
+      } else {
+        await _authNetwork.like(id);
+        await favoritesBox.put(id, product.toJson());
+      }
     });
   }
 
@@ -142,5 +156,12 @@ class ProductRepositoryImpl implements ProductRepository {
             (sub) => _sizeRespMapper.mapList(sub.subcategorysizes),
           );
     });
+  }
+
+  @override
+  Future<Either<Failure, List<SavedProduct>>> fetchFavoriteProducts() {
+    return _exception.handle(
+      () => favoritesBox.values.map((e) => SavedProduct.fromJson(e)).toList(),
+    );
   }
 }

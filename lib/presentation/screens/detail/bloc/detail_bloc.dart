@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/image.dart';
 import '../../../../domain/entities/product.dart';
+import '../../../../domain/entities/saved_product.dart';
 import '../../../../domain/entities/size.dart';
 import '../../../../domain/usecases/products/fetch_product_usecase.dart';
 import '../../../../domain/usecases/products/like_product_usecase.dart';
@@ -25,7 +26,7 @@ class DetailBloc extends AppBloc<DetailEvent, DetailState> {
       emit(DetailLoadInProgress());
       final result = await _fetchProductUseCase(event.id);
       emit(result.fold(
-        (failure) => DetailLoadError(mapError(failure), UniqueKey()),
+        (failure) => DetailLoadError(message(failure), UniqueKey()),
         (product) {
           this.product = product;
           return success();
@@ -46,15 +47,20 @@ class DetailBloc extends AppBloc<DetailEvent, DetailState> {
     on<DetailProductLikeToggled>((event, emit) async {
       product = product.copyWith(isLiked: !product.isLiked);
       emit(success());
-      final r = await _likeProductUseCase(product.id);
+
+      final sp = SavedProduct(
+          id: product.id,
+          title: product.title,
+          image: product.productImages[0].urlMini);
+      final r = await _likeProductUseCase(sp);
       final failed = r.fold((l) => true, (r) => false);
 
       if (failed) {
-        final flashMessge = product.isLiked
+        final flashMessage = product.isLiked
             ? S.current.removeFromFavoritesError
             : S.current.addToFavoritesError;
         product = product.copyWith(isLiked: !product.isLiked);
-        emit(success(flashMessage: flashMessge));
+        emit(success(flashMessage: flashMessage));
       }
     });
 

@@ -8,28 +8,29 @@ class PriceW extends StatelessWidget {
   final double price;
 
   @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
+  Widget build(BuildContext context) => pure;
+
+  Widget get pure => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('$label:', style: AppTextStyle.priceTitle),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(price.toStringAsFixed(0), style: AppTextStyle.black20),
               Padding(
-                padding: const EdgeInsets.only(bottom: 5),
+                padding: const EdgeInsets.only(bottom: 8),
                 child: Text(
                   '${(price - price.truncate()).toStringAsFixed(2)} man.'
                       .substring(1),
-                  style: AppTextStyle.dark14,
+                  style: AppTextStyle.dark12,
                 ),
               ),
             ],
           ),
         ],
-      ),
-    );
-  }
+      );
+
+  Widget get exp => Expanded(child: pure);
 }

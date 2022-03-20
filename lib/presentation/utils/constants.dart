@@ -8,9 +8,15 @@ const kResendSeconds = 60;
 const kLimit = 15;
 
 const kAppName = 'TmExpress';
-const kVerificationPhone = '+993 64 921507';
+const kVerificationPhone = '+99364921507';
+
+const kReferralUserPercent = 5;
+const kReferralProductPercent = 3;
 
 // RemoteConfig keys
 const kTechnicalWorks = 'technicalWorks';
 const kFlutterActualVersion = 'flutterActualVersion';
 const kFlutterMinimalVersion = 'flutterMinimalVersion';
+
+// Hive boxes
+const kFavoritesBox = 'favoritesBox';

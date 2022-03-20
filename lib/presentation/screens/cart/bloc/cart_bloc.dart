@@ -52,7 +52,7 @@ class CartBloc extends AppBloc<CartEvent, CartState> {
       final order = Order(orderitems: orderItems, isExpress: _isExpress);
       final r = await _createOrderUseCase(order);
       emit(r.fold(
-        (failure) => cartState(message: mapError(failure)),
+        (failure) => cartState(message: message(failure)),
         (r) => cartState(st: CartSt.done),
       ));
     });

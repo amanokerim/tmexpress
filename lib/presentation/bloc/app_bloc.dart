@@ -8,7 +8,7 @@ import '../../domain/errors/failures.dart';
 abstract class AppBloc<Event, State> extends Bloc<Event, State> {
   AppBloc(State initialState) : super(initialState);
 
-  String mapError(Failure failure) {
+  String message(Failure failure) {
     if (Env.value.writeLogs) print(failure.message);
     switch (failure.runtimeType) {
       case ServerFailure:

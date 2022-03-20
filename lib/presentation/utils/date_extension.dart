@@ -15,11 +15,13 @@ extension DateExtension on DateTime {
     if (isSameDay(today)) return S.current.today;
     if (isSameDay(yesterday)) return S.current.yesterday;
 
-    return '${DateFormat.MMMMd().format(this)} ${DateFormat.y().format(this)}';
+    return '${dual(day)}.${dual(month)}.$year';
   }
 
-  String get dMMMYinHm {
-    return '$dMMMMY ${S.current.in_} ${DateFormat.Hm().format(this)}';
+  String dual(int n) => n.toString().padLeft(2, '0');
+
+  String get dmYHm {
+    return '$dMMMMY, ${DateFormat.Hm().format(this)}';
   }
 
   bool isSameDay(DateTime other) {

@@ -9,11 +9,14 @@ abstract class ProfileState extends Equatable {
 
 class ProfileLoadInProgress extends ProfileState {}
 
-class ProfileNotAuthorised extends ProfileState {}
+class ProfileNotAuthorized extends ProfileState {}
 
 class ProfileLoadSuccess extends ProfileState {
   const ProfileLoadSuccess(this.profile);
   final Profile profile;
+
+  @override
+  List<Object> get props => [profile];
 }
 
 class ProfileLoadError extends ProfileState {

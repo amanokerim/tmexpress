@@ -7,22 +7,20 @@ part 'product_response.g.dart';
 
 @JsonSerializable()
 class ProductResponse {
-  const ProductResponse({
-    this.id,
-    this.title,
-    this.description,
-    this.weight,
-    this.ourRating,
-    this.discount,
-    this.productImages,
-    this.size,
-    this.expressPrice,
-    this.normalPrice,
-    this.expressPriceW,
-    this.normalPriceW,
-    this.wholesaleLimit,
-    this.isLiked,
-  });
+  const ProductResponse(
+      {this.id,
+      this.title,
+      this.description,
+      this.weight,
+      this.ourRating,
+      this.discount,
+      this.productImages,
+      this.size,
+      this.expressPrice,
+      this.normalPrice,
+      this.expressPriceW,
+      this.normalPriceW,
+      this.wholesaleLimit});
 
   factory ProductResponse.fromJson(Map<String, dynamic> json) =>
       _$ProductResponseFromJson(json);
@@ -41,5 +39,4 @@ class ProductResponse {
   final double? expressPriceW;
   final double? normalPriceW;
   final int? wholesaleLimit;
-  final bool? isLiked;
 }

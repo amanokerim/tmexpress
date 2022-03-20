@@ -34,7 +34,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
   Future<Either<Failure, bool>> auth(AuthParams params) {
     return _exception.handle(() async {
       final token = await _commonNetwork
-          .auth(params.phone, params.code)
+          .auth(params.phone, params.code, params.userId)
           .then(_tokenResponseMapper.map);
       await _preferences.setJwt(token.access);
       return true;
@@ -47,6 +47,13 @@ class ProfileRepositoryImpl implements ProfileRepository {
       final profile =
           await _authNetwork.fetchProfile().then(_profileResponseMapper.map);
       return profile;
+    });
+  }
+
+  @override
+  Future<Either<Failure, void>> editProfile(Profile profile) {
+    return _exception.handle(() async {
+      await _authNetwork.editProfile(profile);
     });
   }
 }

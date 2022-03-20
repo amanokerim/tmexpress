@@ -89,7 +89,7 @@ class AppFlash {
           horizontalDismissDirection: HorizontalDismissDirection.horizontal,
           enableVerticalDrag: true,
           onTap: controller.dismiss,
-          alignment: const Alignment(0, -.92),
+          alignment: const Alignment(0, .86),
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           borderRadius: const BorderRadius.all(Radius.circular(16)),
           backgroundColor:

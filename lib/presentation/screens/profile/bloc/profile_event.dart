@@ -8,3 +8,13 @@ abstract class ProfileEvent extends Equatable {
 }
 
 class ProfileStarted extends ProfileEvent {}
+
+class ProfileChanged extends ProfileEvent {
+  const ProfileChanged(this.profile);
+  final Profile profile;
+
+  @override
+  List<Object> get props => [profile];
+}
+
+class ProfileSignOutRequested extends ProfileEvent {}
