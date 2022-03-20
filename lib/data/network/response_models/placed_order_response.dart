@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'placed_order_item_response.dart';
+
 part 'placed_order_response.g.dart';
 
 @JsonSerializable()
@@ -11,6 +13,7 @@ class PlacedOrderResponse {
     this.totalPrice,
     this.createdAt,
     this.updatedAt,
+    this.orderitems,
   });
 
   factory PlacedOrderResponse.fromJson(Map<String, dynamic> json) =>
@@ -23,4 +26,5 @@ class PlacedOrderResponse {
   final double? totalPrice;
   final String? createdAt;
   final String? updatedAt;
+  final List<PlacedOrderItemResponse>? orderitems;
 }

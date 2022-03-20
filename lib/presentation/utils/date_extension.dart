@@ -20,7 +20,7 @@ extension DateExtension on DateTime {
 
   String dual(int n) => n.toString().padLeft(2, '0');
 
-  String get dMMMYinHm {
+  String get dmYHm {
     return '$dMMMMY, ${DateFormat.Hm().format(this)}';
   }
 

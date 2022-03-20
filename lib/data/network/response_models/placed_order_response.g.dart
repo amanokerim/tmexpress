@@ -14,6 +14,10 @@ PlacedOrderResponse _$PlacedOrderResponseFromJson(Map<String, dynamic> json) =>
       totalPrice: (json['totalPrice'] as num?)?.toDouble(),
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      orderitems: (json['orderitems'] as List<dynamic>?)
+          ?.map((e) =>
+              PlacedOrderItemResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$PlacedOrderResponseToJson(
@@ -25,4 +29,5 @@ Map<String, dynamic> _$PlacedOrderResponseToJson(
       'totalPrice': instance.totalPrice,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'orderitems': instance.orderitems,
     };

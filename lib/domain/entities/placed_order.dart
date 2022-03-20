@@ -1,4 +1,5 @@
 import 'interface/order_status.dart';
+import 'placed_order_item.dart';
 
 class PlacedOrder {
   const PlacedOrder({
@@ -8,6 +9,7 @@ class PlacedOrder {
     required this.totalPrice,
     required this.createdAt,
     required this.updatedAt,
+    required this.orderitems,
   });
 
   final int id;
@@ -16,4 +18,5 @@ class PlacedOrder {
   final double totalPrice;
   final DateTime createdAt;
   final DateTime updatedAt;
+  final List<PlacedOrderItem> orderitems;
 }

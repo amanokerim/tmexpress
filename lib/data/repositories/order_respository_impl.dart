@@ -34,4 +34,12 @@ class OrderRepositoryImpl implements OrderRepository {
           .then(_placedOrderResponseMapper.mapList),
     );
   }
+
+  @override
+  Future<Either<Failure, PlacedOrder>> getPlacedOrder(int id) {
+    return _exception.handle(
+      () =>
+          _authNetwork.getPlacedOrder(id).then(_placedOrderResponseMapper.map),
+    );
+  }
 }

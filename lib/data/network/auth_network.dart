@@ -32,6 +32,11 @@ abstract class AuthNetwork {
   @GET('api/order/orderList/')
   Future<List<PlacedOrderResponse>> fetchPlacedOrders();
 
+  @GET('api/order/order-detail/{id}/')
+  Future<PlacedOrderResponse> getPlacedOrder(
+    @Path() final int id,
+  );
+
   @PUT('api/auth/profile/')
   Future<void> editProfile(
     @Body() Profile profile,

@@ -7,4 +7,6 @@ abstract class OrderRepository {
   Future<Either<Failure, bool>> createOrder(Order order);
 
   Future<Either<Failure, List<PlacedOrder>>> fetchPlacedOrders();
+
+  Future<Either<Failure, PlacedOrder>> getPlacedOrder(int id);
 }
