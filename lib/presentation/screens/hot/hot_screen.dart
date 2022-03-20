@@ -46,7 +46,14 @@ class _HotScreenState extends State<HotScreen> {
             pagingController.error = state.message;
           }
         },
-        child: ProductPagedGridView(pagingController),
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            SliverPadding(
+                padding: const EdgeInsets.all(16),
+                sliver: ProductPagedGridView(pagingController)),
+          ],
+        ),
       ),
     );
   }

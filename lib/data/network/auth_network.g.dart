@@ -87,6 +87,25 @@ class _AuthNetwork implements AuthNetwork {
   }
 
   @override
+  Future<List<PlacedOrderResponse>> fetchPlacedOrders() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<PlacedOrderResponse>>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, 'api/order/orderList/',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            PlacedOrderResponse.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
   Future<void> editProfile(profile) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

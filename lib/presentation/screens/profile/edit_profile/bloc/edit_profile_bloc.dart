@@ -47,7 +47,7 @@ class EditProfileBloc extends AppBloc<EditProfileEvent, EditProfileState> {
 
         final r = await _editProfileUseCase(profile);
         emit(r.fold(
-          (failure) => _state(mapError(failure)),
+          (failure) => _state(message(failure)),
           (_) => _success,
         ));
       }

@@ -23,7 +23,7 @@ class ProductsBloc extends AppBloc<ProductsEvent, ProductsState> {
           sortType: sortType,
           filterOptions: _filterOptions));
       emit(result.fold(
-        (failure) => ProductsLoadError(mapError(failure), UniqueKey()),
+        (failure) => ProductsLoadError(message(failure), UniqueKey()),
         (pagination) {
           next = pagination.next;
           return ProductsLoadSuccess(pagination.next, pagination.items);

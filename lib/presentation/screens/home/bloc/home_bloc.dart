@@ -16,7 +16,7 @@ class HomeBloc extends AppBloc<HomeEvent, HomeState> {
       emit(HomeLoadInProgress());
       final result = await _fetchHomeUseCase();
       emit(result.fold(
-        (failure) => HomeLoadError(mapError(failure), UniqueKey()),
+        (failure) => HomeLoadError(message(failure), UniqueKey()),
         (home) => HomeLoadSuccess(home),
       ));
     });

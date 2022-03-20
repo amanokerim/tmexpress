@@ -8,6 +8,7 @@ import '../../widgets/app_progress_indicator.dart';
 import '../auth/auth_page.dart';
 import 'bloc/profile_bloc.dart';
 import 'favorites_screen.dart';
+import 'placed_orders/placed_orders_page.dart';
 import 'widgets/profile_card.dart';
 import 'widgets/referral_card.dart';
 
@@ -42,7 +43,10 @@ class ProfileScreen extends StatelessWidget {
               label: S.current.orders,
               type: ButtonType.outline,
               iconFile: 'order_history.png',
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                    builder: (_) => const PlacedOrdersPage()),
+              ),
             ),
             const SizedBox(height: 16),
             AppButton(

@@ -14,7 +14,7 @@ class HotBloc extends AppBloc<HotEvent, HotState> {
     on<HotRequested>((event, emit) async {
       final r = await _fetchHotProducts(event.next);
       emit(r.fold(
-        (failure) => HotLoadError(mapError(failure)),
+        (failure) => HotLoadError(message(failure)),
         (pagination) => HotLoadSuccess(
           products: pagination.items,
           next: pagination.next,

@@ -26,7 +26,7 @@ class DetailBloc extends AppBloc<DetailEvent, DetailState> {
       emit(DetailLoadInProgress());
       final result = await _fetchProductUseCase(event.id);
       emit(result.fold(
-        (failure) => DetailLoadError(mapError(failure), UniqueKey()),
+        (failure) => DetailLoadError(message(failure), UniqueKey()),
         (product) {
           this.product = product;
           return success();

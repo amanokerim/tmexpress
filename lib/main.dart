@@ -45,10 +45,10 @@ class FlutterApp extends StatelessWidget {
       );
 }
 
+// Show orders in profile
 // Filter/sort
 // Profile
 // Show profile data confirming dialog on order place
-// Show orders in profile
 // Referral system
 // Test/refine/refactor
 // Logo/splash
@@ -57,7 +57,6 @@ class FlutterApp extends StatelessWidget {
 
 // Refine ideas
 // Shrink and pin profile card on scroll
-
 
 
 // TODO Back button in a same brightness with status bar

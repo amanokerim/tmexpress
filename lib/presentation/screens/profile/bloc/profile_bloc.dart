@@ -24,7 +24,7 @@ class ProfileBloc extends AppBloc<ProfileEvent, ProfileState> {
       } else {
         final r = await _fetchProfileUseCase();
         emit(r.fold(
-          (failure) => ProfileLoadError(message: mapError(failure)),
+          (failure) => ProfileLoadError(message: message(failure)),
           (profile) => ProfileLoadSuccess(profile),
         ));
       }

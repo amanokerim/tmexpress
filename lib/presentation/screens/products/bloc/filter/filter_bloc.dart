@@ -17,7 +17,7 @@ class FilterBloc extends AppBloc<FilterEvent, FilterState> {
       emit(FilterLoad());
       final r = await _fetchSizes(event.subcategoryId);
       emit(r.fold(
-        (failure) => FilterError(mapError(failure)),
+        (failure) => FilterError(message(failure)),
         (sizes) {
           _sizes = sizes;
           return _filterSuccess;
