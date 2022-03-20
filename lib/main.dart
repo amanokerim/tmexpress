@@ -45,7 +45,6 @@ class FlutterApp extends StatelessWidget {
       );
 }
 
-// Show orders in profile
 // Filter/sort
 // Profile
 // Show profile data confirming dialog on order place
@@ -53,6 +52,7 @@ class FlutterApp extends StatelessWidget {
 // Test/refine/refactor
 // Logo/splash
 // dio cache
+// handle 401
 
 
 // Refine ideas

@@ -1190,6 +1190,46 @@ class S {
     );
   }
 
+  /// `Hawa`
+  String get yes {
+    return Intl.message(
+      'Hawa',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ýapmak`
+  String get close {
+    return Intl.message(
+      'Ýapmak',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hasabyňyzdan çykmakçymy?`
+  String get confirmSignOut {
+    return Intl.message(
+      'Hasabyňyzdan çykmakçymy?',
+      name: 'confirmSignOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Islendik wagt telefon belgiňiz arkaly ýene-de girip bilersiňiz.`
+  String get confirmSignOutContent {
+    return Intl.message(
+      'Islendik wagt telefon belgiňiz arkaly ýene-de girip bilersiňiz.',
+      name: 'confirmSignOutContent',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

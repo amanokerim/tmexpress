@@ -182,7 +182,9 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       get<_i16.SizeResponseMapper>(),
       get<_i6.Box<Map<dynamic, dynamic>>>()));
   gh.factory<_i43.ProfileBloc>(() => _i43.ProfileBloc(
-      get<_i38.GetStringPreferenceUseCase>(), get<_i34.FetchProfileUseCase>()));
+      get<_i38.GetStringPreferenceUseCase>(),
+      get<_i34.FetchProfileUseCase>(),
+      get<_i29.SetPreferenceUseCase>()));
   gh.lazySingleton<_i44.ShareProductUseCase>(
       () => _i44.ShareProductUseCase(get<_i41.ProductRepository>()));
   gh.factory<_i45.StartBloc>(() => _i45.StartBloc(

@@ -56,6 +56,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "cart": MessageLookupByLibrary.simpleMessage("Sebet"),
         "cartEmpty": MessageLookupByLibrary.simpleMessage("Sebetde haryt ýok"),
         "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
+        "close": MessageLookupByLibrary.simpleMessage("Ýapmak"),
+        "confirmSignOut":
+            MessageLookupByLibrary.simpleMessage("Hasabyňyzdan çykmakçymy?"),
+        "confirmSignOutContent": MessageLookupByLibrary.simpleMessage(
+            "Islendik wagt telefon belgiňiz arkaly ýene-de girip bilersiňiz."),
         "connectionError":
             MessageLookupByLibrary.simpleMessage("Serwere baglanyp bolmady"),
         "continueButton": MessageLookupByLibrary.simpleMessage("Dowam etmek"),
@@ -181,6 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "woman": MessageLookupByLibrary.simpleMessage("Zenan"),
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),
         "wrongFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
+        "yes": MessageLookupByLibrary.simpleMessage("Hawa"),
         "yesterday": MessageLookupByLibrary.simpleMessage("Düýn")
       };
 }

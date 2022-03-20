@@ -16,3 +16,5 @@ class ProfileChanged extends ProfileEvent {
   @override
   List<Object> get props => [profile];
 }
+
+class ProfileSignOutRequested extends ProfileEvent {}

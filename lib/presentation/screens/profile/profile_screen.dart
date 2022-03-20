@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/generated/l10n.dart';
 import '../../widgets/app_button.dart';
+import '../../widgets/app_confirm_dialog.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
 import '../auth/auth_page.dart';
@@ -57,11 +58,10 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             AppButton(
-              label: S.current.logOut,
-              iconFile: 'logout.png',
-              type: ButtonType.black,
-              onPressed: () {},
-            ),
+                label: S.current.logOut,
+                iconFile: 'logout.png',
+                type: ButtonType.black,
+                onPressed: () => _signOut(context)),
           ],
         );
       } else if (state is ProfileLoadError) {
@@ -71,5 +71,17 @@ class ProfileScreen extends StatelessWidget {
       }
       return const AppProgressIndicator();
     });
+  }
+
+  Future<void> _signOut(BuildContext context) async {
+    final confirm = await showDialog<bool>(
+        context: context,
+        builder: (_) => AppDialog(
+            title: S.current.confirmSignOut,
+            content: S.current.confirmSignOutContent,
+            positiveButtonLabel: S.current.yes));
+    if (confirm == true) {
+      context.read<ProfileBloc>().add(ProfileSignOutRequested());
+    }
   }
 }
