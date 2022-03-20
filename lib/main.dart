@@ -70,3 +70,4 @@ class FlutterApp extends StatelessWidget {
 // https://www.flaticon.com/authors/inkubators
 // https://www.freepik.com/
 // https://www.flaticon.com/authors/vitaly-gorbachev
+// https://www.flaticon.com/authors/icongeek26

@@ -630,10 +630,10 @@ class S {
     );
   }
 
-  /// `Jemi:\n`
+  /// `Jemi`
   String get total {
     return Intl.message(
-      'Jemi:\n',
+      'Jemi',
       name: 'total',
       desc: '',
       args: [],
@@ -1085,6 +1085,106 @@ class S {
     return Intl.message(
       'Sizde halanan haryt ýok',
       name: 'noFavorites',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Häzirlikçe sizde sargyt ýok`
+  String get noOrders {
+    return Intl.message(
+      'Häzirlikçe sizde sargyt ýok',
+      name: 'noOrders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sargyt edildi`
+  String get orderPlaced {
+    return Intl.message(
+      'Sargyt edildi',
+      name: 'orderPlaced',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kabul edildi`
+  String get accepted {
+    return Intl.message(
+      'Kabul edildi',
+      name: 'accepted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kabul edilmedi`
+  String get declined {
+    return Intl.message(
+      'Kabul edilmedi',
+      name: 'declined',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ugradylmaga taýýar`
+  String get readyToShip {
+    return Intl.message(
+      'Ugradylmaga taýýar',
+      name: 'readyToShip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ýolda`
+  String get shipping {
+    return Intl.message(
+      'Ýolda',
+      name: 'shipping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gowşyrylmaga taýýar`
+  String get readyToDeliver {
+    return Intl.message(
+      'Gowşyrylmaga taýýar',
+      name: 'readyToDeliver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gowşyrylýar`
+  String get delivering {
+    return Intl.message(
+      'Gowşyrylýar',
+      name: 'delivering',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gowşyryldy`
+  String get delivered {
+    return Intl.message(
+      'Gowşyryldy',
+      name: 'delivered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yzyna gaýtaryldy`
+  String get returned {
+    return Intl.message(
+      'Yzyna gaýtaryldy',
+      name: 'returned',
       desc: '',
       args: [],
     );

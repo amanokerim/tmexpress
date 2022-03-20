@@ -94,6 +94,7 @@ flutter:
     - assets/animations/
     - assets/illustrations/
     - assets/icons/
+    - assets/icons/order_statuses/
   fonts:
     - family: Nunito
       fonts:

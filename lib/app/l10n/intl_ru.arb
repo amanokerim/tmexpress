@@ -68,7 +68,7 @@
   "expressSubtitle": "15 günde gowuşýar",
   "continueButton": "Dowam etmek",
   "makeOrder": "Sargyt etmek",
-  "total": "Jemi:\n",
+  "total": "Jemi",
   "nMan": "{total} man.",
   "orderCreated": "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!",
   "ok": "Bolýar",
@@ -116,6 +116,17 @@
   "region":"Welaýat (şäher)",
   "selectGenderAndRegion":"Jyns we welaýat hökman saýlanmaly",
   "noFavorites": "Sizde halanan haryt ýok",
+
+  "noOrders": "Häzirlikçe sizde sargyt ýok",
+  "orderPlaced": "Sargyt edildi",
+  "accepted": "Kabul edildi",
+  "declined": "Kabul edilmedi",
+  "readyToShip": "Ugradylmaga taýýar",
+  "shipping": "Ýolda",
+  "readyToDeliver": "Gowşyrylmaga taýýar",
+  "delivering": "Gowşyrylýar",
+  "delivered": "Gowşyryldy",
+  "returned": "Yzyna gaýtaryldy",
 
 
 

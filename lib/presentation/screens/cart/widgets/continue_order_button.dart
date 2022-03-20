@@ -18,7 +18,7 @@ class ContinueOrderButton extends StatelessWidget {
         children: [
           RichText(
             text: TextSpan(
-              text: S.current.total,
+              text: '${S.current.total}:\n',
               style: AppTextStyle.grey14,
               children: [
                 TextSpan(

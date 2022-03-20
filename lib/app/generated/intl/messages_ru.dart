@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accepted": MessageLookupByLibrary.simpleMessage("Kabul edildi"),
         "addToCart": MessageLookupByLibrary.simpleMessage("Sebede goşmak"),
         "addToFavorites":
             MessageLookupByLibrary.simpleMessage("Halanlaryma goşmak"),
@@ -59,6 +60,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Serwere baglanyp bolmady"),
         "continueButton": MessageLookupByLibrary.simpleMessage("Dowam etmek"),
         "count": MessageLookupByLibrary.simpleMessage("sany"),
+        "declined": MessageLookupByLibrary.simpleMessage("Kabul edilmedi"),
+        "delivered": MessageLookupByLibrary.simpleMessage("Gowşyryldy"),
+        "delivering": MessageLookupByLibrary.simpleMessage("Gowşyrylýar"),
         "doubleBackToExit": MessageLookupByLibrary.simpleMessage(
             "Çykmak üçin ýene bir gezek basyň"),
         "dz": MessageLookupByLibrary.simpleMessage("Daşoguz"),
@@ -96,6 +100,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Maglumatlaryňyz girizilmedik"),
         "noFavorites":
             MessageLookupByLibrary.simpleMessage("Sizde halanan haryt ýok"),
+        "noOrders":
+            MessageLookupByLibrary.simpleMessage("Häzirlikçe sizde sargyt ýok"),
         "noProducts": MessageLookupByLibrary.simpleMessage(
             "Bu ýerde häzirlikçe haryt ýok ("),
         "normal": MessageLookupByLibrary.simpleMessage("Adaty"),
@@ -104,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("Bolýar"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
+        "orderPlaced": MessageLookupByLibrary.simpleMessage("Sargyt edildi"),
         "orders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
         "phone": MessageLookupByLibrary.simpleMessage("Telefon belgiňiz"),
         "privacyPolicyLink":
@@ -120,6 +127,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "productWeight": MessageLookupByLibrary.simpleMessage("Agramy"),
         "productWholesaleDesc": m1,
         "profile": MessageLookupByLibrary.simpleMessage("Profil"),
+        "readyToDeliver":
+            MessageLookupByLibrary.simpleMessage("Gowşyrylmaga taýýar"),
+        "readyToShip":
+            MessageLookupByLibrary.simpleMessage("Ugradylmaga taýýar"),
         "referralEarning": MessageLookupByLibrary.simpleMessage("Girdeji:"),
         "referralEarningDescription": m2,
         "referralUsers": MessageLookupByLibrary.simpleMessage("Arzanladyş:"),
@@ -132,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "requiredField":
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
+        "returned": MessageLookupByLibrary.simpleMessage("Yzyna gaýtaryldy"),
         "selectAll": MessageLookupByLibrary.simpleMessage("Ählisini saýla"),
         "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
         "selectGenderAndRegion": MessageLookupByLibrary.simpleMessage(
@@ -142,6 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
+        "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
         "somethingWentWrong":
@@ -157,7 +170,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sortWeightAsc": MessageLookupByLibrary.simpleMessage("Ýeňiller başda"),
         "sortWeightDesc": MessageLookupByLibrary.simpleMessage("Agyrlar başda"),
         "today": MessageLookupByLibrary.simpleMessage("Bu gün"),
-        "total": MessageLookupByLibrary.simpleMessage("Jemi:\n"),
+        "total": MessageLookupByLibrary.simpleMessage("Jemi"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Amal wagtlaýyn elýeter däl.\nBiraz wagtdan synanyşyp görüň."),
         "userAgreementLink":
