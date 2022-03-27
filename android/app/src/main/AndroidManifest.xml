@@ -2,7 +2,7 @@
     package="com.zehinz.tmexpress">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="tmexpress"
+        android:label="TmExpress"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

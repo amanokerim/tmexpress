@@ -8,12 +8,9 @@ class Order {
 
   final List<OrderItem> orderitems;
   final bool isExpress;
-  // TODO insert referralId
 
-  Map<String, dynamic> toJson() {
-    return {
-      'orderitems': orderitems.map((x) => x.toJson()).toList(),
-      'isExpress': isExpress,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+        'orderitems': orderitems.map((x) => x.toJson()).toList(),
+        'isExpress': isExpress,
+      };
 }

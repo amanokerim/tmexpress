@@ -6,6 +6,7 @@ import '../../../../domain/entities/cart_item.dart';
 import '../../../../domain/entities/product.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
+import '../../../utils/constants.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_confirm_dialog.dart';
 import '../../cart/bloc/cart_bloc.dart';
@@ -98,7 +99,8 @@ class ProductWidgets extends StatelessWidget {
                   context: context,
                   builder: (_) => AppDialog(
                         title: S.current.share,
-                        content: S.current.shareInformation,
+                        content:
+                            S.current.shareInformation(kReferralProductPercent),
                         positiveButtonLabel: S.current.ok,
                         showNegativeButton: false,
                       ))),

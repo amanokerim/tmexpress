@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/profile.dart';
 import '../../domain/errors/failures.dart';
 import '../../domain/repositories/profile_repository.dart';
 import '../../domain/usecases/profile/auth_usecase.dart';
+import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../local/preferences.dart';
 import '../mappers/response_mappers/profile_response_mapper.dart';
@@ -33,9 +35,17 @@ class ProfileRepositoryImpl implements ProfileRepository {
   @override
   Future<Either<Failure, bool>> auth(AuthParams params) {
     return _exception.handle(() async {
+      final box = Hive.box<String>(kDataBox);
+      final referralUserId = box.get(kRegisterReferral);
+      print('** auth with referral user id: $referralUserId');
       final token = await _commonNetwork
-          .auth(params.phone, params.code, params.userId)
+          .auth(params.phone, params.code, box.get(kRegisterReferral))
           .then(_tokenResponseMapper.map);
+      // delete referral user from data, if successfully signed in
+      if (referralUserId != null && token.access.isNotEmpty) {
+        await box.delete(kRegisterReferral);
+        print('** delete referal user id');
+      }
       await _preferences.setJwt(token.access);
       return true;
     });

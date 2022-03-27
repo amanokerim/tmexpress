@@ -58,7 +58,7 @@ abstract class CommonNetwork {
   Future<TokenResponse> auth(
     @Field('username') String phone,
     @Field('password') int code,
-    @Field('userId') int userId,
+    @Query('userId') String? userId,
   );
 
   @GET('api/products/subCategorySizes/{id}/')

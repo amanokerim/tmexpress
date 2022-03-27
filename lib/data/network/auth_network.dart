@@ -27,6 +27,7 @@ abstract class AuthNetwork {
   @POST('api/order/order-create/')
   Future<void> createOrder(
     @Body() Order order,
+    @Query('referalUser') String? referralUserId,
   );
 
   @GET('api/order/orderList/')

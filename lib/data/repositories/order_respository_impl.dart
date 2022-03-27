@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart' hide Order;
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/order.dart';
 import '../../domain/entities/placed_order.dart';
 import '../../domain/errors/failures.dart';
 import '../../domain/repositories/order_repository.dart';
+import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../mappers/response_mappers/placed_order_response_mapper.dart';
 import '../network/auth_network.dart';
@@ -21,7 +23,21 @@ class OrderRepositoryImpl implements OrderRepository {
   @override
   Future<Either<Failure, bool>> createOrder(Order order) {
     return _exception.handle(() async {
-      await _authNetwork.createOrder(order);
+      final box = Hive.box<String>(kDataBox);
+      String? referralUser;
+      final referredDateStr = box.get(kProductReferralDate);
+      DateTime? referredDate;
+      if (referredDateStr != null) {
+        referredDate = DateTime.parse(referredDateStr);
+        if (referredDate.add(const Duration(days: 1)).isAfter(DateTime.now())) {
+          referralUser = box.get(kProductReferralUserId);
+        }
+      }
+      await _authNetwork.createOrder(order, referralUser);
+      if (referredDateStr != null) {
+        await box.delete(kProductReferralDate);
+        await box.delete(kProductReferralUserId);
+      }
       return true;
     });
   }

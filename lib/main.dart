@@ -46,11 +46,9 @@ class FlutterApp extends StatelessWidget {
 }
 
 // FRONT-END
-// Referral system (share product and app, dynamic links for product, 
-// dynamic link for app)
-// Push notifications
-// Dynamic link apple integration
 
+// Push notifications
+// Dynamic link apple integration (test)
 // Show profile data confirming dialog on order place
 // Logo/splash
 // dio cache
@@ -61,7 +59,8 @@ class FlutterApp extends StatelessWidget {
 // BACK-END
 // price on OrderItem model
 // order by on tag products
-
+// Admin panel product image mini generation
+// 500 error on create order
 
 //////////////////////////////////////
 // https://iconscout.com/contributors/manypixels-gallery

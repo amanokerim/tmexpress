@@ -28,9 +28,16 @@ class _StartScreenState extends State<StartScreen> {
   @override
   void initState() {
     super.initState();
+    _initDynamicLink();
+  }
+
+  Future<void> _initDynamicLink() async {
     // TODO Test deep-link with inactive app
-    if (Env.value.dynamicLinkData != null) {
-      DeepLinker.handle(context, Env.value.dynamicLinkData!);
+    final dynamicLinkData =
+        await FirebaseDynamicLinks.instance.getInitialLink();
+
+    if (dynamicLinkData != null) {
+      DeepLinker.handle(context, dynamicLinkData);
     }
     FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
       DeepLinker.handle(context, dynamicLinkData);

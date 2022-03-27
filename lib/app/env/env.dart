@@ -42,13 +42,13 @@ class Env {
               statusBarColor: Colors.transparent,
               statusBarBrightness: Brightness.light),
         );
+        await _initFirebase();
 
         await Hive.initFlutter();
         await Hive.openBox<Map<dynamic, dynamic>>(kFavoritesBox);
+        await Hive.openBox<String>(kDataBox);
 
-        await _initFirebase();
         _preCache();
-        dynamicLinkData = await FirebaseDynamicLinks.instance.getInitialLink();
 
         BlocOverrides.runZoned(
           // () => runApp(DevicePreview(

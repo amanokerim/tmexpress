@@ -500,13 +500,13 @@ class S {
     );
   }
 
-  /// `Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň 3% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!`
-  String get shareInformation {
+  /// `Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň {percen}% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!`
+  String shareInformation(Object percen) {
     return Intl.message(
-      'Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň 3% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!',
+      'Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň $percen% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!',
       name: 'shareInformation',
       desc: '',
-      args: [],
+      args: [percen],
     );
   }
 

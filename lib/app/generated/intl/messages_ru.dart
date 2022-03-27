@@ -33,6 +33,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(phone, code) =>
       "Hasaba girmek üçin, \n${phone} belgä ${code} kody SMS arkaly ugradyň we programma dolanyň.";
 
+  static String m5(percen) =>
+      "Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň ${percen}% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accepted": MessageLookupByLibrary.simpleMessage("Kabul edildi"),
@@ -159,8 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
-        "shareInformation": MessageLookupByLibrary.simpleMessage(
-            "Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň 3% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!"),
+        "shareInformation": m5,
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
