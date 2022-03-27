@@ -27,10 +27,15 @@ class StartShowTechnicalWorksScreen extends StartState {}
 
 class StartShowUpdateScreen extends StartState {}
 
-class StartShowNewVersioFlash extends StartState {
-  const StartShowNewVersioFlash(this.newVersion);
+class StartShowNewVersionFlash extends StartState {
+  const StartShowNewVersionFlash(this.newVersion);
   final String newVersion;
 
   @override
   List<Object> get props => [newVersion];
+}
+
+class StartSetUpFCMListener extends StartState {
+  const StartSetUpFCMListener(this.fcmStream);
+  final Stream<FCMNotification> fcmStream;
 }

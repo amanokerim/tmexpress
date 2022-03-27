@@ -130,10 +130,12 @@
   "returned": "Yzyna gaýtaryldy",
   "yes": "Hawa",
   "close": "Ýapmak",
+  "open": "Açmak",
   "confirmSignOut": "Hasabyňyzdan çykmakçymy?",
   "confirmSignOutContent": "Islendik wagt telefon belgiňiz arkaly ýene-de girip bilersiňiz.",
   
   "signInForMakeOrder": "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.",
+  "youCantReceiveNotifications": "Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)",
 
 
 

@@ -50,22 +50,6 @@ class FlutterApp extends StatelessWidget {
 }
 
 // FRONT-END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Push notifications
-// Show profile data confirming dialog on order place
 // Logo/splash
 // dio cache
 // handle 401

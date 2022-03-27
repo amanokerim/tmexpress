@@ -6,11 +6,26 @@ import 'package:share_plus/share_plus.dart';
 
 import '../screens/detail/detail_page.dart';
 import '../screens/main/bloc/main_bloc.dart';
+import '../screens/profile/bloc/profile_bloc.dart';
 import 'app_flash.dart';
 import 'constants.dart';
 
 class DeepLinker {
   const DeepLinker._();
+
+  static Future<void> init(BuildContext context) async {
+    // TODO Test deep-link with inactive app
+    final dynamicLinkData =
+        await FirebaseDynamicLinks.instance.getInitialLink();
+
+    if (dynamicLinkData != null) {
+      DeepLinker.handle(context, dynamicLinkData);
+    }
+    FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
+      DeepLinker.handle(context, dynamicLinkData);
+    });
+    context.read<ProfileBloc>().add(ProfileStarted());
+  }
 
   static void handle(
       BuildContext context, PendingDynamicLinkData dynamicLinkData) {

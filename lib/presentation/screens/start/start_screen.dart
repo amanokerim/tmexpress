@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:alice/alice.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,9 +10,9 @@ import '../../../app/injection/injection.dart';
 import '../../utils/app_flash.dart';
 import '../../utils/constants.dart';
 import '../../utils/deeplinker.dart';
+import '../../utils/fcm_handler.dart';
 import '../../widgets/app_progress_indicator.dart';
 import '../main/main_screen.dart';
-import '../profile/bloc/profile_bloc.dart';
 import 'bloc/start_bloc.dart';
 
 bool _backButtonPressedOneTime = false;
@@ -26,63 +25,60 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
+  final _fcmHandler = FCMHandler();
+
   @override
   void initState() {
     super.initState();
-    _initDynamicLink();
+    DeepLinker.init(context);
   }
 
-  Future<void> _initDynamicLink() async {
-    // TODO Test deep-link with inactive app
-    final dynamicLinkData =
-        await FirebaseDynamicLinks.instance.getInitialLink();
-
-    if (dynamicLinkData != null) {
-      DeepLinker.handle(context, dynamicLinkData);
-    }
-    FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
-      DeepLinker.handle(context, dynamicLinkData);
-    });
-    context.read<ProfileBloc>().add(ProfileStarted());
+  @override
+  void dispose() {
+    _fcmHandler.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () => _onWillPop(context),
-      child: BlocBuilder<StartBloc, StartState>(
-        builder: (_, state) {
-          return GestureDetector(
-            onLongPress: () {
-              // TODO Remove on release
-              if (Env.value.showAlice) getIt<Alice>().showInspector();
-            },
-            child: AnimatedSwitcher(
-              duration: kAnimationDuration,
-              // ignore: avoid_unnecessary_containers
-              child: Container(
-                // TODO Uncomment on production
-                // key: UniqueKey(),
-                child: Builder(
-                  builder: (_) {
-                    if (state is StartShowOnboarding) {
-                      // TODO return onboarding page
-                    } else if (state is StartShowHome) {
-                      return const MainScreen();
-                    } else if (state is StartShowTechnicalWorksScreen) {
-                      return const Center(child: Text('Technical works'));
-                    } else if (state is StartShowUpdateScreen) {
-                      return const Center(child: Text('Please Update an app'));
-                    }
-                    return const Scaffold(
-                      body: AppProgressIndicator(),
-                    );
-                  },
-                ),
+      child: BlocConsumer<StartBloc, StartState>(
+        listener: (_, state) {
+          if (state is StartSetUpFCMListener) {
+            _fcmHandler.init(context, state.fcmStream);
+          }
+        },
+        builder: (_, state) => GestureDetector(
+          onLongPress: () {
+            // TODO Remove on release
+            if (Env.value.showAlice) getIt<Alice>().showInspector();
+          },
+          child: AnimatedSwitcher(
+            duration: kAnimationDuration,
+            // ignore: avoid_unnecessary_containers
+            child: Container(
+              // TODO Uncomment on production
+              // key: UniqueKey(),
+              child: Builder(
+                builder: (_) {
+                  if (state is StartShowOnboarding) {
+                    // TODO return onboarding page
+                  } else if (state is StartShowHome) {
+                    return const MainScreen();
+                  } else if (state is StartShowTechnicalWorksScreen) {
+                    return const Center(child: Text('Technical works'));
+                  } else if (state is StartShowUpdateScreen) {
+                    return const Center(child: Text('Please Update an app'));
+                  }
+                  return const Scaffold(
+                    body: AppProgressIndicator(),
+                  );
+                },
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }

@@ -31,3 +31,8 @@ const kProductReferralDate = 'productReferralDate';
 const kDynamicLinkPrefix = 'https://tmexpress.page.link';
 const kDynamicLinkRegister = '/register';
 const kDynamicLinkProduct = '/product';
+
+// Notification types
+const kProductPage = 'product';
+const kTagPage = 'tag';
+const kSubcategoryPage = 'subcategory';

@@ -1220,6 +1220,16 @@ class S {
     );
   }
 
+  /// `Açmak`
+  String get open {
+    return Intl.message(
+      'Açmak',
+      name: 'open',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hasabyňyzdan çykmakçymy?`
   String get confirmSignOut {
     return Intl.message(
@@ -1245,6 +1255,16 @@ class S {
     return Intl.message(
       'Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.',
       name: 'signInForMakeOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)`
+  String get youCantReceiveNotifications {
+    return Intl.message(
+      'Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)',
+      name: 'youCantReceiveNotifications',
       desc: '',
       args: [],
     );

@@ -116,6 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "normalSubtitle":
             MessageLookupByLibrary.simpleMessage("45 günde gowuşýar"),
         "ok": MessageLookupByLibrary.simpleMessage("Bolýar"),
+        "open": MessageLookupByLibrary.simpleMessage("Açmak"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
         "orderPlaced": MessageLookupByLibrary.simpleMessage("Sargyt edildi"),
@@ -193,6 +194,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),
         "wrongFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
         "yes": MessageLookupByLibrary.simpleMessage("Hawa"),
-        "yesterday": MessageLookupByLibrary.simpleMessage("Düýn")
+        "yesterday": MessageLookupByLibrary.simpleMessage("Düýn"),
+        "youCantReceiveNotifications": MessageLookupByLibrary.simpleMessage(
+            "Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)")
       };
 }

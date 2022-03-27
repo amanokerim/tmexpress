@@ -4,6 +4,7 @@ import 'package:flutter/material.dart' hide Banner;
 
 import '../../domain/entities/banner.dart';
 import '../theme/app_theme.dart';
+import '../utils/navigation_helper.dart';
 
 class AppCarouselSlider extends StatefulWidget {
   const AppCarouselSlider(this.banners, {Key? key}) : super(key: key);
@@ -24,14 +25,14 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
         children: [
           CarouselSlider(
             items: widget.banners
-                .map((bannner) => GestureDetector(
-                      onTap: () {},
-                      // onTap: () => _handleBannnerTap(bannner),
+                .map((banner) => GestureDetector(
+                      onTap: () => NavigationHelper.navigateToPTS(
+                          context, banner.type, banner.entityId),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: CachedNetworkImage(
                             width: double.infinity,
-                            imageUrl: bannner.image,
+                            imageUrl: banner.image,
                             fit: BoxFit.cover,
                             errorWidget: (_, image, __) {
                               return Icon(Icons.image,
@@ -76,33 +77,4 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
       ),
     );
   }
-
-  // _handleBannnerTap(Bannner bannner) {
-  //   {
-  //     if (bannner.openId != 0 && bannner.title.isNotEmpty) {
-  //       Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
-  //         if (bannner.type == 'product') {
-  //           final product = Product(
-  //               id: bannner.openId,
-  //               title: bannner.title,
-  //               image: '',
-  //               oldPrice: 0.0,
-  //               price: 0.0);
-  //           return BlocProvider<ProductDetailCubit>(
-  //             create: (_) => ProductDetailCubit(),
-  //             child: ProductPage(product),
-  //           );
-  //         }
-  //         final subcategory = Subcategory(
-  //           id: bannner.openId,
-  //           title: bannner.title,
-  //         );
-  //         return BlocProvider<SubcategoryCubit>(
-  //           create: (_) => SubcategoryCubit(),
-  //           child: SubcategoryPage(subcategory),
-  //         );
-  //       }));
-  //     }
-  //   }
-  // }
 }
