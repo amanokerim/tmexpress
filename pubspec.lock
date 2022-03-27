@@ -316,27 +316,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.2"
-  firebase_analytics:
-    dependency: "direct main"
-    description:
-      name: firebase_analytics
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "9.0.4"
-  firebase_analytics_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_analytics_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.3"
-  firebase_analytics_web:
-    dependency: transitive
-    description:
-      name: firebase_analytics_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.0+4"
   firebase_core:
     dependency: "direct main"
     description:
@@ -350,14 +329,14 @@ packages:
       name: firebase_core_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.3"
+    version: "4.2.5"
   firebase_core_web:
     dependency: transitive
     description:
       name: firebase_core_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.3"
+    version: "1.6.1"
   firebase_crashlytics:
     dependency: "direct main"
     description:
@@ -372,27 +351,41 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.11"
-  firebase_remote_config:
+  firebase_dynamic_links:
     dependency: "direct main"
     description:
-      name: firebase_remote_config
+      name: firebase_dynamic_links
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
-  firebase_remote_config_platform_interface:
+    version: "4.1.1"
+  firebase_dynamic_links_platform_interface:
     dependency: transitive
     description:
-      name: firebase_remote_config_platform_interface
+      name: firebase_dynamic_links_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
-  firebase_remote_config_web:
+    version: "0.2.2+1"
+  firebase_messaging:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "11.2.11"
+  firebase_messaging_platform_interface:
     dependency: transitive
     description:
-      name: firebase_remote_config_web
+      name: firebase_messaging_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "3.2.1"
+  firebase_messaging_web:
+    dependency: transitive
+    description:
+      name: firebase_messaging_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.9"
   fixnum:
     dependency: transitive
     description:
@@ -1392,5 +1385,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.15.0 <3.0.0"
+  dart: ">=2.16.0 <3.0.0"
   flutter: ">=2.6.0-0"

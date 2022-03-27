@@ -56,7 +56,7 @@ class AppFlash {
               content: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(message, style: AppTextStyle.dark18),
+                  Expanded(child: Text(message, style: AppTextStyle.white16)),
                   if (oneLiner) action,
                 ],
               ),

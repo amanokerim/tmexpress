@@ -35,13 +35,13 @@ extension SortTypesX on SortType {
       case SortType.time:
         return '-createdAt';
       case SortType.priceAsc:
-        return 'rootPrice'; // TODO Migrate to calculated price
+        return 'price';
       case SortType.priceDesc:
-        return '-rootPrice';
+        return '-price';
       case SortType.ourRating:
         return '-ourRating';
       case SortType.hot:
-        return '-sortByHot'; // TODO TEST IT AFTER SERVER UPDATE
+        return '-hot';
       case SortType.weightAsc:
         return 'weight';
       case SortType.weightDesc:

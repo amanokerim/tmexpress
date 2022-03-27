@@ -38,7 +38,7 @@ class AuthBloc extends AppBloc<AuthEvent, AuthState> {
 
     on<AuthCheckRequested>((event, emit) async {
       // TODO Change to real code and referral user
-      final r = await _authUseCase(AuthParams(phone, 666666, 1));
+      final r = await _authUseCase(AuthParams(phone, 666666));
       final st = r.fold((l) => null, (r) => const AuthVerificationSuccess());
       if (st != null) {
         emit(st);

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,7 @@ class Env {
   bool showAlice = false;
   bool writeLogs = false;
   EnvType envType = EnvType.unknown;
+  PendingDynamicLinkData? dynamicLinkData;
 
   Future<dynamic> init() async {
     await runZonedGuarded<Future<void>>(
@@ -40,11 +42,12 @@ class Env {
               statusBarColor: Colors.transparent,
               statusBarBrightness: Brightness.light),
         );
+        await _initFirebase();
 
         await Hive.initFlutter();
         await Hive.openBox<Map<dynamic, dynamic>>(kFavoritesBox);
+        await Hive.openBox<String>(kDataBox);
 
-        await _initFirebase();
         _preCache();
 
         BlocOverrides.runZoned(

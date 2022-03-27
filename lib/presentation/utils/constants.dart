@@ -1,3 +1,5 @@
+const kPackage = 'com.zehinz.tmexpress';
+
 const kAnimationDuration = Duration(milliseconds: 500);
 const kToastDuration = Duration(seconds: 3);
 
@@ -20,3 +22,17 @@ const kFlutterMinimalVersion = 'flutterMinimalVersion';
 
 // Hive boxes
 const kFavoritesBox = 'favoritesBox';
+const kDataBox = 'dataBox';
+const kRegisterReferral = 'registerReferral';
+const kProductReferralUserId = 'productReferral';
+const kProductReferralDate = 'productReferralDate';
+
+// Dynamic Link types
+const kDynamicLinkPrefix = 'https://tmexpress.page.link';
+const kDynamicLinkRegister = '/register';
+const kDynamicLinkProduct = '/product';
+
+// Notification types
+const kProductPage = 'product';
+const kTagPage = 'tag';
+const kSubcategoryPage = 'subcategory';

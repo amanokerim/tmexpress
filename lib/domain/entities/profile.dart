@@ -8,11 +8,13 @@ class Profile extends Equatable {
       {required this.phone,
       required this.referalUserCount,
       required this.referalEarning,
+      required this.id,
       this.name,
       this.gender,
       this.region,
       this.address});
 
+  final int id;
   final String phone;
   final String? name;
   final Gender? gender;
@@ -37,6 +39,7 @@ class Profile extends Equatable {
     String? address,
   }) =>
       Profile(
+          id: id,
           phone: phone,
           name: name ?? this.name,
           gender: gender ?? this.gender,

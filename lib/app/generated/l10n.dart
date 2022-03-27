@@ -500,6 +500,16 @@ class S {
     );
   }
 
+  /// `Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň {percen}% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!`
+  String shareInformation(Object percen) {
+    return Intl.message(
+      'Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň $percen% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!',
+      name: 'shareInformation',
+      desc: '',
+      args: [percen],
+    );
+  }
+
   /// `Ölçeg`
   String get size {
     return Intl.message(
@@ -1210,6 +1220,16 @@ class S {
     );
   }
 
+  /// `Açmak`
+  String get open {
+    return Intl.message(
+      'Açmak',
+      name: 'open',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hasabyňyzdan çykmakçymy?`
   String get confirmSignOut {
     return Intl.message(
@@ -1225,6 +1245,26 @@ class S {
     return Intl.message(
       'Islendik wagt telefon belgiňiz arkaly ýene-de girip bilersiňiz.',
       name: 'confirmSignOutContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.`
+  String get signInForMakeOrder {
+    return Intl.message(
+      'Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.',
+      name: 'signInForMakeOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)`
+  String get youCantReceiveNotifications {
+    return Intl.message(
+      'Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)',
+      name: 'youCantReceiveNotifications',
       desc: '',
       args: [],
     );

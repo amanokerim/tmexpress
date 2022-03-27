@@ -12,12 +12,18 @@ import '../edit_profile/edit_profile_page.dart';
 import 'profile_image.dart';
 
 class ProfileCard extends StatelessWidget {
-  const ProfileCard(this.profile, {Key? key}) : super(key: key);
+  const ProfileCard(this.profile, {this.showAsSheet = false, Key? key})
+      : super(key: key);
   final Profile profile;
+  final bool showAsSheet;
+
   @override
   Widget build(BuildContext context) {
     return CardWrapper(
-      padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
+      backgroundColor: showAsSheet ? Colors.white : null,
+      padding: showAsSheet
+          ? EdgeInsets.zero
+          : const EdgeInsets.fromLTRB(20, 30, 20, 30),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -45,7 +51,7 @@ class ProfileCard extends StatelessWidget {
                 ]),
               ),
             ),
-          const SizedBox(height: 16),
+          SizedBox(height: showAsSheet ? 48 : 16),
           AppButton(
             label: profile.name != null ? S.current.edit : S.current.fill,
             type: ButtonType.black,

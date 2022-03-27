@@ -7,6 +7,8 @@ abstract class DetailState extends Equatable {
   List<Object?> get props => [];
 }
 
+enum DetailLoad { none, share }
+
 class DetailLoadInProgress extends DetailState {}
 
 class DetailLoadSuccess extends DetailState {
@@ -15,15 +17,17 @@ class DetailLoadSuccess extends DetailState {
     this.selectedColor,
     this.selectedSize,
     this.flashMessage,
+    this.detailLoad = DetailLoad.none,
   });
   final Product product;
   final Image? selectedColor;
   final Size? selectedSize;
   final String? flashMessage;
+  final DetailLoad detailLoad;
 
   @override
   List<Object?> get props =>
-      [product, selectedColor, selectedSize, flashMessage];
+      [product, selectedColor, selectedSize, flashMessage, detailLoad];
 }
 
 class DetailLoadError extends DetailState {

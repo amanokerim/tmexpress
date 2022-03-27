@@ -8,6 +8,7 @@ part of 'profile_response.dart';
 
 ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
     ProfileResponse(
+      id: json['id'] as int?,
       name: json['name'] as String?,
       gender: json['gender'] as int?,
       region: json['region'] as int?,
@@ -19,6 +20,7 @@ ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ProfileResponseToJson(ProfileResponse instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'gender': instance.gender,
       'region': instance.region,

@@ -33,6 +33,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m4(phone, code) =>
       "Hasaba girmek üçin, \n${phone} belgä ${code} kody SMS arkaly ugradyň we programma dolanyň.";
 
+  static String m5(percen) =>
+      "Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň ${percen}% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accepted": MessageLookupByLibrary.simpleMessage("Kabul edildi"),
@@ -113,6 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "normalSubtitle":
             MessageLookupByLibrary.simpleMessage("45 günde gowuşýar"),
         "ok": MessageLookupByLibrary.simpleMessage("Bolýar"),
+        "open": MessageLookupByLibrary.simpleMessage("Açmak"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
         "orderPlaced": MessageLookupByLibrary.simpleMessage("Sargyt edildi"),
@@ -159,7 +163,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
+        "shareInformation": m5,
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
+        "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
+            "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň."),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
         "somethingWentWrong":
@@ -187,6 +194,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),
         "wrongFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
         "yes": MessageLookupByLibrary.simpleMessage("Hawa"),
-        "yesterday": MessageLookupByLibrary.simpleMessage("Düýn")
+        "yesterday": MessageLookupByLibrary.simpleMessage("Düýn"),
+        "youCantReceiveNotifications": MessageLookupByLibrary.simpleMessage(
+            "Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)")
       };
 }

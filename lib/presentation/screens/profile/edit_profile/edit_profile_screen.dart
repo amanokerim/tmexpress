@@ -58,7 +58,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   address: _addressC.text,
                   gender: state.gender!,
                   region: state.region!);
-              print(newProfile);
               context.read<ProfileBloc>().add(ProfileChanged(newProfile));
               Navigator.of(context).pop();
             }

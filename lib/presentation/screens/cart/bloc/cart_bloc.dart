@@ -59,7 +59,8 @@ class CartBloc extends AppBloc<CartEvent, CartState> {
   }
 
   CartState cartState({CartSt st = CartSt.initial, String? message}) =>
-      CartState(st, List.from(_items), total, isExpress: _isExpress);
+      CartState(st, List.from(_items), total,
+          isExpress: _isExpress, errorMessage: message);
 
   double get total {
     var t = 0.0;

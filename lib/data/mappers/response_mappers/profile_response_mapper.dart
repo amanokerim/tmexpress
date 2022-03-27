@@ -15,6 +15,7 @@ class ProfileResponseMapper extends Mapper<ProfileResponse, Profile> {
         '${phone.substring(4, 6)} ${phone.substring(6)} ';
 
     return Profile(
+        id: entity?.id ?? 0,
         phone: formattedPhone,
         name: entity?.name,
         address: entity?.address,

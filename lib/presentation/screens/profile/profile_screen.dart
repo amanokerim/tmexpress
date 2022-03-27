@@ -53,8 +53,10 @@ class ProfileScreen extends StatelessWidget {
             AppButton(
               label: S.current.share,
               iconFile: 'share.png',
+              isLoading: state.profileLoad == ProfileLoad.share,
               type: ButtonType.outline,
-              onPressed: () {},
+              onPressed: () =>
+                  context.read<ProfileBloc>().add(ProfileShareRequested()),
             ),
             const SizedBox(height: 16),
             AppButton(
