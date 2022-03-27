@@ -35,4 +35,4 @@ const kDynamicLinkProduct = '/product';
 // Notification types
 const kProductPage = 'product';
 const kTagPage = 'tag';
-const kSubcategoryPage = 'subcategory';
+const kSubcategoryPage = 'category';

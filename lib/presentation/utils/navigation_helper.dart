@@ -12,8 +12,9 @@ class NavigationHelper {
   // Navigate to one of Product, Tag, Subcategory
   static void navigateToPTS(
       BuildContext context, dynamic pageType, dynamic id) {
+    print(pageType);
     Widget? _page;
-    final _id = int.tryParse(id ?? '');
+    final _id = id is String? ? int.tryParse(id ?? '') : id;
 
     if (_id != null) {
       switch (pageType) {

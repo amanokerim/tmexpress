@@ -27,7 +27,7 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
             items: widget.banners
                 .map((banner) => GestureDetector(
                       onTap: () => NavigationHelper.navigateToPTS(
-                          context, banner.type, banner.entityId),
+                          context, banner.type.name, banner.entityId),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: CachedNetworkImage(
