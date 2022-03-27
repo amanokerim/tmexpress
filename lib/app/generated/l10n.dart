@@ -1240,6 +1240,16 @@ class S {
     );
   }
 
+  /// `Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.`
+  String get signInForMakeOrder {
+    return Intl.message(
+      'Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.',
+      name: 'signInForMakeOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

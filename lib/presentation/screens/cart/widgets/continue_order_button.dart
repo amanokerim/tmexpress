@@ -3,7 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../theme/app_theme.dart';
+import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
+import '../../../widgets/app_progress_indicator.dart';
+import '../../profile/bloc/profile_bloc.dart';
+import '../../profile/widgets/profile_card.dart';
 import '../bloc/cart_bloc.dart';
 
 class ContinueOrderButton extends StatelessWidget {
@@ -33,10 +37,53 @@ class ContinueOrderButton extends StatelessWidget {
             child: AppButton(
               label: S.current.continueButton,
               type: ButtonType.black,
-              onPressed: () => context.read<CartBloc>().add(CartOrderPlaced()),
+              onPressed: () {
+                final profile = context.read<ProfileBloc>().profile;
+                if (profile != null) {
+                  _showProfileConfirmationBottomSheet(context);
+                } else {
+                  AppFlash.bigToast(
+                      context: context, message: S.current.signInForMakeOrder);
+                }
+              },
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  void _showProfileConfirmationBottomSheet(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) => BlocBuilder<ProfileBloc, ProfileState>(
+        builder: (context, profileState) {
+          if (profileState is ProfileLoadSuccess) {
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(20, 32, 20, 40),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ProfileCard(profileState.profile, showAsSheet: true),
+                  const SizedBox(height: 16),
+                  BlocBuilder<CartBloc, CartState>(
+                    builder: (context, state) => AppButton(
+                      label: S.current.makeOrder,
+                      iconFile: 'basket.png',
+                      isLoading: state.st == CartSt.loading,
+                      onPressed: () =>
+                          context.read<CartBloc>().add(CartOrderPlaced()),
+                    ),
+                  )
+                ],
+              ),
+            );
+          }
+          return const AppProgressIndicator();
+        },
       ),
     );
   }

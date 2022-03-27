@@ -9,6 +9,7 @@ import 'app/generated/l10n.dart';
 import 'app/injection/injection.dart';
 import 'presentation/screens/cart/bloc/cart_bloc.dart';
 import 'presentation/screens/main/bloc/main_bloc.dart';
+import 'presentation/screens/profile/bloc/profile_bloc.dart';
 import 'presentation/screens/start/bloc/start_bloc.dart';
 import 'presentation/screens/start/start_screen.dart';
 import 'presentation/theme/app_theme.dart';
@@ -24,10 +25,13 @@ class FlutterApp extends StatelessWidget {
   Widget build(BuildContext context) => MultiBlocProvider(
         providers: [
           BlocProvider<StartBloc>(create: (_) => getIt()),
-          BlocProvider<CartBloc>(create: (_) => getIt()),
+          BlocProvider<CartBloc>(create: (_) => getIt(), lazy: false),
         ],
-        child: BlocProvider<MainBloc>(
-          create: (_) => getIt(),
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider<MainBloc>(create: (_) => getIt()),
+            BlocProvider<ProfileBloc>(create: (context) => getIt()),
+          ],
           child: MaterialApp(
               title: kAppName,
               supportedLocales: S.delegate.supportedLocales,
@@ -47,14 +51,30 @@ class FlutterApp extends StatelessWidget {
 
 // FRONT-END
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Push notifications
-// Dynamic link apple integration (test)
 // Show profile data confirming dialog on order place
 // Logo/splash
 // dio cache
 // handle 401
 // onboarding
 // Test/refine/refactor
+
+// TEST 
+// Dynamic link apple integration (test)
+
 
 // BACK-END
 // price on OrderItem model
@@ -64,8 +84,8 @@ class FlutterApp extends StatelessWidget {
 
 //////////////////////////////////////
 // https://iconscout.com/contributors/manypixels-gallery
+// https://www.flaticon.com/authors/vitaly-gorbachev
 // https://smashicons.com/
 // https://www.flaticon.com/authors/inkubators
 // https://www.freepik.com/
-// https://www.flaticon.com/authors/vitaly-gorbachev
 // https://www.flaticon.com/authors/icongeek26

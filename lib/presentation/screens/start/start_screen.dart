@@ -13,6 +13,7 @@ import '../../utils/constants.dart';
 import '../../utils/deeplinker.dart';
 import '../../widgets/app_progress_indicator.dart';
 import '../main/main_screen.dart';
+import '../profile/bloc/profile_bloc.dart';
 import 'bloc/start_bloc.dart';
 
 bool _backButtonPressedOneTime = false;
@@ -42,6 +43,7 @@ class _StartScreenState extends State<StartScreen> {
     FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
       DeepLinker.handle(context, dynamicLinkData);
     });
+    context.read<ProfileBloc>().add(ProfileStarted());
   }
 
   @override

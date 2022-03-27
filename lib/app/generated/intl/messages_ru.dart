@@ -164,6 +164,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
         "shareInformation": m5,
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
+        "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
+            "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň."),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
         "somethingWentWrong":

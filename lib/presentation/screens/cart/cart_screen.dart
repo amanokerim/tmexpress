@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/generated/l10n.dart';
+import '../../utils/app_flash.dart';
 import '../../widgets/app_confirm_dialog.dart';
 import '../../widgets/app_empty.dart';
 import 'bloc/cart_bloc.dart';
@@ -16,6 +17,10 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<CartBloc, CartState>(
       listener: (_, state) async {
+        if (state.errorMessage != null) {
+          await AppFlash.bigToast(
+              context: context, message: state.errorMessage!);
+        }
         if (state.st == CartSt.done) {
           await showDialog<void>(
             context: context,
