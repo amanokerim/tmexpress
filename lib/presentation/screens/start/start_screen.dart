@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:alice/alice.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,14 +10,32 @@ import '../../../app/generated/l10n.dart';
 import '../../../app/injection/injection.dart';
 import '../../utils/app_flash.dart';
 import '../../utils/constants.dart';
+import '../../utils/deeplinker.dart';
 import '../../widgets/app_progress_indicator.dart';
 import '../main/main_screen.dart';
 import 'bloc/start_bloc.dart';
 
 bool _backButtonPressedOneTime = false;
 
-class StartScreen extends StatelessWidget {
+class StartScreen extends StatefulWidget {
   const StartScreen({Key? key}) : super(key: key);
+
+  @override
+  State<StartScreen> createState() => _StartScreenState();
+}
+
+class _StartScreenState extends State<StartScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // TODO Test deep-link with inactive app
+    if (Env.value.dynamicLinkData != null) {
+      DeepLinker.handle(context, Env.value.dynamicLinkData!);
+    }
+    FirebaseDynamicLinks.instance.onLink.listen((dynamicLinkData) {
+      DeepLinker.handle(context, dynamicLinkData);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import '../theme/app_theme.dart';
 
 class AppButton extends ElevatedButton {
   AppButton({
-    required String label,
+    required String? label,
     required VoidCallback? onPressed,
     ButtonType type = ButtonType.red,
     String? iconFile,
@@ -42,21 +42,21 @@ class AppButton extends ElevatedButton {
                       child: CircularProgressIndicator(
                           color: type.foreground, strokeWidth: 2)),
                   const SizedBox(width: 8),
-                ],
-                if (iconFile != null) ...[
+                ] else if (iconFile != null)
                   Image.asset(
                     'assets/icons/$iconFile',
                     color: type.foreground,
                     width: 20,
                   ),
+                if (label != null && (iconFile != null || isLoading))
                   const SizedBox(width: 8),
-                ],
-                Text(
-                  label,
-                  style: AppTextStyle.bold16.copyWith(
-                    color: type.foreground,
+                if (label != null)
+                  Text(
+                    label,
+                    style: AppTextStyle.bold16.copyWith(
+                      color: type.foreground,
+                    ),
                   ),
-                ),
               ],
             ),
           ),

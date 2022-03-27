@@ -500,6 +500,16 @@ class S {
     );
   }
 
+  /// `Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň 3% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!`
+  String get shareInformation {
+    return Intl.message(
+      'Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň 3% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!',
+      name: 'shareInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ölçeg`
   String get size {
     return Intl.message(

@@ -5,6 +5,7 @@ part 'profile_response.g.dart';
 @JsonSerializable()
 class ProfileResponse {
   const ProfileResponse({
+    this.id,
     this.name,
     this.gender,
     this.region,
@@ -18,6 +19,7 @@ class ProfileResponse {
       _$ProfileResponseFromJson(json);
   Map<String, dynamic> toJson() => _$ProfileResponseToJson(this);
 
+  final int? id;
   final String? name;
   final int? gender;
   final int? region;

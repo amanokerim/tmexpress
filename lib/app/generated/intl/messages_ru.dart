@@ -159,6 +159,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
+        "shareInformation": MessageLookupByLibrary.simpleMessage(
+            "Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň 3% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!"),
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),

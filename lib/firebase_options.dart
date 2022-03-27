@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     // ignore: missing_enum_constant_in_switch
     switch (defaultTargetPlatform) {
@@ -40,21 +37,31 @@ class DefaultFirebaseOptions {
     );
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyA20guy9pZvJdK2gLR7Byam8kZMlMm4tU8',
+    appId: '1:624346170728:web:fe9da032eac8ba87b242dd',
+    messagingSenderId: '624346170728',
+    projectId: 'tmexpress101',
+    authDomain: 'tmexpress101.firebaseapp.com',
+    storageBucket: 'tmexpress101.appspot.com',
+    measurementId: 'G-EN4H2ZPT7C',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBgnSQquIfVen0J7rGQXSgQ765Vxs3Q9Ts',
-    appId: '1:759685704506:android:712bdb73d53882e0effe03',
-    messagingSenderId: '759685704506',
-    projectId: 'flutter-template-appcraft',
-    storageBucket: 'flutter-template-appcraft.appspot.com',
+    apiKey: 'AIzaSyBl8iMM-bOgf4tkNxKru7wUBy60liy-laI',
+    appId: '1:624346170728:android:31259c4f27a262c9b242dd',
+    messagingSenderId: '624346170728',
+    projectId: 'tmexpress101',
+    storageBucket: 'tmexpress101.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAd-MBMiAXzRjVVVal2JXI-zY5uXDgQ140',
-    appId: '1:759685704506:ios:4780c0a64a09de0ceffe03',
-    messagingSenderId: '759685704506',
-    projectId: 'flutter-template-appcraft',
-    storageBucket: 'flutter-template-appcraft.appspot.com',
-    iosClientId: '759685704506-f9q3jhtas7ve72ft2rd7d5lf16mktobj.apps.googleusercontent.com',
-    iosBundleId: 'pro.appcraft.templateflutter',
+    apiKey: 'AIzaSyBZhBtwwLWBzsPHqN9M_x5E7Ye5nt2zIhc',
+    appId: '1:624346170728:ios:bcded2a89071623cb242dd',
+    messagingSenderId: '624346170728',
+    projectId: 'tmexpress101',
+    storageBucket: 'tmexpress101.appspot.com',
+    iosClientId: '624346170728-q5avkoctq2370d99etefb64hjr5skrk4.apps.googleusercontent.com',
+    iosBundleId: 'com.zehinz.tmexpress',
   );
 }

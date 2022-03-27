@@ -1,3 +1,5 @@
+const kPackage = 'com.zehinz.tmexpress';
+
 const kAnimationDuration = Duration(milliseconds: 500);
 const kToastDuration = Duration(seconds: 3);
 
@@ -20,3 +22,8 @@ const kFlutterMinimalVersion = 'flutterMinimalVersion';
 
 // Hive boxes
 const kFavoritesBox = 'favoritesBox';
+
+// Dynamic Link types
+const kDynamicLinkPrefix = 'https://tmexpress.page.link';
+const kDynamicLinkRegister = 'register';
+const kDynamicLinkProduct = 'product';

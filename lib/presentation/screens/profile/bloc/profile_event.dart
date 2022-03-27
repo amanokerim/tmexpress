@@ -18,3 +18,5 @@ class ProfileChanged extends ProfileEvent {
 }
 
 class ProfileSignOutRequested extends ProfileEvent {}
+
+class ProfileShareRequested extends ProfileEvent {}

@@ -45,22 +45,22 @@ class FlutterApp extends StatelessWidget {
       );
 }
 
-// Filter/sort
+// FRONT-END
+// Referral system (share product and app, dynamic links for product, 
+// dynamic link for app)
+// Push notifications
+// Dynamic link apple integration
+
 // Show profile data confirming dialog on order place
-// Referral system
-// Test/refine/refactor
 // Logo/splash
 // dio cache
 // handle 401
 // onboarding
+// Test/refine/refactor
 
-// Refine ideas
-// Shrink and pin profile card on scroll
-
-
-// TODO Back button in a same brightness with status bar
-// TODO Setup slivers to the detail screen
-// TODO Encode code in login and register
+// BACK-END
+// price on OrderItem model
+// order by on tag products
 
 
 //////////////////////////////////////

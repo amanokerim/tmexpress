@@ -233,7 +233,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i67.DetailBloc>(() => _i67.DetailBloc(
       get<_i54.FetchProductUseCase>(),
       get<_i61.LikeProductUseCase>(),
-      get<_i44.ShareProductUseCase>()));
+      get<_i44.ShareProductUseCase>(),
+      get<_i43.ProfileBloc>()));
   return get;
 }
 
