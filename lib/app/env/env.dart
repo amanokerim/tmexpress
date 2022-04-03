@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
+import 'package:path_provider/path_provider.dart' as pp;
 
 import '../../firebase_options.dart';
 import '../../main.dart';
@@ -27,12 +28,14 @@ class Env {
   bool writeLogs = false;
   EnvType envType = EnvType.unknown;
   PendingDynamicLinkData? dynamicLinkData;
+  String cacheDir = '';
 
   Future<dynamic> init() async {
     await runZonedGuarded<Future<void>>(
       () async {
         WidgetsFlutterBinding.ensureInitialized();
 
+        cacheDir = (await pp.getTemporaryDirectory()).path;
         await configureInjection(Environment.prod);
 
         await SystemChrome.setPreferredOrientations(

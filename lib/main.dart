@@ -64,7 +64,7 @@ class FlutterApp extends StatelessWidget {
 // price on OrderItem model
 // order by on tag products
 // Admin panel product image mini generation
-// 500 error on create order
+// 500 error on create order and login
 
 //////////////////////////////////////
 // https://iconscout.com/contributors/manypixels-gallery
