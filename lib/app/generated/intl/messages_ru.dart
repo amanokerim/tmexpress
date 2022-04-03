@@ -104,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "mr": MessageLookupByLibrary.simpleMessage("Mary"),
         "nMan": m0,
         "name": MessageLookupByLibrary.simpleMessage("Adyňyz"),
+        "next": MessageLookupByLibrary.simpleMessage("Indiki"),
         "noData": MessageLookupByLibrary.simpleMessage(
             "Maglumatlaryňyz girizilmedik"),
         "noFavorites":
@@ -121,6 +122,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
         "orderPlaced": MessageLookupByLibrary.simpleMessage("Sargyt edildi"),
         "orders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
+        "page1subtitle": MessageLookupByLibrary.simpleMessage(
+            "öz halaýan harydyňyzy tapyň..."),
+        "page1title": MessageLookupByLibrary.simpleMessage(
+            "Ýüzlerçe görnüşli harytlardan"),
+        "page2subtitle": MessageLookupByLibrary.simpleMessage(
+            "reňkini we ölçegini saýlaň we sargyt ediň..."),
+        "page2title": MessageLookupByLibrary.simpleMessage("Halan harydyňyzyň"),
+        "page3subtitle":
+            MessageLookupByLibrary.simpleMessage("sargytlaryňyzy kabul ediň!"),
+        "page3title": MessageLookupByLibrary.simpleMessage("Gysga wagtda"),
         "phone": MessageLookupByLibrary.simpleMessage("Telefon belgiňiz"),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),
@@ -181,6 +192,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sortTime": MessageLookupByLibrary.simpleMessage("Täzeler başda"),
         "sortWeightAsc": MessageLookupByLibrary.simpleMessage("Ýeňiller başda"),
         "sortWeightDesc": MessageLookupByLibrary.simpleMessage("Agyrlar başda"),
+        "start": MessageLookupByLibrary.simpleMessage("Başla"),
         "today": MessageLookupByLibrary.simpleMessage("Bu gün"),
         "total": MessageLookupByLibrary.simpleMessage("Jemi"),
         "unknownError": MessageLookupByLibrary.simpleMessage(

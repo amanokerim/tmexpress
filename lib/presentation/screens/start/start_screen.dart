@@ -14,6 +14,7 @@ import '../../utils/fcm_handler.dart';
 import '../../widgets/app_progress_indicator.dart';
 import '../main/main_screen.dart';
 import 'bloc/start_bloc.dart';
+import 'onboarding_screen.dart';
 
 bool _backButtonPressedOneTime = false;
 
@@ -63,7 +64,7 @@ class _StartScreenState extends State<StartScreen> {
               child: Builder(
                 builder: (_) {
                   if (state is StartShowOnboarding) {
-                    // TODO return onboarding page
+                    return const OnboardingScreen();
                   } else if (state is StartShowHome) {
                     return const MainScreen();
                   } else if (state is StartShowTechnicalWorksScreen) {

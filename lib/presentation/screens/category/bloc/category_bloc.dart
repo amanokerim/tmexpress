@@ -12,7 +12,7 @@ part 'category_state.dart';
 @injectable
 class CategoryBloc extends AppBloc<CategoryEvent, CategoryState> {
   CategoryBloc(this._fetchProductsUseCase) : super(CategoryInitial()) {
-    on<CategoriesReuqested>((event, emit) async {
+    on<CategoriesRequested>((event, emit) async {
       final result = await _fetchProductsUseCase();
       emit(result.fold(
         (failure) => CategoryLoadError(message(failure), UniqueKey()),

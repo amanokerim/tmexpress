@@ -11,7 +11,7 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<CategoryBloc>(
-      create: (context) => getIt()..add(CategoriesReuqested()),
+      create: (context) => getIt()..add(CategoriesRequested()),
       child: const CategoryScreen(),
     );
   }

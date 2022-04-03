@@ -6,9 +6,13 @@ import '../../../../domain/entities/interface/bottom_tab.dart';
 import '../../../bloc/app_bloc.dart';
 import '../../cart/cart_screen.dart';
 import '../../category/category_page.dart';
+import '../../category/category_screen.dart';
 import '../../home/home_page.dart';
+import '../../home/home_screen.dart';
 import '../../hot/hot_page.dart';
+import '../../hot/hot_screen.dart';
 import '../../profile/profile_page.dart';
+import '../../profile/profile_screen.dart';
 
 part 'main_event.dart';
 
@@ -28,19 +32,19 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
       index: 0,
       title: S.current.homeScreen,
       icon: 'home',
-      screen: const HomePage(),
+      screen: const HomeScreen(),
     ),
     BottomTab(
       index: 1,
       title: S.current.categories,
       icon: 'category',
-      screen: const CategoryPage(),
+      screen: const CategoryScreen(),
     ),
     BottomTab(
       index: 2,
       title: S.current.hot,
       icon: 'fire',
-      screen: const HotPage(),
+      screen: const HotScreen(),
     ),
     BottomTab(
       index: 3,
@@ -52,7 +56,7 @@ class MainBloc extends AppBloc<MainEvent, BottomTab> {
       index: 4,
       title: S.current.profile,
       icon: 'profile',
-      screen: const ProfilePage(),
+      screen: const ProfileScreen(),
     ),
   ];
 }

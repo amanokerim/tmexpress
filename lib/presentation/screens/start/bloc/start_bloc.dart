@@ -21,13 +21,12 @@ class StartBloc extends AppBloc<StartEvent, StartState> {
     this._getFCMStreamUseCase,
   ) : super(StartInitial()) {
     on<StartInitialized>((event, emit) async {
-      // TODO uncomment
-      // final firstOpen = (await _getBoolPreferenceUseCase(pFirstOpen))
-      //     .fold((_) => false, (r) => r ?? true);
-      // if (firstOpen) {
-      //   yield StartShowOnboarding();
-      //   return;
-      // }
+      final firstOpen = (await _getBoolPreferenceUseCase(pFirstOpen))
+          .fold((_) => false, (r) => r ?? true);
+      if (firstOpen) {
+        emit(StartShowOnboarding());
+        return;
+      }
       emit(StartSetUpFCMListener(_getFCMStreamUseCase()));
       emit(const StartShowHome(tab: 0));
     });
