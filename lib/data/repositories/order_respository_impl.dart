@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/order.dart';
 import '../../domain/entities/placed_order.dart';
-import '../../domain/errors/failures.dart';
+import '../../domain/errors/app_error.dart';
 import '../../domain/repositories/order_repository.dart';
 import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
@@ -21,7 +21,7 @@ class OrderRepositoryImpl implements OrderRepository {
   final PlacedOrderResponseMapper _placedOrderResponseMapper;
 
   @override
-  Future<Either<Failure, bool>> createOrder(Order order) {
+  Future<Either<AppError, bool>> createOrder(Order order) {
     return _exception.handle(() async {
       final box = Hive.box<String>(kDataBox);
       String? referralUser;
@@ -43,7 +43,7 @@ class OrderRepositoryImpl implements OrderRepository {
   }
 
   @override
-  Future<Either<Failure, List<PlacedOrder>>> fetchPlacedOrders() {
+  Future<Either<AppError, List<PlacedOrder>>> fetchPlacedOrders() {
     return _exception.handle(
       () => _authNetwork
           .fetchPlacedOrders()
@@ -52,7 +52,7 @@ class OrderRepositoryImpl implements OrderRepository {
   }
 
   @override
-  Future<Either<Failure, PlacedOrder>> getPlacedOrder(int id) {
+  Future<Either<AppError, PlacedOrder>> getPlacedOrder(int id) {
     return _exception.handle(
       () =>
           _authNetwork.getPlacedOrder(id).then(_placedOrderResponseMapper.map),

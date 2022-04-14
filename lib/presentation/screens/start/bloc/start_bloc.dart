@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../data/local/keys.dart';
@@ -7,13 +8,12 @@ import '../../../../domain/usecases/get_fcm_stream_usecase.dart';
 import '../../../../domain/usecases/preferences/get_bool_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/get_string_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/set_preference_usecase.dart';
-import '../../../bloc/app_bloc.dart';
 
 part 'start_event.dart';
 part 'start_state.dart';
 
 @injectable
-class StartBloc extends AppBloc<StartEvent, StartState> {
+class StartBloc extends Bloc<StartEvent, StartState> {
   StartBloc(
     this._getBoolPreferenceUseCase,
     this._getStringPreferenceUseCase,

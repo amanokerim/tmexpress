@@ -15,6 +15,7 @@ import '../../firebase_options.dart';
 import '../../main.dart';
 import '../../presentation/bloc/app_bloc_observer.dart';
 import '../../presentation/utils/constants.dart';
+import '../generated/l10n.dart';
 import '../injection/injection.dart';
 
 class Env {

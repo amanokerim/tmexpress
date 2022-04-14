@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
           ],
         );
       } else if (state is HomeLoadError) {
-        return AppError(
+        return AppErrorScreen(
             message: state.message,
             onPressed: () => context.read<HomeBloc>().add(HomeRequested()));
       }

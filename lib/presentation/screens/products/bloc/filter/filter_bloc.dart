@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../../domain/entities/size.dart';
 import '../../../../../domain/usecases/products/fetch_subcategory_sizes.dart';
-import '../../../../bloc/app_bloc.dart';
 
 part 'filter_event.dart';
 part 'filter_state.dart';
 
 @injectable
-class FilterBloc extends AppBloc<FilterEvent, FilterState> {
+class FilterBloc extends Bloc<FilterEvent, FilterState> {
   FilterBloc(this._fetchSizes) : super(FilterLoad()) {
     on<FilterEvent>((event, emit) => key = !key);
 
@@ -17,7 +17,7 @@ class FilterBloc extends AppBloc<FilterEvent, FilterState> {
       emit(FilterLoad());
       final r = await _fetchSizes(event.subcategoryId);
       emit(r.fold(
-        (failure) => FilterError(message(failure)),
+        (error) => FilterError(error.message),
         (sizes) {
           _sizes = sizes;
           return _filterSuccess;

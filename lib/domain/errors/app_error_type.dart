@@ -1,8 +1,5 @@
 enum AppErrorType {
   unknownError,
-}
-
-enum ServerErrorType {
   somethingWentWrong,
   serverIsNotAvailable,
   connectionTimeout,
@@ -15,6 +12,4 @@ enum ServerErrorType {
   methodNotAllowed,
   internalServerError,
   badGateway,
-
-  // TODO Custom errors
 }

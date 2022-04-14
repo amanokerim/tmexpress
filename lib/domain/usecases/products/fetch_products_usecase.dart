@@ -6,7 +6,7 @@ import '../../entities/interface/filter_options.dart';
 import '../../entities/pagination.dart';
 import '../../entities/product_mini.dart';
 import '../../entities/sub_tag.dart';
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
@@ -17,7 +17,7 @@ class FetchProductsUseCase
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<Failure, Pagination<ProductMini>>> call(
+  Future<Either<AppError, Pagination<ProductMini>>> call(
       FetchProductsParams params) {
     return _productRepository.fetchProducts(params);
   }

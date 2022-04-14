@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../entities/category.dart';
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
@@ -12,7 +12,7 @@ class FetchCategoriesUseCase extends UseCaseWithoutParams<List<Category>> {
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<Failure, List<Category>>> call() {
+  Future<Either<AppError, List<Category>>> call() {
     return _productRepository.fetchCategories();
   }
 }

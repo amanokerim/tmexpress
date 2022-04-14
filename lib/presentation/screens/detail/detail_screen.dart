@@ -59,7 +59,7 @@ class DetailScreen extends StatelessWidget {
         );
       } else if (state is DetailLoadError) {
         return Scaffold(
-            body: AppError(
+            body: AppErrorScreen(
           message: state.message,
           onPressed: () =>
               context.read<DetailBloc>().add(DetailRequested(productId)),

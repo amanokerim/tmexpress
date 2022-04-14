@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/profile.dart';
-import '../../domain/errors/failures.dart';
+import '../../domain/errors/app_error.dart';
 import '../../domain/repositories/profile_repository.dart';
 import '../../domain/usecases/profile/auth_usecase.dart';
 import '../../presentation/utils/constants.dart';
@@ -33,7 +33,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
   final ProfileResponseMapper _profileResponseMapper;
 
   @override
-  Future<Either<Failure, bool>> auth(AuthParams params) {
+  Future<Either<AppError, bool>> auth(AuthParams params) {
     return _exception.handle(() async {
       final box = Hive.box<String>(kDataBox);
       final referralUserId = box.get(kRegisterReferral);
@@ -52,7 +52,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
   }
 
   @override
-  Future<Either<Failure, Profile>> fetchProfile() {
+  Future<Either<AppError, Profile>> fetchProfile() {
     return _exception.handle(() async {
       final profile =
           await _authNetwork.fetchProfile().then(_profileResponseMapper.map);
@@ -61,7 +61,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
   }
 
   @override
-  Future<Either<Failure, void>> editProfile(Profile profile) {
+  Future<Either<AppError, void>> editProfile(Profile profile) {
     return _exception.handle(() async {
       await _authNetwork.editProfile(profile);
     });

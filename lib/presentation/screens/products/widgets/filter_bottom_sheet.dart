@@ -62,7 +62,7 @@ class FilterBottomSheet extends StatelessWidget {
                 : null,
           );
         } else if (state is FilterError) {
-          return AppError(
+          return AppErrorScreen(
             message: state.message,
             onPressed: () => context
                 .read<FilterBloc>()

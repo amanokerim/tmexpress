@@ -8,14 +8,14 @@ class CartState extends Equatable {
     this.items,
     this.total, {
     required this.isExpress,
-    this.errorMessage,
+    this.error,
   });
   final List<CartItem> items;
   final bool isExpress;
   final double total;
-  final String? errorMessage;
+  final AppError? error;
   final CartSt st;
 
   @override
-  List<Object?> get props => [st, items, isExpress, total, errorMessage];
+  List<Object?> get props => [st, items, isExpress, total, error];
 }

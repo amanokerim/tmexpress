@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import '../../entities/product.dart';
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
@@ -11,7 +11,7 @@ class FetchProductUseCase extends UseCase<Product, int> {
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<Failure, Product>> call(int id) {
+  Future<Either<AppError, Product>> call(int id) {
     return _productRepository.fetchProduct(id);
   }
 }

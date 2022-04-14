@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/preferences_repository.dart';
 import '../usecase.dart';
 
@@ -11,7 +11,7 @@ class SetPreferenceUseCase extends UseCase<void, SetPreferenceParams> {
   final PreferencesRepository _preferencesRepository;
 
   @override
-  Future<Either<Failure, void>> call(SetPreferenceParams params) =>
+  Future<Either<AppError, void>> call(SetPreferenceParams params) =>
       _preferencesRepository.setPreference(key: params.key, val: params.val);
 }
 

@@ -1,23 +1,20 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/interface/bottom_tab.dart';
-import '../../../bloc/app_bloc.dart';
 import '../../cart/cart_screen.dart';
-import '../../category/category_page.dart';
 import '../../category/category_screen.dart';
 import '../../home/home_page.dart';
 import '../../home/home_screen.dart';
-import '../../hot/hot_page.dart';
 import '../../hot/hot_screen.dart';
-import '../../profile/profile_page.dart';
 import '../../profile/profile_screen.dart';
 
 part 'main_event.dart';
 
 @injectable
-class MainBloc extends AppBloc<MainEvent, BottomTab> {
+class MainBloc extends Bloc<MainEvent, BottomTab> {
   MainBloc()
       : super(BottomTab(
             index: 0,

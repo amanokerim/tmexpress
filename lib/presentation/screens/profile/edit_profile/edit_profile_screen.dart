@@ -10,6 +10,7 @@ import '../../../utils/app_validator.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_drop_down.dart';
 import '../../../widgets/primary_app_bar.dart';
+import '../../start/bloc/start_bloc.dart';
 import '../bloc/profile_bloc.dart';
 import '../widgets/gender_radio.dart';
 import 'bloc/edit_profile_bloc.dart';
@@ -48,9 +49,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         key: _formKey,
         child: BlocConsumer<EditProfileBloc, EditProfileState>(
           listener: (_, state) {
-            if (state.message != null) {
-              AppFlash.toast(
-                  context: context, message: state.message!, isError: true);
+            if (state.error != null) {
+              if (state.error!.isAuth) {
+                Navigator.of(context).pop();
+                context.read<ProfileBloc>().add(ProfileStarted());
+              } else {
+                AppFlash.toast(
+                    context: context,
+                    message: state.error!.message,
+                    isError: true);
+              }
             }
             if (state.loadState == LoadState.success) {
               final newProfile = widget.profile.copyWith(

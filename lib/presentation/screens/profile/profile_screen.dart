@@ -67,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
           ],
         );
       } else if (state is ProfileLoadError) {
-        return AppError(
+        return AppErrorScreen(
             message: state.message,
             onPressed: () => context.read<ProfileBloc>().add(ProfileStarted()));
       }

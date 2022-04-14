@@ -26,34 +26,28 @@ class FlutterApp extends StatelessWidget {
         providers: [
           BlocProvider<StartBloc>(create: (_) => getIt()),
           BlocProvider<CartBloc>(create: (_) => getIt(), lazy: false),
+          BlocProvider<MainBloc>(create: (_) => getIt()),
+          BlocProvider<ProfileBloc>(create: (context) => getIt()),
         ],
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider<MainBloc>(create: (_) => getIt()),
-            BlocProvider<ProfileBloc>(create: (context) => getIt()),
-          ],
-          child: MaterialApp(
-              title: kAppName,
-              supportedLocales: S.delegate.supportedLocales,
-              debugShowCheckedModeBanner: false,
-              navigatorKey: getIt<Alice>().getNavigatorKey(),
-              localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              theme: appTheme,
-              home: const StartScreen()),
-        ),
+        child: MaterialApp(
+            title: kAppName,
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            navigatorKey: getIt<Alice>().getNavigatorKey(),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            theme: appTheme,
+            home: const StartScreen()),
       );
 }
 
 // FRONT-END
 // Logo/splash
-// dio cache
 // handle 401
-// onboarding
 // Test/refine/refactor
 
 // TEST 

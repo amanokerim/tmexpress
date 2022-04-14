@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/preferences_repository.dart';
 import '../usecase.dart';
 
@@ -11,6 +11,6 @@ class GetIntPreferenceUseCase extends UseCase<int?, String> {
   final PreferencesRepository _globalRepository;
 
   @override
-  Future<Either<Failure, int?>> call(String params) =>
+  Future<Either<AppError, int?>> call(String params) =>
       _globalRepository.getIntPreference(key: params);
 }

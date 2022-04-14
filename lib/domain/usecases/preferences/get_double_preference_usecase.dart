@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/preferences_repository.dart';
 import '../usecase.dart';
 
@@ -11,6 +11,6 @@ class GetDoublePreferenceUseCase extends UseCase<double?, String> {
   final PreferencesRepository _preferencesRepository;
 
   @override
-  Future<Either<Failure, double?>> call(String params) =>
+  Future<Either<AppError, double?>> call(String params) =>
       _preferencesRepository.getDoublePreference(key: params);
 }

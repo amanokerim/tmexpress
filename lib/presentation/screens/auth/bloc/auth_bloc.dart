@@ -3,19 +3,19 @@
 import 'dart:math' show Random;
 
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/usecases/profile/auth_usecase.dart';
-import '../../../bloc/app_bloc.dart';
 import '../../../utils/constants.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 @injectable
-class AuthBloc extends AppBloc<AuthEvent, AuthState> {
+class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._authUseCase) : super(const AuthInitial(0)) {
     on<AuthStarted>((event, emit) {
       code = _generateCode();

@@ -12,6 +12,7 @@ import '../../utils/constants.dart';
 import '../../utils/deeplinker.dart';
 import '../../utils/fcm_handler.dart';
 import '../../widgets/app_progress_indicator.dart';
+import '../main/bloc/main_bloc.dart';
 import '../main/main_screen.dart';
 import 'bloc/start_bloc.dart';
 import 'onboarding_screen.dart';
@@ -66,6 +67,9 @@ class _StartScreenState extends State<StartScreen> {
                   if (state is StartShowOnboarding) {
                     return const OnboardingScreen();
                   } else if (state is StartShowHome) {
+                    context
+                        .read<MainBloc>()
+                        .add(MainTabChanged(index: state.tab));
                     return const MainScreen();
                   } else if (state is StartShowTechnicalWorksScreen) {
                     return const Center(child: Text('Technical works'));

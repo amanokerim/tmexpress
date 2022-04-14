@@ -145,7 +145,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i27.Preferences(get<_i19.SharedPreferences>()));
   gh.lazySingleton<_i28.PreferencesRepository>(() =>
       _i29.PreferencesRepositoryImpl(
-          get<_i9.ErrorMapper>(), get<_i27.Preferences>()));
+          get<_i10.ExceptionHandler>(), get<_i27.Preferences>()));
   gh.lazySingleton<_i30.ProductResponseMapper>(() => _i30.ProductResponseMapper(
       get<_i14.ImageResponseMapper>(), get<_i20.SizeResponseMapper>()));
   gh.lazySingleton<_i31.ProfileRepository>(() => _i32.ProfileRepositoryImpl(

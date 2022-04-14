@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../entities/profile.dart';
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/profile_repository.dart';
 import '../usecase.dart';
 
@@ -12,7 +12,7 @@ class FetchProfileUseCase extends UseCaseWithoutParams<Profile> {
   final ProfileRepository _profileRepository;
 
   @override
-  Future<Either<Failure, Profile>> call() {
+  Future<Either<AppError, Profile>> call() {
     return _profileRepository.fetchProfile();
   }
 }

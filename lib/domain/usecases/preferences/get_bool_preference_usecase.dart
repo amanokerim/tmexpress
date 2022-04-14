@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/preferences_repository.dart';
 import '../usecase.dart';
 
@@ -11,6 +11,6 @@ class GetBoolPreferenceUseCase extends UseCase<bool?, String> {
   final PreferencesRepository _preferencesRepository;
 
   @override
-  Future<Either<Failure, bool?>> call(String params) =>
+  Future<Either<AppError, bool?>> call(String params) =>
       _preferencesRepository.getBoolPreference(key: params);
 }

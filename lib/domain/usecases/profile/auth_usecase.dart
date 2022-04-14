@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/profile_repository.dart';
 import '../usecase.dart';
 
@@ -11,7 +11,7 @@ class AuthUseCase extends UseCase<bool, AuthParams> {
   final ProfileRepository _authRepository;
 
   @override
-  Future<Either<Failure, bool>> call(AuthParams params) {
+  Future<Either<AppError, bool>> call(AuthParams params) {
     return _authRepository.auth(params);
   }
 }

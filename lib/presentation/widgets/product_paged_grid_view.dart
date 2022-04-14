@@ -15,13 +15,13 @@ class ProductPagedGridView extends StatelessWidget {
   PagedChildBuilderDelegate<ProductMini> get delegate =>
       PagedChildBuilderDelegate<ProductMini>(
         itemBuilder: (context, product, index) => ProductCard(product),
-        firstPageErrorIndicatorBuilder: (_) => AppError(
+        firstPageErrorIndicatorBuilder: (_) => AppErrorScreen(
           message: pagingController.error,
           onPressed: pagingController.retryLastFailedRequest,
         ),
         newPageErrorIndicatorBuilder: (_) => Padding(
           padding: const EdgeInsets.fromLTRB(0, 30, 0, 50),
-          child: AppError(
+          child: AppErrorScreen(
             message: pagingController.error,
             onPressed: pagingController.retryLastFailedRequest,
           ),

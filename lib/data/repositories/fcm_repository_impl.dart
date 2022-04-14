@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../app/env/env.dart';
 import '../../domain/entities/interface/fcm_notification.dart';
-import '../../domain/errors/failures.dart';
+import '../../domain/errors/app_error.dart';
 import '../../domain/repositories/fcm_repository.dart';
 import '../error/exception_handler.dart';
 
@@ -55,7 +55,7 @@ class FCMRepositoryImpl extends FCMRepository {
   /// It registers token when user authorized. Call this when authorization
   /// is complete and when token was changed from Firebase.
   @override
-  Future<Either<Failure, bool>> registerToken({String? token}) async {
+  Future<Either<AppError, bool>> registerToken({String? token}) async {
     return _exception.handle(() async {
       // final jwt = _preferences.getJwt();
       // if (jwt == null || jwt.isEmpty) return const Right(true);
@@ -76,7 +76,7 @@ class FCMRepositoryImpl extends FCMRepository {
 
   /// If token is not passed, gets it from prefs. Call it when user signs out.
   @override
-  Future<Either<Failure, bool>> deleteToken({String? token}) async {
+  Future<Either<AppError, bool>> deleteToken({String? token}) async {
     return _exception.handle(() async {
       // token ??= _preferences.getStringPreference(pFCMToken);
       // if (token != null) await _authNetwork.deleteFCMToken(token: token);

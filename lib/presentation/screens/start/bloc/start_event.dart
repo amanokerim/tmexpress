@@ -15,7 +15,6 @@ class StartOnboardingComplete extends StartEvent {}
 
 class StartNavigatedToHome extends StartEvent {
   const StartNavigatedToHome({this.tab = 0});
-
   final int tab;
 
   List<Object> get props => [tab];
