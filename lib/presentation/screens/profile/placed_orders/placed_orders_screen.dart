@@ -6,7 +6,6 @@ import '../../../widgets/app_empty.dart';
 import '../../../widgets/app_error.dart';
 import '../../../widgets/app_progress_indicator.dart';
 import '../../../widgets/primary_app_bar.dart';
-import '../../start/bloc/start_bloc.dart';
 import '../bloc/profile_bloc.dart';
 import '../widgets/placed_order_card.dart';
 import 'bloc/placed_orders_bloc.dart';

@@ -47,7 +47,6 @@ class FlutterApp extends StatelessWidget {
 
 // FRONT-END
 // Logo/splash
-// handle 401
 // Test/refine/refactor
 
 // TEST 

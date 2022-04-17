@@ -27,7 +27,7 @@ class ContinueOrderButton extends StatelessWidget {
               style: AppTextStyle.grey14,
               children: [
                 TextSpan(
-                  text: S.current.nMan(total),
+                  text: S.current.nMan(total.toStringAsFixed(2)),
                   style: AppTextStyle.bold16.copyWith(height: 1.3),
                 )
               ],

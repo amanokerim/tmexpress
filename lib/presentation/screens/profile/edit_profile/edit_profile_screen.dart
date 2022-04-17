@@ -10,7 +10,6 @@ import '../../../utils/app_validator.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_drop_down.dart';
 import '../../../widgets/primary_app_bar.dart';
-import '../../start/bloc/start_bloc.dart';
 import '../bloc/profile_bloc.dart';
 import '../widgets/gender_radio.dart';
 import 'bloc/edit_profile_bloc.dart';

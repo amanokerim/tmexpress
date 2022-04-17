@@ -10,8 +10,6 @@ import '../../domain/errors/app_error_type.dart';
 @LazySingleton()
 class ErrorMapper {
   AppError map(Exception exception) {
-    final _unknownError =
-        AppError(AppErrorType.unknownError, S.current.unknownError);
     final _timeoutError =
         AppError(AppErrorType.connectionTimeout, S.current.connectionError);
 

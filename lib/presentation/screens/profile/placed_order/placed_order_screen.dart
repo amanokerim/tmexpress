@@ -24,7 +24,7 @@ class PlacedOrderScreen extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-            child: PlacedOrderCard(order),
+            child: PlacedOrderCard(order, clickable: false),
           ),
           Expanded(
             child: BlocConsumer<PlacedOrderBloc, PlacedOrderState>(

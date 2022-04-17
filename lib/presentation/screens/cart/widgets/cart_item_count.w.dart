@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/cart_item.dart';
 import '../../../theme/app_theme.dart';
+import '../../../widgets/app_confirm_dialog.dart';
 import '../bloc/cart_bloc.dart';
 
 class CartItemCountW extends StatelessWidget {
@@ -11,13 +13,12 @@ class CartItemCountW extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<CartBloc>();
     return Row(
       children: [
         IconButton(
           padding: EdgeInsets.zero,
-          onPressed: () => context
-              .read<CartBloc>()
-              .add(CartItemAdded(cartItem.copyWith(count: -1))),
+          onPressed: () => minusPressed(context, bloc),
           icon: Container(
             padding: const EdgeInsets.all(2),
             decoration: BoxDecoration(
@@ -30,9 +31,7 @@ class CartItemCountW extends StatelessWidget {
         Text('${cartItem.count}', style: AppTextStyle.black16),
         IconButton(
           padding: EdgeInsets.zero,
-          onPressed: () => context
-              .read<CartBloc>()
-              .add(CartItemAdded(cartItem.copyWith(count: 1))),
+          onPressed: () => bloc.add(CartItemAdded(cartItem.copyWith(count: 1))),
           icon: Container(
             padding: const EdgeInsets.all(2),
             decoration: BoxDecoration(
@@ -45,5 +44,18 @@ class CartItemCountW extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Future<void> minusPressed(BuildContext context, CartBloc bloc) async {
+    if (cartItem.count == 1) {
+      final confirm = await showDialog<bool>(
+          context: context,
+          builder: (_) => AppDialog(
+              content: S.current.confirmRemove,
+              positiveButtonLabel: S.current.yes));
+      if (confirm == true) bloc.add(CartItemRemoved(cartItem));
+    } else {
+      bloc.add(CartItemAdded(cartItem.copyWith(count: -1)));
+    }
   }
 }

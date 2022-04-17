@@ -450,6 +450,16 @@ class S {
     );
   }
 
+  /// `Sebetden pozmakçymy?`
+  String get confirmRemove {
+    return Intl.message(
+      'Sebetden pozmakçymy?',
+      name: 'confirmRemove',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Halanlaryma goşmak`
   String get addToFavorites {
     return Intl.message(

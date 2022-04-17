@@ -14,6 +14,7 @@ class CartItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final price = isExpress ? cartItem.expressPrice : cartItem.price;
     return Stack(
       children: [
         Row(
@@ -34,7 +35,7 @@ class CartItemCard extends StatelessWidget {
                   Text('${S.current.size}: ${cartItem.size.title}',
                       style: AppTextStyle.grey14),
                   const SizedBox(height: 4),
-                  Text('${cartItem.price} man.', style: AppTextStyle.black16),
+                  Text('$price man.', style: AppTextStyle.black16),
                 ],
               ),
             ),

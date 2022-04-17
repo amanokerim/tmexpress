@@ -66,7 +66,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
               SliverPersistentHeader(
                   delegate: sortFilterHeaderDelegate, floating: true),
             SliverPadding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                padding: const EdgeInsets.fromLTRB(16, 20, 16, 16),
                 sliver: ProductPagedGridView(pagingController)),
           ],
         ),
@@ -79,7 +79,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
     return widget.productParent is Subcategory
         ? null
         : Padding(
-            padding: const EdgeInsets.only(right: 12),
+            padding: const EdgeInsets.only(right: 12, top: 8),
             child: GestureDetector(
               onTap: () => sortFilterHeaderDelegate.onSortPressed(context),
               child: Image.asset('assets/icons/sort.png', width: 18),

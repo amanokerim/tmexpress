@@ -11,6 +11,7 @@ import '../../../widgets/app_button.dart';
 import '../../../widgets/app_confirm_dialog.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../bloc/detail_bloc.dart';
+import 'color_card.dart';
 import 'price.w.dart';
 
 late Product _product;
@@ -27,7 +28,8 @@ class ProductWidgets extends StatelessWidget {
       child: AppButton(
         label: S.current.addToCart,
         onPressed: () {
-          if (state.selectedColor == null) {
+          final onlyOneColor = state.product.productImages.length > 1;
+          if (state.selectedColor == null && onlyOneColor) {
             AppFlash.toast(
                 context: context,
                 message: S.current.selectColor,
@@ -35,15 +37,15 @@ class ProductWidgets extends StatelessWidget {
           } else if (state.selectedSize == null) {
             AppFlash.toast(
                 context: context, message: S.current.selectSize, isError: true);
-          } else if (state.selectedColor != null &&
+          } else if ((state.selectedColor != null || !onlyOneColor) &&
               state.selectedSize != null) {
             final cartItem = CartItem(
               product: _product,
               count: 1,
               size: state.selectedSize!,
-              color: state.selectedColor!,
-              price: _product.normalPrice,
-              expressPrice: _product.expressPrice,
+              color: state.selectedColor ?? state.product.productImages[0],
+              price: _product.normalPriceByCount(1),
+              expressPrice: _product.expressPriceByCount(1),
             );
             context.read<CartBloc>().add(CartItemAdded(cartItem));
             AppFlash.toast(
@@ -161,6 +163,29 @@ class ProductWidgets extends StatelessWidget {
         ],
       ),
       const SizedBox(height: 20),
+    ];
+  }
+
+  List<Widget> images() {
+    final productImages = state.product.productImages;
+    return [
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 2),
+        child: Text(S.current.productColors, style: AppTextStyle.bold16),
+      ),
+      SizedBox(
+        height: 64 + 12,
+        child: ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 20 - 6),
+          physics: const BouncingScrollPhysics(),
+          itemCount: productImages.length,
+          itemBuilder: (context, index) => ColorCard(
+            productImages[index],
+            isSelected: state.selectedColor == productImages[index],
+          ),
+          scrollDirection: Axis.horizontal,
+        ),
+      ),
     ];
   }
 

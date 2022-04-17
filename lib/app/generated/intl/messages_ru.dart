@@ -60,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cartEmpty": MessageLookupByLibrary.simpleMessage("Sebetde haryt ýok"),
         "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
         "close": MessageLookupByLibrary.simpleMessage("Ýapmak"),
+        "confirmRemove":
+            MessageLookupByLibrary.simpleMessage("Sebetden pozmakçymy?"),
         "confirmSignOut":
             MessageLookupByLibrary.simpleMessage("Hasabyňyzdan çykmakçymy?"),
         "confirmSignOutContent": MessageLookupByLibrary.simpleMessage(
