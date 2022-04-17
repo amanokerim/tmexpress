@@ -1360,6 +1360,16 @@ class S {
     );
   }
 
+  /// `Gözleýän harydyňyzy ýazyň...`
+  String get searchHint {
+    return Intl.message(
+      'Gözleýän harydyňyzy ýazyň...',
+      name: 'searchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

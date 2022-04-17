@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../screens/home/widgets/search_text_field.dart';
 import '../theme/app_theme.dart';
 
-class PrimaryAppBar extends AppBar {
-  PrimaryAppBar({required this.label, this.action, Key? key})
+class SearchAppBar extends AppBar {
+  SearchAppBar([String? query])
       : super(
-          key: key,
           elevation: 0,
-          toolbarHeight: 44,
+          toolbarHeight: 54,
           centerTitle: false,
           iconTheme: IconThemeData(color: AppColors.dark),
-          title: Text(label, style: AppTextStyle.bold20),
+          title: SearchTextField(query),
           backgroundColor: AppColors.white,
-          actions: action != null ? [action] : null,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(20),
             ),
           ),
         );
-  final String label;
-  final Widget? action;
 }

@@ -14,6 +14,7 @@ import '../../domain/entities/tag.dart';
 import '../../domain/errors/app_error.dart';
 import '../../domain/repositories/product_repository.dart';
 import '../../domain/usecases/products/fetch_products_usecase.dart';
+import '../../domain/usecases/products/search_product_usecase.dart';
 import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../mappers/response_mappers/banner_response_mapper.dart';
@@ -163,5 +164,21 @@ class ProductRepositoryImpl implements ProductRepository {
     return _exception.handle(
       () => favoritesBox.values.map((e) => SavedProduct.fromJson(e)).toList(),
     );
+  }
+
+  @override
+  Future<Either<AppError, Pagination<ProductMini>>> searchProducts(
+      SearchParams params) {
+    return _exception.handle(() {
+      String? offset;
+      if (params.next != null) {
+        final uri = Uri.parse(params.next!);
+        offset = uri.queryParameters['offset'];
+      }
+
+      return _commonNetwork
+          .searchProducts(params.query, offset, 3)
+          .then(_productPaginationResponseMapper.map);
+    });
   }
 }

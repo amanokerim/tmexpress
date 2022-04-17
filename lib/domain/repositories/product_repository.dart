@@ -9,6 +9,7 @@ import '../entities/saved_product.dart';
 import '../entities/size.dart';
 import '../errors/app_error.dart';
 import '../usecases/products/fetch_products_usecase.dart';
+import '../usecases/products/search_product_usecase.dart';
 
 abstract class ProductRepository {
   Future<Either<AppError, List<Category>>> fetchCategories();
@@ -20,6 +21,9 @@ abstract class ProductRepository {
 
   Future<Either<AppError, Pagination<ProductMini>>> fetchHotProducts(
       String? next);
+
+  Future<Either<AppError, Pagination<ProductMini>>> searchProducts(
+      SearchParams params);
 
   Future<Either<AppError, Product>> fetchProduct(int id);
 

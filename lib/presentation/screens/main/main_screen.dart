@@ -7,6 +7,7 @@ import '../../theme/app_theme.dart';
 import '../../utils/constants.dart';
 import '../../widgets/app_bottom_navigation_bar.dart';
 import '../../widgets/primary_app_bar.dart';
+import '../../widgets/search_app_bar.dart';
 import '../category/bloc/category_bloc.dart';
 import '../home/bloc/home_bloc.dart';
 import '../hot/bloc/hot_bloc.dart';
@@ -28,7 +29,9 @@ class MainScreen extends StatelessWidget {
         builder: (_, tab) {
           return Scaffold(
             backgroundColor: AppColors.bgMain,
-            appBar: PrimaryAppBar(label: tab.title),
+            appBar: tab.index == 0
+                ? SearchAppBar()
+                : PrimaryAppBar(label: tab.title),
             body: AnimatedSwitcher(
                 duration: kAnimationDuration,
                 child: Container(

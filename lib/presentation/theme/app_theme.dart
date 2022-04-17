@@ -33,16 +33,16 @@ final appTheme = ThemeData(
 );
 
 final inputBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(16),
+  borderRadius: BorderRadius.circular(20),
   borderSide: BorderSide.none,
 );
 final inputErrorBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(16),
+  borderRadius: BorderRadius.circular(20),
   borderSide: BorderSide.none,
 );
 final inputDecoration = BoxDecoration(
   color: AppColors.inputBg,
-  borderRadius: const BorderRadius.all(Radius.circular(16)),
+  borderRadius: const BorderRadius.all(Radius.circular(20)),
 );
 
 abstract class AppTextStyle {

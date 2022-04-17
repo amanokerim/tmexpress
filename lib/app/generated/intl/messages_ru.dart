@@ -166,6 +166,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
         "returned": MessageLookupByLibrary.simpleMessage("Yzyna gaýtaryldy"),
+        "searchHint": MessageLookupByLibrary.simpleMessage(
+            "Gözleýän harydyňyzy ýazyň..."),
         "selectAll": MessageLookupByLibrary.simpleMessage("Ählisini saýla"),
         "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
         "selectGenderAndRegion": MessageLookupByLibrary.simpleMessage(
