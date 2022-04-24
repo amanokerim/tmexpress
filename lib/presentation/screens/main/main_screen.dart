@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/injection/injection.dart';
-import '../../../domain/entities/interface/bottom_tab.dart';
+import '../../../domain/entities/bottom_tab.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/constants.dart';
 import '../../widgets/app_bottom_navigation_bar.dart';

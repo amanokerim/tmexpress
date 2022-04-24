@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/entities/interface/filter_options.dart';
-import '../../../../domain/entities/size.dart';
+import '../../../../domain/entities/product/filter_options.dart';
+import '../../../../domain/entities/product/size.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_error.dart';
 import '../../../widgets/app_progress_indicator.dart';
-import '../../detail/widgets/size_card.dart';
+import '../../detail/widgets/size.w.dart';
 import '../bloc/filter/filter_bloc.dart';
 import 'sort_filter_bottom_sheet.dart';
 
@@ -74,7 +74,7 @@ class FilterBottomSheet extends StatelessWidget {
     );
   }
 
-  SizeCard _toSizeCard(BuildContext context, Size size) => SizeCard(
+  SizeW _toSizeCard(BuildContext context, Size size) => SizeW(
         size,
         onPressed: () =>
             context.read<FilterBloc>().add(FilterSizeToggled(size)),

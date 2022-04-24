@@ -38,9 +38,10 @@ class _SearchTextFieldState extends State<SearchTextField> {
       controller: _controller,
       decoration: InputDecoration(
         hintText: S.current.searchHint,
+        fillColor: Colors.transparent,
         suffixIcon: IconButton(
           onPressed: _onPressed,
-          icon: const Icon(CupertinoIcons.search),
+          icon: const Icon(CupertinoIcons.search, size: 22),
         ),
       ),
       onEditingComplete: _onPressed,

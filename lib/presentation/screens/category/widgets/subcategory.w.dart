@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../domain/entities/subcategory.dart';
+import '../../../../domain/entities/product/subcategory.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_image.dart';
 import '../../products/products_page.dart';

@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/entities/placed_order.dart';
+import '../../../domain/entities/order/placed_order.dart';
 import '../../../presentation/utils/order_statuses.dart';
 import '../../network/response_models/placed_order_response.dart';
 import '../mapper.dart';

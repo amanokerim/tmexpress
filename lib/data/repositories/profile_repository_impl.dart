@@ -37,14 +37,14 @@ class ProfileRepositoryImpl implements ProfileRepository {
     return _exception.handle(() async {
       final box = Hive.box<String>(kDataBox);
       final referralUserId = box.get(kRegisterReferral);
-      print('** auth with referral user id: $referralUserId');
+
       final token = await _commonNetwork
           .auth(params.phone, params.code, box.get(kRegisterReferral))
           .then(_tokenResponseMapper.map);
+
       // delete referral user from data, if successfully signed in
       if (referralUserId != null && token.access.isNotEmpty) {
         await box.delete(kRegisterReferral);
-        print('** delete referal user id');
       }
       await _preferences.setJwt(token.access);
       return true;

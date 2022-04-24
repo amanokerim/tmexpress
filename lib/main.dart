@@ -47,7 +47,7 @@ class FlutterApp extends StatelessWidget {
 
 // FRONT-END
 // Logo/splash
-// Test/refine/refactor
+// Test/refine
 
 // TEST 
 // Dynamic link apple integration (test)

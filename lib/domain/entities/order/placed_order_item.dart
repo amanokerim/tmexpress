@@ -1,6 +1,6 @@
-import 'image.dart';
-import 'product_mini.dart';
-import 'size.dart';
+import '../image.dart';
+import '../product/product_mini.dart';
+import '../product/size.dart';
 
 class PlacedOrderItem {
   const PlacedOrderItem({

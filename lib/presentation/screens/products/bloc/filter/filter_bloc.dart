@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../../domain/entities/size.dart';
+import '../../../../../domain/entities/product/size.dart';
 import '../../../../../domain/usecases/products/fetch_subcategory_sizes.dart';
 
 part 'filter_event.dart';

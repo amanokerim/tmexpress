@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart' hide Order;
-import '../entities/order.dart';
-import '../entities/placed_order.dart';
+import '../entities/order/order.dart';
+import '../entities/order/placed_order.dart';
 import '../errors/app_error.dart';
 
 abstract class OrderRepository {

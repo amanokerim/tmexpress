@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../data/local/keys.dart';
-import '../../../../domain/entities/interface/fcm_notification.dart';
+import '../../../../domain/entities/fcm_notification.dart';
 import '../../../../domain/usecases/get_fcm_stream_usecase.dart';
 import '../../../../domain/usecases/preferences/get_bool_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/get_string_preference_usecase.dart';

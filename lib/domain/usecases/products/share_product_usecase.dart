@@ -11,7 +11,5 @@ class ShareProductUseCase extends UseCase<void, int> {
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<AppError, void>> call(int id) {
-    return _productRepository.share(id);
-  }
+  Future<Either<AppError, void>> call(int id) => _productRepository.share(id);
 }

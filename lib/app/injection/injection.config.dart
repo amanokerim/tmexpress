@@ -113,8 +113,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i9.ErrorMapper>(() => _i9.ErrorMapper());
   gh.lazySingleton<_i10.ExceptionHandler>(
       () => _i10.ExceptionHandler(get<_i9.ErrorMapper>()));
-  gh.lazySingleton<_i11.FCMRepository>(
-      () => _i12.FCMRepositoryImpl(get<_i10.ExceptionHandler>()));
+  gh.lazySingleton<_i11.FCMRepository>(() => _i12.FCMRepositoryImpl());
   gh.lazySingleton<_i13.GetFCMStreamUseCase>(
       () => _i13.GetFCMStreamUseCase(get<_i11.FCMRepository>()));
   gh.lazySingleton<_i14.ImageResponseMapper>(() => _i14.ImageResponseMapper());

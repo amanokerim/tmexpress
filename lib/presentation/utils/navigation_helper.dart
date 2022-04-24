@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/subcategory.dart';
-import '../../domain/entities/tag.dart';
+import '../../domain/entities/product/subcategory.dart';
+import '../../domain/entities/product/tag.dart';
 import '../screens/detail/detail_page.dart';
 import '../screens/products/products_page.dart';
 import 'constants.dart';
@@ -12,9 +12,10 @@ class NavigationHelper {
   // Navigate to one of Product, Tag, Subcategory
   static void navigateToPTS(
       BuildContext context, dynamic pageType, dynamic id) {
-    print(pageType);
+    int? _id;
     Widget? _page;
-    final _id = id is String? ? int.tryParse(id ?? '') : id;
+    if (id is int) _id = id;
+    if (id is String) _id = int.tryParse(id);
 
     if (_id != null) {
       switch (pageType) {

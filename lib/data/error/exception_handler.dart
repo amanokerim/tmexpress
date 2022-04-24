@@ -21,7 +21,8 @@ class ExceptionHandler {
     } on Object catch (e, s) {
       _log(e, s);
       return Left(
-          AppError(AppErrorType.unknownError, S.current.somethingWentWrong));
+        AppError(AppErrorType.unknownError, S.current.somethingWentWrong),
+      );
     }
   }
 

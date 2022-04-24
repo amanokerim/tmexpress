@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/cart_item.dart';
-import '../../../../domain/entities/order.dart';
-import '../../../../domain/entities/order_item.dart';
+import '../../../../domain/entities/order/order.dart';
+import '../../../../domain/entities/order/order_item.dart';
 import '../../../../domain/errors/app_error.dart';
 import '../../../../domain/usecases/order/create_order_usecase.dart';
 

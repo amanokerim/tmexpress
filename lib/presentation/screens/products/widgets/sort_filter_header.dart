@@ -4,9 +4,9 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/enums/sort_types.dart';
-import '../../../../domain/entities/interface/filter_options.dart';
-import '../../../../domain/entities/product_mini.dart';
-import '../../../../domain/entities/sub_tag.dart';
+import '../../../../domain/entities/product/filter_options.dart';
+import '../../../../domain/entities/product/product_mini.dart';
+import '../../../../domain/entities/product/sub_tag.dart';
 import '../bloc/filter/filter_bloc.dart';
 import '../bloc/products_bloc.dart';
 import 'filter_bottom_sheet.dart';

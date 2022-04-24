@@ -12,7 +12,6 @@ class LikeProductUseCase extends UseCase<void, SavedProduct> {
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<AppError, void>> call(SavedProduct product) {
-    return _productRepository.toggleLike(product);
-  }
+  Future<Either<AppError, void>> call(SavedProduct product) =>
+      _productRepository.toggleLike(product);
 }

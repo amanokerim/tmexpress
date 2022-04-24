@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_use_of_visible_for_testing_member
-
 import 'dart:math' show Random;
 
 import 'package:equatable/equatable.dart';
@@ -67,11 +65,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   int _generateCode() => 100000 + Random().nextInt(899999);
 
   Future<bool> _sms(int code) async {
-    // Android
-    var uri = 'sms:$kVerificationPhone?body=$code';
-    if (await canLaunch(uri)) return launch(uri);
-    // iOS
-    uri = 'sms:$kVerificationPhone?body=$code';
+    // TODO Test iOS
+    final uri = 'sms:$kVerificationPhone?body=$code';
     if (await canLaunch(uri)) return launch(uri);
     return false;
   }

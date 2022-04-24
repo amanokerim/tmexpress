@@ -11,9 +11,8 @@ class AuthUseCase extends UseCase<bool, AuthParams> {
   final ProfileRepository _authRepository;
 
   @override
-  Future<Either<AppError, bool>> call(AuthParams params) {
-    return _authRepository.auth(params);
-  }
+  Future<Either<AppError, bool>> call(AuthParams params) =>
+      _authRepository.auth(params);
 }
 
 class AuthParams {

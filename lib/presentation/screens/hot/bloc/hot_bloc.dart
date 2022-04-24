@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../domain/entities/product_mini.dart';
+import '../../../../domain/entities/product/product_mini.dart';
 import '../../../../domain/usecases/products/fetch_hot_products.dart';
 
 part 'hot_event.dart';

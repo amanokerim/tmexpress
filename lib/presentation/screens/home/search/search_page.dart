@@ -11,7 +11,6 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('SearchPage $query');
     return BlocProvider<SearchBloc>(
       create: (context) => getIt(),
       child: SearchScreen(query),

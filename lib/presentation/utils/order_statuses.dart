@@ -1,5 +1,5 @@
 import '../../app/generated/l10n.dart';
-import '../../domain/entities/interface/order_status.dart';
+import '../../domain/entities/order/order_status.dart';
 
 final Map<String?, OrderStatus> orderStatuses = {
   'ORDERPLACED': OrderStatus(S.current.orderPlaced, 'orderplaced.png'),

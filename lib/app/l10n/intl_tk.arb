@@ -1,6 +1,6 @@
 {
-  "@@locale": "ru",
-  "lang": "Русский",
+  "@@locale": "tk",
+  "lang": "Türkmençe",
 
   "homeScreen": "Baş sahypa",
   "categories": "Bölümler",
@@ -149,8 +149,5 @@
 
 
   "searchHint": "Gözleýän harydyňyzy ýazyň...",
-
-
-
-  "": ""
+  "description": "Beýany"
 }

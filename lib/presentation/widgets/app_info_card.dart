@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 
-class AppInfo extends StatelessWidget {
-  const AppInfo(this.content, {Key? key}) : super(key: key);
+class AppInfoCard extends StatelessWidget {
+  const AppInfoCard(this.content, {Key? key}) : super(key: key);
   final String content;
 
   @override

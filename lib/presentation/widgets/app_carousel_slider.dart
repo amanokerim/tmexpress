@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart' hide Banner;
 
-import '../../domain/entities/banner.dart';
+import '../../domain/entities/product/banner.dart';
 import '../theme/app_theme.dart';
 import '../utils/navigation_helper.dart';
 
@@ -24,23 +24,7 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
       child: Stack(
         children: [
           CarouselSlider(
-            items: widget.banners
-                .map((banner) => GestureDetector(
-                      onTap: () => NavigationHelper.navigateToPTS(
-                          context, banner.type.name, banner.entityId),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: CachedNetworkImage(
-                            width: double.infinity,
-                            imageUrl: banner.image,
-                            fit: BoxFit.cover,
-                            errorWidget: (_, image, __) {
-                              return Icon(Icons.image,
-                                  color: AppColors.grey, size: 120);
-                            }),
-                      ),
-                    ))
-                .toList(),
+            items: widget.banners.map(_buildBanner).toList(),
             options: CarouselOptions(
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 5),
@@ -77,4 +61,19 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
       ),
     );
   }
+
+  Widget _buildBanner(Banner banner) => GestureDetector(
+        onTap: () => NavigationHelper.navigateToPTS(
+            context, banner.type.name, banner.entityId),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: CachedNetworkImage(
+            width: double.infinity,
+            imageUrl: banner.image,
+            fit: BoxFit.cover,
+            errorWidget: (_, image, __) =>
+                Icon(Icons.image, color: AppColors.grey, size: 120),
+          ),
+        ),
+      );
 }

@@ -1,4 +1,4 @@
-import '../size.dart';
+import 'size.dart';
 
 class FilterOptions {
   const FilterOptions({

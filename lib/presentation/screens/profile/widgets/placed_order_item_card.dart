@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/entities/placed_order_item.dart';
+import '../../../../domain/entities/order/placed_order_item.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_image.dart';
 

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/generated/l10n.dart';
 import '../../../theme/app_theme.dart';
 import '../bloc/detail_bloc.dart';
-import 'size_card.dart';
+import 'size.w.dart';
 
 class ProductSizes extends StatelessWidget {
   const ProductSizes(this.state, {Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class ProductSizes extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 14),
           physics: const BouncingScrollPhysics(),
           itemCount: sizes.length,
-          itemBuilder: (_, index) => SizeCard(
+          itemBuilder: (_, index) => SizeW(
             sizes[index],
             selected: sizes[index] == state.selectedSize,
             onPressed: () =>

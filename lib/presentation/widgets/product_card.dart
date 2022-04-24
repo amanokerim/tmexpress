@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/product_mini.dart';
+import '../../domain/entities/product/product_mini.dart';
 import '../screens/detail/detail_page.dart';
 import '../theme/app_theme.dart';
 import 'app_image.dart';

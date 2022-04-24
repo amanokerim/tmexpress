@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../entities/pagination.dart';
-import '../../entities/product_mini.dart';
+import '../../entities/product/pagination.dart';
+import '../../entities/product/product_mini.dart';
 import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';

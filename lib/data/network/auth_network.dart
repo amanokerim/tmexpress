@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../../domain/entities/order.dart';
+import '../../domain/entities/order/order.dart';
 import '../../domain/entities/profile.dart';
 import 'response_models/placed_order_response.dart';
 import 'response_models/profile_response.dart';

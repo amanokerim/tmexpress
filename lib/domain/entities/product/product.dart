@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'image.dart';
+import '../image.dart';
 import 'size.dart';
 
 class Product extends Equatable {

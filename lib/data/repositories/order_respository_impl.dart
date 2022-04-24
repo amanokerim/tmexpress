@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart' hide Order;
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/entities/order.dart';
-import '../../domain/entities/placed_order.dart';
+import '../../domain/entities/order/order.dart';
+import '../../domain/entities/order/placed_order.dart';
 import '../../domain/errors/app_error.dart';
 import '../../domain/repositories/order_repository.dart';
 import '../../presentation/utils/constants.dart';

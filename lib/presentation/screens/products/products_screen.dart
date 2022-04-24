@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-import '../../../domain/entities/product_mini.dart';
-import '../../../domain/entities/sub_tag.dart';
-import '../../../domain/entities/subcategory.dart';
+import '../../../domain/entities/product/product_mini.dart';
+import '../../../domain/entities/product/sub_tag.dart';
+import '../../../domain/entities/product/subcategory.dart';
 import '../../widgets/primary_app_bar.dart';
 import '../../widgets/product_paged_grid_view.dart';
 import 'bloc/products_bloc.dart';

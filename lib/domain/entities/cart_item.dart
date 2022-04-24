@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 
 import 'image.dart';
-import 'product.dart';
-import 'size.dart';
+import 'product/product.dart';
+import 'product/size.dart';
 
 class CartItem extends Equatable {
   const CartItem({

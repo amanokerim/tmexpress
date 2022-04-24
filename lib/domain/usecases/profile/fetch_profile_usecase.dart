@@ -12,7 +12,5 @@ class FetchProfileUseCase extends UseCaseWithoutParams<Profile> {
   final ProfileRepository _profileRepository;
 
   @override
-  Future<Either<AppError, Profile>> call() {
-    return _profileRepository.fetchProfile();
-  }
+  Future<Either<AppError, Profile>> call() => _profileRepository.fetchProfile();
 }

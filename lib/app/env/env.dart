@@ -72,30 +72,26 @@ class Env {
         options: DefaultFirebaseOptions.currentPlatform);
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
         Env.value.envType != EnvType.development);
-    // await FirebaseAnalytics.instance.logAppOpen();
 
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-    // final remoteConfig = RemoteConfig.instance;
-    // await remoteConfig.setConfigSettings(RemoteConfigSettings(
-    //   fetchTimeout: const Duration(seconds: 10),
-    //   minimumFetchInterval: const Duration(seconds: 30),
-    // ));
   }
 
   void _preCache() {
+    final svgList = [
+      'assets/illustrations/auth.svg',
+      'assets/illustrations/empty.svg',
+      'assets/illustrations/error.svg'
+    ];
     Future.wait([
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoder, 'assets/illustrations/auth.svg'),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoder, 'assets/illustrations/empty.svg'),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoder, 'assets/illustrations/error.svg'),
-          null),
+      for (var svg in svgList)
+        precachePicture(
+            ExactAssetPicture(SvgPicture.svgStringDecoder, svg), null),
+      // TODO Precache
+      // assets/icons/home.png
+      // assets/icons/category.png
+      // assets/icons/fire.png
+      // assets/icons/basket.png
+      // assets/icons/profile.png
     ]);
   }
 }

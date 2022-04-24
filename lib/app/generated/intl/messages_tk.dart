@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a ru locale. All the
+// This is a library that provides messages for a tk locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,7 +18,7 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'ru';
+  String get localeName => 'tk';
 
   static String m0(total) => "${total} man.";
 
@@ -73,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "declined": MessageLookupByLibrary.simpleMessage("Kabul edilmedi"),
         "delivered": MessageLookupByLibrary.simpleMessage("Gowşyryldy"),
         "delivering": MessageLookupByLibrary.simpleMessage("Gowşyrylýar"),
+        "description": MessageLookupByLibrary.simpleMessage("Beýany"),
         "doubleBackToExit": MessageLookupByLibrary.simpleMessage(
             "Çykmak üçin ýene bir gezek basyň"),
         "dz": MessageLookupByLibrary.simpleMessage("Daşoguz"),
@@ -95,7 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidVerificationCode":
             MessageLookupByLibrary.simpleMessage("Nädogry kod"),
         "isDiscounted": MessageLookupByLibrary.simpleMessage("Arzanladyş"),
-        "lang": MessageLookupByLibrary.simpleMessage("Русский"),
+        "lang": MessageLookupByLibrary.simpleMessage("Türkmençe"),
         "lb": MessageLookupByLibrary.simpleMessage("Lebap"),
         "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
         "logOut": MessageLookupByLibrary.simpleMessage("Hasapdan çykmak"),

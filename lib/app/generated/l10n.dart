@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Русский`
+  /// `Türkmençe`
   String get lang {
     return Intl.message(
-      'Русский',
+      'Türkmençe',
       name: 'lang',
       desc: '',
       args: [],
@@ -1370,7 +1370,15 @@ class S {
     );
   }
 
-  // skipped getter for the '' key
+  /// `Beýany`
+  String get description {
+    return Intl.message(
+      'Beýany',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -1378,8 +1386,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'ru'),
-      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'tk'),
     ];
   }
 

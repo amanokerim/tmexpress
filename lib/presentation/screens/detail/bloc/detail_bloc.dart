@@ -5,13 +5,12 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/image.dart';
-import '../../../../domain/entities/product.dart';
+import '../../../../domain/entities/product/product.dart';
+import '../../../../domain/entities/product/size.dart';
 import '../../../../domain/entities/saved_product.dart';
-import '../../../../domain/entities/size.dart';
 import '../../../../domain/usecases/products/fetch_product_usecase.dart';
 import '../../../../domain/usecases/products/like_product_usecase.dart';
 import '../../../../domain/usecases/products/share_product_usecase.dart';
-
 import '../../../utils/constants.dart';
 import '../../../utils/deeplinker.dart';
 import '../../profile/bloc/profile_bloc.dart';

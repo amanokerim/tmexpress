@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/entities/tag.dart';
+import '../../../domain/entities/product/tag.dart';
 import '../../network/response_models/tag_response.dart';
 import '../mapper.dart';
 import 'product_mini_response_mapper.dart';

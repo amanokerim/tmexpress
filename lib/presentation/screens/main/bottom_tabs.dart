@@ -1,5 +1,5 @@
 import '../../../app/generated/l10n.dart';
-import '../../../domain/entities/interface/bottom_tab.dart';
+import '../../../domain/entities/bottom_tab.dart';
 import '../cart/cart_screen.dart';
 import '../category/category_screen.dart';
 import '../home/home_screen.dart';

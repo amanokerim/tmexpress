@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../domain/entities/placed_order.dart';
+import '../../../../domain/entities/order/placed_order.dart';
 import '../../../utils/date_extension.dart';
 import '../../../widgets/app_empty.dart';
 import '../../../widgets/app_error.dart';

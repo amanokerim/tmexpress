@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../domain/entities/category.dart';
+import '../../../../domain/entities/product/category.dart';
 import '../../../../domain/usecases/products/fetch_categories_usecase.dart';
 
 part 'category_event.dart';

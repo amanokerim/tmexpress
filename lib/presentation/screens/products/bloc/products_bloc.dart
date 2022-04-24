@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/enums/sort_types.dart';
-import '../../../../domain/entities/interface/filter_options.dart';
-import '../../../../domain/entities/product_mini.dart';
-import '../../../../domain/entities/sub_tag.dart';
+import '../../../../domain/entities/product/filter_options.dart';
+import '../../../../domain/entities/product/product_mini.dart';
+import '../../../../domain/entities/product/sub_tag.dart';
 import '../../../../domain/usecases/products/fetch_products_usecase.dart';
 
 part 'products_event.dart';

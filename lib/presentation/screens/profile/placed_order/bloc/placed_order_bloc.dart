@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../../domain/entities/placed_order.dart';
+import '../../../../../domain/entities/order/placed_order.dart';
 import '../../../../../domain/errors/app_error.dart';
 import '../../../../../domain/usecases/order/get_placed_order.dart';
 

@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 
-import '../entities/category.dart';
-import '../entities/home.dart';
-import '../entities/pagination.dart';
-import '../entities/product.dart';
-import '../entities/product_mini.dart';
+import '../entities/product/category.dart';
+import '../entities/product/home.dart';
+import '../entities/product/pagination.dart';
+import '../entities/product/product.dart';
+import '../entities/product/product_mini.dart';
+import '../entities/product/size.dart';
 import '../entities/saved_product.dart';
-import '../entities/size.dart';
 import '../errors/app_error.dart';
 import '../usecases/products/fetch_products_usecase.dart';
 import '../usecases/products/search_product_usecase.dart';
