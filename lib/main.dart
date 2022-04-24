@@ -52,7 +52,6 @@ class FlutterApp extends StatelessWidget {
 // TEST 
 // Dynamic link apple integration (test)
 
-
 // BACK-END
 // price on OrderItem model
 // order by on tag products

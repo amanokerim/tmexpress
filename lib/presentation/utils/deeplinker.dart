@@ -33,7 +33,7 @@ class DeepLinker {
     final type = dynamicLinkData.link.path;
 
     if (referral != null) {
-      final box = Hive.box<String>(kDataBox);
+      final box = Hive.box<dynamic>(kDataBox);
       if (type == kDynamicLinkRegister) {
         box.put(kRegisterReferral, referral);
         context.read<MainBloc>().add(const MainTabChanged(index: 4));

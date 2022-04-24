@@ -4,11 +4,12 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/profile.dart';
 import '../../domain/errors/app_error.dart';
+import '../../domain/repositories/preferences_repository.dart';
 import '../../domain/repositories/profile_repository.dart';
 import '../../domain/usecases/profile/auth_usecase.dart';
 import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
-import '../local/preferences.dart';
+import '../local/data_keys.dart';
 import '../mappers/response_mappers/profile_response_mapper.dart';
 import '../mappers/response_mappers/token_response_mapper.dart';
 import '../network/auth_network.dart';
@@ -19,23 +20,23 @@ class ProfileRepositoryImpl implements ProfileRepository {
   ProfileRepositoryImpl(
     this._exception,
     this._commonNetwork,
-    this._preferences,
     this._tokenResponseMapper,
     this._authNetwork,
     this._profileResponseMapper,
+    this._preferencesRepository,
   );
 
   final ExceptionHandler _exception;
   final CommonNetwork _commonNetwork;
   final AuthNetwork _authNetwork;
-  final Preferences _preferences;
   final TokenResponseMapper _tokenResponseMapper;
   final ProfileResponseMapper _profileResponseMapper;
+  final PreferencesRepository _preferencesRepository;
 
   @override
   Future<Either<AppError, bool>> auth(AuthParams params) {
     return _exception.handle(() async {
-      final box = Hive.box<String>(kDataBox);
+      final box = Hive.box<dynamic>(kDataBox);
       final referralUserId = box.get(kRegisterReferral);
 
       final token = await _commonNetwork
@@ -46,7 +47,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
       if (referralUserId != null && token.access.isNotEmpty) {
         await box.delete(kRegisterReferral);
       }
-      await _preferences.setJwt(token.access);
+      await _preferencesRepository.setPreference(pJWT, token.access);
       return true;
     });
   }

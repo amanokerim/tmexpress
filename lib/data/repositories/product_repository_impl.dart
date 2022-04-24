@@ -49,7 +49,7 @@ class ProductRepositoryImpl implements ProductRepository {
   final ProductPaginationResponseMapper _productPaginationResponseMapper;
   final ProductResponseMapper _productResponseMapper;
   final SizeResponseMapper _sizeRespMapper;
-  final Box<Map<dynamic, dynamic>> favoritesBox;
+  final Box<dynamic> favoritesBox;
 
   @override
   Future<Either<AppError, List<Category>>> fetchCategories() {

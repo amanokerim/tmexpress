@@ -15,9 +15,8 @@ class FavoritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PrimaryAppBar(label: S.current.favorites),
-      body: ValueListenableBuilder<Box<Map<dynamic, dynamic>>>(
-        valueListenable:
-            Hive.box<Map<dynamic, dynamic>>(kFavoritesBox).listenable(),
+      body: ValueListenableBuilder<Box<dynamic>>(
+        valueListenable: Hive.box<dynamic>(kFavoritesBox).listenable(),
         builder: (_, box, __) {
           final products =
               box.values.map((e) => SavedProduct.fromJson(e)).toList();

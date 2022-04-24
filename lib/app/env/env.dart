@@ -7,14 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart' as pp;
 
+import '../../data/local/hive_boxes.dart';
 import '../../firebase_options.dart';
 import '../../main.dart';
 import '../../presentation/bloc/app_bloc_observer.dart';
-import '../../presentation/utils/constants.dart';
 import '../injection/injection.dart';
 
 class Env {
@@ -46,10 +45,7 @@ class Env {
               statusBarBrightness: Brightness.light),
         );
         await _initFirebase();
-
-        await Hive.initFlutter();
-        await Hive.openBox<Map<dynamic, dynamic>>(kFavoritesBox);
-        await Hive.openBox<String>(kDataBox);
+        await HiveBoxes.init();
 
         _preCache();
 

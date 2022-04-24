@@ -1386,7 +1386,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'tk'),
+      Locale.fromSubtags(languageCode: 'tr'),
     ];
   }
 

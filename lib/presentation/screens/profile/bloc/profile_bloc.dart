@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../data/local/keys.dart';
+import '../../../../data/local/data_keys.dart';
 import '../../../../domain/entities/profile.dart';
 import '../../../../domain/usecases/preferences/get_string_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/set_preference_usecase.dart';
@@ -19,8 +19,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       this._setPreferenceUseCase)
       : super(ProfileLoadInProgress()) {
     on<ProfileStarted>((event, emit) async {
-      final jwtR = await _getStringPreferenceUseCase(pJWT);
-      final jwt = jwtR.fold((l) => null, (r) => r);
+      final jwt = _getStringPreferenceUseCase(pJWT);
 
       emit(ProfileLoadInProgress());
       if (jwt == null) {

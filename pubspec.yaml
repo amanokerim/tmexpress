@@ -28,7 +28,6 @@ dependencies:
   injectable: ^1.4.1
 
   # Local storage
-  shared_preferences: ^2.0.6
   hive: ^2.0.6
   hive_flutter: ^1.1.0
 
@@ -111,7 +110,7 @@ flutter:
 flutter_intl: 
   enabled: true
   class_name: S
-  main_locale: tk
+  main_locale: tr
   arb_dir: lib/app/l10n
   output_dir: lib/app/generated
 

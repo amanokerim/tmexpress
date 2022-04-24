@@ -23,7 +23,7 @@ class OrderRepositoryImpl implements OrderRepository {
   @override
   Future<Either<AppError, bool>> createOrder(Order order) {
     return _exception.handle(() async {
-      final box = Hive.box<String>(kDataBox);
+      final box = Hive.box<dynamic>(kDataBox);
       String? referralUser;
       final referredDateStr = box.get(kProductReferralDate);
       DateTime? referredDate;

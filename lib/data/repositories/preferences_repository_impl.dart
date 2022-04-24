@@ -1,46 +1,34 @@
-import 'package:dartz/dartz.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/errors/app_error.dart';
 import '../../domain/repositories/preferences_repository.dart';
-import '../error/exception_handler.dart';
-import '../local/preferences.dart';
+import '../../presentation/utils/constants.dart';
+import '../local/data_keys.dart';
+import '../local/hive_boxes.dart';
 
 @LazySingleton(as: PreferencesRepository)
 class PreferencesRepositoryImpl extends PreferencesRepository {
-  PreferencesRepositoryImpl(
-    this._exception,
-    this._preferences,
-  );
-  final Preferences _preferences;
-  final ExceptionHandler _exception;
+  PreferencesRepositoryImpl(HiveBoxes boxes)
+      : _preferences = boxes.getBox(kFavoritesBox);
+
+  final Box<dynamic> _preferences;
 
   @override
-  Future<Either<AppError, bool?>> getBoolPreference(
-      {required String key}) async {
-    return _exception.handle(() => _preferences.getBoolPreference(key));
-  }
+  bool? getBoolPreference(String key) => _preferences.get(key) as bool?;
 
   @override
-  Future<Either<AppError, int?>> getIntPreference({required String key}) async {
-    return _exception.handle(() => _preferences.getIntPreference(key));
-  }
+  int? getIntPreference(String key) => _preferences.get(key) as int?;
 
   @override
-  Future<Either<AppError, double?>> getDoublePreference(
-      {required String key}) async {
-    return _exception.handle(() => _preferences.getDoublePreference(key));
-  }
+  double? getDoublePreference(String key) => _preferences.get(key) as double?;
 
   @override
-  Future<Either<AppError, String?>> getStringPreference(
-      {required String key}) async {
-    return _exception.handle(() => _preferences.getStringPreference(key));
-  }
+  String? getStringPreference(String key) => _preferences.get(key) as String?;
 
   @override
-  Future<Either<AppError, bool>> setPreference(
-      {required String key, required dynamic val}) async {
-    return _exception.handle(() => _preferences.setPreference(key, val));
-  }
+  Future<void> setPreference(String key, dynamic val) =>
+      _preferences.put(key, val);
+
+  @override
+  String? getJwt() => getStringPreference(pJWT);
 }
