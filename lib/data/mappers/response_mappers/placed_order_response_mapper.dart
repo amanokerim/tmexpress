@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/entities/placed_order.dart';
+import '../../../domain/entities/order/placed_order.dart';
 import '../../../presentation/utils/order_statuses.dart';
 import '../../network/response_models/placed_order_response.dart';
 import '../mapper.dart';
@@ -18,7 +18,7 @@ class PlacedOrderResponseMapper
       user: entity?.user ?? 0,
       status: orderStatuses[entity?.status] ?? orderStatuses.values.toList()[0],
       totalPrice: entity?.totalPrice ?? 0,
-      createdAt: DateTime.parse(entity?.createdAt ?? ''),
-      updatedAt: DateTime.parse(entity?.updatedAt ?? ''),
+      createdAt: DateTime.parse(entity?.createdAt ?? '').toLocal(),
+      updatedAt: DateTime.parse(entity?.updatedAt ?? '').toLocal(),
       orderitems: _placedOrderItemResponseMapper.mapList(entity?.orderitems));
 }

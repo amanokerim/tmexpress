@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/generated/l10n.dart';
-import '../../../../domain/entities/tag.dart';
+import '../../../../domain/entities/product/tag.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/product_card.dart';
 import '../../products/products_page.dart';
@@ -15,24 +15,27 @@ class TagWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(tag.title, style: AppTextStyle.bold20),
-            TextButton(
-                onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute<void>(
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(tag.title, style: AppTextStyle.bold20),
+              TextButton(
+                  onPressed: () =>
+                      Navigator.of(context).push(MaterialPageRoute<void>(
                         builder: (_) => ProductsPage(productParent: tag),
-                      ),
-                    ),
-                child: Text(S.current.all)),
-          ],
+                      )),
+                  child: Text(S.current.all)),
+            ],
+          ),
         ),
-        const SizedBox(height: 16),
         SizedBox(
           height: 180,
           child: ListView.separated(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
             itemCount: tag.product.length,
             itemBuilder: (_, index) => ProductCard(tag.product[index]),
             separatorBuilder: (_, __) => const SizedBox(width: 16),

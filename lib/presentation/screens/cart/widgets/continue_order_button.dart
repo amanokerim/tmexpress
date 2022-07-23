@@ -5,6 +5,7 @@ import '../../../../app/generated/l10n.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
+import '../../../widgets/app_error.dart';
 import '../../../widgets/app_progress_indicator.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../../profile/widgets/profile_card.dart';
@@ -26,7 +27,7 @@ class ContinueOrderButton extends StatelessWidget {
               style: AppTextStyle.grey14,
               children: [
                 TextSpan(
-                  text: S.current.nMan(total),
+                  text: S.current.nMan(total.toStringAsFixed(2)),
                   style: AppTextStyle.bold16.copyWith(height: 1.3),
                 )
               ],
@@ -38,8 +39,7 @@ class ContinueOrderButton extends StatelessWidget {
               label: S.current.continueButton,
               type: ButtonType.black,
               onPressed: () {
-                final profile = context.read<ProfileBloc>().profile;
-                if (profile != null) {
+                if (context.read<ProfileBloc>().profile != null) {
                   _showProfileConfirmationBottomSheet(context);
                 } else {
                   AppFlash.bigToast(
@@ -80,6 +80,12 @@ class ContinueOrderButton extends StatelessWidget {
                   )
                 ],
               ),
+            );
+          } else if (profileState is ProfileLoadError) {
+            return AppErrorScreen(
+              message: profileState.message,
+              onPressed: () =>
+                  context.read<ProfileBloc>().add(ProfileStarted()),
             );
           }
           return const AppProgressIndicator();

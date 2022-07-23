@@ -1,13 +1,9 @@
 part of 'edit_profile_bloc.dart';
 
 class EditProfileState {
-  const EditProfileState(
-      this.gender, this.region, this.loadState, this.message);
+  const EditProfileState(this.gender, this.region, this.loadState, this.error);
   final Gender? gender;
   final Region? region;
   final LoadState loadState;
-  final String? message;
-
-  // @override
-  // List<Object?> get props => [gender, region, loadState, message];
+  final AppError? error;
 }

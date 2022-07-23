@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Русский`
+  /// `Türkmençe`
   String get lang {
     return Intl.message(
-      'Русский',
+      'Türkmençe',
       name: 'lang',
       desc: '',
       args: [],
@@ -445,6 +445,16 @@ class S {
     return Intl.message(
       'Sebede goşuldy',
       name: 'addedToCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sebetden pozmakçymy?`
+  String get confirmRemove {
+    return Intl.message(
+      'Sebetden pozmakçymy?',
+      name: 'confirmRemove',
       desc: '',
       args: [],
     );
@@ -1270,7 +1280,105 @@ class S {
     );
   }
 
-  // skipped getter for the '' key
+  /// `Başla`
+  String get start {
+    return Intl.message(
+      'Başla',
+      name: 'start',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Indiki`
+  String get next {
+    return Intl.message(
+      'Indiki',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ýüzlerçe görnüşli harytlardan`
+  String get page1title {
+    return Intl.message(
+      'Ýüzlerçe görnüşli harytlardan',
+      name: 'page1title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `öz halaýan harydyňyzy tapyň...`
+  String get page1subtitle {
+    return Intl.message(
+      'öz halaýan harydyňyzy tapyň...',
+      name: 'page1subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halan harydyňyzyň`
+  String get page2title {
+    return Intl.message(
+      'Halan harydyňyzyň',
+      name: 'page2title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `reňkini we ölçegini saýlaň we sargyt ediň...`
+  String get page2subtitle {
+    return Intl.message(
+      'reňkini we ölçegini saýlaň we sargyt ediň...',
+      name: 'page2subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gysga wagtda`
+  String get page3title {
+    return Intl.message(
+      'Gysga wagtda',
+      name: 'page3title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sargytlaryňyzy kabul ediň!`
+  String get page3subtitle {
+    return Intl.message(
+      'sargytlaryňyzy kabul ediň!',
+      name: 'page3subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gözleýän harydyňyzy ýazyň...`
+  String get searchHint {
+    return Intl.message(
+      'Gözleýän harydyňyzy ýazyň...',
+      name: 'searchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Beýany`
+  String get description {
+    return Intl.message(
+      'Beýany',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -1278,8 +1386,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'ru'),
-      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'tr'),
     ];
   }
 

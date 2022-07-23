@@ -1,19 +1,19 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../data/local/keys.dart';
-import '../../../../domain/entities/interface/fcm_notification.dart';
+import '../../../../data/local/data_keys.dart';
+import '../../../../domain/entities/fcm_notification.dart';
 import '../../../../domain/usecases/get_fcm_stream_usecase.dart';
 import '../../../../domain/usecases/preferences/get_bool_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/get_string_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/set_preference_usecase.dart';
-import '../../../bloc/app_bloc.dart';
 
 part 'start_event.dart';
 part 'start_state.dart';
 
 @injectable
-class StartBloc extends AppBloc<StartEvent, StartState> {
+class StartBloc extends Bloc<StartEvent, StartState> {
   StartBloc(
     this._getBoolPreferenceUseCase,
     this._getStringPreferenceUseCase,
@@ -21,13 +21,12 @@ class StartBloc extends AppBloc<StartEvent, StartState> {
     this._getFCMStreamUseCase,
   ) : super(StartInitial()) {
     on<StartInitialized>((event, emit) async {
-      // TODO uncomment
-      // final firstOpen = (await _getBoolPreferenceUseCase(pFirstOpen))
-      //     .fold((_) => false, (r) => r ?? true);
-      // if (firstOpen) {
-      //   yield StartShowOnboarding();
-      //   return;
-      // }
+      final firstOpen = _getBoolPreferenceUseCase(pFirstOpen);
+
+      if (firstOpen ?? true) {
+        emit(StartShowOnboarding());
+        return;
+      }
       emit(StartSetUpFCMListener(_getFCMStreamUseCase()));
       emit(const StartShowHome(tab: 0));
     });

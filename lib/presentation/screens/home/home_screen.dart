@@ -16,10 +16,9 @@ class HomeScreen extends StatelessWidget {
       if (state is HomeLoadSuccess) {
         return ListView(
           children: [
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             AppCarouselSlider(state.home.banners),
             ListView.builder(
-              padding: const EdgeInsets.all(16),
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: state.home.tags.length,
@@ -28,7 +27,7 @@ class HomeScreen extends StatelessWidget {
           ],
         );
       } else if (state is HomeLoadError) {
-        return AppError(
+        return AppErrorScreen(
             message: state.message,
             onPressed: () => context.read<HomeBloc>().add(HomeRequested()));
       }

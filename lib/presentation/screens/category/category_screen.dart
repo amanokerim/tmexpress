@@ -48,10 +48,11 @@ class CategoryScreen extends StatelessWidget {
           ]),
         );
       } else if (state is CategoryLoadError) {
-        return AppError(
-            message: state.message,
-            onPressed: () =>
-                context.read<CategoryBloc>().add(CategoriesReuqested()));
+        return AppErrorScreen(
+          message: state.message,
+          onPressed: () =>
+              context.read<CategoryBloc>().add(CategoriesRequested()),
+        );
       }
       return const AppProgressIndicator();
     });

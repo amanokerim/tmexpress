@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/cart_item.dart';
-import '../../../../domain/entities/product.dart';
+import '../../../../domain/entities/product/product.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
 import '../../../utils/constants.dart';
@@ -11,12 +11,13 @@ import '../../../widgets/app_button.dart';
 import '../../../widgets/app_confirm_dialog.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../bloc/detail_bloc.dart';
+import 'color.w.dart';
 import 'price.w.dart';
 
 late Product _product;
 
-class ProductWidgets extends StatelessWidget {
-  ProductWidgets(this.state, {Key? key}) : super(key: key) {
+class ProductWidgets {
+  ProductWidgets(this.state) {
     _product = state.product;
   }
   final DetailLoadSuccess state;
@@ -27,7 +28,8 @@ class ProductWidgets extends StatelessWidget {
       child: AppButton(
         label: S.current.addToCart,
         onPressed: () {
-          if (state.selectedColor == null) {
+          final onlyOneColor = state.product.productImages.length > 1;
+          if (state.selectedColor == null && onlyOneColor) {
             AppFlash.toast(
                 context: context,
                 message: S.current.selectColor,
@@ -35,15 +37,15 @@ class ProductWidgets extends StatelessWidget {
           } else if (state.selectedSize == null) {
             AppFlash.toast(
                 context: context, message: S.current.selectSize, isError: true);
-          } else if (state.selectedColor != null &&
+          } else if ((state.selectedColor != null || !onlyOneColor) &&
               state.selectedSize != null) {
             final cartItem = CartItem(
               product: _product,
               count: 1,
               size: state.selectedSize!,
-              color: state.selectedColor!,
-              price: _product.normalPrice,
-              expressPrice: _product.expressPrice,
+              color: state.selectedColor ?? state.product.productImages[0],
+              price: _product.normalPriceByCount(1),
+              expressPrice: _product.expressPriceByCount(1),
             );
             context.read<CartBloc>().add(CartItemAdded(cartItem));
             AppFlash.toast(
@@ -92,18 +94,19 @@ class ProductWidgets extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           AppButton(
-              label: null,
-              type: ButtonType.outline,
-              iconFile: 'idea.png',
-              onPressed: () => showDialog<void>(
-                  context: context,
-                  builder: (_) => AppDialog(
-                        title: S.current.share,
-                        content:
-                            S.current.shareInformation(kReferralProductPercent),
-                        positiveButtonLabel: S.current.ok,
-                        showNegativeButton: false,
-                      ))),
+            label: null,
+            type: ButtonType.outline,
+            iconFile: 'idea.png',
+            onPressed: () => showDialog<void>(
+              context: context,
+              builder: (_) => AppDialog(
+                title: S.current.share,
+                content: S.current.shareInformation(kReferralProductPercent),
+                positiveButtonLabel: S.current.ok,
+                showNegativeButton: false,
+              ),
+            ),
+          ),
         ],
       );
 
@@ -116,56 +119,68 @@ class ProductWidgets extends StatelessWidget {
       onPressed: () =>
           context.read<DetailBloc>().add(DetailProductLikeToggled()));
 
-  List<Widget> weight() {
-    return [
-      Row(
-        children: [
-          Text('${S.current.productWeight}:', style: AppTextStyle.bold16),
-          const Spacer(),
-          Text('${_product.weight} kg.', style: AppTextStyle.black16),
-        ],
-      ),
-      const SizedBox(height: 12),
-    ];
-  }
+  List<Widget> weight() => [
+        Row(
+          children: [
+            Text('${S.current.productWeight}:', style: AppTextStyle.bold16),
+            const Spacer(),
+            Text('${_product.weight} kg.', style: AppTextStyle.black16),
+          ],
+        ),
+        const SizedBox(height: 12),
+      ];
 
-  List<Widget> description() {
-    return [
-      Text('Beýany:', style: AppTextStyle.bold16),
-      const SizedBox(height: 8),
-      Text(_product.description, style: AppTextStyle.grey16),
-      const SizedBox(height: 20),
-    ];
-  }
+  List<Widget> description() => [
+        Text('${S.current.description}:', style: AppTextStyle.bold16),
+        const SizedBox(height: 8),
+        Text(_product.description, style: AppTextStyle.grey16),
+        const SizedBox(height: 20),
+      ];
 
-  List<Widget> prices() {
-    return [
-      Text('${S.current.productPrice}:', style: AppTextStyle.bold16),
-      const SizedBox(height: 8),
-      Row(
-        children: [
-          PriceW(S.current.productPriceNormal, _product.normalPrice).exp,
-          PriceW(S.current.productPriceExpress, _product.expressPrice).exp,
-        ],
-      ),
-      const SizedBox(height: 20),
-      Text(
-          '${S.current.productPriceWholesale} '
-          '(${S.current.productWholesaleDesc(_product.wholesaleLimit)}):',
-          style: AppTextStyle.bold16),
-      const SizedBox(height: 8),
-      Row(
-        children: [
-          PriceW(S.current.productPriceNormal, _product.normalPriceW).exp,
-          PriceW(S.current.productPriceExpress, _product.expressPriceW).exp,
-        ],
-      ),
-      const SizedBox(height: 20),
-    ];
-  }
+  List<Widget> prices() => [
+        Text('${S.current.productPrice}:', style: AppTextStyle.bold16),
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            PriceW(S.current.productPriceNormal, _product.normalPrice).exp,
+            PriceW(S.current.productPriceExpress, _product.expressPrice).exp,
+          ],
+        ),
+        const SizedBox(height: 20),
+        Text(
+            '${S.current.productPriceWholesale} '
+            '(${S.current.productWholesaleDesc(_product.wholesaleLimit)}):',
+            style: AppTextStyle.bold16),
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            PriceW(S.current.productPriceNormal, _product.normalPriceW).exp,
+            PriceW(S.current.productPriceExpress, _product.expressPriceW).exp,
+          ],
+        ),
+        const SizedBox(height: 20),
+      ];
 
-  @override
-  Widget build(BuildContext context) {
-    return Container();
+  List<Widget> images() {
+    final productImages = state.product.productImages;
+    return [
+      Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 2),
+        child: Text(S.current.productColors, style: AppTextStyle.bold16),
+      ),
+      SizedBox(
+        height: 64 + 12,
+        child: ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 20 - 6),
+          physics: const BouncingScrollPhysics(),
+          itemCount: productImages.length,
+          itemBuilder: (context, index) => ColorW(
+            productImages[index],
+            isSelected: state.selectedColor == productImages[index],
+          ),
+          scrollDirection: Axis.horizontal,
+        ),
+      ),
+    ];
   }
 }

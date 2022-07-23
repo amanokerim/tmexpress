@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../screens/main/bloc/main_bloc.dart';
+import '../screens/main/bottom_tabs.dart';
 import '../theme/app_theme.dart';
 import 'app_bottom_nav_bar_item.dart';
 
@@ -32,7 +33,7 @@ class AppBottomNavigationBar extends StatelessWidget {
           selectedFontSize: 12,
           unselectedFontSize: 12,
           onTap: (index) => homeBloc.add(MainTabChanged(index: index)),
-          items: homeBloc.bottomTabs
+          items: bottomTabs
               .map<BottomNavigationBarItem>(
                   (tab) => AppBottomNavBarItem(iconFile: tab.icon))
               .toList(),

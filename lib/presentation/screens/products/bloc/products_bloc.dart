@@ -1,19 +1,19 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/enums/sort_types.dart';
-import '../../../../domain/entities/interface/filter_options.dart';
-import '../../../../domain/entities/product_mini.dart';
-import '../../../../domain/entities/sub_tag.dart';
+import '../../../../domain/entities/product/filter_options.dart';
+import '../../../../domain/entities/product/product_mini.dart';
+import '../../../../domain/entities/product/sub_tag.dart';
 import '../../../../domain/usecases/products/fetch_products_usecase.dart';
-import '../../../bloc/app_bloc.dart';
 
 part 'products_event.dart';
 part 'products_state.dart';
 
 @injectable
-class ProductsBloc extends AppBloc<ProductsEvent, ProductsState> {
+class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   ProductsBloc(this._fetchProductsUseCase) : super(ProductsLoadInProgress()) {
     on<ProductsRequested>((event, emit) async {
       _productParent = event.productParent;
@@ -23,7 +23,7 @@ class ProductsBloc extends AppBloc<ProductsEvent, ProductsState> {
           sortType: sortType,
           filterOptions: _filterOptions));
       emit(result.fold(
-        (failure) => ProductsLoadError(message(failure), UniqueKey()),
+        (error) => ProductsLoadError(error.message, UniqueKey()),
         (pagination) {
           next = pagination.next;
           return ProductsLoadSuccess(pagination.next, pagination.items);

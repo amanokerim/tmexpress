@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../entities/placed_order.dart';
-import '../../errors/failures.dart';
+import '../../entities/order/placed_order.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/order_repository.dart';
 import '../usecase.dart';
 
@@ -12,6 +12,6 @@ class FetchPlacedOrdersUseCase extends UseCaseWithoutParams<List<PlacedOrder>> {
   final OrderRepository _orderRepository;
 
   @override
-  Future<Either<Failure, List<PlacedOrder>>> call() =>
+  Future<Either<AppError, List<PlacedOrder>>> call() =>
       _orderRepository.fetchPlacedOrders();
 }

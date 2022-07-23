@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../data/local/keys.dart';
+import '../../../../data/local/data_keys.dart';
 import '../../../../domain/entities/profile.dart';
 import '../../../../domain/usecases/preferences/get_string_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/set_preference_usecase.dart';
 import '../../../../domain/usecases/profile/fetch_profile_usecase.dart';
-import '../../../bloc/app_bloc.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/deeplinker.dart';
 
@@ -14,13 +14,12 @@ part 'profile_event.dart';
 part 'profile_state.dart';
 
 @injectable
-class ProfileBloc extends AppBloc<ProfileEvent, ProfileState> {
+class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc(this._getStringPreferenceUseCase, this._fetchProfileUseCase,
       this._setPreferenceUseCase)
       : super(ProfileLoadInProgress()) {
     on<ProfileStarted>((event, emit) async {
-      final jwtR = await _getStringPreferenceUseCase(pJWT);
-      final jwt = jwtR.fold((l) => null, (r) => r);
+      final jwt = _getStringPreferenceUseCase(pJWT);
 
       emit(ProfileLoadInProgress());
       if (jwt == null) {
@@ -28,7 +27,7 @@ class ProfileBloc extends AppBloc<ProfileEvent, ProfileState> {
       } else {
         final r = await _fetchProfileUseCase();
         emit(r.fold(
-          (failure) => ProfileLoadError(message: message(failure)),
+          (error) => ProfileLoadError(message: error.message),
           (profile) {
             this.profile = profile;
             return ProfileLoadSuccess(profile);

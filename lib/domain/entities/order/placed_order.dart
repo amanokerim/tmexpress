@@ -1,4 +1,4 @@
-import 'interface/order_status.dart';
+import 'order_status.dart';
 import 'placed_order_item.dart';
 
 class PlacedOrder {

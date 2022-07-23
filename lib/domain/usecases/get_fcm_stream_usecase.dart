@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../entities/interface/fcm_notification.dart';
+import '../entities/fcm_notification.dart';
 import '../repositories/fcm_repository.dart';
 
 @lazySingleton

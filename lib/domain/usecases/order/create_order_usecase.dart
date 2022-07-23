@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:injectable/injectable.dart';
 
-import '../../entities/order.dart';
-import '../../errors/failures.dart';
+import '../../entities/order/order.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/order_repository.dart';
 import '../usecase.dart';
 
@@ -12,7 +12,6 @@ class CreateOrderUseCase extends UseCase<bool, Order> {
   final OrderRepository _orderRepository;
 
   @override
-  Future<Either<Failure, bool>> call(Order order) {
-    return _orderRepository.createOrder(order);
-  }
+  Future<Either<AppError, bool>> call(Order order) =>
+      _orderRepository.createOrder(order);
 }

@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a ru locale. All the
+// This is a library that provides messages for a tr locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,7 +18,7 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'ru';
+  String get localeName => 'tr';
 
   static String m0(total) => "${total} man.";
 
@@ -60,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cartEmpty": MessageLookupByLibrary.simpleMessage("Sebetde haryt ýok"),
         "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
         "close": MessageLookupByLibrary.simpleMessage("Ýapmak"),
+        "confirmRemove":
+            MessageLookupByLibrary.simpleMessage("Sebetden pozmakçymy?"),
         "confirmSignOut":
             MessageLookupByLibrary.simpleMessage("Hasabyňyzdan çykmakçymy?"),
         "confirmSignOutContent": MessageLookupByLibrary.simpleMessage(
@@ -71,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "declined": MessageLookupByLibrary.simpleMessage("Kabul edilmedi"),
         "delivered": MessageLookupByLibrary.simpleMessage("Gowşyryldy"),
         "delivering": MessageLookupByLibrary.simpleMessage("Gowşyrylýar"),
+        "description": MessageLookupByLibrary.simpleMessage("Beýany"),
         "doubleBackToExit": MessageLookupByLibrary.simpleMessage(
             "Çykmak üçin ýene bir gezek basyň"),
         "dz": MessageLookupByLibrary.simpleMessage("Daşoguz"),
@@ -93,7 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidVerificationCode":
             MessageLookupByLibrary.simpleMessage("Nädogry kod"),
         "isDiscounted": MessageLookupByLibrary.simpleMessage("Arzanladyş"),
-        "lang": MessageLookupByLibrary.simpleMessage("Русский"),
+        "lang": MessageLookupByLibrary.simpleMessage("Türkmençe"),
         "lb": MessageLookupByLibrary.simpleMessage("Lebap"),
         "loadError": MessageLookupByLibrary.simpleMessage("Internet ýok"),
         "logOut": MessageLookupByLibrary.simpleMessage("Hasapdan çykmak"),
@@ -104,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "mr": MessageLookupByLibrary.simpleMessage("Mary"),
         "nMan": m0,
         "name": MessageLookupByLibrary.simpleMessage("Adyňyz"),
+        "next": MessageLookupByLibrary.simpleMessage("Indiki"),
         "noData": MessageLookupByLibrary.simpleMessage(
             "Maglumatlaryňyz girizilmedik"),
         "noFavorites":
@@ -121,6 +125,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
         "orderPlaced": MessageLookupByLibrary.simpleMessage("Sargyt edildi"),
         "orders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
+        "page1subtitle": MessageLookupByLibrary.simpleMessage(
+            "öz halaýan harydyňyzy tapyň..."),
+        "page1title": MessageLookupByLibrary.simpleMessage(
+            "Ýüzlerçe görnüşli harytlardan"),
+        "page2subtitle": MessageLookupByLibrary.simpleMessage(
+            "reňkini we ölçegini saýlaň we sargyt ediň..."),
+        "page2title": MessageLookupByLibrary.simpleMessage("Halan harydyňyzyň"),
+        "page3subtitle":
+            MessageLookupByLibrary.simpleMessage("sargytlaryňyzy kabul ediň!"),
+        "page3title": MessageLookupByLibrary.simpleMessage("Gysga wagtda"),
         "phone": MessageLookupByLibrary.simpleMessage("Telefon belgiňiz"),
         "privacyPolicyLink":
             MessageLookupByLibrary.simpleMessage("media/privacy_policy.pdf"),
@@ -153,6 +167,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
         "returned": MessageLookupByLibrary.simpleMessage("Yzyna gaýtaryldy"),
+        "searchHint": MessageLookupByLibrary.simpleMessage(
+            "Gözleýän harydyňyzy ýazyň..."),
         "selectAll": MessageLookupByLibrary.simpleMessage("Ählisini saýla"),
         "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
         "selectGenderAndRegion": MessageLookupByLibrary.simpleMessage(
@@ -181,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sortTime": MessageLookupByLibrary.simpleMessage("Täzeler başda"),
         "sortWeightAsc": MessageLookupByLibrary.simpleMessage("Ýeňiller başda"),
         "sortWeightDesc": MessageLookupByLibrary.simpleMessage("Agyrlar başda"),
+        "start": MessageLookupByLibrary.simpleMessage("Başla"),
         "today": MessageLookupByLibrary.simpleMessage("Bu gün"),
         "total": MessageLookupByLibrary.simpleMessage("Jemi"),
         "unknownError": MessageLookupByLibrary.simpleMessage(

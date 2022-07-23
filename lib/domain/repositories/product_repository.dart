@@ -1,33 +1,37 @@
 import 'package:dartz/dartz.dart';
 
-import '../entities/category.dart';
-import '../entities/home.dart';
-import '../entities/pagination.dart';
-import '../entities/product.dart';
-import '../entities/product_mini.dart';
+import '../entities/product/category.dart';
+import '../entities/product/home.dart';
+import '../entities/product/pagination.dart';
+import '../entities/product/product.dart';
+import '../entities/product/product_mini.dart';
+import '../entities/product/size.dart';
 import '../entities/saved_product.dart';
-import '../entities/size.dart';
-import '../errors/failures.dart';
+import '../errors/app_error.dart';
 import '../usecases/products/fetch_products_usecase.dart';
+import '../usecases/products/search_product_usecase.dart';
 
 abstract class ProductRepository {
-  Future<Either<Failure, List<Category>>> fetchCategories();
+  Future<Either<AppError, List<Category>>> fetchCategories();
 
-  Future<Either<Failure, Home>> fetchHome();
+  Future<Either<AppError, Home>> fetchHome();
 
-  Future<Either<Failure, Pagination<ProductMini>>> fetchProducts(
+  Future<Either<AppError, Pagination<ProductMini>>> fetchProducts(
       FetchProductsParams params);
 
-  Future<Either<Failure, Pagination<ProductMini>>> fetchHotProducts(
+  Future<Either<AppError, Pagination<ProductMini>>> fetchHotProducts(
       String? next);
 
-  Future<Either<Failure, Product>> fetchProduct(int id);
+  Future<Either<AppError, Pagination<ProductMini>>> searchProducts(
+      SearchParams params);
 
-  Future<Either<Failure, void>> toggleLike(SavedProduct product);
+  Future<Either<AppError, Product>> fetchProduct(int id);
 
-  Future<Either<Failure, void>> share(int id);
+  Future<Either<AppError, void>> toggleLike(SavedProduct product);
 
-  Future<Either<Failure, List<Size>>> fetchSubcategorySizes(int id);
+  Future<Either<AppError, void>> share(int id);
 
-  Future<Either<Failure, List<SavedProduct>>> fetchFavoriteProducts();
+  Future<Either<AppError, List<Size>>> fetchSubcategorySizes(int id);
+
+  Future<Either<AppError, List<SavedProduct>>> fetchFavoriteProducts();
 }

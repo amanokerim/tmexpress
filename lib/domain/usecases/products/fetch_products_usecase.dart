@@ -2,11 +2,11 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../entities/enums/sort_types.dart';
-import '../../entities/interface/filter_options.dart';
-import '../../entities/pagination.dart';
-import '../../entities/product_mini.dart';
-import '../../entities/sub_tag.dart';
-import '../../errors/failures.dart';
+import '../../entities/product/filter_options.dart';
+import '../../entities/product/pagination.dart';
+import '../../entities/product/product_mini.dart';
+import '../../entities/product/sub_tag.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
@@ -17,10 +17,9 @@ class FetchProductsUseCase
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<Failure, Pagination<ProductMini>>> call(
-      FetchProductsParams params) {
-    return _productRepository.fetchProducts(params);
-  }
+  Future<Either<AppError, Pagination<ProductMini>>> call(
+          FetchProductsParams params) =>
+      _productRepository.fetchProducts(params);
 }
 
 class FetchProductsParams {

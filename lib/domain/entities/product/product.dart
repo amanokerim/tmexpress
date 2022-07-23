@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'image.dart';
+import '../image.dart';
 import 'size.dart';
 
 class Product extends Equatable {
@@ -35,6 +35,11 @@ class Product extends Equatable {
   final double normalPriceW;
   final int wholesaleLimit;
   final bool isLiked;
+
+  double normalPriceByCount(int count) =>
+      count >= wholesaleLimit ? normalPriceW : normalPrice;
+  double expressPriceByCount(int count) =>
+      count >= wholesaleLimit ? expressPriceW : expressPrice;
 
   @override
   List<Object?> get props => [id, isLiked];

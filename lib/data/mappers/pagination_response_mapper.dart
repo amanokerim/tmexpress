@@ -1,4 +1,4 @@
-import '../../domain/entities/pagination.dart';
+import '../../domain/entities/product/pagination.dart';
 import '../network/response_models/pagination_response.dart';
 import 'mapper.dart';
 
@@ -8,14 +8,9 @@ class PaginationResponseMapper<Src, Dst>
   final Mapper<Src, Dst> mapper;
 
   @override
-  Pagination<Dst> map(PaginationResponse<Src>? entity) {
-    print('=== PaginationResponseMapper ===');
-    print(entity?.results);
-    print(mapper.mapList(entity?.results));
-    return Pagination(
-      count: entity?.count ?? 0,
-      next: entity?.next,
-      items: mapper.mapList(entity?.results),
-    );
-  }
+  Pagination<Dst> map(PaginationResponse<Src>? entity) => Pagination(
+        count: entity?.count ?? 0,
+        next: entity?.next,
+        items: mapper.mapList(entity?.results),
+      );
 }

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../app/env/env.dart';
-import '../../../domain/entities/product_mini.dart';
+import '../../../domain/entities/product/product_mini.dart';
 import '../../network/response_models/product_mini_response.dart';
 import '../mapper.dart';
 

@@ -1,6 +1,6 @@
 {
-  "@@locale": "ru",
-  "lang": "Русский",
+  "@@locale": "tr",
+  "lang": "Türkmençe",
 
   "homeScreen": "Baş sahypa",
   "categories": "Bölümler",
@@ -47,6 +47,7 @@
   "selectColor": "Reňk saýlaň",
   "selectSize": "Ölçeg saýlaň",
   "addedToCart": "Sebede goşuldy",
+  "confirmRemove": "Sebetden pozmakçymy?",
   "addToFavorites": "Halanlaryma goşmak",
   "removeFromFavorites": "Halanlarymdan aýyrmak",
   "addToFavoritesError": "Halanlaryňyza goşmakda näsazlyk ýüze çykdy",
@@ -137,8 +138,16 @@
   "signInForMakeOrder": "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.",
   "youCantReceiveNotifications": "Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)",
 
+  "start": "Başla",
+  "next": "Indiki",
+  "page1title": "Ýüzlerçe görnüşli harytlardan",
+  "page1subtitle": "öz halaýan harydyňyzy tapyň...",
+  "page2title": "Halan harydyňyzyň",
+  "page2subtitle": "reňkini we ölçegini saýlaň we sargyt ediň...",
+  "page3title": "Gysga wagtda",
+  "page3subtitle": "sargytlaryňyzy kabul ediň!",
 
 
-
-  "": ""
+  "searchHint": "Gözleýän harydyňyzy ýazyň...",
+  "description": "Beýany"
 }

@@ -1,16 +1,16 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart' hide Image;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/image.dart';
-import '../../../../domain/entities/product.dart';
+import '../../../../domain/entities/product/product.dart';
+import '../../../../domain/entities/product/size.dart';
 import '../../../../domain/entities/saved_product.dart';
-import '../../../../domain/entities/size.dart';
 import '../../../../domain/usecases/products/fetch_product_usecase.dart';
 import '../../../../domain/usecases/products/like_product_usecase.dart';
 import '../../../../domain/usecases/products/share_product_usecase.dart';
-import '../../../bloc/app_bloc.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/deeplinker.dart';
 import '../../profile/bloc/profile_bloc.dart';
@@ -19,7 +19,7 @@ part 'detail_event.dart';
 part 'detail_state.dart';
 
 @injectable
-class DetailBloc extends AppBloc<DetailEvent, DetailState> {
+class DetailBloc extends Bloc<DetailEvent, DetailState> {
   DetailBloc(this._fetchProductUseCase, this._likeProductUseCase,
       this._shareProductUseCase, this._profileBloc)
       : super(DetailLoadInProgress()) {
@@ -27,7 +27,7 @@ class DetailBloc extends AppBloc<DetailEvent, DetailState> {
       emit(DetailLoadInProgress());
       final result = await _fetchProductUseCase(event.id);
       emit(result.fold(
-        (failure) => DetailLoadError(message(failure), UniqueKey()),
+        (error) => DetailLoadError(error.message, UniqueKey()),
         (product) {
           this.product = product;
           return success();

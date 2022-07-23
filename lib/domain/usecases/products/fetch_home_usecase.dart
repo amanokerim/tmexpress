@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../entities/home.dart';
-import '../../errors/failures.dart';
+import '../../entities/product/home.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
@@ -12,7 +12,5 @@ class FetchHomeUseCase extends UseCaseWithoutParams<Home> {
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<Failure, Home>> call() {
-    return _productRepository.fetchHome();
-  }
+  Future<Either<AppError, Home>> call() => _productRepository.fetchHome();
 }

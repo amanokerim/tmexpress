@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Size;
 
-import '../../../../domain/entities/size.dart';
+import '../../../../domain/entities/product/size.dart';
 import '../../../theme/app_theme.dart';
 
-class SizeCard extends StatelessWidget {
-  const SizeCard(this.size,
+class SizeW extends StatelessWidget {
+  const SizeW(this.size,
       {required this.onPressed, this.selected = false, Key? key})
       : super(key: key);
   final Size size;

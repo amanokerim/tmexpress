@@ -47,20 +47,10 @@ class ReferralCard extends StatelessWidget {
         Text(content, style: AppTextStyle.bold24),
         Center(
           child: TextButton(
-            onPressed: () {
-              showDialog<void>(
-                  context: context,
-                  builder: (_) => AppDialog(
-                        content: title == S.current.referralUsers
-                            ? S.current
-                                .referralUsersDescription(kReferralUserPercent)
-                            : S.current.referralUsersDescription(
-                                kReferralProductPercent),
-                        showNegativeButton: false,
-                        // title: title,
-                        positiveButtonLabel: S.current.ok,
-                      ));
-            },
+            onPressed: () => showDialog<void>(
+              context: context,
+              builder: (_) => _aboutReferralItem(title),
+            ),
             child: Text(S.current.whatIsThis, style: AppTextStyle.grey14),
             style: TextButton.styleFrom(visualDensity: VisualDensity.compact),
           ),
@@ -68,4 +58,13 @@ class ReferralCard extends StatelessWidget {
       ],
     );
   }
+
+  Widget _aboutReferralItem(String title) => AppDialog(
+        title: title,
+        content: title == S.current.referralUsers
+            ? S.current.referralUsersDescription(kReferralUserPercent)
+            : S.current.referralUsersDescription(kReferralProductPercent),
+        showNegativeButton: false,
+        positiveButtonLabel: S.current.ok,
+      );
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/injection/injection.dart';
-import '../../../domain/entities/sub_tag.dart';
+import '../../../domain/entities/product/sub_tag.dart';
 import 'bloc/filter/filter_bloc.dart';
 import 'bloc/products_bloc.dart';
 import 'products_screen.dart';

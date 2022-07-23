@@ -4,7 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 import '../../app/generated/l10n.dart';
-import '../../domain/entities/interface/fcm_notification.dart';
+import '../../domain/entities/fcm_notification.dart';
 import '../widgets/app_confirm_dialog.dart';
 import 'app_flash.dart';
 import 'navigation_helper.dart';

@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/entities/product.dart';
+import '../../../domain/entities/product/product.dart';
 import '../../network/response_models/product_response.dart';
 import '../mapper.dart';
 import 'image_response_mapper.dart';

@@ -33,25 +33,22 @@ final appTheme = ThemeData(
 );
 
 final inputBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(16),
+  borderRadius: BorderRadius.circular(20),
   borderSide: BorderSide.none,
 );
 final inputErrorBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(16),
+  borderRadius: BorderRadius.circular(20),
   borderSide: BorderSide.none,
 );
 final inputDecoration = BoxDecoration(
   color: AppColors.inputBg,
-  borderRadius: const BorderRadius.all(Radius.circular(16)),
+  borderRadius: const BorderRadius.all(Radius.circular(20)),
 );
 
 abstract class AppTextStyle {
   // Headlines
   static TextStyle get bold32 => TextStyle(
-        fontSize: 32,
-        fontWeight: FontWeight.w500,
-        color: AppColors.textMain,
-      );
+      fontSize: 32, fontWeight: FontWeight.w500, color: AppColors.textMain);
   static TextStyle get bold26 => bold32.copyWith(fontSize: 26);
   static TextStyle get bold24 => bold32.copyWith(fontSize: 24);
   static TextStyle get bold20 => bold32.copyWith(fontSize: 20);
@@ -64,10 +61,6 @@ abstract class AppTextStyle {
   static TextStyle get dark20 => bold20.copyWith(fontWeight: FontWeight.w400);
   static TextStyle get dark18 => dark20.copyWith(fontSize: 18);
   static TextStyle get dark16 => dark20.copyWith(fontSize: 16);
-  static TextStyle get dark16_2 => dark20.copyWith(
-        fontSize: 16,
-        letterSpacing: 0.256,
-      );
   static TextStyle get dark14 => dark20.copyWith(fontSize: 14);
   static TextStyle get dark12 => dark20.copyWith(fontSize: 12);
   static TextStyle get dark10 => dark20.copyWith(fontSize: 10);
@@ -104,24 +97,10 @@ abstract class AppColors {
 
   static Color get white => Colors.white;
 
-  static Color get black => const Color(0xFF000000);
-
   static Color get lightBlue => const Color(0xFFebf3ff);
-  static Color get pink => const Color(0xFFEFA097);
-  static Color get pink2 => const Color(0xFFF7DFDF);
-
-  static Color get purple => const Color(0xFFD0C4FD);
-  static Color get purple2 => const Color(0xFFB8AAED);
-
-  static Color get green => const Color(0xFFB7DEE4);
-  static Color get green2 => const Color(0xFF9CC8CF);
-  static Color get green3 => const Color(0xFFB9DAC9);
-
-  static Color get lightYellow => const Color(0xFFF9DDB3);
 
   static Color get textMain => dark;
   static Color get textSec => const Color(0xFF858C95);
-  static Color get textData => const Color(0xFFAEB3BA);
   static Color get textHint => const Color(0xFFC2C6CB);
   static Color get textInvisible => const Color(0xFFF0F1F3);
 }
@@ -138,7 +117,7 @@ MaterialColor get _primarySwatch => MaterialColor(
         600: AppColors.primary,
         700: AppColors.primary,
         800: AppColors.primary,
-        900: AppColors.primary,
+        900: AppColors.primary
       },
     );
 

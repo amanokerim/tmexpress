@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../entities/size.dart';
-import '../../errors/failures.dart';
+import '../../entities/product/size.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
@@ -12,7 +12,6 @@ class FetchSubcategorySizesUseCase extends UseCase<List<Size>, int> {
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<Failure, List<Size>>> call(int id) {
-    return _productRepository.fetchSubcategorySizes(id);
-  }
+  Future<Either<AppError, List<Size>>> call(int id) =>
+      _productRepository.fetchSubcategorySizes(id);
 }

@@ -26,45 +26,37 @@ class FlutterApp extends StatelessWidget {
         providers: [
           BlocProvider<StartBloc>(create: (_) => getIt()),
           BlocProvider<CartBloc>(create: (_) => getIt(), lazy: false),
+          BlocProvider<MainBloc>(create: (_) => getIt()),
+          BlocProvider<ProfileBloc>(create: (context) => getIt()),
         ],
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider<MainBloc>(create: (_) => getIt()),
-            BlocProvider<ProfileBloc>(create: (context) => getIt()),
-          ],
-          child: MaterialApp(
-              title: kAppName,
-              supportedLocales: S.delegate.supportedLocales,
-              debugShowCheckedModeBanner: false,
-              navigatorKey: getIt<Alice>().getNavigatorKey(),
-              localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              theme: appTheme,
-              home: const StartScreen()),
-        ),
+        child: MaterialApp(
+            title: kAppName,
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            navigatorKey: getIt<Alice>().getNavigatorKey(),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            theme: appTheme,
+            home: const StartScreen()),
       );
 }
 
 // FRONT-END
 // Logo/splash
-// dio cache
-// handle 401
-// onboarding
-// Test/refine/refactor
+// Test/refine
 
 // TEST 
 // Dynamic link apple integration (test)
-
 
 // BACK-END
 // price on OrderItem model
 // order by on tag products
 // Admin panel product image mini generation
-// 500 error on create order
+// 500 error on create order and login
 
 //////////////////////////////////////
 // https://iconscout.com/contributors/manypixels-gallery
@@ -73,3 +65,4 @@ class FlutterApp extends StatelessWidget {
 // https://www.flaticon.com/authors/inkubators
 // https://www.freepik.com/
 // https://www.flaticon.com/authors/icongeek26
+// https://www.freepik.com/stories

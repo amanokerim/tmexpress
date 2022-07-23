@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../entities/pagination.dart';
-import '../../entities/product_mini.dart';
-import '../../errors/failures.dart';
+import '../../entities/product/pagination.dart';
+import '../../entities/product/product_mini.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
@@ -13,7 +13,6 @@ class FetchHotProducts extends UseCase<Pagination<ProductMini>, String?> {
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<Failure, Pagination<ProductMini>>> call(String? next) {
-    return _productRepository.fetchHotProducts(next);
-  }
+  Future<Either<AppError, Pagination<ProductMini>>> call(String? next) =>
+      _productRepository.fetchHotProducts(next);
 }

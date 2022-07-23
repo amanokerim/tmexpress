@@ -35,6 +35,13 @@ abstract class CommonNetwork {
     @Query('sizes') String? sizes,
   });
 
+  @GET('api/products/productsSearchView/{query}/')
+  Future<PaginationResponse<ProductMiniResponse>> searchProducts(
+    @Path('query') String query,
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
+  );
+
   @GET('api/products/tagProudcts/{id}/')
   Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
     @Path('id') int id,

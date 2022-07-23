@@ -1,21 +1,19 @@
-// ignore_for_file: invalid_use_of_visible_for_testing_member
-
 import 'dart:math' show Random;
 
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/usecases/profile/auth_usecase.dart';
-import '../../../bloc/app_bloc.dart';
 import '../../../utils/constants.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 @injectable
-class AuthBloc extends AppBloc<AuthEvent, AuthState> {
+class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc(this._authUseCase) : super(const AuthInitial(0)) {
     on<AuthStarted>((event, emit) {
       code = _generateCode();
@@ -67,11 +65,8 @@ class AuthBloc extends AppBloc<AuthEvent, AuthState> {
   int _generateCode() => 100000 + Random().nextInt(899999);
 
   Future<bool> _sms(int code) async {
-    // Android
-    var uri = 'sms:$kVerificationPhone?body=$code';
-    if (await canLaunch(uri)) return launch(uri);
-    // iOS
-    uri = 'sms:$kVerificationPhone?body=$code';
+    // TODO Test iOS
+    final uri = 'sms:$kVerificationPhone?body=$code';
     if (await canLaunch(uri)) return launch(uri);
     return false;
   }

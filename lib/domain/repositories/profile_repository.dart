@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
 
 import '../entities/profile.dart';
-import '../errors/failures.dart';
+import '../errors/app_error.dart';
 import '../usecases/profile/auth_usecase.dart';
 
 abstract class ProfileRepository {
-  Future<Either<Failure, bool>> auth(AuthParams params);
+  Future<Either<AppError, bool>> auth(AuthParams params);
 
-  Future<Either<Failure, Profile>> fetchProfile();
+  Future<Either<AppError, Profile>> fetchProfile();
 
-  Future<Either<Failure, void>> editProfile(Profile profile);
+  Future<Either<AppError, void>> editProfile(Profile profile);
 }

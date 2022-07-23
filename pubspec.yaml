@@ -28,7 +28,6 @@ dependencies:
   injectable: ^1.4.1
 
   # Local storage
-  shared_preferences: ^2.0.6
   hive: ^2.0.6
   hive_flutter: ^1.1.0
 
@@ -45,10 +44,12 @@ dependencies:
   mask_text_input_formatter: ^2.1.0
   share_plus: ^3.0.4
   menu_button: ^1.4.2+1
+  introduction_screen: ^3.0.2
   
   # Network
   built_value: ^8.0.6
   dio: ^4.0.0
+  dio_cache_interceptor_hive_store: ^3.1.1
   json_annotation: ^4.0.1
   retrofit: ^3.0.0
 
@@ -109,12 +110,11 @@ flutter:
 flutter_intl: 
   enabled: true
   class_name: S
-  main_locale: ru
+  main_locale: tr
   arb_dir: lib/app/l10n
   output_dir: lib/app/generated
 
 flutter_icons:
-  android: false
-  ios: true
-  remove_alpha_ios: true
-  image_path: "assets/icons/icon.png"
+  android: true
+  ios: false
+  image_path: "assets/icons/launcher_icon_android.png"

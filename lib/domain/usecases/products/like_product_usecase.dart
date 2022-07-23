@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../entities/saved_product.dart';
-import '../../errors/failures.dart';
+import '../../errors/app_error.dart';
 import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
@@ -12,7 +12,6 @@ class LikeProductUseCase extends UseCase<void, SavedProduct> {
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<Failure, void>> call(SavedProduct product) {
-    return _productRepository.toggleLike(product);
-  }
+  Future<Either<AppError, void>> call(SavedProduct product) =>
+      _productRepository.toggleLike(product);
 }

@@ -3,62 +3,54 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/errors/error_types.dart';
-import '../../domain/errors/failures.dart';
+import '../../app/generated/l10n.dart';
+import '../../domain/errors/app_error.dart';
+import '../../domain/errors/app_error_type.dart';
 
 @LazySingleton()
 class ErrorMapper {
-  Failure map(Exception exception) {
-    var errorType = ServerErrorType.somethingWentWrong;
-    String? message;
+  AppError map(Exception exception) {
+    final _timeoutError =
+        AppError(AppErrorType.connectionTimeout, S.current.connectionError);
 
     if (exception is TimeoutException) {
-      errorType = ServerErrorType.connectionTimeout;
+      return _timeoutError;
     } else if (exception is DioError) {
       switch (exception.type) {
         case DioErrorType.sendTimeout:
         case DioErrorType.connectTimeout:
         case DioErrorType.receiveTimeout:
-          errorType = ServerErrorType.connectionTimeout;
-          break;
+          return _timeoutError;
         case DioErrorType.response:
           switch (exception.response?.statusCode) {
-            // Standard errors
             case 400:
-              errorType = ServerErrorType.badRequest;
-              break;
+              return AppError(AppErrorType.somethingWentWrong,
+                  S.current.somethingWentWrong);
             case 401:
-              errorType = ServerErrorType.accessTokenError;
-              break;
+              return AppError(
+                  AppErrorType.accessTokenError, S.current.loadError);
             case 403:
-              errorType = ServerErrorType.forbidden;
-              break;
+              return AppError(AppErrorType.forbidden, S.current.forbidden);
             case 404:
-              errorType = ServerErrorType.resourceNotFound;
-              break;
+              return AppError(
+                  AppErrorType.resourceNotFound, S.current.somethingWentWrong,
+                  shouldRetry: false);
             case 405:
-              errorType = ServerErrorType.methodNotAllowed;
-              break;
+              return AppError(
+                  AppErrorType.methodNotAllowed, S.current.somethingWentWrong);
             case 500:
-              errorType = ServerErrorType.internalServerError;
-              break;
+              return AppError(
+                  AppErrorType.internalServerError, S.current.serverError);
             case 502:
-              errorType = ServerErrorType.badGateway;
-              break;
-
-            // TODO Custom errors
-
+              return AppError(AppErrorType.badGateway, S.current.serverError);
           }
           break;
         case DioErrorType.other:
         case DioErrorType.cancel:
-          errorType = ServerErrorType.connectionError;
-          break;
+          return AppError(AppErrorType.connectionError, S.current.loadError);
       }
     }
-    return ServerFailure(
-      message: message ?? exception.toString(),
-      serverErrorType: errorType,
-    );
+    return AppError(
+        AppErrorType.somethingWentWrong, S.current.somethingWentWrong);
   }
 }

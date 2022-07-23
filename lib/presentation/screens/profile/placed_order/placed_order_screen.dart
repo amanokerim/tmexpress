@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../domain/entities/placed_order.dart';
+import '../../../../domain/entities/order/placed_order.dart';
 import '../../../utils/date_extension.dart';
-import '../../../widgets/app_button.dart';
 import '../../../widgets/app_empty.dart';
 import '../../../widgets/app_error.dart';
 import '../../../widgets/app_progress_indicator.dart';
 import '../../../widgets/primary_app_bar.dart';
+import '../bloc/profile_bloc.dart';
 import '../widgets/placed_order_card.dart';
 import '../widgets/placed_order_item_card.dart';
 import 'bloc/placed_order_bloc.dart';
@@ -24,11 +24,16 @@ class PlacedOrderScreen extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-            child: PlacedOrderCard(order),
+            child: PlacedOrderCard(order, clickable: false),
           ),
           Expanded(
-            child: BlocBuilder<PlacedOrderBloc, PlacedOrderState>(
-                builder: (_, state) {
+            child: BlocConsumer<PlacedOrderBloc, PlacedOrderState>(
+                listener: (_, state) {
+              if (state is PlacedOrderError && state.error.isAuth) {
+                Navigator.of(context).popUntil((route) => route.isFirst);
+                context.read<ProfileBloc>().add(ProfileStarted());
+              }
+            }, builder: (_, state) {
               if (state is PlacedOrderSuccess) {
                 if (state.order.orderitems.isEmpty) {
                   return const AppEmpty(message: '');
@@ -41,8 +46,8 @@ class PlacedOrderScreen extends StatelessWidget {
                   separatorBuilder: (_, __) => const SizedBox(height: 16),
                 );
               } else if (state is PlacedOrderError) {
-                return AppError(
-                    message: state.message,
+                return AppErrorScreen(
+                    message: state.error.message,
                     onPressed: () => context
                         .read<PlacedOrderBloc>()
                         .add(PlacedOrderStarted(order.id)));
@@ -51,10 +56,6 @@ class PlacedOrderScreen extends StatelessWidget {
             }),
           ),
         ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(20),
-        child: AppButton(label: 'Jaň etmek', onPressed: () {}),
       ),
     );
   }

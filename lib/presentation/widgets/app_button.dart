@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../domain/entities/enums/button_type.dart';
 import '../theme/app_theme.dart';
+
+export '../../domain/entities/enums/button_type.dart';
 
 class AppButton extends ElevatedButton {
   AppButton({
@@ -53,32 +56,10 @@ class AppButton extends ElevatedButton {
                 if (label != null)
                   Text(
                     label,
-                    style: AppTextStyle.bold16.copyWith(
-                      color: type.foreground,
-                    ),
+                    style: AppTextStyle.bold16.copyWith(color: type.foreground),
                   ),
               ],
             ),
           ),
         );
-}
-
-enum ButtonType { red, black, outline }
-
-extension ButtonTypeExtension on ButtonType {
-  Color get background {
-    switch (this) {
-      case ButtonType.red:
-        return AppColors.secondary;
-      case ButtonType.black:
-        return AppColors.dark;
-      case ButtonType.outline:
-        return AppColors.white;
-    }
-  }
-
-  Color get foreground {
-    if (this == ButtonType.outline) return AppColors.dark;
-    return AppColors.white;
-  }
 }

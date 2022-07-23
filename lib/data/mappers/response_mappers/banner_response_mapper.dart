@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../app/env/env.dart';
-import '../../../domain/entities/banner.dart';
+import '../../../domain/entities/product/banner.dart';
 import '../../network/response_models/banner_response.dart';
 import '../mapper.dart';
 

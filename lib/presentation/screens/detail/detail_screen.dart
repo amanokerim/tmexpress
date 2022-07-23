@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
 import 'bloc/detail_bloc.dart';
-import 'widgets/product_images.dart';
 import 'widgets/product_sizes.dart';
 import 'widgets/product_widgets.dart';
 import 'widgets/sliver_image_delegate.dart';
@@ -32,7 +31,7 @@ class DetailScreen extends StatelessWidget {
                   primary: false,
                   children: [
                     if (state.product.productImages.length > 1)
-                      ...ProductImages(state).widgets(),
+                      ...productWidgets.images(),
                     ...ProductSizes(state).widgets(context),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 12),
@@ -59,7 +58,7 @@ class DetailScreen extends StatelessWidget {
         );
       } else if (state is DetailLoadError) {
         return Scaffold(
-            body: AppError(
+            body: AppErrorScreen(
           message: state.message,
           onPressed: () =>
               context.read<DetailBloc>().add(DetailRequested(productId)),

@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../../app/generated/l10n.dart';
@@ -6,8 +7,9 @@ import '../../../../../domain/entities/enums/gender.dart';
 import '../../../../../domain/entities/enums/load_state.dart';
 import '../../../../../domain/entities/enums/region.dart';
 import '../../../../../domain/entities/profile.dart';
+import '../../../../../domain/errors/app_error.dart';
+import '../../../../../domain/errors/app_error_type.dart';
 import '../../../../../domain/usecases/profile/edit_profile_usecase.dart';
-import '../../../../bloc/app_bloc.dart';
 
 part 'edit_profile_event.dart';
 part 'edit_profile_state.dart';
@@ -15,7 +17,7 @@ part 'edit_profile_state.dart';
 const _initialState = EditProfileState(null, null, LoadState.normal, null);
 
 @injectable
-class EditProfileBloc extends AppBloc<EditProfileEvent, EditProfileState> {
+class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
   EditProfileBloc(this._editProfileUseCase) : super(_initialState) {
     on<EditProfileStarted>((event, emit) {
       _profile = event.profile;
@@ -36,7 +38,8 @@ class EditProfileBloc extends AppBloc<EditProfileEvent, EditProfileState> {
 
     on<EditProfileSubmitted>((event, emit) async {
       if (_region == null || _gender == null) {
-        emit(_state(S.current.selectGenderAndRegion));
+        emit(_state(AppError(
+            AppErrorType.unknownError, S.current.selectGenderAndRegion)));
       } else {
         emit(_loading);
         final profile = _profile.copyWith(
@@ -46,16 +49,13 @@ class EditProfileBloc extends AppBloc<EditProfileEvent, EditProfileState> {
             region: _region!);
 
         final r = await _editProfileUseCase(profile);
-        emit(r.fold(
-          (failure) => _state(message(failure)),
-          (_) => _success,
-        ));
+        emit(r.fold(_state, (_) => _success));
       }
     });
   }
 
-  EditProfileState _state([String? message]) =>
-      EditProfileState(_gender, _region, LoadState.normal, message);
+  EditProfileState _state([AppError? error]) =>
+      EditProfileState(_gender, _region, LoadState.normal, error);
   EditProfileState get _loading =>
       EditProfileState(_gender, _region, LoadState.loading, null);
   EditProfileState get _success =>

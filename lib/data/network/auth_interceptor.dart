@@ -1,17 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../local/preferences.dart';
+import '../../domain/repositories/preferences_repository.dart';
 
 @lazySingleton
 class AuthInterceptor extends InterceptorsWrapper {
-  AuthInterceptor(this._preferences);
-  final Preferences _preferences;
+  AuthInterceptor(this._preferencesRepository);
+  final PreferencesRepository _preferencesRepository;
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers.addAll({
-      'Authorization': 'Bearer ${_preferences.getJwt()}',
+      'Authorization': 'Bearer ${_preferencesRepository.getJwt()}',
     });
     handler.next(options);
   }

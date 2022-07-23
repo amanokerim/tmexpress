@@ -15,13 +15,9 @@ class PlacedOrdersSuccess extends PlacedOrdersState {
 }
 
 class PlacedOrdersError extends PlacedOrdersState {
-  const PlacedOrdersError({
-    required this.message,
-    required this.isAuthError,
-  });
-  final String message;
-  final bool isAuthError;
+  const PlacedOrdersError(this.error);
+  final AppError error;
 
   @override
-  List<Object> get props => [message, isAuthError];
+  List<Object> get props => [error];
 }

@@ -2,18 +2,19 @@ import 'package:dartz/dartz.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../domain/entities/category.dart';
 import '../../domain/entities/enums/sort_types.dart';
-import '../../domain/entities/home.dart';
-import '../../domain/entities/pagination.dart';
-import '../../domain/entities/product.dart';
-import '../../domain/entities/product_mini.dart';
+import '../../domain/entities/product/category.dart';
+import '../../domain/entities/product/home.dart';
+import '../../domain/entities/product/pagination.dart';
+import '../../domain/entities/product/product.dart';
+import '../../domain/entities/product/product_mini.dart';
+import '../../domain/entities/product/size.dart';
+import '../../domain/entities/product/tag.dart';
 import '../../domain/entities/saved_product.dart';
-import '../../domain/entities/size.dart';
-import '../../domain/entities/tag.dart';
-import '../../domain/errors/failures.dart';
+import '../../domain/errors/app_error.dart';
 import '../../domain/repositories/product_repository.dart';
 import '../../domain/usecases/products/fetch_products_usecase.dart';
+import '../../domain/usecases/products/search_product_usecase.dart';
 import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../mappers/response_mappers/banner_response_mapper.dart';
@@ -48,10 +49,10 @@ class ProductRepositoryImpl implements ProductRepository {
   final ProductPaginationResponseMapper _productPaginationResponseMapper;
   final ProductResponseMapper _productResponseMapper;
   final SizeResponseMapper _sizeRespMapper;
-  final Box<Map<dynamic, dynamic>> favoritesBox;
+  final Box<dynamic> favoritesBox;
 
   @override
-  Future<Either<Failure, List<Category>>> fetchCategories() {
+  Future<Either<AppError, List<Category>>> fetchCategories() {
     return _exception.handle(() async {
       final categories = await _commonNetwork
           .fetchCategories()
@@ -61,7 +62,7 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<Failure, Home>> fetchHome() {
+  Future<Either<AppError, Home>> fetchHome() {
     return _exception.handle(() async {
       final banners = await _commonNetwork
           .fetchBanners()
@@ -74,14 +75,10 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<Failure, Pagination<ProductMini>>> fetchProducts(
+  Future<Either<AppError, Pagination<ProductMini>>> fetchProducts(
       FetchProductsParams params) {
     return _exception.handle(() async {
-      String? offset;
-      if (params.next != null) {
-        final uri = Uri.parse(params.next!);
-        offset = uri.queryParameters['offset'];
-      }
+      final offset = _getOffset(params.next);
       final id = params.productParent.id;
       final orderBy = params.sortType.orderBy;
       final isDiscounted =
@@ -102,7 +99,7 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<Failure, Product>> fetchProduct(int id) {
+  Future<Either<AppError, Product>> fetchProduct(int id) {
     return _exception.handle(() async {
       final product = await _commonNetwork
           .fetchProduct(id)
@@ -115,7 +112,7 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<Failure, void>> toggleLike(SavedProduct product) {
+  Future<Either<AppError, void>> toggleLike(SavedProduct product) {
     return _exception.handle(() async {
       final id = product.id;
       if (favoritesBox.containsKey(id)) {
@@ -129,39 +126,45 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<Failure, void>> share(int id) {
-    return _exception.handle(() async {
-      await _authNetwork.share(id);
-    });
+  Future<Either<AppError, void>> share(int id) {
+    return _exception.handle(() async => _authNetwork.share(id));
   }
 
   @override
-  Future<Either<Failure, Pagination<ProductMini>>> fetchHotProducts(
+  Future<Either<AppError, Pagination<ProductMini>>> fetchHotProducts(
       String? next) {
-    return _exception.handle(() async {
-      String? offset;
-      if (next != null) {
-        final uri = Uri.parse(next);
-        offset = uri.queryParameters['offset'];
-      }
-      final response = _commonNetwork.fetchHotProducts(offset, kLimit);
-      return response.then(_productPaginationResponseMapper.map);
-    });
+    return _exception.handle(() async => _commonNetwork
+        .fetchHotProducts(_getOffset(next), kLimit)
+        .then(_productPaginationResponseMapper.map));
   }
 
   @override
-  Future<Either<Failure, List<Size>>> fetchSubcategorySizes(int id) {
-    return _exception.handle(() {
-      return _commonNetwork.fetchSubcategorySizes(id).then(
-            (sub) => _sizeRespMapper.mapList(sub.subcategorysizes),
-          );
-    });
+  Future<Either<AppError, List<Size>>> fetchSubcategorySizes(int id) {
+    return _exception.handle(() => _commonNetwork
+        .fetchSubcategorySizes(id)
+        .then((sub) => _sizeRespMapper.mapList(sub.subcategorysizes)));
   }
 
   @override
-  Future<Either<Failure, List<SavedProduct>>> fetchFavoriteProducts() {
+  Future<Either<AppError, List<SavedProduct>>> fetchFavoriteProducts() {
     return _exception.handle(
       () => favoritesBox.values.map((e) => SavedProduct.fromJson(e)).toList(),
     );
+  }
+
+  @override
+  Future<Either<AppError, Pagination<ProductMini>>> searchProducts(
+      SearchParams params) {
+    return _exception.handle(() => _commonNetwork
+        .searchProducts(params.query, _getOffset(params.next), kLimit)
+        .then(_productPaginationResponseMapper.map));
+  }
+
+  String? _getOffset(String? next) {
+    if (next != null) {
+      final uri = Uri.parse(next);
+      return uri.queryParameters['offset'];
+    }
+    return null;
   }
 }

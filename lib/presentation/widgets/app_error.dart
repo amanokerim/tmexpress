@@ -6,8 +6,8 @@ import '../theme/app_theme.dart';
 import 'app_button.dart';
 
 /// Widget for showing error screen
-class AppError extends StatelessWidget {
-  const AppError({
+class AppErrorScreen extends StatelessWidget {
+  const AppErrorScreen({
     required this.message,
     required this.onPressed,
     this.height,

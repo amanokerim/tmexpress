@@ -1,11 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/cart_item.dart';
-import '../../../../domain/entities/order.dart';
-import '../../../../domain/entities/order_item.dart';
+import '../../../../domain/entities/order/order.dart';
+import '../../../../domain/entities/order/order_item.dart';
+import '../../../../domain/errors/app_error.dart';
 import '../../../../domain/usecases/order/create_order_usecase.dart';
-import '../../../bloc/app_bloc.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
@@ -13,7 +14,7 @@ part 'cart_state.dart';
 const _initialState = CartState(CartSt.initial, [], 0, isExpress: false);
 
 @injectable
-class CartBloc extends AppBloc<CartEvent, CartState> {
+class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc(this._createOrderUseCase) : super(_initialState) {
     on<CartItemAdded>((event, emit) {
       final index = _items.indexWhere((item) => item == event.cartItem);
@@ -52,15 +53,15 @@ class CartBloc extends AppBloc<CartEvent, CartState> {
       final order = Order(orderitems: orderItems, isExpress: _isExpress);
       final r = await _createOrderUseCase(order);
       emit(r.fold(
-        (failure) => cartState(message: message(failure)),
+        (error) => cartState(error: error),
         (r) => cartState(st: CartSt.done),
       ));
     });
   }
 
-  CartState cartState({CartSt st = CartSt.initial, String? message}) =>
+  CartState cartState({CartSt st = CartSt.initial, AppError? error}) =>
       CartState(st, List.from(_items), total,
-          isExpress: _isExpress, errorMessage: message);
+          isExpress: _isExpress, error: error);
 
   double get total {
     var t = 0.0;
