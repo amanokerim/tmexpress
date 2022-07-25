@@ -11,29 +11,29 @@ class NavigationHelper {
 
   // Navigate to one of Product, Tag, Subcategory
   static void navigateToPTS(
-      BuildContext context, dynamic pageType, dynamic id) {
-    int? _id;
-    Widget? _page;
-    if (id is int) _id = id;
-    if (id is String) _id = int.tryParse(id);
+      BuildContext context, dynamic pageType, dynamic idd) {
+    int? id;
+    Widget? page;
+    if (id is int) id = id;
+    if (id is String) id = int.tryParse(idd);
 
-    if (_id != null) {
+    if (id != null) {
       switch (pageType) {
         case kProductPage:
-          _page = DetailPage(_id);
+          page = DetailPage(id);
           break;
         case kTagPage:
-          final tag = Tag(id: _id, title: '', product: const []);
-          _page = ProductsPage(productParent: tag);
+          final tag = Tag(id: id, title: '', product: const []);
+          page = ProductsPage(productParent: tag);
           break;
         case kSubcategoryPage:
-          final sub = Subcategory(id: _id, title: '', subCategoryImage: '');
-          _page = ProductsPage(productParent: sub);
+          final sub = Subcategory(id: id, title: '', subCategoryImage: '');
+          page = ProductsPage(productParent: sub);
           break;
       }
-      if (_page != null) {
+      if (page != null) {
         Navigator.of(context).push(
-          MaterialPageRoute<void>(builder: (_) => _page!),
+          MaterialPageRoute<void>(builder: (_) => page!),
         );
       }
     }

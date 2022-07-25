@@ -37,6 +37,7 @@ class AppDropDown<T> extends StatelessWidget {
               children: [
                 Expanded(
                   child: selected != null
+                      // ignore: null_check_on_nullable_type_parameter
                       ? Text(toStr(selected!), style: AppTextStyle.dark16)
                       : Text(label, style: AppTextStyle.grey16),
                 ),

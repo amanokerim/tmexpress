@@ -10,17 +10,17 @@ import '../../domain/errors/app_error_type.dart';
 @LazySingleton()
 class ErrorMapper {
   AppError map(Exception exception) {
-    final _timeoutError =
+    final timeoutError =
         AppError(AppErrorType.connectionTimeout, S.current.connectionError);
 
     if (exception is TimeoutException) {
-      return _timeoutError;
+      return timeoutError;
     } else if (exception is DioError) {
       switch (exception.type) {
         case DioErrorType.sendTimeout:
         case DioErrorType.connectTimeout:
         case DioErrorType.receiveTimeout:
-          return _timeoutError;
+          return timeoutError;
         case DioErrorType.response:
           switch (exception.response?.statusCode) {
             case 400:
