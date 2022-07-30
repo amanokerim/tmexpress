@@ -26,7 +26,7 @@ abstract class RegisterModule {
       );
 
   @lazySingleton
-  Box<dynamic> get favoritesBox => Hive.box(kFavoritesBox);
+  Box<Map<dynamic, dynamic>> get favoritesBox => Hive.box(kFavoritesBox);
 
   @lazySingleton
   CacheOptions get cacheOption => CacheOptions(

@@ -28,7 +28,8 @@ class SavedProductCard extends StatelessWidget {
               ),
               IconButton(
                   onPressed: () =>
-                      Hive.box<dynamic>(kFavoritesBox).delete(product.id),
+                      Hive.box<Map<dynamic, dynamic>>(kFavoritesBox)
+                          .delete(product.id),
                   icon: const Icon(Icons.close, size: 16),
                   visualDensity: VisualDensity.compact,
                   splashColor: Colors.transparent),

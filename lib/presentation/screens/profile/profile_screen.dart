@@ -29,16 +29,16 @@ class ProfileScreen extends StatelessWidget {
             ProfileCard(state.profile),
             const SizedBox(height: 16),
             ReferralCard(state.profile),
-            const SizedBox(height: 16),
-            AppButton(
-              label: S.current.favorites,
-              type: ButtonType.outline,
-              iconFile: 'like.png',
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                    builder: (_) => const FavoritesScreen()),
-              ),
-            ),
+            // const SizedBox(height: 16),
+            // AppButton(
+            //   label: S.current.favorites,
+            //   type: ButtonType.outline,
+            //   iconFile: 'like.png',
+            //   onPressed: () => Navigator.of(context).push(
+            //     MaterialPageRoute<void>(
+            //         builder: (_) => const FavoritesScreen()),
+            //   ),
+            // ),
             const SizedBox(height: 16),
             AppButton(
               label: S.current.orders,

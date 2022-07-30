@@ -6,6 +6,8 @@ part of 'common_network.dart';
 // RetrofitGenerator
 // **************************************************************************
 
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 class _CommonNetwork implements CommonNetwork {
   _CommonNetwork(this._dio, {this.baseUrl});
 

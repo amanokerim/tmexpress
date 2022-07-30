@@ -12,7 +12,7 @@ class ImageResponseMapper extends Mapper<ImageResponse, Image> {
         id: entity?.id ?? 0,
         url: '${Env.value.baseUrl}${entity?.url}',
         urlMini: '${Env.value.baseUrl}${entity?.urlMini}',
-        width: double.tryParse(entity?.imageWidth ?? '') ?? 0,
-        height: double.tryParse(entity?.imageHeight ?? '') ?? 0,
+        width: entity?.imageWidth ?? 0,
+        height: entity?.imageHeight ?? 0,
       );
 }
