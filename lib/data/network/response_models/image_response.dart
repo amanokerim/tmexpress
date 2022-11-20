@@ -19,6 +19,6 @@ class ImageResponse {
   final int? id;
   final String? url;
   final String? urlMini;
-  final String? imageWidth;
-  final String? imageHeight;
+  final double? imageWidth;
+  final double? imageHeight;
 }

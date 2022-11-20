@@ -11,12 +11,9 @@ class HiveBoxes {
 
   static Future<void> init({String? subDir}) async {
     await Hive.initFlutter(subDir);
-    for (final box in _boxes) {
-      await Hive.openBox<dynamic>(box);
-    }
+    await Hive.openBox<Map<dynamic, dynamic>>(kFavoritesBox);
+    await Hive.openBox<dynamic>(kDataBox);
   }
 
   Box<dynamic> getBox(String boxName) => Hive.box(boxName);
 }
-
-const _boxes = [kFavoritesBox, kDataBox];

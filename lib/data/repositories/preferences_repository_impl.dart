@@ -9,7 +9,7 @@ import '../local/hive_boxes.dart';
 @LazySingleton(as: PreferencesRepository)
 class PreferencesRepositoryImpl extends PreferencesRepository {
   PreferencesRepositoryImpl(HiveBoxes boxes)
-      : _preferences = boxes.getBox(kFavoritesBox);
+      : _preferences = Hive.box<dynamic>(kDataBox);
 
   final Box<dynamic> _preferences;
 

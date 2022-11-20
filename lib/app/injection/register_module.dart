@@ -2,7 +2,6 @@ import 'package:alice/alice.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_store.dart';
-
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,7 +26,7 @@ abstract class RegisterModule {
       );
 
   @lazySingleton
-  Box<dynamic> get favoritesBox => Hive.box(kFavoritesBox);
+  Box<Map<dynamic, dynamic>> get favoritesBox => Hive.box(kFavoritesBox);
 
   @lazySingleton
   CacheOptions get cacheOption => CacheOptions(
