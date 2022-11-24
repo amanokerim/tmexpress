@@ -68,7 +68,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // TODO Test iOS
     final uri = Uri.parse('sms:$kVerificationPhone?body=$code');
 
-    if (await canLaunchUrl(uri))return launchUrl(uri);
+    if (await canLaunchUrl(uri)) return launchUrl(uri);
     return false;
   }
 }

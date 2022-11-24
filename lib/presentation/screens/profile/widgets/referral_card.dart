@@ -21,7 +21,7 @@ class ReferralCard extends StatelessWidget {
           child: CardWrapper(
             padding: padding,
             child: _referralItem(context, S.current.referralUsers,
-                '${profile.referalUserCount} ${S.current.count}'),
+                '${profile.referralUserCount} ${S.current.count}'),
           ),
         ),
         const SizedBox(width: 16),
@@ -31,7 +31,7 @@ class ReferralCard extends StatelessWidget {
             child: _referralItem(
                 context,
                 S.current.referralEarning,
-                '${profile.referalEarning.toStringAsFixed(0)} '
+                '${profile.referralEarning.toStringAsFixed(0)} '
                 '${S.current.manat}'),
           ),
         )
