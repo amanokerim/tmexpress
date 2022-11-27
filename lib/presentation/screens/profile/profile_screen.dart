@@ -4,13 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../app/generated/l10n.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_confirm_dialog.dart';
-import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
 import '../auth/auth_page.dart';
 import 'bloc/profile_bloc.dart';
 import 'favorites_screen.dart';
 import 'placed_orders/placed_orders_page.dart';
 import 'widgets/profile_card.dart';
+import 'widgets/profile_error.dart';
 import 'widgets/referral_card.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -29,16 +29,16 @@ class ProfileScreen extends StatelessWidget {
             ProfileCard(state.profile),
             const SizedBox(height: 16),
             ReferralCard(state.profile),
-            // const SizedBox(height: 16),
-            // AppButton(
-            //   label: S.current.favorites,
-            //   type: ButtonType.outline,
-            //   iconFile: 'like.png',
-            //   onPressed: () => Navigator.of(context).push(
-            //     MaterialPageRoute<void>(
-            //         builder: (_) => const FavoritesScreen()),
-            //   ),
-            // ),
+            const SizedBox(height: 16),
+            AppButton(
+              label: S.current.favorites,
+              type: ButtonType.outline,
+              iconFile: 'like.png',
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                    builder: (_) => const FavoritesScreen()),
+              ),
+            ),
             const SizedBox(height: 16),
             AppButton(
               label: S.current.orders,
@@ -67,9 +67,7 @@ class ProfileScreen extends StatelessWidget {
           ],
         );
       } else if (state is ProfileLoadError) {
-        return AppErrorScreen(
-            message: state.message,
-            onPressed: () => context.read<ProfileBloc>().add(ProfileStarted()));
+        return ProfileError(state.message);
       }
       return const AppProgressIndicator();
     });

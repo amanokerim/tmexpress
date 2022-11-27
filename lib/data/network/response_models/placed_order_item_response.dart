@@ -6,13 +6,14 @@ import 'size_response.dart';
 
 part 'placed_order_item_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class PlacedOrderItemResponse {
   const PlacedOrderItemResponse({
     this.product,
     this.qty,
     this.size,
     this.color,
+    this.productPrice,
   });
 
   factory PlacedOrderItemResponse.fromJson(Map<String, dynamic> json) =>
@@ -23,4 +24,5 @@ class PlacedOrderItemResponse {
   final int? qty;
   final SizeResponse? size;
   final ImageResponse? color;
+  final double? productPrice;
 }

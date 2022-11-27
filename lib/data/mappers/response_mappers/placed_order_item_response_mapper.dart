@@ -19,9 +19,9 @@ class PlacedOrderItemResponseMapper
 
   @override
   PlacedOrderItem map(PlacedOrderItemResponse? entity) => PlacedOrderItem(
-        product: _productMiniResponseMapper.map(entity?.product),
-        qty: entity?.qty ?? 0,
-        size: _sizeResponseMapper.map(entity?.size),
-        color: _imageResponseMapper.map(entity?.color),
-      );
+      product: _productMiniResponseMapper.map(entity?.product),
+      qty: entity?.qty ?? 0,
+      size: _sizeResponseMapper.map(entity?.size),
+      color: _imageResponseMapper.map(entity?.color),
+      price: entity?.productPrice ?? 0);
 }

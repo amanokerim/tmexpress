@@ -4,6 +4,7 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:alice/alice.dart' as _i3;
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart' as _i7;
 import 'package:get_it/get_it.dart' as _i1;
@@ -99,14 +100,22 @@ import 'register_module.dart' as _i74; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
-Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
-    {String? environment, _i2.EnvironmentFilter? environmentFilter}) async {
-  final gh = _i2.GetItHelper(get, environment, environmentFilter);
+Future<_i1.GetIt> $initGetIt(
+  _i1.GetIt get, {
+  String? environment,
+  _i2.EnvironmentFilter? environmentFilter,
+}) async {
+  final gh = _i2.GetItHelper(
+    get,
+    environment,
+    environmentFilter,
+  );
   final registerModule = _$RegisterModule();
   gh.lazySingleton<_i3.Alice>(() => registerModule.alice);
   gh.lazySingleton<_i4.AuthNetwork>(() => registerModule.authNetwork);
   gh.lazySingleton<_i5.BannerResponseMapper>(() => _i5.BannerResponseMapper());
-  gh.lazySingleton<_i6.Box<dynamic>>(() => registerModule.favoritesBox);
+  gh.lazySingleton<_i6.Box<Map<dynamic, dynamic>>>(
+      () => registerModule.favoritesBox);
   gh.lazySingleton<_i7.CacheOptions>(() => registerModule.cacheOption);
   gh.lazySingleton<_i8.CommonNetwork>(() => registerModule.commonNetwork);
   gh.lazySingleton<_i9.ErrorMapper>(() => _i9.ErrorMapper());
@@ -119,7 +128,7 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i15.ImageResponseMapper>(() => _i15.ImageResponseMapper());
   gh.factory<_i16.MainBloc>(() => _i16.MainBloc());
   gh.lazySingleton<_i17.PreferencesRepository>(
-      () => _i18.PreferencesRepositoryImpl(get<_i14.HiveBoxes>()));
+      () => _i18.PreferencesRepositoryImpl());
   gh.lazySingleton<_i19.ProductMiniResponseMapper>(
       () => _i19.ProductMiniResponseMapper());
   gh.lazySingleton<_i20.ProductPaginationResponseMapper>(() =>
@@ -130,8 +139,9 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i22.SetPreferenceUseCase>(
       () => _i22.SetPreferenceUseCase(get<_i17.PreferencesRepository>()));
   await gh.lazySingletonAsync<_i23.SharedPreferences>(
-      () => registerModule.prefs,
-      preResolve: true);
+    () => registerModule.prefs,
+    preResolve: true,
+  );
   gh.lazySingleton<_i24.SizeResponseMapper>(() => _i24.SizeResponseMapper());
   gh.lazySingleton<_i25.SubcategoryResponseMapper>(
       () => _i25.SubcategoryResponseMapper());
@@ -150,26 +160,33 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i32.GetStringPreferenceUseCase(get<_i17.PreferencesRepository>()));
   gh.lazySingleton<_i33.GroupResponseMapper>(
       () => _i33.GroupResponseMapper(get<_i25.SubcategoryResponseMapper>()));
-  gh.lazySingleton<_i34.PlacedOrderItemResponseMapper>(() =>
-      _i34.PlacedOrderItemResponseMapper(get<_i19.ProductMiniResponseMapper>(),
-          get<_i24.SizeResponseMapper>(), get<_i15.ImageResponseMapper>()));
+  gh.lazySingleton<_i34.PlacedOrderItemResponseMapper>(
+      () => _i34.PlacedOrderItemResponseMapper(
+            get<_i19.ProductMiniResponseMapper>(),
+            get<_i24.SizeResponseMapper>(),
+            get<_i15.ImageResponseMapper>(),
+          ));
   gh.lazySingleton<_i35.PlacedOrderResponseMapper>(() =>
       _i35.PlacedOrderResponseMapper(
           get<_i34.PlacedOrderItemResponseMapper>()));
   gh.lazySingleton<_i36.ProductResponseMapper>(() => _i36.ProductResponseMapper(
-      get<_i15.ImageResponseMapper>(), get<_i24.SizeResponseMapper>()));
+        get<_i15.ImageResponseMapper>(),
+        get<_i24.SizeResponseMapper>(),
+      ));
   gh.lazySingleton<_i37.ProfileRepository>(() => _i38.ProfileRepositoryImpl(
-      get<_i10.ExceptionHandler>(),
-      get<_i8.CommonNetwork>(),
-      get<_i27.TokenResponseMapper>(),
-      get<_i4.AuthNetwork>(),
-      get<_i21.ProfileResponseMapper>(),
-      get<_i17.PreferencesRepository>()));
+        get<_i10.ExceptionHandler>(),
+        get<_i8.CommonNetwork>(),
+        get<_i27.TokenResponseMapper>(),
+        get<_i4.AuthNetwork>(),
+        get<_i21.ProfileResponseMapper>(),
+        get<_i17.PreferencesRepository>(),
+      ));
   gh.factory<_i39.StartBloc>(() => _i39.StartBloc(
-      get<_i29.GetBoolPreferenceUseCase>(),
-      get<_i32.GetStringPreferenceUseCase>(),
-      get<_i22.SetPreferenceUseCase>(),
-      get<_i13.GetFCMStreamUseCase>()));
+        get<_i29.GetBoolPreferenceUseCase>(),
+        get<_i32.GetStringPreferenceUseCase>(),
+        get<_i22.SetPreferenceUseCase>(),
+        get<_i13.GetFCMStreamUseCase>(),
+      ));
   gh.lazySingleton<_i40.AuthUseCase>(
       () => _i40.AuthUseCase(get<_i37.ProfileRepository>()));
   gh.lazySingleton<_i41.CategoryResponseMapper>(
@@ -179,24 +196,27 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i43.FetchProfileUseCase>(
       () => _i43.FetchProfileUseCase(get<_i37.ProfileRepository>()));
   gh.lazySingleton<_i44.OrderRepository>(() => _i45.OrderRepositoryImpl(
-      get<_i10.ExceptionHandler>(),
-      get<_i4.AuthNetwork>(),
-      get<_i35.PlacedOrderResponseMapper>()));
+        get<_i10.ExceptionHandler>(),
+        get<_i4.AuthNetwork>(),
+        get<_i35.PlacedOrderResponseMapper>(),
+      ));
   gh.lazySingleton<_i46.ProductRepository>(() => _i47.ProductRepositoryImpl(
-      get<_i10.ExceptionHandler>(),
-      get<_i8.CommonNetwork>(),
-      get<_i4.AuthNetwork>(),
-      get<_i41.CategoryResponseMapper>(),
-      get<_i5.BannerResponseMapper>(),
-      get<_i26.TagResponseMapper>(),
-      get<_i20.ProductPaginationResponseMapper>(),
-      get<_i36.ProductResponseMapper>(),
-      get<_i24.SizeResponseMapper>(),
-      get<_i6.Box<dynamic>>()));
+        get<_i10.ExceptionHandler>(),
+        get<_i8.CommonNetwork>(),
+        get<_i4.AuthNetwork>(),
+        get<_i41.CategoryResponseMapper>(),
+        get<_i5.BannerResponseMapper>(),
+        get<_i26.TagResponseMapper>(),
+        get<_i20.ProductPaginationResponseMapper>(),
+        get<_i36.ProductResponseMapper>(),
+        get<_i24.SizeResponseMapper>(),
+        get<_i6.Box<Map<dynamic, dynamic>>>(),
+      ));
   gh.factory<_i48.ProfileBloc>(() => _i48.ProfileBloc(
-      get<_i32.GetStringPreferenceUseCase>(),
-      get<_i43.FetchProfileUseCase>(),
-      get<_i22.SetPreferenceUseCase>()));
+        get<_i32.GetStringPreferenceUseCase>(),
+        get<_i43.FetchProfileUseCase>(),
+        get<_i22.SetPreferenceUseCase>(),
+      ));
   gh.lazySingleton<_i49.SearchProductsUseCase>(
       () => _i49.SearchProductsUseCase(get<_i46.ProductRepository>()));
   gh.lazySingleton<_i50.ShareProductUseCase>(
@@ -243,10 +263,11 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.factory<_i72.CategoryBloc>(
       () => _i72.CategoryBloc(get<_i54.FetchCategoriesUseCase>()));
   gh.factory<_i73.DetailBloc>(() => _i73.DetailBloc(
-      get<_i59.FetchProductUseCase>(),
-      get<_i66.LikeProductUseCase>(),
-      get<_i50.ShareProductUseCase>(),
-      get<_i48.ProfileBloc>()));
+        get<_i59.FetchProductUseCase>(),
+        get<_i66.LikeProductUseCase>(),
+        get<_i50.ShareProductUseCase>(),
+        get<_i48.ProfileBloc>(),
+      ));
   return get;
 }
 

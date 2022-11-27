@@ -4,15 +4,16 @@ import 'enums/gender.dart';
 import 'enums/region.dart';
 
 class Profile extends Equatable {
-  const Profile(
-      {required this.phone,
-      required this.referalUserCount,
-      required this.referalEarning,
-      required this.id,
-      this.name,
-      this.gender,
-      this.region,
-      this.address});
+  const Profile({
+    required this.phone,
+    required this.referralUserCount,
+    required this.referralEarning,
+    required this.id,
+    this.name,
+    this.gender,
+    this.region,
+    this.address,
+  });
 
   final int id;
   final String phone;
@@ -20,17 +21,15 @@ class Profile extends Equatable {
   final Gender? gender;
   final Region? region;
   final String? address;
-  final int referalUserCount;
-  final double referalEarning;
+  final int referralUserCount;
+  final double referralEarning;
 
-  Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'gender': gender == null ? null : gender!.index,
-      'region': region == null ? null : region!.index,
-      'address': address
-    };
-  }
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'gender': gender == null ? null : gender!.index,
+        'region': region == null ? null : region!.index,
+        'address': address
+      };
 
   Profile copyWith({
     String? name,
@@ -45,8 +44,8 @@ class Profile extends Equatable {
           gender: gender ?? this.gender,
           region: region ?? this.region,
           address: address ?? this.address,
-          referalUserCount: referalUserCount,
-          referalEarning: referalEarning);
+          referralUserCount: referralUserCount,
+          referralEarning: referralEarning);
 
   @override
   List<Object?> get props => [name, address, gender, region];

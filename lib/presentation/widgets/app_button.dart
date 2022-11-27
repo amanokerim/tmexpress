@@ -15,11 +15,11 @@ class AppButton extends ElevatedButton {
   }) : super(
           style: ElevatedButton.styleFrom(
             elevation: 0,
-            primary: type.background,
-            onSurface: type.background,
+            backgroundColor: type.background,
+            disabledBackgroundColor: type.background,
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 1),
             shadowColor: Colors.black38,
-            onPrimary: AppColors.grey,
+            foregroundColor: AppColors.grey,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
               side: type == ButtonType.outline

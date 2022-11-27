@@ -4,12 +4,10 @@ import 'package:injectable/injectable.dart';
 import '../../domain/repositories/preferences_repository.dart';
 import '../../presentation/utils/constants.dart';
 import '../local/data_keys.dart';
-import '../local/hive_boxes.dart';
 
 @LazySingleton(as: PreferencesRepository)
 class PreferencesRepositoryImpl extends PreferencesRepository {
-  PreferencesRepositoryImpl(HiveBoxes boxes)
-      : _preferences = Hive.box<dynamic>(kDataBox);
+  PreferencesRepositoryImpl() : _preferences = Hive.box<dynamic>(kDataBox);
 
   final Box<dynamic> _preferences;
 

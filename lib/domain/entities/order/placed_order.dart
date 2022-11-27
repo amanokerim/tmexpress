@@ -9,7 +9,7 @@ class PlacedOrder {
     required this.totalPrice,
     required this.createdAt,
     required this.updatedAt,
-    required this.orderitems,
+    required this.orderItems,
   });
 
   final int id;
@@ -18,5 +18,5 @@ class PlacedOrder {
   final double totalPrice;
   final DateTime createdAt;
   final DateTime updatedAt;
-  final List<PlacedOrderItem> orderitems;
+  final List<PlacedOrderItem> orderItems;
 }
