@@ -35,10 +35,10 @@ class PlacedOrderScreen extends StatelessWidget {
               }
             }, builder: (_, state) {
               if (state is PlacedOrderSuccess) {
-                if (state.order.orderitems.isEmpty) {
+                if (state.order.orderItems.isEmpty) {
                   return const AppEmpty(message: '');
                 }
-                final items = state.order.orderitems;
+                final items = state.order.orderItems;
                 return ListView.separated(
                   padding: const EdgeInsets.all(16),
                   itemCount: items.length,

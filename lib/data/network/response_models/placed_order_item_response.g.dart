@@ -20,6 +20,7 @@ PlacedOrderItemResponse _$PlacedOrderItemResponseFromJson(
       color: json['color'] == null
           ? null
           : ImageResponse.fromJson(json['color'] as Map<String, dynamic>),
+      productPrice: (json['product_price'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$PlacedOrderItemResponseToJson(
@@ -29,4 +30,5 @@ Map<String, dynamic> _$PlacedOrderItemResponseToJson(
       'qty': instance.qty,
       'size': instance.size,
       'color': instance.color,
+      'product_price': instance.productPrice,
     };

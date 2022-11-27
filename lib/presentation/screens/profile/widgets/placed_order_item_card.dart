@@ -30,7 +30,8 @@ class PlacedOrderItemCard extends StatelessWidget {
                   style: AppTextStyle.grey14),
               const SizedBox(height: 4),
               // TODO ask for price on placed order item
-              Text('${item.qty} x 423 man.', style: AppTextStyle.black16),
+              Text('${item.qty} x ${item.price} man.',
+                  style: AppTextStyle.black16),
             ],
           ),
         ),

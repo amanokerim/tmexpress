@@ -41,8 +41,8 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
             right: 0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: widget.banners.map((bannner) {
-                final ind = widget.banners.indexOf(bannner);
+              children: widget.banners.map((banner) {
+                final ind = widget.banners.indexOf(banner);
                 final active = ind == _index;
                 return AnimatedContainer(
                   duration: const Duration(milliseconds: 500),

@@ -33,7 +33,7 @@ abstract class RegisterModule {
       store: HiveCacheStore(null),
       policy: CachePolicy.forceCache,
       hitCacheOnErrorExcept: [],
-      maxStale: const Duration(days: 1));
+      maxStale: const Duration(seconds: 10));
 
   @lazySingleton
   CommonNetwork get commonNetwork {

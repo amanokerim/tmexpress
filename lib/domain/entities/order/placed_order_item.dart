@@ -8,10 +8,12 @@ class PlacedOrderItem {
     required this.qty,
     required this.size,
     required this.color,
+    required this.price,
   });
 
   final ProductMini product;
   final int qty;
   final Size size;
   final Image color;
+  final double price;
 }

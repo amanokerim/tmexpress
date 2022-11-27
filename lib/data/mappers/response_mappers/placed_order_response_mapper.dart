@@ -20,5 +20,5 @@ class PlacedOrderResponseMapper
       totalPrice: entity?.totalPrice ?? 0,
       createdAt: DateTime.parse(entity?.createdAt ?? '').toLocal(),
       updatedAt: DateTime.parse(entity?.updatedAt ?? '').toLocal(),
-      orderitems: _placedOrderItemResponseMapper.mapList(entity?.orderitems));
+      orderItems: _placedOrderItemResponseMapper.mapList(entity?.orderitems));
 }

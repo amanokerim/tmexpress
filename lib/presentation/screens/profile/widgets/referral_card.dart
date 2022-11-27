@@ -63,7 +63,7 @@ class ReferralCard extends StatelessWidget {
         title: title,
         content: title == S.current.referralUsers
             ? S.current.referralUsersDescription(kReferralUserPercent)
-            : S.current.referralUsersDescription(kReferralProductPercent),
+            : S.current.referralEarningDescription(kReferralProductPercent),
         showNegativeButton: false,
         positiveButtonLabel: S.current.ok,
       );
