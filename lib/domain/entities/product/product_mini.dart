@@ -7,6 +7,7 @@ class ProductMini {
     required this.normalPrice,
     required this.imageMini,
   });
+
   final int id;
   final String title;
   final double ourRating;

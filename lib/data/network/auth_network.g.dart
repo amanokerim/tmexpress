@@ -32,7 +32,7 @@ class _AuthNetwork implements AuthNetwork {
     )
             .compose(
               _dio.options,
-              'api/auth/profile/',
+              '/api/auth/profile/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -54,7 +54,7 @@ class _AuthNetwork implements AuthNetwork {
     )
         .compose(
           _dio.options,
-          'api/products/singleProductLike/${id}/',
+          '/api/products/singleProductLike/${id}/',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -75,7 +75,7 @@ class _AuthNetwork implements AuthNetwork {
     )
         .compose(
           _dio.options,
-          'api/products/singleProductUnLike/${id}/',
+          '/api/products/singleProductUnLike/${id}/',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -96,7 +96,7 @@ class _AuthNetwork implements AuthNetwork {
     )
         .compose(
           _dio.options,
-          'api/products/singleProductShare/${id}/',
+          '/api/products/singleProductShare/${id}/',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -122,7 +122,7 @@ class _AuthNetwork implements AuthNetwork {
     )
         .compose(
           _dio.options,
-          'api/order/order-create/',
+          '/api/order/order-create/',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -144,7 +144,7 @@ class _AuthNetwork implements AuthNetwork {
     )
             .compose(
               _dio.options,
-              'api/order/orderList/',
+              '/api/order/orderList/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -170,7 +170,7 @@ class _AuthNetwork implements AuthNetwork {
     )
             .compose(
               _dio.options,
-              'api/order/order-detail/${id}/',
+              '/api/order/order-detail/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -193,7 +193,7 @@ class _AuthNetwork implements AuthNetwork {
     )
         .compose(
           _dio.options,
-          'api/auth/profile/',
+          '/api/auth/profile/',
           queryParameters: queryParameters,
           data: _data,
         )

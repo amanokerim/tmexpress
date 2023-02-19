@@ -32,7 +32,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/categoryList/',
+              '/api/products/categoryList/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -58,7 +58,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/bannerList/',
+              '/api/products/bannerList/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -83,7 +83,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/tagsList/',
+              '/api/products/tagsList/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -122,7 +122,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/subCategoryProducts/${id}/',
+              '/api/products/subCategoryProducts/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -156,7 +156,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/productsSearchView/${query}/',
+              '/api/products/productsSearchView/${query}/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -192,7 +192,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/tagProudcts/${id}/',
+              '/api/products/tagProudcts/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -225,7 +225,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/productsOrderByHotList/',
+              '/api/products/productsOrderByHotList/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -251,7 +251,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/singleProduct/${id}/',
+              '/api/products/singleProduct/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -282,7 +282,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/auth/login/',
+              '/api/auth/login/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -305,7 +305,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/subCategorySizes/${id}/',
+              '/api/products/subCategorySizes/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )

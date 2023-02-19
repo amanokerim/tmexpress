@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 class AppImage extends StatelessWidget {
-  const AppImage(this.url,
-      {this.height,
-      this.width,
-      this.color,
-      this.borderRadius,
-      Key? key,
-      this.placeholderHeight})
-      : super(key: key);
+  const AppImage(
+    this.url, {
+    this.height,
+    this.width,
+    this.color,
+    this.borderRadius,
+    Key? key,
+    this.placeholderHeight,
+  }) : super(key: key);
   final String url;
   final double? height;
   final double? placeholderHeight;
