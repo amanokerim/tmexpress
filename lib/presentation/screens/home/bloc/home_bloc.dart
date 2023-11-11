@@ -17,7 +17,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final result = await _fetchHomeUseCase();
       emit(result.fold(
         (error) => HomeLoadError(error.message, UniqueKey()),
-        (home) => HomeLoadSuccess(home),
+        HomeLoadSuccess.new,
       ));
     });
   }

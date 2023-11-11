@@ -148,7 +148,7 @@ class ProductRepositoryImpl implements ProductRepository {
   @override
   Future<Either<AppError, List<SavedProduct>>> fetchFavoriteProducts() {
     return _exception.handle(
-      () => favoritesBox.values.map((e) => SavedProduct.fromJson(e)).toList(),
+      () => favoritesBox.values.map(SavedProduct.fromJson).toList(),
     );
   }
 

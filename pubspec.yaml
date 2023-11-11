@@ -5,10 +5,10 @@ description: An app for delivering goods from China
 
 publish_to: 'none'
 
-version: 0.0.4+4
+version: 0.0.5+5
 
 environment:
-  sdk: '>=2.13.0 <3.0.0'
+  sdk: '>=2.15.0 <3.0.0'
 
 dependencies:
   flutter:
@@ -25,7 +25,7 @@ dependencies:
 
   # DI
   get_it: ^7.2.0
-  injectable: ^1.4.1
+  injectable: ^2.1.2
 
   # Local storage
   hive: ^2.2.3
@@ -33,37 +33,36 @@ dependencies:
 
 
   # UI
-  flutter_svg: ^1.1.1+1
+  flutter_svg: ^2.0.9
   flash: ^2.0.3+3
   url_launcher: ^6.1.5
-  infinite_scroll_pagination: ^3.2.0
+  infinite_scroll_pagination: ^4.0.0
   cached_network_image: ^3.2.1
   blurhash_dart: ^1.1.0
   carousel_slider: ^4.1.1
-  lottie: ^1.3.0
+  lottie: ^2.4.0
   mask_text_input_formatter: ^2.3.0
-  share_plus: ^4.0.10
+  share_plus: ^7.0.2
   menu_button: ^1.4.2+1
-  introduction_screen: ^3.0.2
+  introduction_screen: ^3.1.11
   
   # Network
   built_value: ^8.4.0
-  dio: ^4.0.6
+  dio: ^5.2.1+1
   dio_cache_interceptor_hive_store: ^3.2.0
   json_annotation: ^4.6.0
-  retrofit: ^3.3.1
+  retrofit: ^4.0.1
 
   # Misc
   dartz: ^0.10.1
-  analyzer: ^4.3.0
+  analyzer: ^5.13.0
   package_info: ^2.0.2
-  win32: ^2.6.1
+  win32: ^5.0.5
 
   # Firebase
-  firebase_core: ^2.3.0
-  firebase_crashlytics: ^3.0.6
+  firebase_core: ^2.22.0
   firebase_dynamic_links: ^5.0.6
-  firebase_messaging: ^14.1.1
+  firebase_messaging: ^14.7.4
 
 dev_dependencies:
   flutter_test:
@@ -71,24 +70,24 @@ dev_dependencies:
 
   # Code generators
   build_runner: ^2.2.0
-  injectable_generator: ^1.5.4
-  retrofit_generator: ^4.2.0
+  injectable_generator: ^2.1.6
+  retrofit_generator: ^8.0.4
   json_serializable: ^6.3.1
   built_value_generator: ^8.4.0
 
   # UI
   flutter_native_splash: ^2.2.5
-  flutter_launcher_icons: ^0.9.3
+  flutter_launcher_icons: ^0.13.1
   device_preview: ^1.1.0
 
   # Linting
-  flutter_lints: ^2.0.1
+  flutter_lints: ^3.0.1
   fwfh_text_style: ^2.22.8+1
 
 
   # Network
-  alice: ^0.2.5
-  logger: ^1.1.0
+  alice: ^0.3.3
+  logger: ^2.0.2+1
 
 flutter:
   generate: false
@@ -119,5 +118,5 @@ flutter_intl:
 
 flutter_icons:
   android: true
-  ios: false
-  image_path: "assets/icons/launcher_icon_android.png"
+  ios: true
+  image_path: "assets/icons/logo.png"

@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:alice/alice.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/env/env.dart';
 import '../../../app/generated/l10n.dart';
 import '../../../app/injection/injection.dart';
 import '../../utils/app_flash.dart';
@@ -54,7 +54,7 @@ class _StartScreenState extends State<StartScreen> {
         builder: (_, state) => GestureDetector(
           onLongPress: () {
             // TODO Remove on release
-            if (Env.value.showAlice) getIt<Alice>().showInspector();
+            if (kDebugMode) getIt<Alice>().showInspector();
           },
           child: AnimatedSwitcher(
             duration: kAnimationDuration,

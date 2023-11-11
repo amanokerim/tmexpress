@@ -40,10 +40,9 @@ class DetailScreen extends StatelessWidget {
                         children: [
                           ...productWidgets.prices(),
                           ...productWidgets.description(),
-                          ...productWidgets.description(),
-                          ...productWidgets.weight(),
-                          const SizedBox(height: 16),
-                          productWidgets.share(context),
+                          // ...productWidgets.weight(),
+                          // const SizedBox(height: 16),
+                          // productWidgets.share(context),
                           const SizedBox(height: 16),
                           productWidgets.like(context),
                         ],

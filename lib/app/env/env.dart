@@ -1,12 +1,10 @@
 import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart' as pp;
 
 import '../../data/local/hive_boxes.dart';
@@ -29,46 +27,35 @@ class Env {
   String cacheDir = '';
 
   Future<dynamic> init() async {
-    await runZonedGuarded<Future<void>>(
-      () async {
-        WidgetsFlutterBinding.ensureInitialized();
+    WidgetsFlutterBinding.ensureInitialized();
 
-        cacheDir = (await pp.getTemporaryDirectory()).path;
-        await configureInjection(Environment.prod);
+    cacheDir = (await pp.getTemporaryDirectory()).path;
+    configureDependencies();
 
-        await SystemChrome.setPreferredOrientations(
-            [DeviceOrientation.portraitUp]);
-        SystemChrome.setSystemUIOverlayStyle(
-          const SystemUiOverlayStyle(
-              statusBarColor: Colors.transparent,
-              statusBarBrightness: Brightness.light),
-        );
-        await _initFirebase();
-        await HiveBoxes.init();
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarBrightness: Brightness.light),
+    );
+    await _initFirebase();
+    await HiveBoxes.init();
 
-        _preCache();
+    _preCache();
 
-        BlocOverrides.runZoned(
-          // () => runApp(DevicePreview(
-          //   enabled: value.showAlice,
-          //   builder: (context) => FlutterApp(this),
-          // )),
-          () => runApp(FlutterApp(this)),
-          blocObserver: AppBlocObserver(),
-        );
-      },
-      (dynamic error, StackTrace? stack) =>
-          FirebaseCrashlytics.instance.recordError(error, stack),
+    BlocOverrides.runZoned(
+      // () => runApp(DevicePreview(
+      //   enabled: value.showAlice,
+      //   builder: (context) => FlutterApp(this),
+      // )),
+      () => runApp(FlutterApp(this)),
+      blocObserver: AppBlocObserver(),
     );
   }
 
   Future<void> _initFirebase() async {
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
-    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
-        Env.value.envType != EnvType.development);
-
-    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   }
 
   void _preCache() {

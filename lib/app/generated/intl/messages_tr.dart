@@ -22,7 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(total) => "${total} man.";
 
-  static String m1(count) => "${count}+ alynanda";
+  static String m1(count) => "${count}+";
 
   static String m2(percent) =>
       "Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) ${percent}% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.";
@@ -80,9 +80,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("Üýtgetmek"),
         "editProfile":
             MessageLookupByLibrary.simpleMessage("Maglumatlary üýtgetmek"),
-        "express": MessageLookupByLibrary.simpleMessage("Express"),
-        "expressSubtitle":
-            MessageLookupByLibrary.simpleMessage("15 günde gowuşýar"),
         "favorites": MessageLookupByLibrary.simpleMessage("Halanlarym"),
         "fill": MessageLookupByLibrary.simpleMessage("Doldurmak"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtr"),
@@ -116,9 +113,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Häzirlikçe sizde sargyt ýok"),
         "noProducts": MessageLookupByLibrary.simpleMessage(
             "Bu ýerde häzirlikçe haryt ýok ("),
-        "normal": MessageLookupByLibrary.simpleMessage("Adaty"),
-        "normalSubtitle":
-            MessageLookupByLibrary.simpleMessage("45 günde gowuşýar"),
         "ok": MessageLookupByLibrary.simpleMessage("Bolýar"),
         "open": MessageLookupByLibrary.simpleMessage("Açmak"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
@@ -165,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy"),
         "requiredField":
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
+        "retailPrice": MessageLookupByLibrary.simpleMessage("Bölek bahasy"),
         "retry": MessageLookupByLibrary.simpleMessage("Täzeden synanyşyň"),
         "returned": MessageLookupByLibrary.simpleMessage("Yzyna gaýtaryldy"),
         "searchHint": MessageLookupByLibrary.simpleMessage(

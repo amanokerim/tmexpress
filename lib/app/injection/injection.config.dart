@@ -4,6 +4,9 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+// ignore_for_file: type=lint
+// coverage:ignore-file
+
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:alice/alice.dart' as _i3;
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart' as _i7;
@@ -96,179 +99,183 @@ import '../../presentation/screens/profile/placed_order/bloc/placed_order_bloc.d
 import '../../presentation/screens/profile/placed_orders/bloc/placed_orders_bloc.dart'
     as _i68;
 import '../../presentation/screens/start/bloc/start_bloc.dart' as _i39;
-import 'register_module.dart' as _i74; // ignore_for_file: unnecessary_lambdas
+import 'register_module.dart' as _i74;
 
-// ignore_for_file: lines_longer_than_80_chars
-/// initializes the registration of provided dependencies inside of [GetIt]
-Future<_i1.GetIt> $initGetIt(
-  _i1.GetIt get, {
-  String? environment,
-  _i2.EnvironmentFilter? environmentFilter,
-}) async {
-  final gh = _i2.GetItHelper(
-    get,
-    environment,
-    environmentFilter,
-  );
-  final registerModule = _$RegisterModule();
-  gh.lazySingleton<_i3.Alice>(() => registerModule.alice);
-  gh.lazySingleton<_i4.AuthNetwork>(() => registerModule.authNetwork);
-  gh.lazySingleton<_i5.BannerResponseMapper>(() => _i5.BannerResponseMapper());
-  gh.lazySingleton<_i6.Box<Map<dynamic, dynamic>>>(
-      () => registerModule.favoritesBox);
-  gh.lazySingleton<_i7.CacheOptions>(() => registerModule.cacheOption);
-  gh.lazySingleton<_i8.CommonNetwork>(() => registerModule.commonNetwork);
-  gh.lazySingleton<_i9.ErrorMapper>(() => _i9.ErrorMapper());
-  gh.lazySingleton<_i10.ExceptionHandler>(
-      () => _i10.ExceptionHandler(get<_i9.ErrorMapper>()));
-  gh.lazySingleton<_i11.FCMRepository>(() => _i12.FCMRepositoryImpl());
-  gh.lazySingleton<_i13.GetFCMStreamUseCase>(
-      () => _i13.GetFCMStreamUseCase(get<_i11.FCMRepository>()));
-  gh.lazySingleton<_i14.HiveBoxes>(() => _i14.HiveBoxes());
-  gh.lazySingleton<_i15.ImageResponseMapper>(() => _i15.ImageResponseMapper());
-  gh.factory<_i16.MainBloc>(() => _i16.MainBloc());
-  gh.lazySingleton<_i17.PreferencesRepository>(
-      () => _i18.PreferencesRepositoryImpl());
-  gh.lazySingleton<_i19.ProductMiniResponseMapper>(
-      () => _i19.ProductMiniResponseMapper());
-  gh.lazySingleton<_i20.ProductPaginationResponseMapper>(() =>
-      _i20.ProductPaginationResponseMapper(
-          get<_i19.ProductMiniResponseMapper>()));
-  gh.lazySingleton<_i21.ProfileResponseMapper>(
-      () => _i21.ProfileResponseMapper());
-  gh.lazySingleton<_i22.SetPreferenceUseCase>(
-      () => _i22.SetPreferenceUseCase(get<_i17.PreferencesRepository>()));
-  await gh.lazySingletonAsync<_i23.SharedPreferences>(
-    () => registerModule.prefs,
-    preResolve: true,
-  );
-  gh.lazySingleton<_i24.SizeResponseMapper>(() => _i24.SizeResponseMapper());
-  gh.lazySingleton<_i25.SubcategoryResponseMapper>(
-      () => _i25.SubcategoryResponseMapper());
-  gh.lazySingleton<_i26.TagResponseMapper>(
-      () => _i26.TagResponseMapper(get<_i19.ProductMiniResponseMapper>()));
-  gh.lazySingleton<_i27.TokenResponseMapper>(() => _i27.TokenResponseMapper());
-  gh.lazySingleton<_i28.AuthInterceptor>(
-      () => _i28.AuthInterceptor(get<_i17.PreferencesRepository>()));
-  gh.lazySingleton<_i29.GetBoolPreferenceUseCase>(
-      () => _i29.GetBoolPreferenceUseCase(get<_i17.PreferencesRepository>()));
-  gh.lazySingleton<_i30.GetDoublePreferenceUseCase>(
-      () => _i30.GetDoublePreferenceUseCase(get<_i17.PreferencesRepository>()));
-  gh.lazySingleton<_i31.GetIntPreferenceUseCase>(
-      () => _i31.GetIntPreferenceUseCase(get<_i17.PreferencesRepository>()));
-  gh.lazySingleton<_i32.GetStringPreferenceUseCase>(
-      () => _i32.GetStringPreferenceUseCase(get<_i17.PreferencesRepository>()));
-  gh.lazySingleton<_i33.GroupResponseMapper>(
-      () => _i33.GroupResponseMapper(get<_i25.SubcategoryResponseMapper>()));
-  gh.lazySingleton<_i34.PlacedOrderItemResponseMapper>(
-      () => _i34.PlacedOrderItemResponseMapper(
-            get<_i19.ProductMiniResponseMapper>(),
-            get<_i24.SizeResponseMapper>(),
-            get<_i15.ImageResponseMapper>(),
-          ));
-  gh.lazySingleton<_i35.PlacedOrderResponseMapper>(() =>
-      _i35.PlacedOrderResponseMapper(
-          get<_i34.PlacedOrderItemResponseMapper>()));
-  gh.lazySingleton<_i36.ProductResponseMapper>(() => _i36.ProductResponseMapper(
-        get<_i15.ImageResponseMapper>(),
-        get<_i24.SizeResponseMapper>(),
-      ));
-  gh.lazySingleton<_i37.ProfileRepository>(() => _i38.ProfileRepositoryImpl(
-        get<_i10.ExceptionHandler>(),
-        get<_i8.CommonNetwork>(),
-        get<_i27.TokenResponseMapper>(),
-        get<_i4.AuthNetwork>(),
-        get<_i21.ProfileResponseMapper>(),
-        get<_i17.PreferencesRepository>(),
-      ));
-  gh.factory<_i39.StartBloc>(() => _i39.StartBloc(
-        get<_i29.GetBoolPreferenceUseCase>(),
-        get<_i32.GetStringPreferenceUseCase>(),
-        get<_i22.SetPreferenceUseCase>(),
-        get<_i13.GetFCMStreamUseCase>(),
-      ));
-  gh.lazySingleton<_i40.AuthUseCase>(
-      () => _i40.AuthUseCase(get<_i37.ProfileRepository>()));
-  gh.lazySingleton<_i41.CategoryResponseMapper>(
-      () => _i41.CategoryResponseMapper(get<_i33.GroupResponseMapper>()));
-  gh.lazySingleton<_i42.EditProfileUseCase>(
-      () => _i42.EditProfileUseCase(get<_i37.ProfileRepository>()));
-  gh.lazySingleton<_i43.FetchProfileUseCase>(
-      () => _i43.FetchProfileUseCase(get<_i37.ProfileRepository>()));
-  gh.lazySingleton<_i44.OrderRepository>(() => _i45.OrderRepositoryImpl(
-        get<_i10.ExceptionHandler>(),
-        get<_i4.AuthNetwork>(),
-        get<_i35.PlacedOrderResponseMapper>(),
-      ));
-  gh.lazySingleton<_i46.ProductRepository>(() => _i47.ProductRepositoryImpl(
-        get<_i10.ExceptionHandler>(),
-        get<_i8.CommonNetwork>(),
-        get<_i4.AuthNetwork>(),
-        get<_i41.CategoryResponseMapper>(),
-        get<_i5.BannerResponseMapper>(),
-        get<_i26.TagResponseMapper>(),
-        get<_i20.ProductPaginationResponseMapper>(),
-        get<_i36.ProductResponseMapper>(),
-        get<_i24.SizeResponseMapper>(),
-        get<_i6.Box<Map<dynamic, dynamic>>>(),
-      ));
-  gh.factory<_i48.ProfileBloc>(() => _i48.ProfileBloc(
-        get<_i32.GetStringPreferenceUseCase>(),
-        get<_i43.FetchProfileUseCase>(),
-        get<_i22.SetPreferenceUseCase>(),
-      ));
-  gh.lazySingleton<_i49.SearchProductsUseCase>(
-      () => _i49.SearchProductsUseCase(get<_i46.ProductRepository>()));
-  gh.lazySingleton<_i50.ShareProductUseCase>(
-      () => _i50.ShareProductUseCase(get<_i46.ProductRepository>()));
-  gh.factory<_i51.AuthBloc>(() => _i51.AuthBloc(get<_i40.AuthUseCase>()));
-  gh.lazySingleton<_i52.CreateOrderUseCase>(
-      () => _i52.CreateOrderUseCase(get<_i44.OrderRepository>()));
-  gh.factory<_i53.EditProfileBloc>(
-      () => _i53.EditProfileBloc(get<_i42.EditProfileUseCase>()));
-  gh.lazySingleton<_i54.FetchCategoriesUseCase>(
-      () => _i54.FetchCategoriesUseCase(get<_i46.ProductRepository>()));
-  gh.lazySingleton<_i55.FetchFavoriteProductsUseCase>(
-      () => _i55.FetchFavoriteProductsUseCase(get<_i46.ProductRepository>()));
-  gh.lazySingleton<_i56.FetchHomeUseCase>(
-      () => _i56.FetchHomeUseCase(get<_i46.ProductRepository>()));
-  gh.lazySingleton<_i57.FetchHotProducts>(
-      () => _i57.FetchHotProducts(get<_i46.ProductRepository>()));
-  gh.lazySingleton<_i58.FetchPlacedOrdersUseCase>(
-      () => _i58.FetchPlacedOrdersUseCase(get<_i44.OrderRepository>()));
-  gh.lazySingleton<_i59.FetchProductUseCase>(
-      () => _i59.FetchProductUseCase(get<_i46.ProductRepository>()));
-  gh.lazySingleton<_i60.FetchProductsUseCase>(
-      () => _i60.FetchProductsUseCase(get<_i46.ProductRepository>()));
-  gh.lazySingleton<_i61.FetchSubcategorySizesUseCase>(
-      () => _i61.FetchSubcategorySizesUseCase(get<_i46.ProductRepository>()));
-  gh.factory<_i62.FilterBloc>(
-      () => _i62.FilterBloc(get<_i61.FetchSubcategorySizesUseCase>()));
-  gh.lazySingleton<_i63.GetPlacedOrderUseCase>(
-      () => _i63.GetPlacedOrderUseCase(get<_i44.OrderRepository>()));
-  gh.factory<_i64.HomeBloc>(() => _i64.HomeBloc(get<_i56.FetchHomeUseCase>()));
-  gh.factory<_i65.HotBloc>(() => _i65.HotBloc(get<_i57.FetchHotProducts>()));
-  gh.lazySingleton<_i66.LikeProductUseCase>(
-      () => _i66.LikeProductUseCase(get<_i46.ProductRepository>()));
-  gh.factory<_i67.PlacedOrderBloc>(
-      () => _i67.PlacedOrderBloc(get<_i63.GetPlacedOrderUseCase>()));
-  gh.factory<_i68.PlacedOrdersBloc>(
-      () => _i68.PlacedOrdersBloc(get<_i58.FetchPlacedOrdersUseCase>()));
-  gh.factory<_i69.ProductsBloc>(
-      () => _i69.ProductsBloc(get<_i60.FetchProductsUseCase>()));
-  gh.factory<_i70.SearchBloc>(
-      () => _i70.SearchBloc(get<_i49.SearchProductsUseCase>()));
-  gh.factory<_i71.CartBloc>(
-      () => _i71.CartBloc(get<_i52.CreateOrderUseCase>()));
-  gh.factory<_i72.CategoryBloc>(
-      () => _i72.CategoryBloc(get<_i54.FetchCategoriesUseCase>()));
-  gh.factory<_i73.DetailBloc>(() => _i73.DetailBloc(
-        get<_i59.FetchProductUseCase>(),
-        get<_i66.LikeProductUseCase>(),
-        get<_i50.ShareProductUseCase>(),
-        get<_i48.ProfileBloc>(),
-      ));
-  return get;
+extension GetItInjectableX on _i1.GetIt {
+// initializes the registration of main-scope dependencies inside of GetIt
+  Future<_i1.GetIt> init({
+    String? environment,
+    _i2.EnvironmentFilter? environmentFilter,
+  }) async {
+    final gh = _i2.GetItHelper(
+      this,
+      environment,
+      environmentFilter,
+    );
+    final registerModule = _$RegisterModule();
+    gh.lazySingleton<_i3.Alice>(() => registerModule.alice);
+    gh.lazySingleton<_i4.AuthNetwork>(() => registerModule.authNetwork);
+    gh.lazySingleton<_i5.BannerResponseMapper>(
+        () => _i5.BannerResponseMapper());
+    gh.lazySingleton<_i6.Box<Map<dynamic, dynamic>>>(
+        () => registerModule.favoritesBox);
+    gh.lazySingleton<_i7.CacheOptions>(() => registerModule.cacheOption);
+    gh.lazySingleton<_i8.CommonNetwork>(() => registerModule.commonNetwork);
+    gh.lazySingleton<_i9.ErrorMapper>(() => _i9.ErrorMapper());
+    gh.lazySingleton<_i10.ExceptionHandler>(
+        () => _i10.ExceptionHandler(gh<_i9.ErrorMapper>()));
+    gh.lazySingleton<_i11.FCMRepository>(() => _i12.FCMRepositoryImpl());
+    gh.lazySingleton<_i13.GetFCMStreamUseCase>(
+        () => _i13.GetFCMStreamUseCase(gh<_i11.FCMRepository>()));
+    gh.lazySingleton<_i14.HiveBoxes>(() => _i14.HiveBoxes());
+    gh.lazySingleton<_i15.ImageResponseMapper>(
+        () => _i15.ImageResponseMapper());
+    gh.factory<_i16.MainBloc>(() => _i16.MainBloc());
+    gh.lazySingleton<_i17.PreferencesRepository>(
+        () => _i18.PreferencesRepositoryImpl());
+    gh.lazySingleton<_i19.ProductMiniResponseMapper>(
+        () => _i19.ProductMiniResponseMapper());
+    gh.lazySingleton<_i20.ProductPaginationResponseMapper>(() =>
+        _i20.ProductPaginationResponseMapper(
+            gh<_i19.ProductMiniResponseMapper>()));
+    gh.lazySingleton<_i21.ProfileResponseMapper>(
+        () => _i21.ProfileResponseMapper());
+    gh.lazySingleton<_i22.SetPreferenceUseCase>(
+        () => _i22.SetPreferenceUseCase(gh<_i17.PreferencesRepository>()));
+    await gh.lazySingletonAsync<_i23.SharedPreferences>(
+      () => registerModule.prefs,
+      preResolve: true,
+    );
+    gh.lazySingleton<_i24.SizeResponseMapper>(() => _i24.SizeResponseMapper());
+    gh.lazySingleton<_i25.SubcategoryResponseMapper>(
+        () => _i25.SubcategoryResponseMapper());
+    gh.lazySingleton<_i26.TagResponseMapper>(
+        () => _i26.TagResponseMapper(gh<_i19.ProductMiniResponseMapper>()));
+    gh.lazySingleton<_i27.TokenResponseMapper>(
+        () => _i27.TokenResponseMapper());
+    gh.lazySingleton<_i28.AuthInterceptor>(
+        () => _i28.AuthInterceptor(gh<_i17.PreferencesRepository>()));
+    gh.lazySingleton<_i29.GetBoolPreferenceUseCase>(
+        () => _i29.GetBoolPreferenceUseCase(gh<_i17.PreferencesRepository>()));
+    gh.lazySingleton<_i30.GetDoublePreferenceUseCase>(() =>
+        _i30.GetDoublePreferenceUseCase(gh<_i17.PreferencesRepository>()));
+    gh.lazySingleton<_i31.GetIntPreferenceUseCase>(
+        () => _i31.GetIntPreferenceUseCase(gh<_i17.PreferencesRepository>()));
+    gh.lazySingleton<_i32.GetStringPreferenceUseCase>(() =>
+        _i32.GetStringPreferenceUseCase(gh<_i17.PreferencesRepository>()));
+    gh.lazySingleton<_i33.GroupResponseMapper>(
+        () => _i33.GroupResponseMapper(gh<_i25.SubcategoryResponseMapper>()));
+    gh.lazySingleton<_i34.PlacedOrderItemResponseMapper>(
+        () => _i34.PlacedOrderItemResponseMapper(
+              gh<_i19.ProductMiniResponseMapper>(),
+              gh<_i24.SizeResponseMapper>(),
+              gh<_i15.ImageResponseMapper>(),
+            ));
+    gh.lazySingleton<_i35.PlacedOrderResponseMapper>(() =>
+        _i35.PlacedOrderResponseMapper(
+            gh<_i34.PlacedOrderItemResponseMapper>()));
+    gh.lazySingleton<_i36.ProductResponseMapper>(
+        () => _i36.ProductResponseMapper(
+              gh<_i15.ImageResponseMapper>(),
+              gh<_i24.SizeResponseMapper>(),
+            ));
+    gh.lazySingleton<_i37.ProfileRepository>(() => _i38.ProfileRepositoryImpl(
+          gh<_i10.ExceptionHandler>(),
+          gh<_i8.CommonNetwork>(),
+          gh<_i27.TokenResponseMapper>(),
+          gh<_i4.AuthNetwork>(),
+          gh<_i21.ProfileResponseMapper>(),
+          gh<_i17.PreferencesRepository>(),
+        ));
+    gh.factory<_i39.StartBloc>(() => _i39.StartBloc(
+          gh<_i29.GetBoolPreferenceUseCase>(),
+          gh<_i32.GetStringPreferenceUseCase>(),
+          gh<_i22.SetPreferenceUseCase>(),
+          gh<_i13.GetFCMStreamUseCase>(),
+        ));
+    gh.lazySingleton<_i40.AuthUseCase>(
+        () => _i40.AuthUseCase(gh<_i37.ProfileRepository>()));
+    gh.lazySingleton<_i41.CategoryResponseMapper>(
+        () => _i41.CategoryResponseMapper(gh<_i33.GroupResponseMapper>()));
+    gh.lazySingleton<_i42.EditProfileUseCase>(
+        () => _i42.EditProfileUseCase(gh<_i37.ProfileRepository>()));
+    gh.lazySingleton<_i43.FetchProfileUseCase>(
+        () => _i43.FetchProfileUseCase(gh<_i37.ProfileRepository>()));
+    gh.lazySingleton<_i44.OrderRepository>(() => _i45.OrderRepositoryImpl(
+          gh<_i10.ExceptionHandler>(),
+          gh<_i4.AuthNetwork>(),
+          gh<_i35.PlacedOrderResponseMapper>(),
+        ));
+    gh.lazySingleton<_i46.ProductRepository>(() => _i47.ProductRepositoryImpl(
+          gh<_i10.ExceptionHandler>(),
+          gh<_i8.CommonNetwork>(),
+          gh<_i4.AuthNetwork>(),
+          gh<_i41.CategoryResponseMapper>(),
+          gh<_i5.BannerResponseMapper>(),
+          gh<_i26.TagResponseMapper>(),
+          gh<_i20.ProductPaginationResponseMapper>(),
+          gh<_i36.ProductResponseMapper>(),
+          gh<_i24.SizeResponseMapper>(),
+          gh<_i6.Box<Map<dynamic, dynamic>>>(),
+        ));
+    gh.factory<_i48.ProfileBloc>(() => _i48.ProfileBloc(
+          gh<_i32.GetStringPreferenceUseCase>(),
+          gh<_i43.FetchProfileUseCase>(),
+          gh<_i22.SetPreferenceUseCase>(),
+        ));
+    gh.lazySingleton<_i49.SearchProductsUseCase>(
+        () => _i49.SearchProductsUseCase(gh<_i46.ProductRepository>()));
+    gh.lazySingleton<_i50.ShareProductUseCase>(
+        () => _i50.ShareProductUseCase(gh<_i46.ProductRepository>()));
+    gh.factory<_i51.AuthBloc>(() => _i51.AuthBloc(gh<_i40.AuthUseCase>()));
+    gh.lazySingleton<_i52.CreateOrderUseCase>(
+        () => _i52.CreateOrderUseCase(gh<_i44.OrderRepository>()));
+    gh.factory<_i53.EditProfileBloc>(
+        () => _i53.EditProfileBloc(gh<_i42.EditProfileUseCase>()));
+    gh.lazySingleton<_i54.FetchCategoriesUseCase>(
+        () => _i54.FetchCategoriesUseCase(gh<_i46.ProductRepository>()));
+    gh.lazySingleton<_i55.FetchFavoriteProductsUseCase>(
+        () => _i55.FetchFavoriteProductsUseCase(gh<_i46.ProductRepository>()));
+    gh.lazySingleton<_i56.FetchHomeUseCase>(
+        () => _i56.FetchHomeUseCase(gh<_i46.ProductRepository>()));
+    gh.lazySingleton<_i57.FetchHotProducts>(
+        () => _i57.FetchHotProducts(gh<_i46.ProductRepository>()));
+    gh.lazySingleton<_i58.FetchPlacedOrdersUseCase>(
+        () => _i58.FetchPlacedOrdersUseCase(gh<_i44.OrderRepository>()));
+    gh.lazySingleton<_i59.FetchProductUseCase>(
+        () => _i59.FetchProductUseCase(gh<_i46.ProductRepository>()));
+    gh.lazySingleton<_i60.FetchProductsUseCase>(
+        () => _i60.FetchProductsUseCase(gh<_i46.ProductRepository>()));
+    gh.lazySingleton<_i61.FetchSubcategorySizesUseCase>(
+        () => _i61.FetchSubcategorySizesUseCase(gh<_i46.ProductRepository>()));
+    gh.factory<_i62.FilterBloc>(
+        () => _i62.FilterBloc(gh<_i61.FetchSubcategorySizesUseCase>()));
+    gh.lazySingleton<_i63.GetPlacedOrderUseCase>(
+        () => _i63.GetPlacedOrderUseCase(gh<_i44.OrderRepository>()));
+    gh.factory<_i64.HomeBloc>(() => _i64.HomeBloc(gh<_i56.FetchHomeUseCase>()));
+    gh.factory<_i65.HotBloc>(() => _i65.HotBloc(gh<_i57.FetchHotProducts>()));
+    gh.lazySingleton<_i66.LikeProductUseCase>(
+        () => _i66.LikeProductUseCase(gh<_i46.ProductRepository>()));
+    gh.factory<_i67.PlacedOrderBloc>(
+        () => _i67.PlacedOrderBloc(gh<_i63.GetPlacedOrderUseCase>()));
+    gh.factory<_i68.PlacedOrdersBloc>(
+        () => _i68.PlacedOrdersBloc(gh<_i58.FetchPlacedOrdersUseCase>()));
+    gh.factory<_i69.ProductsBloc>(
+        () => _i69.ProductsBloc(gh<_i60.FetchProductsUseCase>()));
+    gh.factory<_i70.SearchBloc>(
+        () => _i70.SearchBloc(gh<_i49.SearchProductsUseCase>()));
+    gh.factory<_i71.CartBloc>(
+        () => _i71.CartBloc(gh<_i52.CreateOrderUseCase>()));
+    gh.factory<_i72.CategoryBloc>(
+        () => _i72.CategoryBloc(gh<_i54.FetchCategoriesUseCase>()));
+    gh.factory<_i73.DetailBloc>(() => _i73.DetailBloc(
+          gh<_i59.FetchProductUseCase>(),
+          gh<_i66.LikeProductUseCase>(),
+          gh<_i50.ShareProductUseCase>(),
+          gh<_i48.ProfileBloc>(),
+        ));
+    return this;
+  }
 }
 
 class _$RegisterModule extends _i74.RegisterModule {}

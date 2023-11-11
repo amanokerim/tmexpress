@@ -6,9 +6,7 @@ import '../../../../domain/entities/cart_item.dart';
 import '../../../../domain/entities/product/product.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
-import '../../../utils/constants.dart';
 import '../../../widgets/app_button.dart';
-import '../../../widgets/app_confirm_dialog.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../bloc/detail_bloc.dart';
 import 'color.w.dart';
@@ -81,35 +79,35 @@ class ProductWidgets {
         ],
       );
 
-  Widget share(BuildContext context) => Row(
-        children: [
-          Expanded(
-            child: AppButton(
-              label: S.current.share,
-              type: ButtonType.outline,
-              iconFile: 'share.png',
-              isLoading: state.detailLoad == DetailLoad.share,
-              onPressed: () =>
-                  context.read<DetailBloc>().add(DetailProductShared()),
-            ),
-          ),
-          const SizedBox(width: 12),
-          AppButton(
-            label: null,
-            type: ButtonType.outline,
-            iconFile: 'idea.png',
-            onPressed: () => showDialog<void>(
-              context: context,
-              builder: (_) => AppDialog(
-                title: S.current.share,
-                content: S.current.shareInformation(kReferralProductPercent),
-                positiveButtonLabel: S.current.ok,
-                showNegativeButton: false,
-              ),
-            ),
-          ),
-        ],
-      );
+  // Widget share(BuildContext context) => Row(
+  //       children: [
+  //         Expanded(
+  //           child: AppButton(
+  //             label: S.current.share,
+  //             type: ButtonType.outline,
+  //             iconFile: 'share.png',
+  //             isLoading: state.detailLoad == DetailLoad.share,
+  //             onPressed: () =>
+  //                 context.read<DetailBloc>().add(DetailProductShared()),
+  //           ),
+  //         ),
+  //         const SizedBox(width: 12),
+  //         AppButton(
+  //           label: null,
+  //           type: ButtonType.outline,
+  //           iconFile: 'idea.png',
+  //           onPressed: () => showDialog<void>(
+  //             context: context,
+  //             builder: (_) => AppDialog(
+  //               title: S.current.share,
+  //               content: S.current.shareInformation(kReferralProductPercent),
+  //               positiveButtonLabel: S.current.ok,
+  //               showNegativeButton: false,
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     );
 
   Widget like(BuildContext context) => AppButton(
       label: state.product.isLiked
@@ -143,20 +141,12 @@ class ProductWidgets {
         const SizedBox(height: 8),
         Row(
           children: [
-            PriceW(S.current.productPriceNormal, _product.normalPrice).exp,
-            PriceW(S.current.productPriceExpress, _product.expressPrice).exp,
-          ],
-        ),
-        const SizedBox(height: 20),
-        Text(
-            '${S.current.productPriceWholesale} '
-            '(${S.current.productWholesaleDesc(_product.wholesaleLimit)}):',
-            style: AppTextStyle.bold16),
-        const SizedBox(height: 8),
-        Row(
-          children: [
-            PriceW(S.current.productPriceNormal, _product.normalPriceW).exp,
-            PriceW(S.current.productPriceExpress, _product.expressPriceW).exp,
+            PriceW('${S.current.retailPrice}:', _product.normalPrice).exp,
+            PriceW(
+              '${S.current.productPriceWholesale} '
+              '(${S.current.productWholesaleDesc(_product.wholesaleLimit)}):',
+              _product.expressPrice,
+            ).exp,
           ],
         ),
         const SizedBox(height: 20),

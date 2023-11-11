@@ -17,8 +17,8 @@ class PlacedOrdersBloc extends Bloc<PlacedOrdersEvent, PlacedOrdersState> {
       final r = await _fetchPlacedOrdersUseCase();
 
       emit(r.fold(
-        (error) => PlacedOrdersError(error),
-        (orders) => PlacedOrdersSuccess(orders),
+        PlacedOrdersError.new,
+        PlacedOrdersSuccess.new,
       ));
     });
   }

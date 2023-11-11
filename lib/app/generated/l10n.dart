@@ -360,6 +360,16 @@ class S {
     );
   }
 
+  /// `Bölek bahasy`
+  String get retailPrice {
+    return Intl.message(
+      'Bölek bahasy',
+      name: 'retailPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Adaty (45 gün)`
   String get productPriceNormal {
     return Intl.message(
@@ -390,10 +400,10 @@ class S {
     );
   }
 
-  /// `{count}+ alynanda`
+  /// `{count}+`
   String productWholesaleDesc(Object count) {
     return Intl.message(
-      '$count+ alynanda',
+      '$count+',
       name: 'productWholesaleDesc',
       desc: '',
       args: [count],
@@ -585,46 +595,6 @@ class S {
     return Intl.message(
       'Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň',
       name: 'canNotVerify',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Adaty`
-  String get normal {
-    return Intl.message(
-      'Adaty',
-      name: 'normal',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Express`
-  String get express {
-    return Intl.message(
-      'Express',
-      name: 'express',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `45 günde gowuşýar`
-  String get normalSubtitle {
-    return Intl.message(
-      '45 günde gowuşýar',
-      name: 'normalSubtitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `15 günde gowuşýar`
-  String get expressSubtitle {
-    return Intl.message(
-      '15 günde gowuşýar',
-      name: 'expressSubtitle',
       desc: '',
       args: [],
     );
