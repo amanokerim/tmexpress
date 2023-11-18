@@ -6,6 +6,7 @@ import '../../theme/app_theme.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
+import '../products/products_page.dart';
 import 'bloc/category_bloc.dart';
 import 'widgets/category.w.dart';
 import 'widgets/group.w.dart';
@@ -46,7 +47,12 @@ class CategoryScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: AppButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.of(context).push(
+                                MaterialPageRoute<void>(
+                                  builder: (_) => ProductsPage(
+                                      productParent: state.selected),
+                                ),
+                              ),
                           type: ButtonType.outline,
                           label: '',
                           child: Padding(

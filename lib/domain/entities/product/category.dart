@@ -1,14 +1,13 @@
-import 'package:equatable/equatable.dart';
-
 import 'group.dart';
+import 'sub_tag.dart';
 
-class Category extends Equatable {
+class Category extends SubTag {
   const Category({
     required this.id,
     required this.title,
     required this.categoryImage,
     required this.groups,
-  });
+  }) : super(id, title);
 
   final int id;
   final String title;

@@ -229,6 +229,46 @@ class _CommonNetwork implements CommonNetwork {
   }
 
   @override
+  Future<PaginationResponse<ProductMiniResponse>> fetchCategoryProducts(
+    int id,
+    String? offset,
+    int limit,
+    String orderBy,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit,
+      r'orderBy': orderBy,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginationResponse<ProductMiniResponse>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/products/categoryProducts/${id}/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PaginationResponse<ProductMiniResponse>.fromJson(
+      _result.data!,
+      (json) => ProductMiniResponse.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
   Future<PaginationResponse<ProductMiniResponse>> fetchHotProducts(
     String? offset,
     int limit,

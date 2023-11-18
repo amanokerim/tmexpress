@@ -50,6 +50,14 @@ abstract class CommonNetwork {
     @Query('orderBy') String orderBy,
   );
 
+  @GET('/api/products/categoryProducts/{id}/')
+  Future<PaginationResponse<ProductMiniResponse>> fetchCategoryProducts(
+    @Path('id') int id,
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
+    @Query('orderBy') String orderBy,
+  );
+
   @GET('/api/products/productsOrderByHotList/')
   Future<PaginationResponse<ProductMiniResponse>> fetchHotProducts(
     @Query('offset') String? offset,

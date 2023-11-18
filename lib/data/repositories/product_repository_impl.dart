@@ -89,9 +89,12 @@ class ProductRepositoryImpl implements ProductRepository {
 
       final response = params.productParent is Tag
           ? _commonNetwork.fetchTagProducts(id, offset, kLimit, orderBy)
-          : _commonNetwork.fetchSubcategoryProducts(id, offset, kLimit, orderBy,
-              isDiscounted: isDiscounted, sizes: sizes);
-
+          : params.productParent is Category
+              ? _commonNetwork.fetchCategoryProducts(
+                  id, offset, kLimit, orderBy)
+              : _commonNetwork.fetchSubcategoryProducts(
+                  id, offset, kLimit, orderBy,
+                  isDiscounted: isDiscounted, sizes: sizes);
       final products =
           await response.then(_productPaginationResponseMapper.map);
       return products;
