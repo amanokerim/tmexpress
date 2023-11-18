@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ag": MessageLookupByLibrary.simpleMessage("Aşgabat"),
         "ah": MessageLookupByLibrary.simpleMessage("Ahal"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
+        "all2": MessageLookupByLibrary.simpleMessage("Ähli"),
         "apply": MessageLookupByLibrary.simpleMessage("Kabul etmek"),
         "bn": MessageLookupByLibrary.simpleMessage("Balkan"),
         "canNotVerify": MessageLookupByLibrary.simpleMessage(
@@ -178,6 +179,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
         "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
             "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň."),
+        "signInToAddToFavorites": MessageLookupByLibrary.simpleMessage(
+            "Halanlaryňyza goşmak üçin hasap dörediň ýa-da hasabyňyza giriň."),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
         "somethingWentWrong":

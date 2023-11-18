@@ -33,6 +33,7 @@
 
   "cancel": "Togtatmak",
   "all": "Ählisi",
+  "all2": "Ähli",
   "noProducts": "Bu ýerde häzirlikçe haryt ýok (",
 
   "productColors": "Reňkler",
@@ -133,6 +134,7 @@
   "confirmSignOutContent": "Islendik wagt telefon belgiňiz arkaly ýene-de girip bilersiňiz.",
   
   "signInForMakeOrder": "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.",
+  "signInToAddToFavorites": "Halanlaryňyza goşmak üçin hasap dörediň ýa-da hasabyňyza giriň.",
   "youCantReceiveNotifications": "Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)",
 
   "start": "Başla",

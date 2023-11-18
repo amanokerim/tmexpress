@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../app/generated/l10n.dart';
 import '../../theme/app_theme.dart';
+import '../../widgets/app_button.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
 import 'bloc/category_bloc.dart';
@@ -37,12 +39,41 @@ class CategoryScreen extends StatelessWidget {
             const SizedBox(width: 16),
             Expanded(
               flex: 3,
-              child: ListView.separated(
+              child: CustomScrollView(
                 physics: const BouncingScrollPhysics(),
-                separatorBuilder: (_, __) => const SizedBox(height: 20),
-                itemCount: state.selected.groups.length,
-                itemBuilder: (_, index) =>
-                    GroupWidget(state.selected.groups[index]),
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: AppButton(
+                          onPressed: () {},
+                          type: ButtonType.outline,
+                          label: '',
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 16, bottom: 12),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                      '${S.current.all2} '
+                                      '${state.selected.title.toLowerCase()}',
+                                      textAlign: TextAlign.center,
+                                      style: AppTextStyle.bold16),
+                                ),
+                                Image.asset('assets/icons/angle-right.png',
+                                    width: 24),
+                              ],
+                            ),
+                          )),
+                    ),
+                  ),
+                  SliverList.separated(
+                    separatorBuilder: (_, __) => const SizedBox(height: 20),
+                    itemCount: state.selected.groups.length,
+                    itemBuilder: (_, index) =>
+                        GroupWidget(state.selected.groups[index]),
+                  ),
+                ],
               ),
             ),
           ]),

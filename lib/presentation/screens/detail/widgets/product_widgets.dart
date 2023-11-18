@@ -8,6 +8,7 @@ import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
 import '../../cart/bloc/cart_bloc.dart';
+import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
 import 'color.w.dart';
 import 'price.w.dart';
@@ -110,13 +111,20 @@ class ProductWidgets {
   //     );
 
   Widget like(BuildContext context) => AppButton(
-      label: state.product.isLiked
-          ? S.current.removeFromFavorites
-          : S.current.addToFavorites,
-      type: state.product.isLiked ? ButtonType.red : ButtonType.outline,
-      iconFile: 'like.png',
-      onPressed: () =>
-          context.read<DetailBloc>().add(DetailProductLikeToggled()));
+        label: state.product.isLiked
+            ? S.current.removeFromFavorites
+            : S.current.addToFavorites,
+        type: state.product.isLiked ? ButtonType.red : ButtonType.outline,
+        iconFile: 'like.png',
+        onPressed: () {
+          if (context.read<ProfileBloc>().profile != null) {
+            context.read<DetailBloc>().add(DetailProductLikeToggled());
+          } else {
+            AppFlash.bigToast(
+                context: context, message: S.current.signInToAddToFavorites);
+          }
+        },
+      );
 
   List<Widget> weight() => [
         Row(

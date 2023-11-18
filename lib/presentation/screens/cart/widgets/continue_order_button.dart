@@ -7,6 +7,7 @@ import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_error.dart';
 import '../../../widgets/app_progress_indicator.dart';
+import '../../main/bloc/main_bloc.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../../profile/widgets/profile_card.dart';
 import '../bloc/cart_bloc.dart';
@@ -44,6 +45,7 @@ class ContinueOrderButton extends StatelessWidget {
                 } else {
                   AppFlash.bigToast(
                       context: context, message: S.current.signInForMakeOrder);
+                  context.read<MainBloc>().add(const MainTabChanged(index: 4));
                 }
               },
             ),

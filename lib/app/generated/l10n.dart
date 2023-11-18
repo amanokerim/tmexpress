@@ -320,6 +320,16 @@ class S {
     );
   }
 
+  /// `Ähli`
+  String get all2 {
+    return Intl.message(
+      'Ähli',
+      name: 'all2',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Bu ýerde häzirlikçe haryt ýok (`
   String get noProducts {
     return Intl.message(
@@ -1235,6 +1245,16 @@ class S {
     return Intl.message(
       'Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.',
       name: 'signInForMakeOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Halanlaryňyza goşmak üçin hasap dörediň ýa-da hasabyňyza giriň.`
+  String get signInToAddToFavorites {
+    return Intl.message(
+      'Halanlaryňyza goşmak üçin hasap dörediň ýa-da hasabyňyza giriň.',
+      name: 'signInToAddToFavorites',
       desc: '',
       args: [],
     );

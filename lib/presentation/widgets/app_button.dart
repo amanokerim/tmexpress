@@ -12,6 +12,7 @@ class AppButton extends ElevatedButton {
     ButtonType type = ButtonType.red,
     String? iconFile,
     bool isLoading = false,
+    Widget? child,
   }) : super(
           style: ElevatedButton.styleFrom(
             elevation: 0,
@@ -31,35 +32,37 @@ class AppButton extends ElevatedButton {
             ),
           ),
           onPressed: isLoading ? null : onPressed,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 16, 0, 14),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (isLoading) ...[
-                  SizedBox(
-                      height: 18,
-                      width: 18,
-                      child: CircularProgressIndicator(
-                          color: type.foreground, strokeWidth: 2)),
-                  const SizedBox(width: 8),
-                ] else if (iconFile != null)
-                  Image.asset(
-                    'assets/icons/$iconFile',
-                    color: type.foreground,
-                    width: 20,
-                  ),
-                if (label != null && (iconFile != null || isLoading))
-                  const SizedBox(width: 8),
-                if (label != null)
-                  Text(
-                    label,
-                    style: AppTextStyle.bold16.copyWith(color: type.foreground),
-                  ),
-              ],
-            ),
-          ),
+          child: child ??
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 16, 0, 14),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (isLoading) ...[
+                      SizedBox(
+                          height: 18,
+                          width: 18,
+                          child: CircularProgressIndicator(
+                              color: type.foreground, strokeWidth: 2)),
+                      const SizedBox(width: 8),
+                    ] else if (iconFile != null)
+                      Image.asset(
+                        'assets/icons/$iconFile',
+                        color: type.foreground,
+                        width: 20,
+                      ),
+                    if (label != null && (iconFile != null || isLoading))
+                      const SizedBox(width: 8),
+                    if (label != null)
+                      Text(
+                        label,
+                        style: AppTextStyle.bold16
+                            .copyWith(color: type.foreground),
+                      ),
+                  ],
+                ),
+              ),
         );
 }
