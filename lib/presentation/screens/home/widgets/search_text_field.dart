@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
+import '../../../theme/app_theme.dart';
 import '../search/bloc/search_bloc.dart';
 import '../search/search_page.dart';
 
@@ -41,7 +41,11 @@ class _SearchTextFieldState extends State<SearchTextField> {
         fillColor: Colors.transparent,
         suffixIcon: IconButton(
           onPressed: _onPressed,
-          icon: const Icon(CupertinoIcons.search, size: 22),
+          icon: Image.asset(
+            'assets/icons/search.png',
+            width: 20,
+            color: AppColors.grey,
+          ),
         ),
       ),
       onEditingComplete: _onPressed,

@@ -1369,6 +1369,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Ýakyn Ýol" programmasyny ýükläp alyp bilersiňiz!`
+  String get shareContent {
+    return Intl.message(
+      'Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Ýakyn Ýol" programmasyny ýükläp alyp bilersiňiz!',
+      name: 'shareContent',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

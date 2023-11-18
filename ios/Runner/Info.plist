@@ -29,7 +29,7 @@
 			<string>Bundle Id</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.zehinz.tmexpress</string>
+				<string>com.yakynyol.app</string>
 			</array>
 		</dict>
 	</array>

@@ -175,6 +175,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
+        "shareContent": MessageLookupByLibrary.simpleMessage(
+            "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Ýakyn Ýol\" programmasyny ýükläp alyp bilersiňiz!"),
         "shareInformation": m5,
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
         "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(

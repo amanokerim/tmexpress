@@ -26,7 +26,7 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
               imageUrl: image.url,
               fit: BoxFit.fitWidth,
               alignment: Alignment.topCenter,
-              placeholder: (_, __) => _placeholder,
+              placeholder: (_, __) => _noImage,
               errorWidget: (_, __, ___) => _noImage,
             ),
           ),
@@ -84,12 +84,7 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
         ],
       );
 
-  Widget get _placeholder => Container(
-        color: AppColors.bg2,
-        child: const Opacity(opacity: .3, child: AppProgressIndicator()),
-      );
-
   Widget get _noImage => Container(
       color: AppColors.bg2,
-      child: Icon(Icons.image_outlined, color: AppColors.lGrey, size: 100));
+      child: Image.asset('assets/illustrations/logo-grey.jpeg'));
 }

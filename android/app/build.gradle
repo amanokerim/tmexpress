@@ -51,7 +51,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.zehinz.tmexpress"
+        applicationId "com.yakynyol.app"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()

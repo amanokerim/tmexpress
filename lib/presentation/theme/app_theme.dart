@@ -73,6 +73,8 @@ abstract class AppTextStyle {
   static TextStyle get grey12 => grey20.copyWith(fontSize: 12);
 
   static TextStyle get white16 => dark16.copyWith(color: AppColors.white);
+  static TextStyle get white10w700 =>
+      dark10.copyWith(color: AppColors.white, fontWeight: FontWeight.w700);
   static TextStyle get black20 => bold20.copyWith(fontWeight: FontWeight.w700);
   static TextStyle get black16 => bold16.copyWith(fontWeight: FontWeight.w700);
 

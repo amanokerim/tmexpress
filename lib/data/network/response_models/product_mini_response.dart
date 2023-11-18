@@ -19,7 +19,7 @@ class ProductMiniResponse {
   final int? id;
   final String? title;
   final double? ourRating;
-  final double? discount;
+  final int? discount;
   final double? normalPrice;
   final String? imageMini;
 }

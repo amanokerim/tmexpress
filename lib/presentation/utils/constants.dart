@@ -1,4 +1,4 @@
-const kPackage = 'com.zehinz.tmexpress';
+const kPackage = 'com.yakynyol.app';
 
 const kAnimationDuration = Duration(milliseconds: 500);
 const kToastDuration = Duration(seconds: 3);

@@ -40,10 +40,6 @@ class AppImage extends StatelessWidget {
         height: placeholderHeight,
         width: double.infinity,
         color: AppColors.bg2,
-        child: Icon(
-          Icons.photo,
-          color: AppColors.lGrey,
-          size: placeholderHeight != null ? placeholderHeight! / 3 : 30,
-        ),
+        child: Image.asset('assets/illustrations/logo-grey.jpeg'),
       );
 }

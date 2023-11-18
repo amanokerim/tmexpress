@@ -11,7 +11,7 @@ ProductMiniResponse _$ProductMiniResponseFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int?,
       title: json['title'] as String?,
       ourRating: (json['ourRating'] as num?)?.toDouble(),
-      discount: (json['discount'] as num?)?.toDouble(),
+      discount: json['discount'] as int?,
       normalPrice: (json['normalPrice'] as num?)?.toDouble(),
       imageMini: json['imageMini'] as String?,
     );

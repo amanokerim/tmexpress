@@ -18,7 +18,31 @@ class ProductCard extends StatelessWidget {
             MaterialPageRoute<void>(builder: (_) => DetailPage(product.id))),
         child: Column(
           children: [
-            AppImage(product.imageMini, height: 100, width: 100),
+            Stack(
+              children: [
+                AppImage(
+                  product.imageMini,
+                  height: 100,
+                  width: 100,
+                ),
+                if (product.discount > 0)
+                  Positioned(
+                    top: 5,
+                    right: -20,
+                    child: Transform.rotate(
+                      angle: 3.14 / 4,
+                      child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 1),
+                          color: Colors.red,
+                          child: Text(
+                            '-${product.discount}%',
+                            style: AppTextStyle.white10w700,
+                          )),
+                    ),
+                  ),
+              ],
+            ),
             const SizedBox(height: 8),
             Text(
               product.title,
