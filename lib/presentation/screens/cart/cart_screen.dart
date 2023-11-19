@@ -54,7 +54,11 @@ class CartScreen extends StatelessWidget {
                     separatorBuilder: (_, __) => const SizedBox(height: 16),
                   ),
                 ),
-                if (state.items.isNotEmpty) ContinueOrderButton(state.total),
+                if (state.items.isNotEmpty)
+                  ContinueOrderButton(
+                    total: state.total,
+                    selectedShippingOption: state.shippingOption,
+                  ),
               ],
             ),
     );

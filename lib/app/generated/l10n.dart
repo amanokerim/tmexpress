@@ -1379,6 +1379,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Eltip bermek usulyny saýlaň`
+  String get selectShippingOption {
+    return Intl.message(
+      'Eltip bermek usulyny saýlaň',
+      name: 'selectShippingOption',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

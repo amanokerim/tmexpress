@@ -10,6 +10,7 @@ import 'app/injection/injection.dart';
 import 'presentation/screens/cart/bloc/cart_bloc.dart';
 import 'presentation/screens/main/bloc/main_bloc.dart';
 import 'presentation/screens/profile/bloc/profile_bloc.dart';
+import 'presentation/screens/shipping_options/bloc/shipping_options_bloc.dart';
 import 'presentation/screens/start/bloc/start_bloc.dart';
 import 'presentation/screens/start/start_screen.dart';
 import 'presentation/theme/app_theme.dart';
@@ -26,6 +27,9 @@ class FlutterApp extends StatelessWidget {
         providers: [
           BlocProvider<StartBloc>(create: (_) => getIt()),
           BlocProvider<CartBloc>(create: (_) => getIt(), lazy: false),
+          BlocProvider<ShippingOptionsBloc>(
+              create: (_) => getIt()..add(const ShippingOptionsRequested()),
+              lazy: false),
           BlocProvider<MainBloc>(create: (_) => getIt()),
           BlocProvider<ProfileBloc>(create: (context) => getIt()),
         ],

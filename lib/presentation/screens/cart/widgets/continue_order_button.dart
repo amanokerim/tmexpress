@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
+import '../../../../domain/entities/order/shipping_option.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
@@ -11,10 +12,16 @@ import '../../main/bloc/main_bloc.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../../profile/widgets/profile_card.dart';
 import '../bloc/cart_bloc.dart';
+import 'shipping_options_selector.dart';
 
 class ContinueOrderButton extends StatelessWidget {
-  const ContinueOrderButton(this.total, {Key? key}) : super(key: key);
+  const ContinueOrderButton({
+    required this.total,
+    required this.selectedShippingOption,
+    Key? key,
+  }) : super(key: key);
   final double total;
+  final ShippingOption? selectedShippingOption;
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +47,25 @@ class ContinueOrderButton extends StatelessWidget {
               label: S.current.continueButton,
               type: ButtonType.black,
               onPressed: () {
-                if (context.read<ProfileBloc>().profile != null) {
-                  _showProfileConfirmationBottomSheet(context);
-                } else {
-                  AppFlash.bigToast(
-                      context: context, message: S.current.signInForMakeOrder);
-                  context.read<MainBloc>().add(const MainTabChanged(index: 4));
-                }
+                showModalBottomSheet<void>(
+                  context: context,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(20)),
+                  ),
+                  builder: (_) => const ShippingOptionsSelector(),
+                ).then((shippingOption) {
+                  if (context.read<ProfileBloc>().profile != null) {
+                    _showProfileConfirmationBottomSheet(context);
+                  } else {
+                    AppFlash.bigToast(
+                        context: context,
+                        message: S.current.signInForMakeOrder);
+                    context
+                        .read<MainBloc>()
+                        .add(const MainTabChanged(index: 4));
+                  }
+                });
               },
             ),
           ),

@@ -5,13 +5,20 @@ import 'package:injectable/injectable.dart' hide Order;
 import '../../../../domain/entities/cart_item.dart';
 import '../../../../domain/entities/order/order.dart';
 import '../../../../domain/entities/order/order_item.dart';
+import '../../../../domain/entities/order/shipping_option.dart';
 import '../../../../domain/errors/app_error.dart';
 import '../../../../domain/usecases/order/create_order_usecase.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
 
-const _initialState = CartState(CartSt.initial, [], 0, isExpress: false);
+const _initialState = CartState(
+  CartSt.initial,
+  [],
+  0,
+  isExpress: false,
+  shippingOption: null,
+);
 
 @injectable
 class CartBloc extends Bloc<CartEvent, CartState> {
@@ -33,6 +40,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
     on<CartCleared>((event, emit) {
       _items.clear();
+      emit(cartState());
+    });
+
+    on<CartShippingOptionChanged>((event, emit) {
+      _shippingOption = event.shippingOption;
       emit(cartState());
     });
 
@@ -60,8 +72,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   CartState cartState({CartSt st = CartSt.initial, AppError? error}) =>
-      CartState(st, List.from(_items), total,
-          isExpress: _isExpress, error: error);
+      CartState(
+        st,
+        List.from(_items),
+        total,
+        isExpress: _isExpress,
+        error: error,
+        shippingOption: _shippingOption,
+      );
 
   double get total {
     var t = 0.0;
@@ -73,6 +91,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   final _items = <CartItem>[];
   var _isExpress = false;
+  ShippingOption? _shippingOption;
 
   final CreateOrderUseCase _createOrderUseCase;
 }

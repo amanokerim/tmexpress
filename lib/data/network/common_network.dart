@@ -6,6 +6,7 @@ import 'response_models/category_response.dart';
 import 'response_models/pagination_response.dart';
 import 'response_models/product_mini_response.dart';
 import 'response_models/product_response.dart';
+import 'response_models/shipping_option_response.dart';
 import 'response_models/subcategory_response.dart';
 import 'response_models/tag_response.dart';
 import 'response_models/token_response.dart';
@@ -79,5 +80,10 @@ abstract class CommonNetwork {
   @GET('/api/products/subCategorySizes/{id}/')
   Future<SubcategoryResponse> fetchSubcategorySizes(
     @Path() int id,
+  );
+
+  @GET('/api//order/shipping-options/')
+  Future<PaginationResponse<ShippingOptionResponse>> fetchShippingOptions(
+    @Query('limit') int limit,
   );
 }

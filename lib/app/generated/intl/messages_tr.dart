@@ -169,6 +169,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectColor": MessageLookupByLibrary.simpleMessage("Reňk saýlaň"),
         "selectGenderAndRegion": MessageLookupByLibrary.simpleMessage(
             "Jyns we welaýat hökman saýlanmaly"),
+        "selectShippingOption":
+            MessageLookupByLibrary.simpleMessage("Eltip bermek usulyny saýlaň"),
         "selectSize": MessageLookupByLibrary.simpleMessage("Ölçeg saýlaň"),
         "sendSms": MessageLookupByLibrary.simpleMessage("SMS ugratmak"),
         "sendSmsExplanation": m4,

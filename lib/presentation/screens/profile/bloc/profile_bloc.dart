@@ -9,8 +9,6 @@ import '../../../../domain/entities/profile.dart';
 import '../../../../domain/usecases/preferences/get_string_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/set_preference_usecase.dart';
 import '../../../../domain/usecases/profile/fetch_profile_usecase.dart';
-import '../../../utils/constants.dart';
-import '../../../utils/deeplinker.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';

@@ -4,7 +4,7 @@ abstract class CartEvent extends Equatable {
   const CartEvent();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 class CartItemAdded extends CartEvent {
@@ -24,6 +24,14 @@ class CartItemRemoved extends CartEvent {
 }
 
 class CartCleared extends CartEvent {}
+
+class CartShippingOptionChanged extends CartEvent {
+  const CartShippingOptionChanged({required this.shippingOption});
+  final ShippingOption? shippingOption;
+
+  @override
+  List<Object?> get props => [shippingOption];
+}
 
 class CardOrderMade extends CartEvent {}
 
