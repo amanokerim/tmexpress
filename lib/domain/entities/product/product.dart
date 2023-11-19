@@ -14,9 +14,7 @@ class Product extends Equatable {
     required this.discount,
     required this.productImages,
     required this.size,
-    required this.expressPrice,
     required this.normalPrice,
-    required this.expressPriceW,
     required this.normalPriceW,
     required this.wholesaleLimit,
     required this.isLiked,
@@ -31,17 +29,13 @@ class Product extends Equatable {
   final double discount;
   final List<Image> productImages;
   final List<Size> size;
-  final double expressPrice;
   final double normalPrice;
-  final double expressPriceW;
   final double normalPriceW;
   final int wholesaleLimit;
   final bool isLiked;
 
   double normalPriceByCount(int count) =>
       count >= wholesaleLimit ? normalPriceW : normalPrice;
-  double expressPriceByCount(int count) =>
-      count >= wholesaleLimit ? expressPriceW : expressPrice;
 
   @override
   List<Object?> get props => [id, isLiked];
@@ -72,9 +66,7 @@ class Product extends Equatable {
       discount: discount ?? this.discount,
       productImages: productImages ?? this.productImages,
       size: size ?? this.size,
-      expressPrice: expressPrice ?? this.expressPrice,
       normalPrice: normalPrice ?? this.normalPrice,
-      expressPriceW: expressPriceW ?? this.expressPriceW,
       normalPriceW: normalPriceW ?? this.normalPriceW,
       wholesaleLimit: wholesaleLimit ?? this.wholesaleLimit,
       isLiked: isLiked ?? this.isLiked,

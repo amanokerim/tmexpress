@@ -18,6 +18,10 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoryBloc, CategoryState>(builder: (_, state) {
       if (state is CategoryLoadSuccess) {
+        final groups = state.selected.groups
+            .where((g) => g.subCategories.isNotEmpty)
+            .toList();
+        print(groups.map((e) => '${e.title} ${e.subCategories.length}'));
         return Padding(
           padding: const EdgeInsets.all(16),
           child: Row(children: [
@@ -75,9 +79,8 @@ class CategoryScreen extends StatelessWidget {
                   ),
                   SliverList.separated(
                     separatorBuilder: (_, __) => const SizedBox(height: 20),
-                    itemCount: state.selected.groups.length,
-                    itemBuilder: (_, index) =>
-                        GroupWidget(state.selected.groups[index]),
+                    itemCount: groups.length,
+                    itemBuilder: (_, index) => GroupWidget(groups[index]),
                   ),
                 ],
               ),

@@ -38,7 +38,7 @@ class ShippingOptionsSelector extends StatelessWidget {
                         style: AppTextStyle.black16,
                       ),
                       const SizedBox(height: 20),
-                      ...shippingOptionsState.shippingOptions.map(
+                      ...shippingOptionsState.shippingOptions.reversed.map(
                         (so) => ListTile(
                           dense: true,
                           contentPadding: const EdgeInsets.only(left: 12),

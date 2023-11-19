@@ -5,6 +5,7 @@ part 'shipping_option_response.g.dart';
 @JsonSerializable()
 class ShippingOptionResponse {
   ShippingOptionResponse({
+    this.id,
     this.title,
     this.image,
     this.price,
@@ -13,6 +14,7 @@ class ShippingOptionResponse {
       _$ShippingOptionResponseFromJson(json);
   Map<String, dynamic> toJson() => _$ShippingOptionResponseToJson(this);
 
+  final int? id;
   final String? title;
   final String? image;
   final double? price;

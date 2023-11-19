@@ -11,6 +11,7 @@ class ShippingOptionResponseMapper
   ShippingOption map(ShippingOptionResponse? entity) {
     final parts = (entity?.title ?? '').split('; ');
     return ShippingOption(
+      id: entity?.id ?? 1,
       title: parts[0],
       duration: parts.length > 1 ? parts[1] : '',
       priceUnit: parts.length > 2 ? parts[2] : '',

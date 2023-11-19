@@ -84,6 +84,10 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
       );
 
   Widget get _noImage => Container(
-      color: AppColors.bg2,
-      child: Image.asset('assets/illustrations/logo-grey.jpeg'));
+        color: AppColors.bg2,
+        child: Image.asset(
+          'assets/illustrations/logo-grey.jpeg',
+          fit: BoxFit.cover,
+        ),
+      );
 }

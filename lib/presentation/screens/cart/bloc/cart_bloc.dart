@@ -12,13 +12,7 @@ import '../../../../domain/usecases/order/create_order_usecase.dart';
 part 'cart_event.dart';
 part 'cart_state.dart';
 
-const _initialState = CartState(
-  CartSt.initial,
-  [],
-  0,
-  isExpress: false,
-  shippingOption: null,
-);
+const _initialState = CartState(CartSt.initial, [], 0, shippingOption: null);
 
 @injectable
 class CartBloc extends Bloc<CartEvent, CartState> {
@@ -48,11 +42,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       emit(cartState());
     });
 
-    on<CartDeliveryMethodChanged>((event, emit) {
-      _isExpress = !_isExpress;
-      emit(cartState());
-    });
-
     on<CartOrderPlaced>((event, emit) async {
       emit(cartState(st: CartSt.loading));
       final orderItems = _items
@@ -62,7 +51,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
               size: item.size.id,
               color: item.color.id))
           .toList();
-      final order = Order(orderitems: orderItems, isExpress: _isExpress);
+      final order = Order(
+        orderitems: orderItems,
+        shippingOption: _shippingOption!.id,
+      );
       final r = await _createOrderUseCase(order);
       emit(r.fold(
         (error) => cartState(error: error),
@@ -76,7 +68,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         st,
         List.from(_items),
         total,
-        isExpress: _isExpress,
         error: error,
         shippingOption: _shippingOption,
       );
@@ -84,13 +75,12 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   double get total {
     var t = 0.0;
     for (final c in _items) {
-      t += c.count * (_isExpress ? c.expressPrice : c.price);
+      t += c.count * c.price;
     }
     return t;
   }
 
   final _items = <CartItem>[];
-  var _isExpress = false;
   ShippingOption? _shippingOption;
 
   final CreateOrderUseCase _createOrderUseCase;

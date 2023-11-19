@@ -47,7 +47,7 @@ class ContinueOrderButton extends StatelessWidget {
               label: S.current.continueButton,
               type: ButtonType.black,
               onPressed: () {
-                showModalBottomSheet<void>(
+                showModalBottomSheet<ShippingOption>(
                   context: context,
                   shape: const RoundedRectangleBorder(
                     borderRadius:
@@ -55,15 +55,17 @@ class ContinueOrderButton extends StatelessWidget {
                   ),
                   builder: (_) => const ShippingOptionsSelector(),
                 ).then((shippingOption) {
-                  if (context.read<ProfileBloc>().profile != null) {
-                    _showProfileConfirmationBottomSheet(context);
-                  } else {
-                    AppFlash.bigToast(
-                        context: context,
-                        message: S.current.signInForMakeOrder);
-                    context
-                        .read<MainBloc>()
-                        .add(const MainTabChanged(index: 4));
+                  if (shippingOption != null) {
+                    if (context.read<ProfileBloc>().profile != null) {
+                      _showProfileConfirmationBottomSheet(context);
+                    } else {
+                      AppFlash.bigToast(
+                          context: context,
+                          message: S.current.signInForMakeOrder);
+                      context
+                          .read<MainBloc>()
+                          .add(const MainTabChanged(index: 4));
+                    }
                   }
                 });
               },

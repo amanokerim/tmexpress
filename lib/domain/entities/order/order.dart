@@ -3,14 +3,14 @@ import 'order_item.dart';
 class Order {
   const Order({
     required this.orderitems,
-    required this.isExpress,
+    required this.shippingOption,
   });
 
   final List<OrderItem> orderitems;
-  final bool isExpress;
+  final int shippingOption;
 
   Map<String, dynamic> toJson() => {
         'orderitems': orderitems.map((x) => x.toJson()).toList(),
-        'isExpress': isExpress,
+        'shipping_option_id': shippingOption,
       };
 }

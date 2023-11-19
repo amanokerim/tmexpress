@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class ShippingOption extends Equatable {
   const ShippingOption({
+    required this.id,
     required this.title,
     required this.duration,
     required this.priceUnit,
@@ -9,6 +10,7 @@ class ShippingOption extends Equatable {
     required this.image,
   });
 
+  final int id;
   final String title;
   final String duration;
   final String priceUnit;

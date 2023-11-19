@@ -46,7 +46,7 @@ class ProductWidgets {
               size: state.selectedSize ?? state.product.size[0],
               color: state.selectedColor ?? state.product.productImages[0],
               price: _product.normalPriceByCount(1),
-              expressPrice: _product.expressPriceByCount(1),
+              expressPrice: _product.normalPriceByCount(1),
             );
             context.read<CartBloc>().add(CartItemAdded(cartItem));
             AppFlash.toast(
@@ -165,7 +165,7 @@ class ProductWidgets {
             PriceW(
               '${S.current.productPriceWholesale} '
               '(${S.current.productWholesaleDesc(_product.wholesaleLimit)}):',
-              _product.expressPrice,
+              _product.normalPriceW,
             ).exp,
           ],
         ),
