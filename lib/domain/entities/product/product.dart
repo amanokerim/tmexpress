@@ -8,6 +8,7 @@ class Product extends Equatable {
     required this.id,
     required this.title,
     required this.description,
+    required this.video,
     required this.weight,
     required this.ourRating,
     required this.discount,
@@ -24,6 +25,7 @@ class Product extends Equatable {
   final int id;
   final String title;
   final String description;
+  final String video;
   final double weight;
   final double ourRating;
   final double discount;
@@ -64,6 +66,7 @@ class Product extends Equatable {
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
+      video: video,
       weight: weight ?? this.weight,
       ourRating: ourRating ?? this.ourRating,
       discount: discount ?? this.discount,

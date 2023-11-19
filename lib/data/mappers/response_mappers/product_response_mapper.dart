@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 
+import '../../../app/env/env.dart';
 import '../../../domain/entities/product/product.dart';
 import '../../network/response_models/product_response.dart';
 import '../mapper.dart';
@@ -17,6 +18,7 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
         id: entity?.id ?? 0,
         title: entity?.title ?? '',
         description: entity?.description ?? '',
+        video: '${Env.value.baseUrl}${entity?.video}',
         weight: entity?.weight ?? 0,
         ourRating: entity?.ourRating ?? 0,
         discount: entity?.discount ?? 0,

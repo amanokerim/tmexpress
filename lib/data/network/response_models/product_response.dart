@@ -11,6 +11,7 @@ class ProductResponse {
       {this.id,
       this.title,
       this.description,
+      this.video,
       this.weight,
       this.ourRating,
       this.discount,
@@ -29,6 +30,7 @@ class ProductResponse {
   final int? id;
   final String? title;
   final String? description;
+  final String? video;
   final double? weight;
   final double? ourRating;
   final double? discount;

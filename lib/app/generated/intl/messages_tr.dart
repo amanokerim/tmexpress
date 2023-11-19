@@ -208,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("media/user_agreement.pdf"),
         "waitingVerificationText": MessageLookupByLibrary.simpleMessage(
             "Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)"),
+        "watchVideo": MessageLookupByLibrary.simpleMessage("Wideo görmek"),
         "whatIsThis": MessageLookupByLibrary.simpleMessage("Bu näme?"),
         "woman": MessageLookupByLibrary.simpleMessage("Zenan"),
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),

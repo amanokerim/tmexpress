@@ -1389,6 +1389,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Wideo görmek`
+  String get watchVideo {
+    return Intl.message(
+      'Wideo görmek',
+      name: 'watchVideo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

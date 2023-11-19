@@ -43,6 +43,10 @@ class DetailScreen extends StatelessWidget {
                           // ...productWidgets.weight(),
                           // const SizedBox(height: 16),
                           // productWidgets.share(context),
+                          if (state.product.video.isNotEmpty) ...[
+                            const SizedBox(height: 16),
+                            productWidgets.video(context),
+                          ],
                           const SizedBox(height: 16),
                           productWidgets.like(context),
                         ],

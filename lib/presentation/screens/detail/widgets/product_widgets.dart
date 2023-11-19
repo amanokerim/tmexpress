@@ -10,6 +10,7 @@ import '../../../widgets/app_button.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
+import '../video_player.dart';
 import 'color.w.dart';
 import 'price.w.dart';
 
@@ -124,6 +125,17 @@ class ProductWidgets {
                 context: context, message: S.current.signInToAddToFavorites);
           }
         },
+      );
+
+  Widget video(BuildContext context) => AppButton(
+        label: S.current.watchVideo,
+        type: ButtonType.outline,
+        iconFile: 'play.png',
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (_) => VideoPlayerScreen(url: state.product.video),
+          ),
+        ),
       );
 
   List<Widget> weight() => [
