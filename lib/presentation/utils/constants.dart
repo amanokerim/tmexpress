@@ -10,7 +10,7 @@ const kResendSeconds = 60;
 const kLimit = 15;
 
 const kAppName = 'Ýakyn Ýol';
-const kVerificationPhone = '+99365190714';
+const kVerificationPhone = '+99362820073';
 
 const kReferralUserPercent = 5;
 const kReferralProductPercent = 3;

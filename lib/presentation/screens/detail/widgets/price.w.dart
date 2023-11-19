@@ -18,7 +18,7 @@ class PriceW extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(price.toStringAsFixed(0), style: AppTextStyle.black20),
+              Text(price.floor().toString(), style: AppTextStyle.black20),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: Text(

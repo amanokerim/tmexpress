@@ -11,6 +11,7 @@ class Order {
 
   Map<String, dynamic> toJson() => {
         'orderitems': orderitems.map((x) => x.toJson()).toList(),
-        'shipping_option_id': shippingOption,
+        'shipping_option': shippingOption,
+        'isExpress': false
       };
 }
