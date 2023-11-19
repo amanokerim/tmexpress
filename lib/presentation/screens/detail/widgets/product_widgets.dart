@@ -10,7 +10,7 @@ import '../../../widgets/app_button.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
-import '../video_player.dart';
+import '../video_player_screen.dart';
 import 'color.w.dart';
 import 'price.w.dart';
 

@@ -14,19 +14,22 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
   final SizeResponseMapper _sizeResponseMapper;
 
   @override
-  Product map(ProductResponse? entity) => Product(
-        id: entity?.id ?? 0,
-        title: entity?.title ?? '',
-        description: entity?.description ?? '',
-        video: '${Env.value.baseUrl}${entity?.video}',
-        weight: entity?.weight ?? 0,
-        ourRating: entity?.ourRating ?? 0,
-        discount: entity?.discount ?? 0,
-        productImages: _imageResponseMapper.mapList(entity?.productImages),
-        size: _sizeResponseMapper.mapList(entity?.size),
-        normalPrice: entity?.normalPrice ?? 0,
-        normalPriceW: entity?.normalPriceW ?? 0,
-        wholesaleLimit: entity?.wholesaleLimit ?? 0,
-        isLiked: false,
-      );
+  Product map(ProductResponse? entity) {
+    final video = entity?.video ?? '';
+    return Product(
+      id: entity?.id ?? 0,
+      title: entity?.title ?? '',
+      description: entity?.description ?? '',
+      video: '${Env.value.baseUrl}$video',
+      weight: entity?.weight ?? 0,
+      ourRating: entity?.ourRating ?? 0,
+      discount: entity?.discount ?? 0,
+      productImages: _imageResponseMapper.mapList(entity?.productImages),
+      size: _sizeResponseMapper.mapList(entity?.size),
+      normalPrice: entity?.normalPrice ?? 0,
+      normalPriceW: entity?.normalPriceW ?? 0,
+      wholesaleLimit: entity?.wholesaleLimit ?? 0,
+      isLiked: false,
+    );
+  }
 }

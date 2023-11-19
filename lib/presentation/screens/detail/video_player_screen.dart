@@ -34,6 +34,8 @@ class VideoPlayerScreenState extends State<VideoPlayerScreen> {
       autoPlay: true,
       showControls: true,
       fullScreenByDefault: true,
+      allowMuting: true,
+      looping: true,
     );
   }
 

@@ -11,7 +11,6 @@ import 'favorites_screen.dart';
 import 'placed_orders/placed_orders_page.dart';
 import 'widgets/profile_card.dart';
 import 'widgets/profile_error.dart';
-import 'widgets/referral_card.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -27,8 +26,8 @@ class ProfileScreen extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           children: [
             ProfileCard(state.profile),
-            const SizedBox(height: 16),
-            ReferralCard(state.profile),
+            // const SizedBox(height: 16),
+            // ReferralCard(state.profile),
             const SizedBox(height: 16),
             AppButton(
               label: S.current.favorites,
