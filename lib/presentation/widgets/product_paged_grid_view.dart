@@ -15,7 +15,7 @@ class ProductPagedGridView extends StatelessWidget {
 
   PagedChildBuilderDelegate<ProductMini> get delegate =>
       PagedChildBuilderDelegate<ProductMini>(
-        itemBuilder: (context, product, index) => ProductCard(product),
+        itemBuilder: (context, product, index) => ProductCard(product, 180),
         firstPageErrorIndicatorBuilder: (_) => AppErrorScreen(
           message: pagingController.error,
           onPressed: pagingController.retryLastFailedRequest,
@@ -44,8 +44,8 @@ class ProductPagedGridView extends StatelessWidget {
       showNewPageErrorIndicatorAsGridChild: false,
       showNoMoreItemsIndicatorAsGridChild: false,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: .6,
-        crossAxisCount: 3,
+        childAspectRatio: .7,
+        crossAxisCount: 2,
         mainAxisSpacing: 8,
         crossAxisSpacing: 8,
       ),

@@ -37,7 +37,7 @@ class TagWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemCount: tag.product.length,
-            itemBuilder: (_, index) => ProductCard(tag.product[index]),
+            itemBuilder: (_, index) => ProductCard(tag.product[index], 100),
             separatorBuilder: (_, __) => const SizedBox(width: 16),
           ),
         ),

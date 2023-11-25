@@ -6,13 +6,14 @@ import '../theme/app_theme.dart';
 import 'app_image.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard(this.product, {Key? key}) : super(key: key);
+  const ProductCard(this.product, this.imageSize, {Key? key}) : super(key: key);
   final ProductMini product;
+  final double imageSize;
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: .7,
+      aspectRatio: .8,
       child: GestureDetector(
         onTap: () => Navigator.of(context).push(
             MaterialPageRoute<void>(builder: (_) => DetailPage(product.id))),
@@ -22,8 +23,8 @@ class ProductCard extends StatelessWidget {
               children: [
                 AppImage(
                   product.imageMini,
-                  height: 100,
-                  width: 100,
+                  width: imageSize,
+                  height: imageSize,
                 ),
                 if (product.discount > 0)
                   Positioned(
@@ -57,7 +58,8 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text(
                   '${product.normalPrice.toStringAsFixed(0)} m.',
-                  style: AppTextStyle.bold14,
+                  style:
+                      AppTextStyle.bold14.copyWith(fontWeight: FontWeight.w700),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 6),

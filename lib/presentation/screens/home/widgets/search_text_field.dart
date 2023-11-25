@@ -34,11 +34,20 @@ class _SearchTextFieldState extends State<SearchTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final border = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(16),
+      borderSide:
+          const BorderSide(color: Color.fromARGB(255, 7, 32, 200), width: 1),
+    );
     return TextField(
       controller: _controller,
       decoration: InputDecoration(
         hintText: S.current.searchHint,
         fillColor: Colors.transparent,
+        enabledBorder: border,
+        border: border,
+        focusedBorder: border,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
         suffixIcon: IconButton(
           onPressed: _onPressed,
           icon: Image.asset(

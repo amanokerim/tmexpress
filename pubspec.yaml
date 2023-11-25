@@ -5,7 +5,7 @@ description: An app for delivering goods from China
 
 publish_to: 'none'
 
-version: 0.0.6+6
+version: 0.0.8+8
 
 environment:
   sdk: '>=2.15.0 <3.0.0'
@@ -82,6 +82,7 @@ dev_dependencies:
   flutter_native_splash: ^2.2.5
   flutter_launcher_icons: ^0.13.1
   device_preview: ^1.1.0
+  photo_view: ^0.14.0
 
   # Linting
   flutter_lints: ^3.0.1

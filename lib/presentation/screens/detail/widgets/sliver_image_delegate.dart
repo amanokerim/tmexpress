@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../theme/app_theme.dart';
 import '../bloc/detail_bloc.dart';
 import '../detail_screen.dart';
+import 'photo_view_page.dart';
 import 'product_widgets.dart';
 
 class SliverImageDelegate extends SliverPersistentHeaderDelegate {
@@ -21,12 +22,20 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
       child: Stack(
         children: [
           Positioned.fill(
-            child: CachedNetworkImage(
-              imageUrl: image.url,
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.topCenter,
-              placeholder: (_, __) => _noImage,
-              errorWidget: (_, __, ___) => _noImage,
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => PhotoViewPage(
+                      image: image.url, title: state.product.title),
+                ),
+              ),
+              child: CachedNetworkImage(
+                imageUrl: image.url,
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.topCenter,
+                placeholder: (_, __) => _noImage,
+                errorWidget: (_, __, ___) => _noImage,
+              ),
             ),
           ),
           Positioned(
