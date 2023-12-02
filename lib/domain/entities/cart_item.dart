@@ -38,8 +38,8 @@ class CartItem extends Equatable {
           ? product.normalPriceW
           : product.normalPrice,
       expressPrice: newCount >= product.wholesaleLimit
-          ? product.expressPriceW
-          : product.expressPrice,
+          ? product.normalPriceW
+          : product.normalPrice,
     );
   }
 

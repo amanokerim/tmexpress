@@ -6,11 +6,11 @@ import '../../../../domain/entities/cart_item.dart';
 import '../../../../domain/entities/product/product.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
-import '../../../utils/constants.dart';
 import '../../../widgets/app_button.dart';
-import '../../../widgets/app_confirm_dialog.dart';
 import '../../cart/bloc/cart_bloc.dart';
+import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
+import '../video_player_screen.dart';
 import 'color.w.dart';
 import 'price.w.dart';
 
@@ -28,24 +28,25 @@ class ProductWidgets {
       child: AppButton(
         label: S.current.addToCart,
         onPressed: () {
-          final onlyOneColor = state.product.productImages.length > 1;
-          if (state.selectedColor == null && onlyOneColor) {
+          final multiColor = state.product.productImages.length > 1;
+          final multiSize = state.product.size.length > 1;
+          if (state.selectedColor == null && multiColor) {
             AppFlash.toast(
                 context: context,
                 message: S.current.selectColor,
                 isError: true);
-          } else if (state.selectedSize == null) {
+          } else if (state.selectedSize == null && multiSize) {
             AppFlash.toast(
                 context: context, message: S.current.selectSize, isError: true);
-          } else if ((state.selectedColor != null || !onlyOneColor) &&
+          } else if ((state.selectedColor != null || !multiColor) &&
               state.selectedSize != null) {
             final cartItem = CartItem(
               product: _product,
               count: 1,
-              size: state.selectedSize!,
+              size: state.selectedSize ?? state.product.size[0],
               color: state.selectedColor ?? state.product.productImages[0],
               price: _product.normalPriceByCount(1),
-              expressPrice: _product.expressPriceByCount(1),
+              expressPrice: _product.normalPriceByCount(1),
             );
             context.read<CartBloc>().add(CartItemAdded(cartItem));
             AppFlash.toast(
@@ -80,44 +81,62 @@ class ProductWidgets {
         ],
       );
 
-  Widget share(BuildContext context) => Row(
-        children: [
-          Expanded(
-            child: AppButton(
-              label: S.current.share,
-              type: ButtonType.outline,
-              iconFile: 'share.png',
-              isLoading: state.detailLoad == DetailLoad.share,
-              onPressed: () =>
-                  context.read<DetailBloc>().add(DetailProductShared()),
-            ),
-          ),
-          const SizedBox(width: 12),
-          AppButton(
-            label: null,
-            type: ButtonType.outline,
-            iconFile: 'idea.png',
-            onPressed: () => showDialog<void>(
-              context: context,
-              builder: (_) => AppDialog(
-                title: S.current.share,
-                content: S.current.shareInformation(kReferralProductPercent),
-                positiveButtonLabel: S.current.ok,
-                showNegativeButton: false,
-              ),
-            ),
-          ),
-        ],
-      );
+  // Widget share(BuildContext context) => Row(
+  //       children: [
+  //         Expanded(
+  //           child: AppButton(
+  //             label: S.current.share,
+  //             type: ButtonType.outline,
+  //             iconFile: 'share.png',
+  //             isLoading: state.detailLoad == DetailLoad.share,
+  //             onPressed: () =>
+  //                 context.read<DetailBloc>().add(DetailProductShared()),
+  //           ),
+  //         ),
+  //         const SizedBox(width: 12),
+  //         AppButton(
+  //           label: null,
+  //           type: ButtonType.outline,
+  //           iconFile: 'idea.png',
+  //           onPressed: () => showDialog<void>(
+  //             context: context,
+  //             builder: (_) => AppDialog(
+  //               title: S.current.share,
+  //               content: S.current.shareInformation(kReferralProductPercent),
+  //               positiveButtonLabel: S.current.ok,
+  //               showNegativeButton: false,
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     );
 
   Widget like(BuildContext context) => AppButton(
-      label: state.product.isLiked
-          ? S.current.removeFromFavorites
-          : S.current.addToFavorites,
-      type: state.product.isLiked ? ButtonType.red : ButtonType.outline,
-      iconFile: 'like.png',
-      onPressed: () =>
-          context.read<DetailBloc>().add(DetailProductLikeToggled()));
+        label: state.product.isLiked
+            ? S.current.removeFromFavorites
+            : S.current.addToFavorites,
+        type: state.product.isLiked ? ButtonType.red : ButtonType.outline,
+        iconFile: 'like.png',
+        onPressed: () {
+          if (context.read<ProfileBloc>().profile != null) {
+            context.read<DetailBloc>().add(DetailProductLikeToggled());
+          } else {
+            AppFlash.bigToast(
+                context: context, message: S.current.signInToAddToFavorites);
+          }
+        },
+      );
+
+  Widget video(BuildContext context) => AppButton(
+        label: S.current.watchVideo,
+        type: ButtonType.outline,
+        iconFile: 'play.png',
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (_) => VideoPlayerScreen(url: state.product.video),
+          ),
+        ),
+      );
 
   List<Widget> weight() => [
         Row(
@@ -142,20 +161,12 @@ class ProductWidgets {
         const SizedBox(height: 8),
         Row(
           children: [
-            PriceW(S.current.productPriceNormal, _product.normalPrice).exp,
-            PriceW(S.current.productPriceExpress, _product.expressPrice).exp,
-          ],
-        ),
-        const SizedBox(height: 20),
-        Text(
-            '${S.current.productPriceWholesale} '
-            '(${S.current.productWholesaleDesc(_product.wholesaleLimit)}):',
-            style: AppTextStyle.bold16),
-        const SizedBox(height: 8),
-        Row(
-          children: [
-            PriceW(S.current.productPriceNormal, _product.normalPriceW).exp,
-            PriceW(S.current.productPriceExpress, _product.expressPriceW).exp,
+            PriceW('${S.current.retailPrice}:', _product.normalPrice).exp,
+            PriceW(
+              '${S.current.productPriceWholesale} '
+              '(${S.current.productWholesaleDesc(_product.wholesaleLimit)}):',
+              _product.normalPriceW,
+            ).exp,
           ],
         ),
         const SizedBox(height: 20),

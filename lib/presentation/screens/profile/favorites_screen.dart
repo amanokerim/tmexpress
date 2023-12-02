@@ -19,8 +19,7 @@ class FavoritesScreen extends StatelessWidget {
         valueListenable:
             Hive.box<Map<dynamic, dynamic>>(kFavoritesBox).listenable(),
         builder: (_, box, __) {
-          final products =
-              box.values.map((e) => SavedProduct.fromJson(e)).toList();
+          final products = box.values.map(SavedProduct.fromJson).toList();
           if (products.isEmpty) return AppEmpty(message: S.current.noFavorites);
           return ListView.separated(
             padding: const EdgeInsets.all(16),

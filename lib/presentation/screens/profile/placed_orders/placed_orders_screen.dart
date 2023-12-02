@@ -31,8 +31,7 @@ class PlacedOrdersScreen extends StatelessWidget {
             return ListView.separated(
               padding: const EdgeInsets.all(16),
               itemCount: length,
-              itemBuilder: (_, index) =>
-                  PlacedOrderCard(state.orders[length - 1 - index]),
+              itemBuilder: (_, index) => PlacedOrderCard(state.orders[index]),
               separatorBuilder: (_, __) => const SizedBox(height: 16),
             );
           } else if (state is PlacedOrdersError) {

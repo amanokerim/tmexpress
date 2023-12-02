@@ -9,12 +9,15 @@ import '../mapper.dart';
 class ProductMiniResponseMapper
     extends Mapper<ProductMiniResponse, ProductMini> {
   @override
-  ProductMini map(ProductMiniResponse? entity) => ProductMini(
-        id: entity?.id ?? 0,
-        title: entity?.title ?? '',
-        ourRating: entity?.ourRating ?? 0,
-        discount: entity?.discount ?? 0,
-        normalPrice: entity?.normalPrice ?? 0,
-        imageMini: '${Env.value.baseUrl}${entity?.imageMini}',
-      );
+  ProductMini map(ProductMiniResponse? entity) {
+    print('${Env.value.baseUrl}/${entity?.imageMini}');
+    return ProductMini(
+      id: entity?.id ?? 0,
+      title: entity?.title ?? '',
+      ourRating: entity?.ourRating ?? 0,
+      discount: entity?.discount ?? 0,
+      normalPrice: entity?.normalPrice ?? 0,
+      imageMini: '${Env.value.baseUrl}/media/${entity?.imageMini}',
+    );
+  }
 }

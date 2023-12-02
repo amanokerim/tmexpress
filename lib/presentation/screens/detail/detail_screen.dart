@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../app/env/env.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
 import 'bloc/detail_bloc.dart';
@@ -40,10 +41,14 @@ class DetailScreen extends StatelessWidget {
                         children: [
                           ...productWidgets.prices(),
                           ...productWidgets.description(),
-                          ...productWidgets.description(),
-                          ...productWidgets.weight(),
-                          const SizedBox(height: 16),
-                          productWidgets.share(context),
+                          // ...productWidgets.weight(),
+                          // const SizedBox(height: 16),
+                          // productWidgets.share(context),
+                          if (state.product.video.length >
+                              Env.value.baseUrl.length) ...[
+                            const SizedBox(height: 16),
+                            productWidgets.video(context),
+                          ],
                           const SizedBox(height: 16),
                           productWidgets.like(context),
                         ],

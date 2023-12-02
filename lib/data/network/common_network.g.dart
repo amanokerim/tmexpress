@@ -23,7 +23,7 @@ class _CommonNetwork implements CommonNetwork {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<CategoryResponse>>(Options(
       method: 'GET',
@@ -32,11 +32,15 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/categoryList/',
+              '/api/products/categoryList/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map(
             (dynamic i) => CategoryResponse.fromJson(i as Map<String, dynamic>))
@@ -49,7 +53,7 @@ class _CommonNetwork implements CommonNetwork {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<BannerResponse>>(Options(
       method: 'GET',
@@ -58,11 +62,15 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/bannerList/',
+              '/api/products/bannerList/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => BannerResponse.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -74,7 +82,7 @@ class _CommonNetwork implements CommonNetwork {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<TagResponse>>(Options(
       method: 'GET',
@@ -83,11 +91,15 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/tagsList/',
+              '/api/products/tagsList/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => TagResponse.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -96,12 +108,12 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> fetchSubcategoryProducts(
-    id,
-    offset,
-    limit,
-    orderBy, {
-    isDiscounted,
-    sizes,
+    int id,
+    String? offset,
+    int limit,
+    String orderBy, {
+    int? isDiscounted,
+    String? sizes,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -113,7 +125,7 @@ class _CommonNetwork implements CommonNetwork {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PaginationResponse<ProductMiniResponse>>(Options(
       method: 'GET',
@@ -122,11 +134,15 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/subCategoryProducts/${id}/',
+              '/api/products/subCategoryProducts/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = PaginationResponse<ProductMiniResponse>.fromJson(
       _result.data!,
       (json) => ProductMiniResponse.fromJson(json as Map<String, dynamic>),
@@ -136,9 +152,9 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> searchProducts(
-    query,
-    offset,
-    limit,
+    String query,
+    String? offset,
+    int limit,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -147,7 +163,7 @@ class _CommonNetwork implements CommonNetwork {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PaginationResponse<ProductMiniResponse>>(Options(
       method: 'GET',
@@ -156,11 +172,15 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/productsSearchView/${query}/',
+              '/api/products/productsSearchView/${query}/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = PaginationResponse<ProductMiniResponse>.fromJson(
       _result.data!,
       (json) => ProductMiniResponse.fromJson(json as Map<String, dynamic>),
@@ -170,10 +190,10 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> fetchTagProducts(
-    id,
-    offset,
-    limit,
-    orderBy,
+    int id,
+    String? offset,
+    int limit,
+    String orderBy,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -183,7 +203,7 @@ class _CommonNetwork implements CommonNetwork {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PaginationResponse<ProductMiniResponse>>(Options(
       method: 'GET',
@@ -192,11 +212,55 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/tagProudcts/${id}/',
+              '/api/products/tagProudcts/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PaginationResponse<ProductMiniResponse>.fromJson(
+      _result.data!,
+      (json) => ProductMiniResponse.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
+  Future<PaginationResponse<ProductMiniResponse>> fetchCategoryProducts(
+    int id,
+    String? offset,
+    int limit,
+    String orderBy,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit,
+      r'orderBy': orderBy,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginationResponse<ProductMiniResponse>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/products/categoryProducts/${id}/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = PaginationResponse<ProductMiniResponse>.fromJson(
       _result.data!,
       (json) => ProductMiniResponse.fromJson(json as Map<String, dynamic>),
@@ -206,8 +270,8 @@ class _CommonNetwork implements CommonNetwork {
 
   @override
   Future<PaginationResponse<ProductMiniResponse>> fetchHotProducts(
-    offset,
-    limit,
+    String? offset,
+    int limit,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -216,7 +280,7 @@ class _CommonNetwork implements CommonNetwork {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PaginationResponse<ProductMiniResponse>>(Options(
       method: 'GET',
@@ -225,11 +289,15 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/productsOrderByHotList/',
+              '/api/products/productsOrderByHotList/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = PaginationResponse<ProductMiniResponse>.fromJson(
       _result.data!,
       (json) => ProductMiniResponse.fromJson(json as Map<String, dynamic>),
@@ -238,11 +306,11 @@ class _CommonNetwork implements CommonNetwork {
   }
 
   @override
-  Future<ProductResponse> fetchProduct(id) async {
+  Future<ProductResponse> fetchProduct(int id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<ProductResponse>(Options(
       method: 'GET',
@@ -251,20 +319,24 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/singleProduct/${id}/',
+              '/api/products/singleProduct/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ProductResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
   Future<TokenResponse> auth(
-    phone,
-    code,
-    userId,
+    String phone,
+    int code,
+    String? userId,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'userId': userId};
@@ -282,21 +354,25 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/auth/login/',
+              '/api/auth/login/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = TokenResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<SubcategoryResponse> fetchSubcategorySizes(id) async {
+  Future<SubcategoryResponse> fetchSubcategorySizes(int id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<SubcategoryResponse>(Options(
       method: 'GET',
@@ -305,12 +381,47 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              'api/products/subCategorySizes/${id}/',
+              '/api/products/subCategorySizes/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = SubcategoryResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<PaginationResponse<ShippingOptionResponse>> fetchShippingOptions(
+      int limit) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'limit': limit};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginationResponse<ShippingOptionResponse>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api//order/shipping-options/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PaginationResponse<ShippingOptionResponse>.fromJson(
+      _result.data!,
+      (json) => ShippingOptionResponse.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
@@ -325,5 +436,22 @@ class _CommonNetwork implements CommonNetwork {
       }
     }
     return requestOptions;
+  }
+
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }

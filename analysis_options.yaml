@@ -19,7 +19,6 @@ linter:
     prefer_single_quotes: true 
     overridden_fields: false
     annotate_overrides: false
-    strict_raw_type: false
     use_build_context_synchronously: false
     depend_on_referenced_packages: false
     library_private_types_in_public_api: false
@@ -27,8 +26,6 @@ linter:
     # always_put_control_body_on_new_line: true
     always_put_required_named_parameters_first: true # not crucial and we do it all around
     always_require_non_null_named_parameters: true
-    inference_failure_on_instance_creation: false
-    # always_specify_types: true # we use type inference
     avoid_bool_literals_in_conditional_expressions: true
     # avoid_annotating_with_dynamic: true # we want to be explicit with dynamic
     # avoid_as: true
@@ -85,13 +82,11 @@ linter:
     hash_and_equals: true
     implementation_imports: true
     invariant_booleans: true
-    iterable_contains_unrelated_type: true
     join_return_with_assignment: true
     leading_newlines_in_multiline_strings: true
     library_names: true
     library_prefixes: true
     lines_longer_than_80_chars: true # we use it when temporarily adding strings before translations
-    list_remove_unrelated_type: true
     literal_only_boolean_expressions: true
     missing_whitespace_between_adjacent_strings: true
     no_adjacent_strings_in_list: true
@@ -185,7 +180,6 @@ linter:
     use_to_and_as_if_applicable: true
     valid_regexps: true
     void_checks: true
-    inference_failure_on_function_return_type: false
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

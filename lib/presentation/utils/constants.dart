@@ -1,4 +1,4 @@
-const kPackage = 'com.zehinz.tmexpress';
+const kPackage = 'com.yakynyol.app';
 
 const kAnimationDuration = Duration(milliseconds: 500);
 const kToastDuration = Duration(seconds: 3);
@@ -9,8 +9,8 @@ const kResendSeconds = 60;
 // Count of items in one page
 const kLimit = 15;
 
-const kAppName = 'TmExpress';
-const kVerificationPhone = '+99364921507';
+const kAppName = 'Ýakyn Ýol';
+const kVerificationPhone = '+99362820073';
 
 const kReferralUserPercent = 5;
 const kReferralProductPercent = 3;

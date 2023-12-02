@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_theme.dart';
-import '../../../widgets/app_progress_indicator.dart';
 import '../bloc/detail_bloc.dart';
 import '../detail_screen.dart';
+import 'photo_view_page.dart';
 import 'product_widgets.dart';
 
 class SliverImageDelegate extends SliverPersistentHeaderDelegate {
@@ -22,12 +22,20 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
       child: Stack(
         children: [
           Positioned.fill(
-            child: CachedNetworkImage(
-              imageUrl: image.url,
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.topCenter,
-              placeholder: (_, __) => _placeholder,
-              errorWidget: (_, __, ___) => _noImage,
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => PhotoViewPage(
+                      image: image.url, title: state.product.title),
+                ),
+              ),
+              child: CachedNetworkImage(
+                imageUrl: image.url,
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.topCenter,
+                placeholder: (_, __) => _noImage,
+                errorWidget: (_, __, ___) => _noImage,
+              ),
             ),
           ),
           Positioned(
@@ -84,12 +92,11 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
         ],
       );
 
-  Widget get _placeholder => Container(
-        color: AppColors.bg2,
-        child: const Opacity(opacity: .3, child: AppProgressIndicator()),
-      );
-
   Widget get _noImage => Container(
-      color: AppColors.bg2,
-      child: Icon(Icons.image_outlined, color: AppColors.lGrey, size: 100));
+        color: AppColors.bg2,
+        child: Image.asset(
+          'assets/illustrations/logo-grey.jpeg',
+          fit: BoxFit.cover,
+        ),
+      );
 }

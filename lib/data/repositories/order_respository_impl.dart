@@ -1,23 +1,35 @@
 import 'package:dartz/dartz.dart' hide Order;
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:injectable/injectable.dart';
+import 'package:injectable/injectable.dart' hide Order;
 
 import '../../domain/entities/order/order.dart';
 import '../../domain/entities/order/placed_order.dart';
+import '../../domain/entities/order/shipping_option.dart';
+import '../../domain/entities/product/pagination.dart';
 import '../../domain/errors/app_error.dart';
 import '../../domain/repositories/order_repository.dart';
 import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../mappers/response_mappers/placed_order_response_mapper.dart';
+import '../mappers/response_mappers/shipping_option_pagination_response_mapper.dart';
 import '../network/auth_network.dart';
+import '../network/common_network.dart';
 
 @LazySingleton(as: OrderRepository)
 class OrderRepositoryImpl implements OrderRepository {
   OrderRepositoryImpl(
-      this._exception, this._authNetwork, this._placedOrderResponseMapper);
+      this._exception,
+      this._authNetwork,
+      this._placedOrderResponseMapper,
+      this._commonNetwork,
+      this._shippingOptionPaginationResponseMapper);
 
   final ExceptionHandler _exception;
   final AuthNetwork _authNetwork;
+  final CommonNetwork _commonNetwork;
+  final ShippingOptionPaginationResponseMapper
+      _shippingOptionPaginationResponseMapper;
+
   final PlacedOrderResponseMapper _placedOrderResponseMapper;
 
   @override
@@ -57,5 +69,12 @@ class OrderRepositoryImpl implements OrderRepository {
       () =>
           _authNetwork.getPlacedOrder(id).then(_placedOrderResponseMapper.map),
     );
+  }
+
+  @override
+  Future<Either<AppError, Pagination<ShippingOption>>> getShippingOptions() {
+    return _exception.handle(() => _commonNetwork
+        .fetchShippingOptions(kLimit)
+        .then(_shippingOptionPaginationResponseMapper.map));
   }
 }

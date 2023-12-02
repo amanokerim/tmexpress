@@ -16,8 +16,8 @@ class PlacedOrderBloc extends Bloc<PlacedOrderEvent, PlacedOrderState> {
       emit(PlacedOrderLoad());
       final r = await _getPlacedOrderUseCase(event.id);
       emit(r.fold(
-        (error) => PlacedOrderError(error),
-        (order) => PlacedOrderSuccess(order),
+        PlacedOrderError.new,
+        PlacedOrderSuccess.new,
       ));
     });
   }

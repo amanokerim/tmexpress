@@ -8,14 +8,13 @@ class Product extends Equatable {
     required this.id,
     required this.title,
     required this.description,
+    required this.video,
     required this.weight,
     required this.ourRating,
     required this.discount,
     required this.productImages,
     required this.size,
-    required this.expressPrice,
     required this.normalPrice,
-    required this.expressPriceW,
     required this.normalPriceW,
     required this.wholesaleLimit,
     required this.isLiked,
@@ -24,22 +23,19 @@ class Product extends Equatable {
   final int id;
   final String title;
   final String description;
+  final String video;
   final double weight;
   final double ourRating;
   final double discount;
   final List<Image> productImages;
   final List<Size> size;
-  final double expressPrice;
   final double normalPrice;
-  final double expressPriceW;
   final double normalPriceW;
   final int wholesaleLimit;
   final bool isLiked;
 
   double normalPriceByCount(int count) =>
       count >= wholesaleLimit ? normalPriceW : normalPrice;
-  double expressPriceByCount(int count) =>
-      count >= wholesaleLimit ? expressPriceW : expressPrice;
 
   @override
   List<Object?> get props => [id, isLiked];
@@ -64,14 +60,13 @@ class Product extends Equatable {
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
+      video: video,
       weight: weight ?? this.weight,
       ourRating: ourRating ?? this.ourRating,
       discount: discount ?? this.discount,
       productImages: productImages ?? this.productImages,
       size: size ?? this.size,
-      expressPrice: expressPrice ?? this.expressPrice,
       normalPrice: normalPrice ?? this.normalPrice,
-      expressPriceW: expressPriceW ?? this.expressPriceW,
       normalPriceW: normalPriceW ?? this.normalPriceW,
       wholesaleLimit: wholesaleLimit ?? this.wholesaleLimit,
       isLiked: isLiked ?? this.isLiked,

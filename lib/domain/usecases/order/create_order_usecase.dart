@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart' hide Order;
-import 'package:injectable/injectable.dart';
+import 'package:injectable/injectable.dart' hide Order;
 
 import '../../entities/order/order.dart';
 import '../../errors/app_error.dart';

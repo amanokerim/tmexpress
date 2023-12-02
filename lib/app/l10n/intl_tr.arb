@@ -33,15 +33,17 @@
 
   "cancel": "Togtatmak",
   "all": "Ählisi",
+  "all2": "Ähli",
   "noProducts": "Bu ýerde häzirlikçe haryt ýok (",
 
   "productColors": "Reňkler",
   "productSizes": "Ölçegler",
   "productPrice": "Bahasy",
+  "retailPrice": "Bölek bahasy",
   "productPriceNormal": "Adaty (45 gün)",
   "productPriceExpress": "Express (15 gün)",
   "productPriceWholesale": "Lomaý baha",
-  "productWholesaleDesc": "{count}+ alynanda",
+  "productWholesaleDesc": "{count}+",
   "productWeight": "Agramy",
   "addToCart": "Sebede goşmak",
   "selectColor": "Reňk saýlaň",
@@ -64,10 +66,6 @@
   "waitingVerificationText": "Siziň telefon belgiňiz tassyklanýar. 1-2 minut garaşmagyňyzy haýyş edýäris)",
   "canNotVerify": "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň",
 
-  "normal": "Adaty",
-  "express": "Express",
-  "normalSubtitle": "45 günde gowuşýar",
-  "expressSubtitle": "15 günde gowuşýar",
   "continueButton": "Dowam etmek",
   "makeOrder": "Sargyt etmek",
   "total": "Jemi",
@@ -136,6 +134,7 @@
   "confirmSignOutContent": "Islendik wagt telefon belgiňiz arkaly ýene-de girip bilersiňiz.",
   
   "signInForMakeOrder": "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.",
+  "signInToAddToFavorites": "Halanlaryňyza goşmak üçin hasap dörediň ýa-da hasabyňyza giriň.",
   "youCantReceiveNotifications": "Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)",
 
   "start": "Başla",
@@ -149,5 +148,8 @@
 
 
   "searchHint": "Gözleýän harydyňyzy ýazyň...",
-  "description": "Beýany"
+  "description": "Beýany",
+  "shareContent": "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Ýakyn Ýol\" programmasyny ýükläp alyp bilersiňiz!",
+  "selectShippingOption": "Eltip bermek usulyny saýlaň",
+  "watchVideo": "Wideo görmek"
 }

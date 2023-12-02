@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 class AppImage extends StatelessWidget {
-  const AppImage(this.url,
-      {this.height,
-      this.width,
-      this.color,
-      this.borderRadius,
-      Key? key,
-      this.placeholderHeight})
-      : super(key: key);
+  const AppImage(
+    this.url, {
+    this.height,
+    this.width,
+    this.color,
+    this.borderRadius,
+    Key? key,
+    this.placeholderHeight,
+  }) : super(key: key);
   final String url;
   final double? height;
   final double? placeholderHeight;
@@ -20,6 +21,7 @@ class AppImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(url);
     return ClipRRect(
       borderRadius: borderRadius ?? BorderRadius.circular(16),
       child: CachedNetworkImage(
@@ -39,10 +41,6 @@ class AppImage extends StatelessWidget {
         height: placeholderHeight,
         width: double.infinity,
         color: AppColors.bg2,
-        child: Icon(
-          Icons.photo,
-          color: AppColors.lGrey,
-          size: placeholderHeight != null ? placeholderHeight! / 3 : 30,
-        ),
+        child: Image.asset('assets/illustrations/logo-grey.jpeg'),
       );
 }

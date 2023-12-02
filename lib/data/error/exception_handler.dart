@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../app/env/env.dart';
 import '../../app/generated/l10n.dart';
 import '../../domain/errors/app_error.dart';
 import '../../domain/errors/app_error_type.dart';
@@ -27,7 +27,7 @@ class ExceptionHandler {
   }
 
   void _log(Object e, StackTrace s) {
-    if (Env.value.writeLogs) {
+    if (kDebugMode) {
       print('=== Exception (Object) ===');
       print(e);
       print(s);

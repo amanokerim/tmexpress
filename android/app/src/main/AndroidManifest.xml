@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zehinz.tmexpress">
+    package="com.yakynyol.app">
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
    <application
-        android:label="TmExpress"
+        android:label="Ýakyn Ýol"
         android:name="${applicationName}"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

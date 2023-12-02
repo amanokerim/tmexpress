@@ -7,14 +7,12 @@ import '../../../widgets/app_image.dart';
 import 'cart_item_count.w.dart';
 
 class CartItemCard extends StatelessWidget {
-  const CartItemCard(this.cartItem, {required this.isExpress, Key? key})
-      : super(key: key);
+  const CartItemCard(this.cartItem, {Key? key}) : super(key: key);
   final CartItem cartItem;
-  final bool isExpress;
 
   @override
   Widget build(BuildContext context) {
-    final price = isExpress ? cartItem.expressPrice : cartItem.price;
+    final price = cartItem.price;
     return Stack(
       children: [
         Row(

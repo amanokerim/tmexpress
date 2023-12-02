@@ -11,7 +11,8 @@ class ProductSizes extends StatelessWidget {
   final DetailLoadSuccess state;
 
   List<Widget> widgets(BuildContext context) {
-    final sizes = state.product.size;
+    final sizes = state.product.size
+      ..sort((a, b) => a.title.compareTo(b.title));
     return [
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 10 - 6),

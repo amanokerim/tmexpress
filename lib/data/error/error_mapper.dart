@@ -15,13 +15,12 @@ class ErrorMapper {
 
     if (exception is TimeoutException) {
       return timeoutError;
-    } else if (exception is DioError) {
+    } else if (exception is DioException) {
       switch (exception.type) {
-        case DioErrorType.sendTimeout:
-        case DioErrorType.connectTimeout:
-        case DioErrorType.receiveTimeout:
+        case DioExceptionType.sendTimeout:
+        case DioExceptionType.receiveTimeout:
           return timeoutError;
-        case DioErrorType.response:
+        case DioExceptionType.badResponse:
           switch (exception.response?.statusCode) {
             case 400:
               return AppError(AppErrorType.somethingWentWrong,
@@ -45,8 +44,7 @@ class ErrorMapper {
               return AppError(AppErrorType.badGateway, S.current.serverError);
           }
           break;
-        case DioErrorType.other:
-        case DioErrorType.cancel:
+        default:
           return AppError(AppErrorType.connectionError, S.current.loadError);
       }
     }

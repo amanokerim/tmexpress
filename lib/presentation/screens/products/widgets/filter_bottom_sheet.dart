@@ -36,24 +36,26 @@ class FilterBottomSheet extends StatelessWidget {
                         .read<FilterBloc>()
                         .add(FilterDiscountedToggled()),
                   ),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(S.current.sizes, style: AppTextStyle.bold16),
-                      TextButton(
-                          onPressed: () => context
-                              .read<FilterBloc>()
-                              .add(FilterAllSizesSelected()),
-                          child: Text(S.current.selectAll))
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Wrap(
-                    children: state.sizes
-                        .map((size) => _toSizeCard(context, size))
-                        .toList(),
-                  ),
+                  if (state.sizes.isNotEmpty) ...[
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(S.current.sizes, style: AppTextStyle.bold16),
+                        TextButton(
+                            onPressed: () => context
+                                .read<FilterBloc>()
+                                .add(FilterAllSizesSelected()),
+                            child: Text(S.current.selectAll))
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Wrap(
+                      children: state.sizes
+                          .map((size) => _toSizeCard(context, size))
+                          .toList(),
+                    ),
+                  ],
                 ],
               ),
             ),

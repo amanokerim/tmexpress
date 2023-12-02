@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
+import '../../../theme/app_theme.dart';
 import '../search/bloc/search_bloc.dart';
 import '../search/search_page.dart';
 
@@ -34,14 +34,27 @@ class _SearchTextFieldState extends State<SearchTextField> {
 
   @override
   Widget build(BuildContext context) {
+    final border = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(16),
+      borderSide:
+          const BorderSide(color: Color.fromARGB(255, 7, 32, 200), width: 1),
+    );
     return TextField(
       controller: _controller,
       decoration: InputDecoration(
         hintText: S.current.searchHint,
         fillColor: Colors.transparent,
+        enabledBorder: border,
+        border: border,
+        focusedBorder: border,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
         suffixIcon: IconButton(
           onPressed: _onPressed,
-          icon: const Icon(CupertinoIcons.search, size: 22),
+          icon: Image.asset(
+            'assets/icons/search.png',
+            width: 20,
+            color: AppColors.grey,
+          ),
         ),
       ),
       onEditingComplete: _onPressed,

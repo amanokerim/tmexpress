@@ -18,14 +18,14 @@ final appTheme = ThemeData(
     floatingLabelBehavior: FloatingLabelBehavior.never,
   ),
   textTheme: TextTheme(
-    bodyText1: AppTextStyle.dark18,
-    bodyText2: AppTextStyle.dark16,
-    headline1: AppTextStyle.bold32,
-    headline2: AppTextStyle.bold26,
-    headline3: AppTextStyle.bold24,
-    headline4: AppTextStyle.bold20,
-    headline5: AppTextStyle.bold18,
-    headline6: AppTextStyle.bold16,
+    bodyLarge: AppTextStyle.dark18,
+    bodyMedium: AppTextStyle.dark16,
+    displayLarge: AppTextStyle.bold32,
+    displayMedium: AppTextStyle.bold26,
+    displaySmall: AppTextStyle.bold24,
+    headlineMedium: AppTextStyle.bold20,
+    headlineSmall: AppTextStyle.bold18,
+    titleLarge: AppTextStyle.bold16,
   ),
   bottomSheetTheme: BottomSheetThemeData(
     backgroundColor: AppColors.bg,
@@ -73,6 +73,8 @@ abstract class AppTextStyle {
   static TextStyle get grey12 => grey20.copyWith(fontSize: 12);
 
   static TextStyle get white16 => dark16.copyWith(color: AppColors.white);
+  static TextStyle get white10w700 =>
+      dark10.copyWith(color: AppColors.white, fontWeight: FontWeight.w700);
   static TextStyle get black20 => bold20.copyWith(fontWeight: FontWeight.w700);
   static TextStyle get black16 => bold16.copyWith(fontWeight: FontWeight.w700);
 

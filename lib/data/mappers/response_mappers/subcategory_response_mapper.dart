@@ -11,7 +11,9 @@ class SubcategoryResponseMapper
   @override
   Subcategory map(SubcategoryResponse? entity) => Subcategory(
         id: entity?.id ?? 0,
-        title: entity?.title ?? '',
+        title: (entity?.title ?? '').isNotEmpty
+            ? entity!.title!.split(' > ').last
+            : '',
         subCategoryImage: '${Env.value.baseUrl}${entity?.subCategoryImage}',
       );
 }

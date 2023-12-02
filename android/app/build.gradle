@@ -25,7 +25,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
-ext.APK_NAME = 'tmexpress'
+ext.APK_NAME = 'yakynyol'
 
 def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
@@ -51,9 +51,9 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.zehinz.tmexpress"
+        applicationId "com.yakynyol.app"
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true

@@ -1,14 +1,14 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:share_plus/share_plus.dart';
 
+import '../../../../app/generated/l10n.dart';
 import '../../../../data/local/data_keys.dart';
 import '../../../../domain/entities/profile.dart';
 import '../../../../domain/usecases/preferences/get_string_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/set_preference_usecase.dart';
 import '../../../../domain/usecases/profile/fetch_profile_usecase.dart';
-import '../../../utils/constants.dart';
-import '../../../utils/deeplinker.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';
@@ -49,9 +49,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
     on<ProfileShareRequested>((event, emit) async {
       emit(ProfileLoadSuccess(profile!, profileLoad: ProfileLoad.share));
-      final qs = profile?.id != null ? '?referral=${profile!.id}' : '';
-      final link = '$kDynamicLinkPrefix/register$qs';
-      await DeepLinker.shareShortLink(link);
+      // final qs = profile?.id != null ? '?referral=${profile!.id}' : '';
+      // final link = '$kDynamicLinkPrefix/register$qs';
+      // await DeepLinker.shareShortLink(link);
+      await Share.share(S.current.shareContent);
       emit(ProfileLoadSuccess(profile!));
     });
   }
