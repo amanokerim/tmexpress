@@ -28,7 +28,7 @@ const kProductReferralUserId = 'productReferral';
 const kProductReferralDate = 'productReferralDate';
 
 // Dynamic Link types
-const kDynamicLinkPrefix = 'https://tmexpress.page.link';
+// const kDynamicLinkPrefix = 'https://tmexpress.page.link';
 const kDynamicLinkRegister = '/register';
 const kDynamicLinkProduct = '/product';
 

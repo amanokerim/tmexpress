@@ -35,7 +35,7 @@ class StartShowNewVersionFlash extends StartState {
   List<Object> get props => [newVersion];
 }
 
-class StartSetUpFCMListener extends StartState {
-  const StartSetUpFCMListener(this.fcmStream);
-  final Stream<FCMNotification> fcmStream;
-}
+// class StartSetUpFCMListener extends StartState {
+//   const StartSetUpFCMListener(this.fcmStream);
+//   final Stream<FCMNotification> fcmStream;
+// }

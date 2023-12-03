@@ -1,13 +1,12 @@
 import 'dart:async';
 
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart' as pp;
 
 import '../../data/local/hive_boxes.dart';
-import '../../firebase_options.dart';
 import '../../main.dart';
 import '../injection/injection.dart';
 
@@ -21,7 +20,7 @@ class Env {
   bool showAlice = false;
   bool writeLogs = false;
   EnvType envType = EnvType.unknown;
-  PendingDynamicLinkData? dynamicLinkData;
+  // PendingDynamicLinkData? dynamicLinkData;
   String cacheDir = '';
 
   Future<dynamic> init() async {
@@ -39,7 +38,7 @@ class Env {
           statusBarBrightness: Brightness.light),
     );
     print('setPreferredOrientations');
-    await _initFirebase();
+    // await _initFirebase();
     print('_initFirebase()');
     await HiveBoxes.init();
     print('await HiveBoxes.init()');
@@ -58,10 +57,10 @@ class Env {
     // );
   }
 
-  Future<void> _initFirebase() async {
-    await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform);
-  }
+  // Future<void> _initFirebase() async {
+  //   await Firebase.initializeApp(
+  //       options: DefaultFirebaseOptions.currentPlatform);
+  // }
 
   void _preCache() {
     // final svgList = [

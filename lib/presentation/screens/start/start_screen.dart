@@ -9,8 +9,6 @@ import '../../../app/generated/l10n.dart';
 import '../../../app/injection/injection.dart';
 import '../../utils/app_flash.dart';
 import '../../utils/constants.dart';
-import '../../utils/deeplinker.dart';
-import '../../utils/fcm_handler.dart';
 import '../../widgets/app_progress_indicator.dart';
 import '../main/bloc/main_bloc.dart';
 import '../main/main_screen.dart';
@@ -27,17 +25,17 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
-  final _fcmHandler = FCMHandler();
+  // final _fcmHandler = FCMHandler();
 
   @override
   void initState() {
     super.initState();
-    DeepLinker.init(context);
+    // DeepLinker.init(context);
   }
 
   @override
   void dispose() {
-    _fcmHandler.dispose();
+    // _fcmHandler.dispose();
     super.dispose();
   }
 
@@ -47,9 +45,9 @@ class _StartScreenState extends State<StartScreen> {
       onWillPop: () => _onWillPop(context),
       child: BlocConsumer<StartBloc, StartState>(
         listener: (_, state) {
-          if (state is StartSetUpFCMListener) {
-            _fcmHandler.init(context, state.fcmStream);
-          }
+          // if (state is StartSetUpFCMListener) {
+          //   _fcmHandler.init(context, state.fcmStream);
+          // }
         },
         builder: (_, state) => GestureDetector(
           onLongPress: () {

@@ -10,19 +10,18 @@ import '../../../../domain/entities/product/size.dart';
 import '../../../../domain/entities/saved_product.dart';
 import '../../../../domain/usecases/products/fetch_product_usecase.dart';
 import '../../../../domain/usecases/products/like_product_usecase.dart';
-import '../../../../domain/usecases/products/share_product_usecase.dart';
-import '../../../utils/constants.dart';
-import '../../../utils/deeplinker.dart';
-import '../../profile/bloc/profile_bloc.dart';
 
 part 'detail_event.dart';
 part 'detail_state.dart';
 
 @injectable
 class DetailBloc extends Bloc<DetailEvent, DetailState> {
-  DetailBloc(this._fetchProductUseCase, this._likeProductUseCase,
-      this._shareProductUseCase, this._profileBloc)
-      : super(DetailLoadInProgress()) {
+  DetailBloc(
+    this._fetchProductUseCase,
+    this._likeProductUseCase,
+    // this._shareProductUseCase,
+    // this._profileBloc,
+  ) : super(DetailLoadInProgress()) {
     on<DetailRequested>((event, emit) async {
       emit(DetailLoadInProgress());
       final result = await _fetchProductUseCase(event.id);
@@ -65,15 +64,15 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
       }
     });
 
-    on<DetailProductShared>((event, emit) async {
-      emit(success(detailLoad: DetailLoad.share));
-      final id = _profileBloc.profile?.id;
-      final qs = id != null ? '?referral=$id' : '';
-      final link = '$kDynamicLinkPrefix/product/${product.id}$qs';
-      await DeepLinker.shareShortLink(link);
-      await _shareProductUseCase(product.id);
-      emit(success());
-    });
+    // on<DetailProductShared>((event, emit) async {
+    //   emit(success(detailLoad: DetailLoad.share));
+    //   final id = _profileBloc.profile?.id;
+    //   final qs = id != null ? '?referral=$id' : '';
+    //   // final link = '$kDynamicLinkPrefix/product/${product.id}$qs';
+    //   // await DeepLinker.shareShortLink(link);
+    //   await _shareProductUseCase(product.id);
+    //   emit(success());
+    // });
   }
 
   DetailLoadSuccess success({
@@ -88,8 +87,8 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
 
   final FetchProductUseCase _fetchProductUseCase;
   final LikeProductUseCase _likeProductUseCase;
-  final ShareProductUseCase _shareProductUseCase;
-  final ProfileBloc _profileBloc;
+  // final ShareProductUseCase _shareProductUseCase;
+  // final ProfileBloc _profileBloc;
 
   late Product product;
   Size? selectedSize;

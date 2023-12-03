@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../data/local/data_keys.dart';
-import '../../../../domain/entities/fcm_notification.dart';
-import '../../../../domain/usecases/get_fcm_stream_usecase.dart';
 import '../../../../domain/usecases/preferences/get_bool_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/get_string_preference_usecase.dart';
 import '../../../../domain/usecases/preferences/set_preference_usecase.dart';
@@ -18,7 +16,7 @@ class StartBloc extends Bloc<StartEvent, StartState> {
     this._getBoolPreferenceUseCase,
     this._getStringPreferenceUseCase,
     this._setPreferenceUseCase,
-    this._getFCMStreamUseCase,
+    // this._getFCMStreamUseCase,
   ) : super(StartInitial()) {
     on<StartInitialized>((event, emit) async {
       final firstOpen = _getBoolPreferenceUseCase(pFirstOpen);
@@ -27,7 +25,7 @@ class StartBloc extends Bloc<StartEvent, StartState> {
         emit(StartShowOnboarding());
         return;
       }
-      emit(StartSetUpFCMListener(_getFCMStreamUseCase()));
+      // emit(StartSetUpFCMListener(_getFCMStreamUseCase()));
       emit(const StartShowHome(tab: 0));
     });
 
@@ -51,5 +49,5 @@ class StartBloc extends Bloc<StartEvent, StartState> {
   final GetBoolPreferenceUseCase _getBoolPreferenceUseCase;
   final GetStringPreferenceUseCase _getStringPreferenceUseCase;
   final SetPreferenceUseCase _setPreferenceUseCase;
-  final GetFCMStreamUseCase _getFCMStreamUseCase;
+  // final GetFCMStreamUseCase _getFCMStreamUseCase;
 }
