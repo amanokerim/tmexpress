@@ -13,22 +13,38 @@ class SizeW extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final title =
+        size.title.contains('=') ? size.title.split('=').first : size.title;
+    final subtitle = size.title.contains('=') ? size.title.split('=').last : '';
     return InkWell(
       borderRadius: BorderRadius.circular(12),
       onTap: onPressed,
       child: Container(
         margin: const EdgeInsets.all(6),
-        padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+        padding: const EdgeInsets.symmetric(horizontal: 14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
               color: selected ? AppColors.dark : AppColors.lGrey, width: .5),
         ),
-        child: Text(
-          size.title,
-          style: AppTextStyle.bold14.copyWith(
-            color: selected ? AppColors.dark : AppColors.grey,
-          ),
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              title,
+              style: AppTextStyle.black16.copyWith(
+                color: selected ? AppColors.dark : AppColors.grey,
+              ),
+            ),
+            if (subtitle.isNotEmpty)
+              Text(
+                subtitle,
+                style: AppTextStyle.dark12.copyWith(
+                  color: selected ? AppColors.dark : AppColors.grey,
+                ),
+              ),
+          ],
         ),
       ),
     );

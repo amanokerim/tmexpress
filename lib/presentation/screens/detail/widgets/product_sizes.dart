@@ -19,7 +19,7 @@ class ProductSizes extends StatelessWidget {
         child: Text(S.current.productSizes, style: AppTextStyle.bold16),
       ),
       SizedBox(
-        height: 48,
+        height: 60,
         child: ListView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 14),
           physics: const BouncingScrollPhysics(),
