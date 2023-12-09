@@ -20,19 +20,21 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 7 / 4,
+      aspectRatio: 8 / 4,
       child: Stack(
         children: [
-          CarouselSlider(
-            items: widget.banners.map(_buildBanner).toList(),
-            options: CarouselOptions(
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 5),
-              autoPlayAnimationDuration: const Duration(milliseconds: 500),
-              viewportFraction: .92,
-              enlargeCenterPage: true,
-              autoPlayCurve: Curves.easeInQuad,
-              onPageChanged: (index, _) => setState(() => _index = index),
+          Positioned.fill(
+            child: CarouselSlider(
+              items: widget.banners.map(_buildBanner).toList(),
+              options: CarouselOptions(
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 5),
+                autoPlayAnimationDuration: const Duration(milliseconds: 500),
+                viewportFraction: 1,
+                enlargeCenterPage: true,
+                autoPlayCurve: Curves.easeInQuad,
+                onPageChanged: (index, _) => setState(() => _index = index),
+              ),
             ),
           ),
           Positioned(
@@ -65,15 +67,12 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
   Widget _buildBanner(Banner banner) => GestureDetector(
         onTap: () => NavigationHelper.navigateToPTS(
             context, banner.type.name, banner.entityId),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(16),
-          child: CachedNetworkImage(
-            width: double.infinity,
-            imageUrl: banner.image,
-            fit: BoxFit.cover,
-            errorWidget: (_, image, __) =>
-                Icon(Icons.image, color: AppColors.grey, size: 120),
-          ),
+        child: CachedNetworkImage(
+          width: double.infinity,
+          imageUrl: banner.image,
+          fit: BoxFit.cover,
+          errorWidget: (_, image, __) =>
+              Icon(Icons.image, color: AppColors.grey, size: 120),
         ),
       );
 }
