@@ -372,7 +372,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = W8S728K5AY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ýakyn Ýol";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yakynyol";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,7 +512,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = W8S728K5AY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ýakyn Ýol";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yakynyol";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -546,7 +546,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = W8S728K5AY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ýakyn Ýol";
+				INFOPLIST_KEY_CFBundleDisplayName = "Yakynyol";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

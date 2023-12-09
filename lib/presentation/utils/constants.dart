@@ -9,7 +9,7 @@ const kResendSeconds = 60;
 // Count of items in one page
 const kLimit = 15;
 
-const kAppName = 'Ýakyn Ýol';
+const kAppName = 'Yakynyol';
 const kVerificationPhone = '+99362820073';
 
 const kReferralUserPercent = 5;

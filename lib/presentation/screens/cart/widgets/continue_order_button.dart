@@ -94,6 +94,7 @@ class ContinueOrderButton extends StatelessWidget {
                   const SizedBox(height: 16),
                   BlocBuilder<CartBloc, CartState>(
                     builder: (context, state) => AppButton(
+                      type: ButtonType.green,
                       label: S.current.makeOrder,
                       iconFile: 'basket.png',
                       isLoading: state.st == CartSt.loading,

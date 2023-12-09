@@ -41,8 +41,8 @@ class _StartScreenState extends State<StartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => _onWillPop(context),
+    return PopScope(
+      onPopInvoked: (_) => _onWillPop(context),
       child: BlocConsumer<StartBloc, StartState>(
         listener: (_, state) {
           // if (state is StartSetUpFCMListener) {
