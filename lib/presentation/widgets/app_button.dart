@@ -12,6 +12,7 @@ class AppButton extends ElevatedButton {
     ButtonType type = ButtonType.red,
     String? iconFile,
     bool isLoading = false,
+    bool isMini = false,
     Widget? child,
   }) : super(
           style: ElevatedButton.styleFrom(
@@ -22,7 +23,7 @@ class AppButton extends ElevatedButton {
             shadowColor: Colors.black38,
             foregroundColor: AppColors.grey,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(isMini ? 12 : 20),
               side: type == ButtonType.outline
                   ? BorderSide(
                       color: AppColors.textSec,
@@ -34,7 +35,8 @@ class AppButton extends ElevatedButton {
           onPressed: isLoading ? null : onPressed,
           child: child ??
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 16, 0, 14),
+                padding:
+                    EdgeInsets.fromLTRB(0, isMini ? 8 : 16, 0, isMini ? 6 : 14),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,

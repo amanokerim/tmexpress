@@ -44,7 +44,7 @@ class ProductPagedGridView extends StatelessWidget {
       showNewPageErrorIndicatorAsGridChild: false,
       showNoMoreItemsIndicatorAsGridChild: false,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: .7,
+        childAspectRatio: .6,
         crossAxisCount: 2,
         mainAxisSpacing: 8,
         crossAxisSpacing: 8,

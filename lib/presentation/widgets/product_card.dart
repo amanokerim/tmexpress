@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../app/generated/l10n.dart';
 import '../../domain/entities/product/product_mini.dart';
+import '../screens/cart/bloc/cart_bloc.dart';
 import '../screens/detail/detail_page.dart';
 import '../theme/app_theme.dart';
+import 'app_button.dart';
 import 'app_image.dart';
 
 class ProductCard extends StatelessWidget {
@@ -13,7 +17,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: .8,
+      aspectRatio: .5,
       child: GestureDetector(
         onTap: () => Navigator.of(context).push(
             MaterialPageRoute<void>(builder: (_) => DetailPage(product.id))),
@@ -68,6 +72,19 @@ class ProductCard extends StatelessWidget {
                 ),
                 Text('${product.ourRating}', style: AppTextStyle.dark14),
               ],
+            ),
+            BlocBuilder<CartBloc, CartState>(
+              builder: (context, cart) {
+                final inCart =
+                    cart.items.any((e) => e.product.id == product.id);
+                return AppButton(
+                  label: S.current.addToCart,
+                  onPressed: null,
+                  iconFile: 'basket.png',
+                  type: inCart ? ButtonType.green : ButtonType.red,
+                  isMini: true,
+                );
+              },
             )
           ],
         ),
