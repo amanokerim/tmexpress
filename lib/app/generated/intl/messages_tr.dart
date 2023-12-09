@@ -160,6 +160,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Halanlarymdan aýyrmak"),
         "removeFromFavoritesError": MessageLookupByLibrary.simpleMessage(
             "Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy"),
+        "removedFromCart":
+            MessageLookupByLibrary.simpleMessage("Sebetden aýryldy"),
         "requiredField":
             MessageLookupByLibrary.simpleMessage("Boş bolmaly däl"),
         "retailPrice": MessageLookupByLibrary.simpleMessage("Bölek bahasy"),

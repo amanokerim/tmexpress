@@ -480,6 +480,16 @@ class S {
     );
   }
 
+  /// `Sebetden aýryldy`
+  String get removedFromCart {
+    return Intl.message(
+      'Sebetden aýryldy',
+      name: 'removedFromCart',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sebetden pozmakçymy?`
   String get confirmRemove {
     return Intl.message(

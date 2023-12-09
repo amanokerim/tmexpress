@@ -30,7 +30,7 @@ class CategoryW extends StatelessWidget {
           children: [
             AppImage(
               category.categoryImage,
-              height: 32,
+              height: 30,
               borderRadius: BorderRadius.circular(0),
               color: selected ? AppColors.dark : AppColors.textSec,
             ),

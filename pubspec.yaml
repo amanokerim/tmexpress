@@ -5,7 +5,7 @@ description: An app for delivering goods from China
 
 publish_to: 'none'
 
-version: 1.0.0+16
+version: 1.0.0+17
 
 environment:
   sdk: '>=2.15.0 <3.0.0'
@@ -124,6 +124,7 @@ flutter_intl:
 flutter_launcher_icons:
   android: true
   adaptive_icon_background: "#F82719"
-  adaptive_icon_foreground: "assets/logo-tr.png"
+  adaptive_icon_foreground: "assets/logo-3d-fg.jpg"
+
   ios: true
   image_path: "assets/logo_3d.jpg"
