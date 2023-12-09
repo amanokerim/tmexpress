@@ -12,8 +12,19 @@ import 'placed_orders/placed_orders_page.dart';
 import 'widgets/profile_card.dart';
 import 'widgets/profile_error.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  void initState() {
+    context.read<ProfileBloc>().add(ProfileStarted());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

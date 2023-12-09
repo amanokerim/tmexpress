@@ -20,7 +20,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       : super(ProfileLoadInProgress()) {
     on<ProfileStarted>((event, emit) async {
       final jwt = _getStringPreferenceUseCase(pJWT);
-
+      print('ProfileStarted');
       emit(ProfileLoadInProgress());
       if (jwt == null) {
         emit(ProfileNotAuthorized());
