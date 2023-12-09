@@ -440,6 +440,16 @@ class S {
     );
   }
 
+  /// `Sebetden aýyrmak`
+  String get removeFromCart {
+    return Intl.message(
+      'Sebetden aýyrmak',
+      name: 'removeFromCart',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Reňk saýlaň`
   String get selectColor {
     return Intl.message(

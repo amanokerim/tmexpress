@@ -86,6 +86,7 @@ abstract class AppColors {
   static Color get primary => const Color(0xFF31313b);
   static Color get secondary => const Color(0xFFD0021B);
 
+  static Color get green => const Color(0xFF1D782F);
   static Color get bg => const Color(0xFFFEFEFE);
   static Color get bg2 => const Color(0xFFFAFAFA);
   static Color get inputBg => const Color(0xFFF7F7F7);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:collection/collection.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/cart_item.dart';
@@ -8,6 +9,7 @@ import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
 import '../../cart/bloc/cart_bloc.dart';
+import '../../cart/widgets/cart_item_count.w.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
 import '../video_player_screen.dart';
@@ -23,41 +25,62 @@ class ProductWidgets {
   final DetailLoadSuccess state;
 
   Widget addToCardButton(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
-      child: AppButton(
-        label: S.current.addToCart,
-        onPressed: () {
-          final multiColor = state.product.productImages.length > 1;
-          final multiSize = state.product.size.length > 1;
-          if (state.selectedColor == null && multiColor) {
-            AppFlash.toast(
-                context: context,
-                message: S.current.selectColor,
-                isError: true);
-          } else if (state.selectedSize == null && multiSize) {
-            AppFlash.toast(
-                context: context, message: S.current.selectSize, isError: true);
-          } else if ((state.selectedColor != null || !multiColor) &&
-              state.selectedSize != null) {
-            final cartItem = CartItem(
-              product: _product,
-              count: 1,
-              size: state.selectedSize ?? state.product.size[0],
-              color: state.selectedColor ?? state.product.productImages[0],
-              price: _product.normalPriceByCount(1),
-              expressPrice: _product.normalPriceByCount(1),
-            );
-            context.read<CartBloc>().add(CartItemAdded(cartItem));
-            AppFlash.toast(
-                context: context,
-                message: S.current.addedToCart,
-                isError: true);
-          }
-        },
-        iconFile: 'basket.png',
-        type: ButtonType.black,
-      ),
+    return BlocBuilder<CartBloc, CartState>(
+      builder: (context, cart) {
+        final cartItem = cart.items.firstWhereOrNull((e) =>
+            e.product.id == state.product.id &&
+            e.color == state.selectedColor &&
+            e.size == state.selectedSize);
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(10, 4, 20, 20),
+          child: Row(
+            children: [
+              if (cartItem != null) CartItemCountW(cartItem),
+              const SizedBox(width: 10),
+              Expanded(
+                child: AppButton(
+                  label: cartItem != null
+                      ? S.current.removeFromCart
+                      : S.current.addToCart,
+                  onPressed: () {
+                    final multiColor = state.product.productImages.length > 1;
+                    final multiSize = state.product.size.length > 1;
+                    if (state.selectedColor == null && multiColor) {
+                      AppFlash.toast(
+                          context: context,
+                          message: S.current.selectColor,
+                          isError: true);
+                    } else if (state.selectedSize == null && multiSize) {
+                      AppFlash.toast(
+                          context: context,
+                          message: S.current.selectSize,
+                          isError: true);
+                    } else if ((state.selectedColor != null || !multiColor) &&
+                        state.selectedSize != null) {
+                      final cartItem = CartItem(
+                        product: _product,
+                        count: 1,
+                        size: state.selectedSize ?? state.product.size[0],
+                        color: state.selectedColor ??
+                            state.product.productImages[0],
+                        price: _product.normalPriceByCount(1),
+                        expressPrice: _product.normalPriceByCount(1),
+                      );
+                      context.read<CartBloc>().add(CartItemAdded(cartItem));
+                      AppFlash.toast(
+                          context: context,
+                          message: S.current.addedToCart,
+                          isError: true);
+                    }
+                  },
+                  iconFile: 'basket.png',
+                  type: cartItem != null ? ButtonType.green : ButtonType.red,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 

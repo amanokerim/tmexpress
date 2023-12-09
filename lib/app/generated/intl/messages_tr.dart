@@ -154,6 +154,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "referralUsers": MessageLookupByLibrary.simpleMessage("Arzanladyş:"),
         "referralUsersDescription": m3,
         "region": MessageLookupByLibrary.simpleMessage("Welaýat (şäher)"),
+        "removeFromCart":
+            MessageLookupByLibrary.simpleMessage("Sebetden aýyrmak"),
         "removeFromFavorites":
             MessageLookupByLibrary.simpleMessage("Halanlarymdan aýyrmak"),
         "removeFromFavoritesError": MessageLookupByLibrary.simpleMessage(

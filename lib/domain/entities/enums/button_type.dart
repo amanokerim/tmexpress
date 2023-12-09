@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../../../presentation/theme/app_theme.dart';
 
-enum ButtonType { red, black, outline }
+enum ButtonType { red, green, black, outline }
 
 extension ButtonTypeExtension on ButtonType {
   Color get background {
     switch (this) {
       case ButtonType.red:
         return AppColors.secondary;
+      case ButtonType.green:
+        return AppColors.green;
       case ButtonType.black:
         return AppColors.dark;
       case ButtonType.outline:
