@@ -15,7 +15,7 @@ class ProductPagedGridView extends StatelessWidget {
 
   PagedChildBuilderDelegate<ProductMini> get delegate =>
       PagedChildBuilderDelegate<ProductMini>(
-        itemBuilder: (context, product, index) => ProductCard(product, 180),
+        itemBuilder: (context, product, index) => ProductCard(product),
         firstPageErrorIndicatorBuilder: (_) => AppErrorScreen(
           message: pagingController.error,
           onPressed: pagingController.retryLastFailedRequest,

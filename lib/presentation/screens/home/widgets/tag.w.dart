@@ -31,13 +31,14 @@ class TagWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 180,
+          height: 280,
           child: ListView.separated(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemCount: tag.product.length,
-            itemBuilder: (_, index) => ProductCard(tag.product[index], 100),
+            itemBuilder: (_, index) =>
+                ProductCard(tag.product[index], aspectRatio: .65),
             separatorBuilder: (_, __) => const SizedBox(width: 16),
           ),
         ),

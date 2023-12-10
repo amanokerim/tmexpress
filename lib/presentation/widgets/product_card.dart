@@ -10,14 +10,20 @@ import 'app_button.dart';
 import 'app_image.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard(this.product, this.imageSize, {Key? key}) : super(key: key);
+  const ProductCard(
+    this.product, {
+    this.imageSize = 180,
+    this.aspectRatio = .6,
+    Key? key,
+  }) : super(key: key);
   final ProductMini product;
   final double imageSize;
+  final double aspectRatio;
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: .5,
+      aspectRatio: aspectRatio,
       child: GestureDetector(
         onTap: () => Navigator.of(context).push(
             MaterialPageRoute<void>(builder: (_) => DetailPage(product.id))),
@@ -78,7 +84,7 @@ class ProductCard extends StatelessWidget {
                 final inCart =
                     cart.items.any((e) => e.product.id == product.id);
                 return AppButton(
-                  label: S.current.addToCart,
+                  label: imageSize <= 100 ? '' : S.current.addToCart,
                   onPressed: null,
                   iconFile: 'basket.png',
                   type: inCart ? ButtonType.green : ButtonType.red,
