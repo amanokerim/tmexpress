@@ -189,6 +189,25 @@ class ProductWidgets {
         const SizedBox(height: 12),
       ];
 
+  List<Widget> country() => [
+        if (_product.country != null) ...[
+          Text('${S.current.country}:', style: AppTextStyle.bold16),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              AppImage(
+                _product.country!.flag,
+                width: 24,
+                borderRadius: BorderRadius.circular(4),
+              ),
+              const SizedBox(width: 6),
+              Text(_product.country!.titleTm, style: AppTextStyle.grey16),
+            ],
+          ),
+          const SizedBox(height: 20),
+        ],
+      ];
+
   List<Widget> description() => [
         Text('${S.current.description}:', style: AppTextStyle.bold16),
         const SizedBox(height: 8),

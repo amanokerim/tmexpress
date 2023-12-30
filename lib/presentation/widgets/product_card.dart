@@ -71,12 +71,19 @@ class ProductCard extends StatelessWidget {
                   style:
                       AppTextStyle.bold14.copyWith(fontWeight: FontWeight.w700),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 6),
-                  child: Image.asset('assets/icons/favorite.png',
-                      width: 18, color: Colors.amber),
-                ),
+                const SizedBox(width: 6),
+                Image.asset('assets/icons/favorite.png',
+                    width: 18, color: Colors.amber),
                 Text('${product.ourRating}', style: AppTextStyle.dark14),
+                if (product.country != null) ...[
+                  const SizedBox(width: 10),
+                  AppImage(
+                    product.country!.flag,
+                    width: 24,
+                    height: 16,
+                    borderRadius: BorderRadius.circular(4),
+                  )
+                ]
               ],
             ),
             BlocBuilder<CartBloc, CartState>(

@@ -33,6 +33,7 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
       sizeTable: (entity?.sizeTable ?? '').isNotEmpty
           ? '${Env.value.baseUrl}${entity?.sizeTable}'
           : '',
+      country: entity?.country,
     );
   }
 }

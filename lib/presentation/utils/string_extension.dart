@@ -1,5 +1,7 @@
 import 'package:intl/intl.dart';
 
+import '../../app/env/env.dart';
+
 extension StringX on String {
   String get stripTags =>
       Bidi.stripHtmlIfNeeded(this).trim().replaceAll('&nbsp', '');
@@ -8,4 +10,10 @@ extension StringX on String {
     final versionCells = split('.').map(int.parse).toList();
     return versionCells[0] * 10000 + versionCells[1] * 100 + versionCells[2];
   }
+}
+
+String imageFromJson(String? s) {
+  if ((s ?? '').isEmpty) return '';
+
+  return '${Env.value.baseUrl}$s';
 }

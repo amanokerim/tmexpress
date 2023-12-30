@@ -28,6 +28,9 @@ ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) =>
       normalPriceW: (json['normalPriceW'] as num?)?.toDouble(),
       wholesaleLimit: json['wholesaleLimit'] as int?,
       sizeTable: json['size_table'] as String?,
+      country: json['country'] == null
+          ? null
+          : Country.fromJson(json['country'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ProductResponseToJson(ProductResponse instance) =>
@@ -48,4 +51,5 @@ Map<String, dynamic> _$ProductResponseToJson(ProductResponse instance) =>
       'normalPriceW': instance.normalPriceW,
       'wholesaleLimit': instance.wholesaleLimit,
       'size_table': instance.sizeTable,
+      'country': instance.country,
     };

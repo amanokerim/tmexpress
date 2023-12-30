@@ -17,7 +17,11 @@ class ProductMiniResponseMapper
       ourRating: entity?.ourRating ?? 0,
       discount: entity?.discount ?? 0,
       normalPrice: entity?.normalPrice ?? 0,
-      imageMini: '${Env.value.baseUrl}/media/${entity?.imageMini}',
+      imageMini:
+          (entity?.imageMini ?? '').isNotEmpty && entity?.imageMini != '-'
+              ? '${Env.value.baseUrl}media/${entity?.imageMini}'
+              : '',
+      country: entity?.country,
     );
   }
 }

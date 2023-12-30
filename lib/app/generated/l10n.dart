@@ -1400,6 +1400,16 @@ class S {
     );
   }
 
+  /// `Öndirilen ýurdy`
+  String get country {
+    return Intl.message(
+      'Öndirilen ýurdy',
+      name: 'country',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Ýakyn Ýol" programmasyny ýükläp alyp bilersiňiz!`
   String get shareContent {
     return Intl.message(

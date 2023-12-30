@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../domain/entities/product/country.dart';
+
 part 'product_mini_response.g.dart';
 
 @JsonSerializable()
@@ -11,6 +13,7 @@ class ProductMiniResponse {
     this.discount,
     this.normalPrice,
     this.imageMini,
+    this.country,
   });
   factory ProductMiniResponse.fromJson(Map<String, dynamic> json) =>
       _$ProductMiniResponseFromJson(json);
@@ -22,4 +25,5 @@ class ProductMiniResponse {
   final int? discount;
   final double? normalPrice;
   final String? imageMini;
+  final Country? country;
 }

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../domain/entities/product/country.dart';
 import 'image_response.dart';
 import 'size_response.dart';
 
@@ -24,6 +25,7 @@ class ProductResponse {
     this.normalPriceW,
     this.wholesaleLimit,
     this.sizeTable,
+    this.country,
   });
 
   factory ProductResponse.fromJson(Map<String, dynamic> json) =>
@@ -48,4 +50,5 @@ class ProductResponse {
   final int? wholesaleLimit;
   @JsonKey(name: 'size_table')
   final String? sizeTable;
+  final Country? country;
 }

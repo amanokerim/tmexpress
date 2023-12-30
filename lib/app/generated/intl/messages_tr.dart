@@ -71,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Serwere baglanyp bolmady"),
         "continueButton": MessageLookupByLibrary.simpleMessage("Dowam etmek"),
         "count": MessageLookupByLibrary.simpleMessage("sany"),
+        "country": MessageLookupByLibrary.simpleMessage("Öndirilen ýurdy"),
         "declined": MessageLookupByLibrary.simpleMessage("Kabul edilmedi"),
         "delivered": MessageLookupByLibrary.simpleMessage("Gowşyryldy"),
         "delivering": MessageLookupByLibrary.simpleMessage("Gowşyrylýar"),

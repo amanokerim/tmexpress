@@ -1,3 +1,5 @@
+import 'country.dart';
+
 class ProductMini {
   ProductMini({
     required this.id,
@@ -6,6 +8,7 @@ class ProductMini {
     required this.discount,
     required this.normalPrice,
     required this.imageMini,
+    required this.country,
   });
 
   final int id;
@@ -14,4 +17,5 @@ class ProductMini {
   final int discount;
   final double normalPrice;
   final String imageMini;
+  final Country? country;
 }

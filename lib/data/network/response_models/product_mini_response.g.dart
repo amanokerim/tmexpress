@@ -14,6 +14,9 @@ ProductMiniResponse _$ProductMiniResponseFromJson(Map<String, dynamic> json) =>
       discount: json['discount'] as int?,
       normalPrice: (json['normalPrice'] as num?)?.toDouble(),
       imageMini: json['imageMini'] as String?,
+      country: json['country'] == null
+          ? null
+          : Country.fromJson(json['country'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ProductMiniResponseToJson(
@@ -25,4 +28,5 @@ Map<String, dynamic> _$ProductMiniResponseToJson(
       'discount': instance.discount,
       'normalPrice': instance.normalPrice,
       'imageMini': instance.imageMini,
+      'country': instance.country,
     };
