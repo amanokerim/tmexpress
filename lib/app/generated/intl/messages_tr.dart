@@ -190,6 +190,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signInToAddToFavorites": MessageLookupByLibrary.simpleMessage(
             "Halanlaryňyza goşmak üçin hasap dörediň ýa-da hasabyňyza giriň."),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
+        "sizeTable": MessageLookupByLibrary.simpleMessage("Ölçeg tablisa"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Näsazlyk ýüze çykdy"),

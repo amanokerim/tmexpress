@@ -26,8 +26,8 @@ class Profile extends Equatable {
 
   Map<String, dynamic> toJson() => {
         'name': name,
-        'gender': gender == null ? null : gender!.index,
-        'region': region == null ? null : region!.index,
+        'gender': gender?.index,
+        'region': region?.index,
         'address': address
       };
 

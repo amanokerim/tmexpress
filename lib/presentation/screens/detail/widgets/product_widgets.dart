@@ -8,12 +8,14 @@ import '../../../../domain/entities/product/product.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
+import '../../../widgets/app_image.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../../cart/widgets/cart_item_count.w.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
 import '../video_player_screen.dart';
 import 'color.w.dart';
+import 'photo_view_page.dart';
 import 'price.w.dart';
 
 late Product _product;
@@ -208,6 +210,25 @@ class ProductWidgets {
           ],
         ),
         const SizedBox(height: 20),
+      ];
+
+  List<Widget> sizeTable(BuildContext context) => [
+        if (state.product.sizeTable.isNotEmpty) ...[
+          Text('${S.current.sizeTable}:', style: AppTextStyle.bold16),
+          const SizedBox(height: 8),
+          GestureDetector(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => PhotoViewPage(
+                  image: state.product.sizeTable,
+                  title: S.current.sizeTable,
+                ),
+              ),
+            ),
+            child: AppImage(state.product.sizeTable),
+          ),
+          const SizedBox(height: 20),
+        ],
       ];
 
   List<Widget> images() {

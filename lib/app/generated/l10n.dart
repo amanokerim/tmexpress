@@ -570,6 +570,16 @@ class S {
     );
   }
 
+  /// `Ölçeg tablisa`
+  String get sizeTable {
+    return Intl.message(
+      'Ölçeg tablisa',
+      name: 'sizeTable',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hasaba girmek`
   String get login {
     return Intl.message(

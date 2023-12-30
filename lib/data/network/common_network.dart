@@ -38,9 +38,10 @@ abstract class CommonNetwork {
 
   @GET('/api/products/productsSearchView/{query}/')
   Future<PaginationResponse<ProductMiniResponse>> searchProducts(
-    @Path('query') String query,
+    @Query('query') String query,
     @Query('offset') String? offset,
     @Query('limit') int limit,
+    @Query('is_random') int? isRandom,
   );
 
   @GET('/api/products/tagProudcts/{id}/')

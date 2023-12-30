@@ -39,11 +39,9 @@ class DetailScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          ...productWidgets.sizeTable(context),
                           ...productWidgets.prices(),
                           ...productWidgets.description(),
-                          // ...productWidgets.weight(),
-                          // const SizedBox(height: 16),
-                          // productWidgets.share(context),
                           if (state.product.video.length >
                               Env.value.baseUrl.length) ...[
                             const SizedBox(height: 16),

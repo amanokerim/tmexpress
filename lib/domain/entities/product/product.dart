@@ -18,6 +18,7 @@ class Product extends Equatable {
     required this.normalPriceW,
     required this.wholesaleLimit,
     required this.isLiked,
+    required this.sizeTable,
   });
 
   final int id;
@@ -33,6 +34,7 @@ class Product extends Equatable {
   final double normalPriceW;
   final int wholesaleLimit;
   final bool isLiked;
+  final String sizeTable;
 
   double normalPriceByCount(int count) =>
       count >= wholesaleLimit ? normalPriceW : normalPrice;
@@ -55,6 +57,7 @@ class Product extends Equatable {
     double? normalPriceW,
     int? wholesaleLimit,
     bool? isLiked,
+    String? sizeTable,
   }) {
     return Product(
       id: id ?? this.id,
@@ -70,6 +73,7 @@ class Product extends Equatable {
       normalPriceW: normalPriceW ?? this.normalPriceW,
       wholesaleLimit: wholesaleLimit ?? this.wholesaleLimit,
       isLiked: isLiked ?? this.isLiked,
+      sizeTable: sizeTable ?? this.sizeTable,
     );
   }
 }

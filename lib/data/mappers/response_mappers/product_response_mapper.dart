@@ -30,6 +30,9 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
       normalPriceW: entity?.normalPriceW ?? 0,
       wholesaleLimit: entity?.wholesaleLimit ?? 0,
       isLiked: false,
+      sizeTable: (entity?.sizeTable ?? '').isNotEmpty
+          ? '${Env.value.baseUrl}${entity?.sizeTable}'
+          : '',
     );
   }
 }
