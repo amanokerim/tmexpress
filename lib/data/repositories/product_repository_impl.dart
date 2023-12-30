@@ -159,7 +159,13 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<AppError, Pagination<ProductMini>>> searchProducts(
       SearchParams params) {
     return _exception.handle(() => _commonNetwork
-        .searchProducts(params.query, _getOffset(params.next), kLimit, 0)
+        .searchProducts(
+          params.query,
+          _getOffset(params.next),
+          kLimit,
+          params.isRandom,
+          params.countryId,
+        )
         .then(_productPaginationResponseMapper.map));
   }
 

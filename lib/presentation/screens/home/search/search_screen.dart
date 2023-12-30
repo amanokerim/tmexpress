@@ -3,13 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../../../domain/entities/product/product_mini.dart';
+import '../../../../domain/usecases/products/search_product_usecase.dart';
+import '../../../widgets/primary_app_bar.dart';
 import '../../../widgets/product_paged_grid_view.dart';
 import '../../../widgets/search_app_bar.dart';
 import 'bloc/search_bloc.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen(this.query, {Key? key}) : super(key: key);
-  final String query;
+  const SearchScreen(this.params, {Key? key}) : super(key: key);
+  final SearchParams params;
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -23,7 +25,7 @@ class _SearchScreenState extends State<SearchScreen> {
   void initState() {
     super.initState();
     _pagingController.addPageRequestListener((next) {
-      context.read<SearchBloc>().add(SearchRequested(widget.query, next));
+      context.read<SearchBloc>().add(SearchRequested(widget.params, next));
     });
   }
 
@@ -36,7 +38,9 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SearchAppBar(widget.query),
+      appBar: widget.params.title.isNotEmpty
+          ? PrimaryAppBar(label: widget.params.title)
+          : SearchAppBar(widget.params.query),
       body: BlocListener<SearchBloc, SearchState>(
         listener: (_, state) {
           if (state is SearchSuccess) {

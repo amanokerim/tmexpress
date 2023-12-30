@@ -5,12 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/cart_item.dart';
 import '../../../../domain/entities/product/product.dart';
+import '../../../../domain/usecases/products/search_product_usecase.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_image.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../../cart/widgets/cart_item_count.w.dart';
+import '../../home/search/search_page.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
 import '../video_player_screen.dart';
@@ -189,20 +191,27 @@ class ProductWidgets {
         const SizedBox(height: 12),
       ];
 
-  List<Widget> country() => [
+  List<Widget> country(BuildContext context) => [
         if (_product.country != null) ...[
           Text('${S.current.country}:', style: AppTextStyle.bold16),
           const SizedBox(height: 8),
-          Row(
-            children: [
-              AppImage(
-                _product.country!.flag,
-                width: 24,
-                borderRadius: BorderRadius.circular(4),
-              ),
-              const SizedBox(width: 6),
-              Text(_product.country!.titleTm, style: AppTextStyle.grey16),
-            ],
+          GestureDetector(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => SearchPage(SearchParams(
+                    query: '',
+                    countryId: _product.country!.id,
+                    title: _product.country!.titleTm)))),
+            child: Row(
+              children: [
+                AppImage(
+                  _product.country!.flag,
+                  width: 24,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                const SizedBox(width: 6),
+                Text(_product.country!.titleTm, style: AppTextStyle.grey16),
+              ],
+            ),
           ),
           const SizedBox(height: 20),
         ],

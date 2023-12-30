@@ -156,6 +156,7 @@ class _CommonNetwork implements CommonNetwork {
     String? offset,
     int limit,
     int? isRandom,
+    int? country,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -163,6 +164,7 @@ class _CommonNetwork implements CommonNetwork {
       r'offset': offset,
       r'limit': limit,
       r'is_random': isRandom,
+      r'country': country,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -175,7 +177,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              '/api/products/productsSearchView/{query}/',
+              '/api/products/productsSearchView/',
               queryParameters: queryParameters,
               data: _data,
             )

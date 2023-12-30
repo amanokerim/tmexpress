@@ -41,7 +41,7 @@ class DetailScreen extends StatelessWidget {
                         children: [
                           ...productWidgets.sizeTable(context),
                           ...productWidgets.prices(),
-                          ...productWidgets.country(),
+                          ...productWidgets.country(context),
                           ...productWidgets.description(),
                           if (state.product.video.length >
                               Env.value.baseUrl.length) ...[

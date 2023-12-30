@@ -13,7 +13,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc(this._searchProductsUseCase) : super(SearchLoad()) {
     on<SearchRequested>((event, emit) async {
       final r = await _searchProductsUseCase(
-          SearchParams(query: event.query, next: event.next));
+          SearchParams.withNext(event.params, event.next));
       emit(r.fold(
         (error) => SearchError(error.message),
         (pagination) => SearchSuccess(pagination.next, pagination.items,

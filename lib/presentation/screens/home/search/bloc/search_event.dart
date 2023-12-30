@@ -8,11 +8,11 @@ abstract class SearchEvent extends Equatable {
 }
 
 class SearchRequested extends SearchEvent {
-  const SearchRequested(this.query, this.next, {this.clear = false});
-  final String query;
+  const SearchRequested(this.params, this.next, {this.clear = false});
+  final SearchParams params;
   final String? next;
   final bool clear;
 
   @override
-  List<Object?> get props => [query, next, clear];
+  List<Object?> get props => [params, next, clear];
 }

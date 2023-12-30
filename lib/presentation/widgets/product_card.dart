@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app/generated/l10n.dart';
 import '../../domain/entities/product/product_mini.dart';
+import '../../domain/usecases/products/search_product_usecase.dart';
 import '../screens/cart/bloc/cart_bloc.dart';
 import '../screens/detail/detail_page.dart';
+import '../screens/home/search/search_page.dart';
 import '../theme/app_theme.dart';
 import 'app_button.dart';
 import 'app_image.dart';
@@ -77,11 +79,19 @@ class ProductCard extends StatelessWidget {
                 Text('${product.ourRating}', style: AppTextStyle.dark14),
                 if (product.country != null) ...[
                   const SizedBox(width: 10),
-                  AppImage(
-                    product.country!.flag,
-                    width: 24,
-                    height: 16,
-                    borderRadius: BorderRadius.circular(4),
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                            builder: (_) => SearchPage(SearchParams(
+                                query: '',
+                                countryId: product.country!.id,
+                                title: product.country!.titleTm)))),
+                    child: AppImage(
+                      product.country!.flag,
+                      width: 24,
+                      height: 16,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
                   )
                 ]
               ],

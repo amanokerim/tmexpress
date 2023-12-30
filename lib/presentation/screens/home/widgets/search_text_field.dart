@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
+import '../../../../domain/usecases/products/search_product_usecase.dart';
 import '../../../theme/app_theme.dart';
 import '../search/bloc/search_bloc.dart';
 import '../search/search_page.dart';
@@ -69,14 +70,16 @@ class _SearchTextFieldState extends State<SearchTextField> {
   void _navigateToSearchScreen() {
     Navigator.of(context)
         .push(MaterialPageRoute<void>(
-            builder: (_) => SearchPage(_controller.text)))
+            builder: (_) => SearchPage(SearchParams(query: _controller.text))))
         .then((_) {
       FocusScope.of(context).unfocus();
       _controller.text = '';
     });
   }
 
-  void _requestSearch() => context
-      .read<SearchBloc>()
-      .add(SearchRequested(_controller.text, null, clear: true));
+  void _requestSearch() => context.read<SearchBloc>().add(SearchRequested(
+        SearchParams(query: _controller.text),
+        null,
+        clear: true,
+      ));
 }
