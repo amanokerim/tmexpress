@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../widgets/app_carousel_slider.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
+import '../detail/widgets/random.w.dart';
 import 'bloc/home_bloc.dart';
 import 'widgets/tag.w.dart';
 
@@ -24,6 +25,7 @@ class HomeScreen extends StatelessWidget {
               itemCount: state.home.tags.length,
               itemBuilder: (_, index) => TagWidget(state.home.tags[index]),
             ),
+            const RandomW(),
           ],
         );
       } else if (state is HomeLoadError) {

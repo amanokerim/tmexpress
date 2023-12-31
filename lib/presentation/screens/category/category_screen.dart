@@ -21,7 +21,7 @@ class CategoryScreen extends StatelessWidget {
         final groups = state.selected.groups
             .where((g) => g.subCategories.isNotEmpty)
             .toList();
-        print(groups.map((e) => '${e.title} ${e.subCategories.length}'));
+
         return Padding(
           padding: const EdgeInsets.all(16),
           child: Row(children: [

@@ -550,16 +550,6 @@ class S {
     );
   }
 
-  /// `Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň {percen}% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!`
-  String shareInformation(Object percen) {
-    return Intl.message(
-      'Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň $percen% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!',
-      name: 'shareInformation',
-      desc: '',
-      args: [percen],
-    );
-  }
-
   /// `Ölçeg`
   String get size {
     return Intl.message(
@@ -947,46 +937,6 @@ class S {
       name: 'noData',
       desc: '',
       args: [],
-    );
-  }
-
-  /// `Arzanladyş:`
-  String get referralUsers {
-    return Intl.message(
-      'Arzanladyş:',
-      name: 'referralUsers',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Siz programmany beýleki ulanyjylara maslahat bereniňizde, siziň indiki söwdaňyzda {percent}% arzanladyş edilýär. Bu san ýene näçe söwdany arzanladyşly etjekdigiňizi görkezýär.\n\nSiziň maslahatyňyz bilen programma ulanyjy girse, bu san köpelýär, söwda edeniňizde azalýar.`
-  String referralUsersDescription(Object percent) {
-    return Intl.message(
-      'Siz programmany beýleki ulanyjylara maslahat bereniňizde, siziň indiki söwdaňyzda $percent% arzanladyş edilýär. Bu san ýene näçe söwdany arzanladyşly etjekdigiňizi görkezýär.\n\nSiziň maslahatyňyz bilen programma ulanyjy girse, bu san köpelýär, söwda edeniňizde azalýar.',
-      name: 'referralUsersDescription',
-      desc: '',
-      args: [percent],
-    );
-  }
-
-  /// `Girdeji:`
-  String get referralEarning {
-    return Intl.message(
-      'Girdeji:',
-      name: 'referralEarning',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) {percent}% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.`
-  String referralEarningDescription(Object percent) {
-    return Intl.message(
-      'Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) $percent% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.',
-      name: 'referralEarningDescription',
-      desc: '',
-      args: [percent],
     );
   }
 
@@ -1439,6 +1389,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Başga harytlar`
+  String get randomProducts {
+    return Intl.message(
+      'Başga harytlar',
+      name: 'randomProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Meňzeş harytlar`
+  String get similarProducts {
+    return Intl.message(
+      'Meňzeş harytlar',
+      name: 'similarProducts',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -1447,6 +1417,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'tr'),
+      Locale.fromSubtags(languageCode: 'ru'),
     ];
   }
 

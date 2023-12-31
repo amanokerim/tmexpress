@@ -10,7 +10,6 @@ class ProductMiniResponseMapper
     extends Mapper<ProductMiniResponse, ProductMini> {
   @override
   ProductMini map(ProductMiniResponse? entity) {
-    print('${Env.value.baseUrl}/${entity?.imageMini}');
     return ProductMini(
       id: entity?.id ?? 0,
       title: entity?.title ?? '',

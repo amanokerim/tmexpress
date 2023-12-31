@@ -180,17 +180,6 @@ class ProductWidgets {
         ),
       );
 
-  List<Widget> weight() => [
-        Row(
-          children: [
-            Text('${S.current.productWeight}:', style: AppTextStyle.bold16),
-            const Spacer(),
-            Text('${_product.weight} kg.', style: AppTextStyle.black16),
-          ],
-        ),
-        const SizedBox(height: 12),
-      ];
-
   List<Widget> country(BuildContext context) => [
         if (_product.country != null) ...[
           Text('${S.current.country}:', style: AppTextStyle.bold16),

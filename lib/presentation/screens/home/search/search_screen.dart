@@ -40,7 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: widget.params.title.isNotEmpty
           ? PrimaryAppBar(label: widget.params.title)
-          : SearchAppBar(widget.params.query),
+          : SearchAppBar(query: widget.params.query),
       body: BlocListener<SearchBloc, SearchState>(
         listener: (_, state) {
           if (state is SearchSuccess) {

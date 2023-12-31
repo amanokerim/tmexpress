@@ -57,7 +57,6 @@
   "addToFavoritesError": "Halanlaryňyza goşmakda näsazlyk ýüze çykdy",
   "removeFromFavoritesError": "Halanlaryňyzdan aýyrmakda näsazlyk ýüze çykdy",
   "share": "Maslahat bermek",
-  "shareInformation": "Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň {percen}% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!",
   
   "size": "Ölçeg",
   "sizeTable": "Ölçeg tablisa",
@@ -102,10 +101,6 @@
   "edit": "Üýtgetmek",
   "fill": "Doldurmak",
   "noData": "Maglumatlaryňyz girizilmedik",
-  "referralUsers": "Arzanladyş:",
-  "referralUsersDescription": "Siz programmany beýleki ulanyjylara maslahat bereniňizde, siziň indiki söwdaňyzda {percent}% arzanladyş edilýär. Bu san ýene näçe söwdany arzanladyşly etjekdigiňizi görkezýär.\n\nSiziň maslahatyňyz bilen programma ulanyjy girse, bu san köpelýär, söwda edeniňizde azalýar.",
-  "referralEarning": "Girdeji:",
-  "referralEarningDescription": "Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) {percent}% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.",
   "count": "sany",
   "manat": "manat",
   "whatIsThis": "Bu näme?",
@@ -155,5 +150,7 @@
   "country": "Öndirilen ýurdy",
   "shareContent": "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Ýakyn Ýol\" programmasyny ýükläp alyp bilersiňiz!",
   "selectShippingOption": "Eltip bermek usulyny saýlaň",
-  "watchVideo": "Wideo görmek"
+  "watchVideo": "Wideo görmek",
+  "randomProducts": "Başga harytlar",
+  "similarProducts": "Meňzeş harytlar"
 }

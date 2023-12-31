@@ -29,7 +29,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(builder: (_, state) {
-      print('** $state');
       if (state is ProfileNotAuthorized) {
         return const AuthPage();
       } else if (state is ProfileLoadSuccess) {

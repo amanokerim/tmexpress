@@ -14,6 +14,6 @@ class TagResponseMapper extends Mapper<TagResponse, Tag> {
   Tag map(TagResponse? entity) => Tag(
         id: entity?.id ?? 0,
         title: entity?.title ?? '',
-        product: _productMiniResponseMapper.mapList(entity?.product),
+        products: _productMiniResponseMapper.mapList(entity?.product),
       );
 }

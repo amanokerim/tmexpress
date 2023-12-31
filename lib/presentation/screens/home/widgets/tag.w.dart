@@ -7,8 +7,9 @@ import '../../../widgets/product_card.dart';
 import '../../products/products_page.dart';
 
 class TagWidget extends StatelessWidget {
-  const TagWidget(this.tag, {Key? key}) : super(key: key);
+  const TagWidget(this.tag, {this.onAllPressed, Key? key}) : super(key: key);
   final Tag tag;
+  final VoidCallback? onAllPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,10 @@ class TagWidget extends StatelessWidget {
             children: [
               Text(tag.title, style: AppTextStyle.bold20),
               TextButton(
-                  onPressed: () =>
-                      Navigator.of(context).push(MaterialPageRoute<void>(
-                        builder: (_) => ProductsPage(productParent: tag),
-                      )),
+                  onPressed: onAllPressed ??
+                      () => Navigator.of(context).push(MaterialPageRoute<void>(
+                            builder: (_) => ProductsPage(productParent: tag),
+                          )),
                   child: Text(S.current.all)),
             ],
           ),
@@ -36,9 +37,9 @@ class TagWidget extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
-            itemCount: tag.product.length,
+            itemCount: tag.products.length,
             itemBuilder: (_, index) =>
-                ProductCard(tag.product[index], aspectRatio: .65),
+                ProductCard(tag.products[index], aspectRatio: .65),
             separatorBuilder: (_, __) => const SizedBox(width: 16),
           ),
         ),

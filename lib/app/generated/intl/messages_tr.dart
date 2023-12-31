@@ -24,17 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(count) => "${count}+";
 
-  static String m2(percent) =>
-      "Siz harytlary beýleki ulanyjylara maslahat bereniňizde, ulanyjy harydy satyn alanda, siziň hasabyňyza edilen söwdanyň (siziň maslahat beren harydyňyzdan başgalaryňky hem) ${percent}% geçirilýär.\n\nEger-de siziň hasabyňyzda pul bar bolsa, indiki etjek söwdaňyzda jemi tölegden aýyrylar.";
-
-  static String m3(percent) =>
-      "Siz programmany beýleki ulanyjylara maslahat bereniňizde, siziň indiki söwdaňyzda ${percent}% arzanladyş edilýär. Bu san ýene näçe söwdany arzanladyşly etjekdigiňizi görkezýär.\n\nSiziň maslahatyňyz bilen programma ulanyjy girse, bu san köpelýär, söwda edeniňizde azalýar.";
-
-  static String m4(phone, code) =>
+  static String m2(phone, code) =>
       "Hasaba girmek üçin, \n${phone} belgä ${code} kody SMS arkaly ugradyň we programma dolanyň.";
-
-  static String m5(percen) =>
-      "Siziň maslahadyňyz bilen harydy satyn alsalar, şol söwdanyň ${percen}% siziň hasabyňyza geçýär.\nHasabyňyza girmek zerurdyr!";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -146,14 +137,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "productWeight": MessageLookupByLibrary.simpleMessage("Agramy"),
         "productWholesaleDesc": m1,
         "profile": MessageLookupByLibrary.simpleMessage("Profil"),
+        "randomProducts":
+            MessageLookupByLibrary.simpleMessage("Başga harytlar"),
         "readyToDeliver":
             MessageLookupByLibrary.simpleMessage("Gowşyrylmaga taýýar"),
         "readyToShip":
             MessageLookupByLibrary.simpleMessage("Ugradylmaga taýýar"),
-        "referralEarning": MessageLookupByLibrary.simpleMessage("Girdeji:"),
-        "referralEarningDescription": m2,
-        "referralUsers": MessageLookupByLibrary.simpleMessage("Arzanladyş:"),
-        "referralUsersDescription": m3,
         "region": MessageLookupByLibrary.simpleMessage("Welaýat (şäher)"),
         "removeFromCart":
             MessageLookupByLibrary.simpleMessage("Sebetden aýyrmak"),
@@ -178,18 +167,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Eltip bermek usulyny saýlaň"),
         "selectSize": MessageLookupByLibrary.simpleMessage("Ölçeg saýlaň"),
         "sendSms": MessageLookupByLibrary.simpleMessage("SMS ugratmak"),
-        "sendSmsExplanation": m4,
+        "sendSmsExplanation": m2,
         "serverError": MessageLookupByLibrary.simpleMessage(
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
         "shareContent": MessageLookupByLibrary.simpleMessage(
             "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Ýakyn Ýol\" programmasyny ýükläp alyp bilersiňiz!"),
-        "shareInformation": m5,
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
         "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
             "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň."),
         "signInToAddToFavorites": MessageLookupByLibrary.simpleMessage(
             "Halanlaryňyza goşmak üçin hasap dörediň ýa-da hasabyňyza giriň."),
+        "similarProducts":
+            MessageLookupByLibrary.simpleMessage("Meňzeş harytlar"),
         "size": MessageLookupByLibrary.simpleMessage("Ölçeg"),
         "sizeTable": MessageLookupByLibrary.simpleMessage("Ölçeg tablisa"),
         "sizes": MessageLookupByLibrary.simpleMessage("Ölçegler"),

@@ -4,7 +4,7 @@ import '../screens/home/widgets/search_text_field.dart';
 import '../theme/app_theme.dart';
 
 class SearchAppBar extends AppBar {
-  SearchAppBar([String? query])
+  SearchAppBar({String? query, Widget? leading})
       : super(
           elevation: 0,
           toolbarHeight: 54,
@@ -12,6 +12,7 @@ class SearchAppBar extends AppBar {
           iconTheme: IconThemeData(color: AppColors.dark),
           title: SearchTextField(query),
           backgroundColor: AppColors.white,
+          leading: leading,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(20),

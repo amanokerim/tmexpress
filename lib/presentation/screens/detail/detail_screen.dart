@@ -7,6 +7,8 @@ import '../../widgets/app_progress_indicator.dart';
 import 'bloc/detail_bloc.dart';
 import 'widgets/product_sizes.dart';
 import 'widgets/product_widgets.dart';
+import 'widgets/random.w.dart';
+import 'widgets/similar_products.w.dart';
 import 'widgets/sliver_image_delegate.dart';
 
 const titleHeight = 53.0;
@@ -48,6 +50,8 @@ class DetailScreen extends StatelessWidget {
                             const SizedBox(height: 16),
                             productWidgets.video(context),
                           ],
+                          SimilarProductsW(state.product.title),
+                          const RandomW(),
                           const SizedBox(height: 16),
                           productWidgets.like(context),
                         ],

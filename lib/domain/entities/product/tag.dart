@@ -5,9 +5,9 @@ class Tag extends SubTag {
   const Tag({
     required this.id,
     required this.title,
-    required this.product,
+    required this.products,
   }) : super(id, title);
   final int id;
   final String title;
-  final List<ProductMini> product;
+  final List<ProductMini> products;
 }

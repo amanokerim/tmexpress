@@ -23,7 +23,7 @@ class NavigationHelper {
           page = DetailPage(id);
           break;
         case kTagPage:
-          final tag = Tag(id: id, title: '', product: const []);
+          final tag = Tag(id: id, title: '', products: const []);
           page = ProductsPage(productParent: tag);
           break;
         case kSubcategoryPage:
