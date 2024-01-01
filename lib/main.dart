@@ -16,6 +16,9 @@ import 'presentation/screens/start/start_screen.dart';
 import 'presentation/theme/app_theme.dart';
 import 'presentation/utils/constants.dart';
 
+String language = 'tr';
+bool isRu = false;
+
 Future<void> main() async => Development().init();
 
 class FlutterApp extends StatelessWidget {

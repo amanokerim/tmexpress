@@ -6,6 +6,7 @@ import '../../../app/injection/injection.dart';
 import '../../../data/local/data_keys.dart';
 import '../../../domain/entities/bottom_tab.dart';
 import '../../../domain/repositories/preferences_repository.dart';
+import '../../../main.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/constants.dart';
 import '../../widgets/app_bottom_navigation_bar.dart';
@@ -35,8 +36,9 @@ class _MainScreenState extends State<MainScreen> {
       ],
       child: BlocBuilder<MainBloc, BottomTab>(
         builder: (_, tab) {
-          final language =
+          language =
               getIt<PreferencesRepository>().getStringPreference(pLang) ?? 'tr';
+          isRu = language == 'ru';
 
           return Scaffold(
             backgroundColor: AppColors.bgMain,

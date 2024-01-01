@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../main.dart';
 import '../../../presentation/utils/string_extension.dart';
 
 part 'country.g.dart';
@@ -19,11 +20,13 @@ class Country {
 
   final int id;
 
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', defaultValue: '')
   final String titleTm;
 
   @JsonKey(name: 'title_ru')
   final String? titleRu;
+
+  String get title => (isRu ? titleRu : null) ?? titleTm;
 
   @JsonKey(fromJson: imageFromJson)
   final String flag;

@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/entities/order/shipping_option.dart';
+import '../../../main.dart';
 import '../../network/response_models/shipping_option_response.dart';
 import '../mapper.dart';
 
@@ -9,7 +10,8 @@ class ShippingOptionResponseMapper
     extends Mapper<ShippingOptionResponse, ShippingOption> {
   @override
   ShippingOption map(ShippingOptionResponse? entity) {
-    final parts = (entity?.title ?? '').split('; ');
+    final parts =
+        ((isRu ? entity?.titleRu : null) ?? entity?.title ?? '').split('; ');
     return ShippingOption(
       id: entity?.id ?? 1,
       title: parts[0],

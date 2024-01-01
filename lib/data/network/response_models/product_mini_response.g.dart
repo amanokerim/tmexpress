@@ -10,6 +10,7 @@ ProductMiniResponse _$ProductMiniResponseFromJson(Map<String, dynamic> json) =>
     ProductMiniResponse(
       id: json['id'] as int?,
       title: json['title'] as String?,
+      titleRu: json['title_ru'] as String?,
       ourRating: (json['ourRating'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
       normalPrice: (json['normalPrice'] as num?)?.toDouble(),
@@ -24,6 +25,7 @@ Map<String, dynamic> _$ProductMiniResponseToJson(
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'title_ru': instance.titleRu,
       'ourRating': instance.ourRating,
       'discount': instance.discount,
       'normalPrice': instance.normalPrice,

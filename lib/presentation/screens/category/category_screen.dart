@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/generated/l10n.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_error.dart';
@@ -64,9 +63,7 @@ class CategoryScreen extends StatelessWidget {
                             child: Row(
                               children: [
                                 Expanded(
-                                  child: Text(
-                                      '${S.current.all2} '
-                                      '${state.selected.title.toLowerCase()}',
+                                  child: Text(state.selected.title,
                                       textAlign: TextAlign.center,
                                       style: AppTextStyle.bold16),
                                 ),

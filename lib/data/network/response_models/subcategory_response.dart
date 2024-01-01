@@ -8,6 +8,7 @@ class SubcategoryResponse {
   SubcategoryResponse({
     this.id,
     this.title,
+    this.titleRu,
     this.subCategoryImage,
     this.subcategorysizes,
   });
@@ -17,6 +18,8 @@ class SubcategoryResponse {
 
   final int? id;
   final String? title;
+  @JsonKey(name: 'title_ru')
+  final String? titleRu;
   final String? subCategoryImage;
   final List<SizeResponse>? subcategorysizes;
 }

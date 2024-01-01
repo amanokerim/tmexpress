@@ -9,6 +9,7 @@ class CategoryResponse {
   const CategoryResponse({
     this.id,
     this.title,
+    this.titleRu,
     this.categoryImage,
     this.groups,
   });
@@ -19,6 +20,8 @@ class CategoryResponse {
 
   final int? id;
   final String? title;
+  @JsonKey(name: 'title_ru')
+  final String? titleRu;
   final String? categoryImage;
   final List<GroupResponse>? groups;
 }

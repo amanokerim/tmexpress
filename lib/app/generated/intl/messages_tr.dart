@@ -40,7 +40,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "ag": MessageLookupByLibrary.simpleMessage("Aşgabat"),
         "ah": MessageLookupByLibrary.simpleMessage("Ahal"),
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
-        "all2": MessageLookupByLibrary.simpleMessage("Ähli"),
         "apply": MessageLookupByLibrary.simpleMessage("Kabul etmek"),
         "bn": MessageLookupByLibrary.simpleMessage("Balkan"),
         "canNotVerify": MessageLookupByLibrary.simpleMessage(

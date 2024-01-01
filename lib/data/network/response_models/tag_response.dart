@@ -9,6 +9,7 @@ class TagResponse {
   TagResponse({
     this.id,
     this.title,
+    this.titleRu,
     this.product,
   });
   factory TagResponse.fromJson(Map<String, dynamic> json) =>
@@ -17,5 +18,7 @@ class TagResponse {
 
   final int? id;
   final String? title;
+  @JsonKey(name: 'title_ru')
+  final String? titleRu;
   final List<ProductMiniResponse>? product;
 }

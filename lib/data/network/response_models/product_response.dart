@@ -13,6 +13,7 @@ class ProductResponse {
     this.title,
     this.titleRu,
     this.description,
+    this.descriptionRu,
     this.video,
     this.weight,
     this.ourRating,
@@ -37,6 +38,8 @@ class ProductResponse {
   @JsonKey(name: 'title_ru')
   final String? titleRu;
   final String? description;
+  @JsonKey(name: 'description_ru')
+  final String? descriptionRu;
   final String? video;
   final double? weight;
   final double? ourRating;

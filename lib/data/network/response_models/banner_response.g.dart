@@ -9,6 +9,7 @@ part of 'banner_response.dart';
 BannerResponse _$BannerResponseFromJson(Map<String, dynamic> json) =>
     BannerResponse(
       title: json['title'] as String?,
+      titleRu: json['title_ru'] as String?,
       image: json['image'] as String?,
       type: json['type'] as String?,
       entityId: json['entityId'] as int?,
@@ -17,6 +18,7 @@ BannerResponse _$BannerResponseFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$BannerResponseToJson(BannerResponse instance) =>
     <String, dynamic>{
       'title': instance.title,
+      'title_ru': instance.titleRu,
       'image': instance.image,
       'type': instance.type,
       'entityId': instance.entityId,

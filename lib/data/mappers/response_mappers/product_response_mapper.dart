@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../app/env/env.dart';
 import '../../../domain/entities/product/product.dart';
+import '../../../main.dart';
 import '../../network/response_models/product_response.dart';
 import '../mapper.dart';
 import 'image_response_mapper.dart';
@@ -18,8 +19,9 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
     final video = entity?.video ?? '';
     return Product(
       id: entity?.id ?? 0,
-      title: entity?.title ?? '',
-      description: entity?.description ?? '',
+      title: (isRu ? entity?.titleRu : null) ?? entity?.title ?? '',
+      description:
+          (isRu ? entity?.descriptionRu : null) ?? entity?.description ?? '',
       video: '${Env.value.baseUrl}$video',
       weight: entity?.weight ?? 0,
       ourRating: entity?.ourRating ?? 0,

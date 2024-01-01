@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/entities/product/tag.dart';
+import '../../../main.dart';
 import '../../network/response_models/tag_response.dart';
 import '../mapper.dart';
 import 'product_mini_response_mapper.dart';
@@ -13,7 +14,7 @@ class TagResponseMapper extends Mapper<TagResponse, Tag> {
   @override
   Tag map(TagResponse? entity) => Tag(
         id: entity?.id ?? 0,
-        title: entity?.title ?? '',
+        title: (isRu ? entity?.titleRu : null) ?? entity?.title ?? '',
         products: _productMiniResponseMapper.mapList(entity?.product),
       );
 }

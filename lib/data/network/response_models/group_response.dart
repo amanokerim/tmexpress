@@ -9,6 +9,7 @@ class GroupResponse {
   const GroupResponse({
     this.id,
     this.title,
+    this.titleRu,
     this.subCategories,
   });
 
@@ -18,5 +19,7 @@ class GroupResponse {
 
   final int? id;
   final String? title;
+  @JsonKey(name: 'title_ru')
+  final String? titleRu;
   final List<SubcategoryResponse>? subCategories;
 }

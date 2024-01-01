@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../app/env/env.dart';
 import '../../../domain/entities/product/subcategory.dart';
+import '../../../main.dart';
 import '../../network/response_models/subcategory_response.dart';
 import '../mapper.dart';
 
@@ -12,7 +13,9 @@ class SubcategoryResponseMapper
   Subcategory map(SubcategoryResponse? entity) => Subcategory(
         id: entity?.id ?? 0,
         title: (entity?.title ?? '').isNotEmpty
-            ? entity!.title!.split(' > ').last
+            ? ((isRu ? entity?.titleRu : null) ?? entity!.title)!
+                .split(' > ')
+                .last
             : '',
         subCategoryImage: '${Env.value.baseUrl}${entity?.subCategoryImage}',
       );

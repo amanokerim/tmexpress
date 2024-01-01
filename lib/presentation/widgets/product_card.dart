@@ -85,7 +85,7 @@ class ProductCard extends StatelessWidget {
                             builder: (_) => SearchPage(SearchParams(
                                 query: '',
                                 countryId: product.country!.id,
-                                title: product.country!.titleTm)))),
+                                title: product.country!.title)))),
                     child: AppImage(
                       product.country!.flag,
                       width: 24,

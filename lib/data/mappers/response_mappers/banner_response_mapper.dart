@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../app/env/env.dart';
 import '../../../domain/entities/product/banner.dart';
+import '../../../main.dart';
 import '../../network/response_models/banner_response.dart';
 import '../mapper.dart';
 
@@ -9,7 +10,7 @@ import '../mapper.dart';
 class BannerResponseMapper extends Mapper<BannerResponse, Banner> {
   @override
   Banner map(BannerResponse? entity) => Banner(
-        title: entity?.title ?? '',
+        title: (isRu ? entity?.titleRu : null) ?? entity?.title ?? '',
         image: '${Env.value.baseUrl}${entity?.image}',
         type: stringToBannerType(entity?.type),
         entityId: entity?.entityId ?? 0,

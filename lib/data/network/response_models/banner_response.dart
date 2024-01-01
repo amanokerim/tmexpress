@@ -6,6 +6,7 @@ part 'banner_response.g.dart';
 class BannerResponse {
   const BannerResponse({
     this.title,
+    this.titleRu,
     this.image,
     this.type,
     this.entityId,
@@ -16,6 +17,8 @@ class BannerResponse {
   Map<String, dynamic> toJson() => _$BannerResponseToJson(this);
 
   final String? title;
+  @JsonKey(name: 'title_ru')
+  final String? titleRu;
   final String? image;
   final String? type;
   final int? entityId;

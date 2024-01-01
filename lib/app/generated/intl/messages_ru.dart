@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(count) => "${count}+";
 
   static String m2(phone, code) =>
-      "Чтобы войти отправьте на номер ${phone} СМС с кодом ${code} и вернитесь обратно в программу";
+      "Чтобы войти отправьте СМС с кодом ${code} на номер ${phone} и вернитесь обратно в программу";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -41,7 +41,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "ag": MessageLookupByLibrary.simpleMessage("Ашхабад"),
         "ah": MessageLookupByLibrary.simpleMessage("Ахал"),
         "all": MessageLookupByLibrary.simpleMessage("Все"),
-        "all2": MessageLookupByLibrary.simpleMessage("Все"),
         "apply": MessageLookupByLibrary.simpleMessage("Принять"),
         "bn": MessageLookupByLibrary.simpleMessage("Балкан"),
         "canNotVerify": MessageLookupByLibrary.simpleMessage(

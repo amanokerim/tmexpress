@@ -9,6 +9,7 @@ class ProductMiniResponse {
   ProductMiniResponse({
     this.id,
     this.title,
+    this.titleRu,
     this.ourRating,
     this.discount,
     this.normalPrice,
@@ -21,6 +22,8 @@ class ProductMiniResponse {
 
   final int? id;
   final String? title;
+  @JsonKey(name: 'title_ru')
+  final String? titleRu;
   final double? ourRating;
   final int? discount;
   final double? normalPrice;

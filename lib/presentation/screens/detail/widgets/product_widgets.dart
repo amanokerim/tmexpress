@@ -189,7 +189,7 @@ class ProductWidgets {
                 builder: (_) => SearchPage(SearchParams(
                     query: '',
                     countryId: _product.country!.id,
-                    title: _product.country!.titleTm)))),
+                    title: _product.country!.title)))),
             child: Row(
               children: [
                 AppImage(
@@ -198,7 +198,7 @@ class ProductWidgets {
                   borderRadius: BorderRadius.circular(4),
                 ),
                 const SizedBox(width: 6),
-                Text(_product.country!.titleTm, style: AppTextStyle.grey16),
+                Text(_product.country!.title, style: AppTextStyle.grey16),
               ],
             ),
           ),

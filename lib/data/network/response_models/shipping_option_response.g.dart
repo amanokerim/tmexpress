@@ -11,6 +11,7 @@ ShippingOptionResponse _$ShippingOptionResponseFromJson(
     ShippingOptionResponse(
       id: json['id'] as int?,
       title: json['title'] as String?,
+      titleRu: json['title_ru'] as String?,
       image: json['image'] as String?,
       price: (json['price'] as num?)?.toDouble(),
     );
@@ -20,6 +21,7 @@ Map<String, dynamic> _$ShippingOptionResponseToJson(
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'title_ru': instance.titleRu,
       'image': instance.image,
       'price': instance.price,
     };
