@@ -229,6 +229,7 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i30.GetStringPreferenceUseCase>(),
           gh<_i42.FetchProfileUseCase>(),
           gh<_i19.SetPreferenceUseCase>(),
+          gh<_i35.ProfileRepository>(),
         ));
     gh.lazySingleton<_i48.SearchProductsUseCase>(
         () => _i48.SearchProductsUseCase(gh<_i45.ProductRepository>()));

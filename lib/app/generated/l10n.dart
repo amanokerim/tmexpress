@@ -1210,6 +1210,36 @@ class S {
     );
   }
 
+  /// `Hasaby pozmak`
+  String get deleteAccount {
+    return Intl.message(
+      'Hasaby pozmak',
+      name: 'deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hasabyňyzy pozmakçymy?`
+  String get confirmDeleteAccount {
+    return Intl.message(
+      'Hasabyňyzy pozmakçymy?',
+      name: 'confirmDeleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sargytlaryňyz togtadylar, sargyt taryhy, halanlaryňyz we galan ähli maglumatlaryňyz pozular. Ýöne, siz islendik wagt täze hasap döredip bilersiňiz.`
+  String get confirmDeleteAccountContent {
+    return Intl.message(
+      'Sargytlaryňyz togtadylar, sargyt taryhy, halanlaryňyz we galan ähli maglumatlaryňyz pozular. Ýöne, siz islendik wagt täze hasap döredip bilersiňiz.',
+      name: 'confirmDeleteAccountContent',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.`
   String get signInForMakeOrder {
     return Intl.message(
@@ -1350,10 +1380,10 @@ class S {
     );
   }
 
-  /// `Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Ýakyn Ýol" programmasyny ýükläp alyp bilersiňiz!`
+  /// `Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Yakynyol" programmasyny ýükläp alyp bilersiňiz!`
   String get shareContent {
     return Intl.message(
-      'Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Ýakyn Ýol" programmasyny ýükläp alyp bilersiňiz!',
+      'Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Yakynyol" programmasyny ýükläp alyp bilersiňiz!',
       name: 'shareContent',
       desc: '',
       args: [],

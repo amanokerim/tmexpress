@@ -125,6 +125,9 @@
   "open": "Открыть",
   "confirmSignOut": "Выйти из аккаунта?",
   "confirmSignOutContent": "В любой момент можете войти с номером телефона",
+  "deleteAccount": "Удалить аккаунт",
+  "confirmDeleteAccount": "Удалить аккаунт?",
+  "confirmDeleteAccountContent": "Ваши заказы отменяться, история заказов, избранные и все остальные данные удаляться. Но, в любое время вы можете создать новый аккаунт.",
   
   "signInForMakeOrder": "Чтобы заказать войдите или создайте аккаунт",
   "signInToAddToFavorites": "Чтобы добавить в избранное войдите или создайте аккаунт",
@@ -142,7 +145,7 @@
   "searchHint": "Поиск...",
   "description": "Описание",
   "country": "Страна производства",
-  "shareContent": "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Ýakyn Ýol\" programmasyny ýükläp alyp bilersiňiz!",
+  "shareContent": "Если хотите покупать товары из Китая и Турции оптом и в розницу скачайте приложение \"Yakynyol\" из Google Play или App Store!",
   "share": "Поделиться",
   "selectShippingOption": "Выберете метод доставки",
   "watchVideo": "Видео",

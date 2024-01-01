@@ -42,4 +42,7 @@ abstract class AuthNetwork {
   Future<void> editProfile(
     @Body() Profile profile,
   );
+
+  @DELETE('/api/auth/profile/')
+  Future<void> deleteProfile();
 }

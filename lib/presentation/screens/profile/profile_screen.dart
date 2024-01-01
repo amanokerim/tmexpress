@@ -69,10 +69,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 16),
             AppButton(
-                label: S.current.logOut,
-                iconFile: 'logout.png',
-                type: ButtonType.black,
-                onPressed: () => _signOut(context)),
+              label: S.current.logOut,
+              iconFile: 'logout.png',
+              type: ButtonType.black,
+              onPressed: () => _signOut(context),
+            ),
+            const SizedBox(height: 16),
+            AppButton(
+              label: S.current.deleteAccount,
+              iconFile: 'trash.png',
+              type: ButtonType.red,
+              onPressed: () => _deleteAccount(context),
+            ),
           ],
         );
       } else if (state is ProfileLoadError) {
@@ -91,6 +99,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
             positiveButtonLabel: S.current.yes));
     if (confirm == true) {
       context.read<ProfileBloc>().add(ProfileSignOutRequested());
+    }
+  }
+
+  Future<void> _deleteAccount(BuildContext context) async {
+    final confirm = await showDialog<bool>(
+        context: context,
+        builder: (_) => AppDialog(
+            title: S.current.confirmDeleteAccount,
+            content: S.current.confirmDeleteAccountContent,
+            positiveButtonLabel: S.current.yes));
+    if (confirm == true) {
+      context.read<ProfileBloc>().add(ProfileDeleteAccountRequested());
     }
   }
 }

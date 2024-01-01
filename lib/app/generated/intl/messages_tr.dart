@@ -51,6 +51,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cartEmpty": MessageLookupByLibrary.simpleMessage("Sebetde haryt ýok"),
         "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
         "close": MessageLookupByLibrary.simpleMessage("Ýapmak"),
+        "confirmDeleteAccount":
+            MessageLookupByLibrary.simpleMessage("Hasabyňyzy pozmakçymy?"),
+        "confirmDeleteAccountContent": MessageLookupByLibrary.simpleMessage(
+            "Sargytlaryňyz togtadylar, sargyt taryhy, halanlaryňyz we galan ähli maglumatlaryňyz pozular. Ýöne, siz islendik wagt täze hasap döredip bilersiňiz."),
         "confirmRemove":
             MessageLookupByLibrary.simpleMessage("Sebetden pozmakçymy?"),
         "confirmSignOut":
@@ -63,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "count": MessageLookupByLibrary.simpleMessage("sany"),
         "country": MessageLookupByLibrary.simpleMessage("Öndirilen ýurdy"),
         "declined": MessageLookupByLibrary.simpleMessage("Kabul edilmedi"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("Hasaby pozmak"),
         "delivered": MessageLookupByLibrary.simpleMessage("Gowşyryldy"),
         "delivering": MessageLookupByLibrary.simpleMessage("Gowşyrylýar"),
         "description": MessageLookupByLibrary.simpleMessage("Beýany"),
@@ -171,7 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Biz tarapda näsazylyk ýüze çykdy.\nBiz düzetmegiň ugrunda işleýäris."),
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
         "shareContent": MessageLookupByLibrary.simpleMessage(
-            "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Ýakyn Ýol\" programmasyny ýükläp alyp bilersiňiz!"),
+            "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Yakynyol\" programmasyny ýükläp alyp bilersiňiz!"),
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
         "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
             "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň."),

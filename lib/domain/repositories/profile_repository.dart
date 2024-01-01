@@ -10,4 +10,6 @@ abstract class ProfileRepository {
   Future<Either<AppError, Profile>> fetchProfile();
 
   Future<Either<AppError, void>> editProfile(Profile profile);
+
+  Future<Either<AppError, void>> deleteProfile();
 }

@@ -52,6 +52,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cartEmpty": MessageLookupByLibrary.simpleMessage("Корзина пуста"),
         "categories": MessageLookupByLibrary.simpleMessage("Категории"),
         "close": MessageLookupByLibrary.simpleMessage("Закрыть"),
+        "confirmDeleteAccount":
+            MessageLookupByLibrary.simpleMessage("Удалить аккаунт?"),
+        "confirmDeleteAccountContent": MessageLookupByLibrary.simpleMessage(
+            "Ваши заказы отменяться, история заказов, избранные и все остальные данные удаляться. Но, в любое время вы можете создать новый аккаунт."),
         "confirmRemove":
             MessageLookupByLibrary.simpleMessage("Ыдалить из корзины?"),
         "confirmSignOut":
@@ -64,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "count": MessageLookupByLibrary.simpleMessage("количество"),
         "country": MessageLookupByLibrary.simpleMessage("Страна производства"),
         "declined": MessageLookupByLibrary.simpleMessage("Не принято"),
+        "deleteAccount":
+            MessageLookupByLibrary.simpleMessage("Удалить аккаунт"),
         "delivered": MessageLookupByLibrary.simpleMessage("ДОставлен"),
         "delivering": MessageLookupByLibrary.simpleMessage("Доставляеться"),
         "description": MessageLookupByLibrary.simpleMessage("Описание"),
@@ -164,7 +170,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ошибка на нашей стороне.\nМы постараемся скоро поправить."),
         "share": MessageLookupByLibrary.simpleMessage("Поделиться"),
         "shareContent": MessageLookupByLibrary.simpleMessage(
-            "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Ýakyn Ýol\" programmasyny ýükläp alyp bilersiňiz!"),
+            "Если хотите покупать товары из Китая и Турции оптом и в розницу скачайте приложение \"Yakynyol\" из Google Play или App Store!"),
         "shipping": MessageLookupByLibrary.simpleMessage("В пути"),
         "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
             "Чтобы заказать войдите или создайте аккаунт"),

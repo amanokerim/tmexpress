@@ -129,7 +129,10 @@
   "open": "Açmak",
   "confirmSignOut": "Hasabyňyzdan çykmakçymy?",
   "confirmSignOutContent": "Islendik wagt telefon belgiňiz arkaly ýene-de girip bilersiňiz.",
-  
+  "deleteAccount": "Hasaby pozmak",
+  "confirmDeleteAccount": "Hasabyňyzy pozmakçymy?",
+  "confirmDeleteAccountContent": "Sargytlaryňyz togtadylar, sargyt taryhy, halanlaryňyz we galan ähli maglumatlaryňyz pozular. Ýöne, siz islendik wagt täze hasap döredip bilersiňiz.",
+
   "signInForMakeOrder": "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň.",
   "signInToAddToFavorites": "Halanlaryňyza goşmak üçin hasap dörediň ýa-da hasabyňyza giriň.",
   "youCantReceiveNotifications": "Siz biziň arzanladyşlarymyz, aksiýalarymyz baradaky täzelikleri kabul edip bilmeýärsiňiz.\nSazlamalardan (уведомения) düzetmegiňizi haýyş edýäris)",
@@ -147,7 +150,7 @@
   "searchHint": "Gözleýän harydyňyzy ýazyň...",
   "description": "Beýany",
   "country": "Öndirilen ýurdy",
-  "shareContent": "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Ýakyn Ýol\" programmasyny ýükläp alyp bilersiňiz!",
+  "shareContent": "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Yakynyol\" programmasyny ýükläp alyp bilersiňiz!",
   "selectShippingOption": "Eltip bermek usulyny saýlaň",
   "watchVideo": "Wideo görmek",
   "randomProducts": "Başga harytlar",

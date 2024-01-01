@@ -67,4 +67,11 @@ class ProfileRepositoryImpl implements ProfileRepository {
       await _authNetwork.editProfile(profile);
     });
   }
+
+  @override
+  Future<Either<AppError, void>> deleteProfile() {
+    return _exception.handle(() async {
+      await _authNetwork.deleteProfile();
+    });
+  }
 }

@@ -37,11 +37,8 @@ class Env {
           statusBarColor: Colors.transparent,
           statusBarBrightness: Brightness.light),
     );
-    print('setPreferredOrientations');
-    // await _initFirebase();
-    print('_initFirebase()');
+
     await HiveBoxes.init();
-    print('await HiveBoxes.init()');
 
     _preCache();
 
