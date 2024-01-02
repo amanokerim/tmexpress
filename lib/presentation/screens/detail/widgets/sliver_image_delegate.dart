@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_theme.dart';
@@ -15,26 +16,35 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    final image = state.selectedColor ?? state.product.productImages[0];
+    final image =
+        state.selectedColor ?? state.product.productImages.values.first;
 
     return Container(
       color: AppColors.white,
       child: Stack(
         children: [
           Positioned.fill(
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (_) => PhotoViewPage(
-                      image: image.url, title: state.product.title),
-                ),
-              ),
-              child: CachedNetworkImage(
-                imageUrl: image.url,
-                fit: BoxFit.fitWidth,
-                alignment: Alignment.topCenter,
-                placeholder: (_, __) => _noImage,
-                errorWidget: (_, __, ___) => _noImage,
+            child: CarouselSlider(
+              items: image
+                  .map((i) => GestureDetector(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => PhotoViewPage(
+                                images: image, title: state.product.title),
+                          ),
+                        ),
+                        child: CachedNetworkImage(
+                          imageUrl: i.url,
+                          fit: BoxFit.cover,
+                          placeholder: (_, __) => _noImage,
+                          errorWidget: (_, __, ___) => _noImage,
+                        ),
+                      ))
+                  .toList(),
+              options: CarouselOptions(
+                autoPlay: false,
+                viewportFraction: 1,
+                aspectRatio: image.first.width / image.first.height,
               ),
             ),
           ),
@@ -73,7 +83,8 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   double get maxExtent {
-    final img = state.selectedColor ?? state.product.productImages[0];
+    final img = state.selectedColor?.first ??
+        state.product.productImages.values.first.first;
     final displayWidth = MediaQuery.of(context).size.width;
     return img.height * displayWidth / img.width;
   }
@@ -92,11 +103,9 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
         ],
       );
 
-  Widget get _noImage => Container(
-        color: AppColors.bg2,
-        child: Image.asset(
-          'assets/illustrations/logo-grey.jpeg',
-          fit: BoxFit.cover,
-        ),
+  Widget get _noImage => Image.asset(
+        'assets/logo-tr.png',
+        color: AppColors.lGrey,
+        fit: BoxFit.cover,
       );
 }

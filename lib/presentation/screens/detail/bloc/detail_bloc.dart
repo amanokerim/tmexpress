@@ -29,6 +29,7 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
         (error) => DetailLoadError(error.message, UniqueKey()),
         (product) {
           this.product = product;
+          selectedColor = product.productImages.values.toList().first;
           return success();
         },
       ));
@@ -48,10 +49,13 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
       product = product.copyWith(isLiked: !product.isLiked);
       emit(success());
 
+      final color =
+          selectedColor ?? product.productImages.values.toList().first;
       final sp = SavedProduct(
-          id: product.id,
-          title: product.title,
-          image: product.productImages[0].urlMini);
+        id: product.id,
+        title: product.title,
+        image: color.first.urlMini,
+      );
       final r = await _likeProductUseCase(sp);
       final failed = r.fold((l) => true, (r) => false);
 
@@ -92,5 +96,5 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
 
   late Product product;
   Size? selectedSize;
-  Image? selectedColor;
+  List<Image>? selectedColor;
 }

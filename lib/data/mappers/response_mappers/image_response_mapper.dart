@@ -14,5 +14,6 @@ class ImageResponseMapper extends Mapper<ImageResponse, Image> {
         urlMini: '${Env.value.baseUrl}${entity?.urlMini}',
         width: entity?.imageWidth ?? 0,
         height: entity?.imageHeight ?? 0,
+        alt: entity?.alt ?? '${entity?.id}',
       );
 }

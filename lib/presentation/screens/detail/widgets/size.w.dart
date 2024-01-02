@@ -25,7 +25,8 @@ class SizeW extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-              color: selected ? AppColors.dark : AppColors.lGrey, width: .5),
+              color: selected ? AppColors.secondary : AppColors.lGrey,
+              width: 1),
         ),
         alignment: Alignment.center,
         child: Column(

@@ -9,7 +9,7 @@ import '../bloc/detail_bloc.dart';
 class ColorW extends StatelessWidget {
   const ColorW(this.image, {required this.isSelected, Key? key})
       : super(key: key);
-  final Image image;
+  final List<Image> image;
   final bool isSelected;
 
   @override
@@ -18,7 +18,7 @@ class ColorW extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.all(6),
-          child: AppImage(image.urlMini, width: 64, height: 64),
+          child: AppImage(image.first.urlMini, width: 64, height: 64),
         ),
         Material(
           color: Colors.transparent,
@@ -33,7 +33,7 @@ class ColorW extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 border: isSelected
-                    ? Border.all(width: .5, color: AppColors.dark)
+                    ? Border.all(width: 1, color: AppColors.secondary)
                     : null,
               ),
             ),

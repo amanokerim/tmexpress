@@ -33,8 +33,8 @@ class ProductWidgets {
       builder: (context, cart) {
         final cartItem = cart.items.firstWhereOrNull((e) =>
             e.product.id == state.product.id &&
-            (e.color == state.selectedColor ||
-                state.product.productImages.length == 1) &&
+            (state.selectedColor?.contains(e.color) == true ||
+                state.product.productImages.values.length == 1) &&
             e.size == state.selectedSize);
         return Padding(
           padding: const EdgeInsets.fromLTRB(10, 4, 20, 20),
@@ -78,8 +78,9 @@ class ProductWidgets {
                               product: _product,
                               count: 1,
                               size: state.selectedSize ?? state.product.size[0],
-                              color: state.selectedColor ??
-                                  state.product.productImages[0],
+                              color: state.selectedColor?.first ??
+                                  state
+                                      .product.productImages.values.first.first,
                               price: _product.normalPriceByCount(1),
                               expressPrice: _product.normalPriceByCount(1),
                             );
@@ -249,7 +250,7 @@ class ProductWidgets {
       ];
 
   List<Widget> images() {
-    final productImages = state.product.productImages;
+    final productImages = state.product.productImages.values.toList();
     return [
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 2),

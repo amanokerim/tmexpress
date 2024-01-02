@@ -13,7 +13,9 @@ class DetailImage extends StatelessWidget {
     return Stack(
       children: [
         AppImage(
-          state.selectedColor?.url ?? state.product.productImages[0].url,
+          (state.selectedColor ?? state.product.productImages.values.first)
+              .first
+              .url,
           borderRadius: BorderRadius.circular(0),
           placeholderHeight: 300,
         ),

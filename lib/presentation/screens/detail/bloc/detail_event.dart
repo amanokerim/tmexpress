@@ -25,7 +25,7 @@ class DetailSizeChanged extends DetailEvent {
 
 class DetailColorChanged extends DetailEvent {
   const DetailColorChanged(this.color);
-  final Image color;
+  final List<Image> color;
 
   @override
   List<Object> get props => [color];

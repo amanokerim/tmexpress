@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../app/env/env.dart';
+import '../../../domain/entities/image.dart';
 import '../../../domain/entities/product/product.dart';
 import '../../../main.dart';
 import '../../network/response_models/product_response.dart';
@@ -17,6 +18,16 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
   @override
   Product map(ProductResponse? entity) {
     final video = entity?.video ?? '';
+    final imageMap = <String, List<Image>>{};
+    final images = _imageResponseMapper.mapList(entity?.productImages).toList();
+    for (var i = 0; i < images.length; i++) {
+      if (imageMap.containsKey(images[i].alt)) {
+        imageMap[images[i].alt] = [...imageMap[images[i].alt]!, images[i]];
+      } else {
+        imageMap[images[i].alt] = [images[i]];
+      }
+    }
+
     return Product(
       id: entity?.id ?? 0,
       title: (isRu ? entity?.titleRu : null) ?? entity?.title ?? '',
@@ -26,7 +37,7 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
       weight: entity?.weight ?? 0,
       ourRating: entity?.ourRating ?? 0,
       discount: entity?.discount ?? 0,
-      productImages: _imageResponseMapper.mapList(entity?.productImages),
+      productImages: imageMap,
       size: _sizeResponseMapper.mapList(entity?.size),
       normalPrice: entity?.normalPrice ?? 0,
       normalPriceW: entity?.normalPriceW ?? 0,

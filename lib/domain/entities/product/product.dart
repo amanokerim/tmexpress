@@ -31,7 +31,7 @@ class Product extends Equatable {
   final double weight;
   final double ourRating;
   final double discount;
-  final List<Image> productImages;
+  final Map<String, List<Image>> productImages;
   final List<Size> size;
   final double normalPrice;
   final double normalPriceW;
@@ -54,7 +54,7 @@ class Product extends Equatable {
     double? weight,
     double? ourRating,
     double? discount,
-    List<Image>? productImages,
+    Map<String, List<Image>>? productImages,
     List<Size>? size,
     double? expressPrice,
     double? normalPrice,

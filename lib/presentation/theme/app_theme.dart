@@ -96,6 +96,7 @@ abstract class AppColors {
 
   static Color get dark => const Color(0xFF212121);
   static Color get grey => const Color(0xFF999999);
+  static Color get grey2 => const Color(0xFFc4c4c4);
   static Color get lGrey => const Color(0xFFDDDDDD);
 
   static Color get white => Colors.white;

@@ -7,6 +7,7 @@ class Image extends Equatable {
     required this.urlMini,
     required this.width,
     required this.height,
+    required this.alt,
   });
 
   final int id;
@@ -14,6 +15,7 @@ class Image extends Equatable {
   final String urlMini;
   final double width;
   final double height;
+  final String alt;
 
   @override
   List<Object?> get props => [id];

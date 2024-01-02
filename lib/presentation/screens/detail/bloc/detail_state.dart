@@ -20,7 +20,7 @@ class DetailLoadSuccess extends DetailState {
     this.detailLoad = DetailLoad.none,
   });
   final Product product;
-  final Image? selectedColor;
+  final List<Image>? selectedColor;
   final Size? selectedSize;
   final String? flashMessage;
   final DetailLoad detailLoad;

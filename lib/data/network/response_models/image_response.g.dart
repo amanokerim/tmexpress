@@ -13,6 +13,7 @@ ImageResponse _$ImageResponseFromJson(Map<String, dynamic> json) =>
       urlMini: json['urlMini'] as String?,
       imageHeight: (json['imageHeight'] as num?)?.toDouble(),
       imageWidth: (json['imageWidth'] as num?)?.toDouble(),
+      alt: json['alt'] as String?,
     );
 
 Map<String, dynamic> _$ImageResponseToJson(ImageResponse instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$ImageResponseToJson(ImageResponse instance) =>
       'urlMini': instance.urlMini,
       'imageWidth': instance.imageWidth,
       'imageHeight': instance.imageHeight,
+      'alt': instance.alt,
     };
