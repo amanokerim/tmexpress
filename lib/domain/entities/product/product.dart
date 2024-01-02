@@ -21,6 +21,7 @@ class Product extends Equatable {
     required this.isLiked,
     required this.sizeTable,
     required this.country,
+    required this.onStock,
   });
 
   final int id;
@@ -36,6 +37,7 @@ class Product extends Equatable {
   final double normalPriceW;
   final int wholesaleLimit;
   final bool isLiked;
+  final bool onStock;
   final String sizeTable;
   final Country? country;
 
@@ -62,6 +64,7 @@ class Product extends Equatable {
     bool? isLiked,
     String? sizeTable,
     Country? country,
+    bool? onStock,
   }) {
     return Product(
       id: id ?? this.id,
@@ -79,6 +82,7 @@ class Product extends Equatable {
       isLiked: isLiked ?? this.isLiked,
       sizeTable: sizeTable ?? this.sizeTable,
       country: country ?? this.country,
+      onStock: onStock ?? this.onStock,
     );
   }
 }

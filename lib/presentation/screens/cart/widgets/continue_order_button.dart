@@ -18,10 +18,12 @@ class ContinueOrderButton extends StatelessWidget {
   const ContinueOrderButton({
     required this.total,
     required this.selectedShippingOption,
+    required this.allOnStock,
     Key? key,
   }) : super(key: key);
   final double total;
   final ShippingOption? selectedShippingOption;
+  final bool allOnStock;
 
   @override
   Widget build(BuildContext context) {
@@ -46,28 +48,31 @@ class ContinueOrderButton extends StatelessWidget {
             child: AppButton(
               label: S.current.continueButton,
               type: ButtonType.black,
-              onPressed: () {
-                showModalBottomSheet<ShippingOption>(
-                  context: context,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(20)),
-                  ),
-                  builder: (_) => const ShippingOptionsSelector(),
-                ).then((shippingOption) {
-                  if (shippingOption != null) {
-                    if (context.read<ProfileBloc>().profile != null) {
-                      _showProfileConfirmationBottomSheet(context);
-                    } else {
-                      AppFlash.bigToast(
-                          context: context,
-                          message: S.current.signInForMakeOrder);
-                      context
-                          .read<MainBloc>()
-                          .add(const MainTabChanged(index: 4));
-                    }
+              onPressed: () async {
+                ShippingOption? shippingOption;
+                if (!allOnStock) {
+                  shippingOption = await showModalBottomSheet<ShippingOption>(
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(20)),
+                    ),
+                    builder: (_) => const ShippingOptionsSelector(),
+                  );
+                }
+
+                if (shippingOption != null || allOnStock) {
+                  if (context.read<ProfileBloc>().profile != null) {
+                    _showProfileConfirmationBottomSheet(context);
+                  } else {
+                    await AppFlash.bigToast(
+                        context: context,
+                        message: S.current.signInForMakeOrder);
+                    context
+                        .read<MainBloc>()
+                        .add(const MainTabChanged(index: 4));
                   }
-                });
+                }
               },
             ),
           ),

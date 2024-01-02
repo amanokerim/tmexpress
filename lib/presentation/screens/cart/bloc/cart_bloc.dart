@@ -53,7 +53,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           .toList();
       final order = Order(
         orderitems: orderItems,
-        shippingOption: _shippingOption!.id,
+        shippingOption: _shippingOption?.id,
       );
       final r = await _createOrderUseCase(order);
       emit(r.fold(

@@ -36,7 +36,8 @@ class FlutterApp extends StatelessWidget {
               create: (_) => getIt()..add(const ShippingOptionsRequested()),
               lazy: false),
           BlocProvider<MainBloc>(create: (_) => getIt()),
-          BlocProvider<ProfileBloc>(create: (context) => getIt()),
+          BlocProvider<ProfileBloc>(
+              create: (context) => getIt()..add(ProfileStarted()), lazy: false),
         ],
         child: MaterialApp(
             title: kAppName,

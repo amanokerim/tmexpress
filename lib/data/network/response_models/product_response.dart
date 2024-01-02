@@ -27,6 +27,7 @@ class ProductResponse {
     this.wholesaleLimit,
     this.sizeTable,
     this.country,
+    this.onStock = false,
   });
 
   factory ProductResponse.fromJson(Map<String, dynamic> json) =>
@@ -54,4 +55,6 @@ class ProductResponse {
   @JsonKey(name: 'size_table')
   final String? sizeTable;
   final Country? country;
+  @JsonKey(name: 'on_stock')
+  final bool onStock;
 }

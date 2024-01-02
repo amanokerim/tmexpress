@@ -7,7 +7,7 @@ class Order {
   });
 
   final List<OrderItem> orderitems;
-  final int shippingOption;
+  final int? shippingOption;
 
   Map<String, dynamic> toJson() => {
         'orderitems': orderitems.map((x) => x.toJson()).toList(),

@@ -57,6 +57,8 @@ class CartScreen extends StatelessWidget {
                   ContinueOrderButton(
                     total: state.total,
                     selectedShippingOption: state.shippingOption,
+                    allOnStock:
+                        state.items.every((item) => item.product.onStock),
                   ),
               ],
             ),
