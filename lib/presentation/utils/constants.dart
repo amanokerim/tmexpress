@@ -36,3 +36,4 @@ const kDynamicLinkProduct = '/product';
 const kProductPage = 'product';
 const kTagPage = 'tag';
 const kSubcategoryPage = 'category';
+const kMediaPage = 'media';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widgets/app_banner_b.dart';
 import '../../widgets/app_carousel_slider.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_progress_indicator.dart';
@@ -18,12 +19,16 @@ class HomeScreen extends StatelessWidget {
         return ListView(
           children: [
             const SizedBox(height: 8),
-            AppCarouselSlider(state.home.banners),
+            AppCarouselSlider(state.home.aBanners),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: state.home.tags.length,
               itemBuilder: (_, index) => TagWidget(state.home.tags[index]),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 24),
+              child: AppBannerB(),
             ),
             const RandomW(),
           ],

@@ -9,12 +9,15 @@ import '../mapper.dart';
 @lazySingleton
 class BannerResponseMapper extends Mapper<BannerResponse, Banner> {
   @override
-  Banner map(BannerResponse? entity) => Banner(
-        title: (isRu ? entity?.titleRu : null) ?? entity?.title ?? '',
-        image: '${Env.value.baseUrl}${entity?.image}',
-        type: stringToBannerType(entity?.type),
-        entityId: entity?.entityId ?? 0,
-      );
+  Banner map(BannerResponse? entity) {
+    return Banner(
+      title: (isRu ? entity?.titleRu : null) ?? entity?.title ?? '',
+      image: '${Env.value.baseUrl}${entity?.image}',
+      type: stringToBannerType(entity?.type),
+      size: stringToBannerSize(entity?.size),
+      entityId: entity?.entityId ?? 0,
+    );
+  }
 
   BannerType stringToBannerType(String? str) {
     switch (str) {
@@ -22,8 +25,31 @@ class BannerResponseMapper extends Mapper<BannerResponse, Banner> {
         return BannerType.category;
       case 'TAG':
         return BannerType.tag;
+      case 'MEDIA':
+        return BannerType.media;
       default:
         return BannerType.product;
+    }
+  }
+
+  BannerSize stringToBannerSize(String? str) {
+    switch (str) {
+      case 'B':
+        return BannerSize.b;
+      case 'C':
+        return BannerSize.c;
+      case 'D':
+        return BannerSize.d;
+      case 'E':
+        return BannerSize.e;
+      case 'F':
+        return BannerSize.f;
+      case 'G':
+        return BannerSize.g;
+      case 'H':
+        return BannerSize.h;
+      default:
+        return BannerSize.a;
     }
   }
 }

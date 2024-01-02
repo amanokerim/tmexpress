@@ -14,9 +14,9 @@ class NavigationHelper {
       BuildContext context, dynamic pageType, dynamic idd) {
     int? id;
     Widget? page;
-    if (id is int) id = id;
-    if (id is String) id = int.tryParse(idd);
-
+    if (idd is int) id = idd;
+    if (idd is String) id = int.tryParse(idd);
+    print(pageType);
     if (id != null) {
       switch (pageType) {
         case kProductPage:

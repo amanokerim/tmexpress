@@ -40,6 +40,7 @@ class AppImage extends StatelessWidget {
         height: placeholderHeight,
         width: double.infinity,
         color: AppColors.bg2,
-        child: Image.asset('assets/illustrations/logo-grey.jpeg'),
+        child: Image.asset('assets/illustrations/logo-grey.jpeg',
+            fit: BoxFit.cover),
       );
 }

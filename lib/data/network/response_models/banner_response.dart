@@ -9,6 +9,7 @@ class BannerResponse {
     this.titleRu,
     this.image,
     this.type,
+    this.size,
     this.entityId,
   });
 
@@ -21,5 +22,6 @@ class BannerResponse {
   final String? titleRu;
   final String? image;
   final String? type;
+  final String? size;
   final int? entityId;
 }
