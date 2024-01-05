@@ -5,19 +5,20 @@ import 'package:injectable/injectable.dart';
 import '../../../../data/network/response_models/media.dart';
 import '../../../../domain/repositories/media_repository.dart';
 
-part 'media_event.dart';
-part 'media_state.dart';
+part 'media_list_event.dart';
+part 'media_list_state.dart';
 
 @injectable
-class MediaBloc extends Bloc<MediaEvent, MediaState> {
-  MediaBloc(this.repository) : super(MediaInitial()) {
-    on<MediaRequested>((event, emit) async {
+class MediaListBloc extends Bloc<MediaListEvent, MediaListState> {
+  MediaListBloc(this.repository) : super(MediaInitial()) {
+    on<MediaListRequested>((event, emit) async {
       final r = await repository.fetchMediaList(event.next, event.categoryId);
       emit(r.fold(
-        (error) => MediaLoadError(error.message),
-        (pagination) => MediaLoadSuccess(
+        (error) => MediaListLoadError(error.message),
+        (pagination) => MediaListLoadSuccess(
           media: pagination.results,
           next: pagination.next,
+          clear: event.clear,
         ),
       ));
     });

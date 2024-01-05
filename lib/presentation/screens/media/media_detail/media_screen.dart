@@ -2,22 +2,22 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../../data/network/response_models/media.dart';
-import '../../../domain/entities/product/tag.dart';
-import '../../theme/app_theme.dart';
-import '../../widgets/app_image.dart';
-import '../../widgets/primary_app_bar.dart';
-import '../home/widgets/tag.w.dart';
+import '../../../../data/network/response_models/media.dart';
+import '../../../../domain/entities/product/tag.dart';
+import '../../../theme/app_theme.dart';
+import '../../../widgets/app_image.dart';
+import '../../../widgets/primary_app_bar.dart';
+import '../../home/widgets/tag.w.dart';
 
-class MediaDetailScreen extends StatefulWidget {
-  const MediaDetailScreen({required this.media, Key? key}) : super(key: key);
+class MediaScreen extends StatefulWidget {
+  const MediaScreen({required this.media, Key? key}) : super(key: key);
   final Media media;
 
   @override
-  State<MediaDetailScreen> createState() => MediaDetailScreenState();
+  State<MediaScreen> createState() => MediaScreenState();
 }
 
-class MediaDetailScreenState extends State<MediaDetailScreen> {
+class MediaScreenState extends State<MediaScreen> {
   late VideoPlayerController _videoPlayerController;
   late ChewieController _chewieController;
 

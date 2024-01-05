@@ -13,7 +13,7 @@ import '../../../widgets/app_image.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../../cart/widgets/cart_item_count.w.dart';
 import '../../home/search/search_page.dart';
-import '../../media/widgets/video_player_screen.dart';
+import 'video_player_screen.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
 import 'color.w.dart';

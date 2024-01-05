@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../data/network/response_models/media.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_image.dart';
-import '../../detail/video_player_full_screen.dart';
+import '../media_detail/media_screen.dart';
 import 'video_player_card.dart';
 
 class MediaCard extends StatelessWidget {
@@ -13,8 +13,8 @@ class MediaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
-          builder: (_) => MediaDetailScreen(media: media))),
+      onTap: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(builder: (_) => MediaScreen(media: media))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

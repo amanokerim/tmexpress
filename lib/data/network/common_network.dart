@@ -4,6 +4,7 @@ import 'package:retrofit/retrofit.dart';
 import 'response_models/banner_response.dart';
 import 'response_models/category_response.dart';
 import 'response_models/media.dart';
+import 'response_models/media_category.dart';
 import 'response_models/pagination.dart';
 import 'response_models/pagination_response.dart';
 import 'response_models/product_mini_response.dart';
@@ -91,11 +92,14 @@ abstract class CommonNetwork {
     @Query('limit') int limit,
   );
 
+  @GET('/api/products/media/categories/')
+  Future<List<MediaCategory>> fetchMediaCategories();
+
   @GET('/api/products/media/')
   Future<Pagination<Media>> fetchMediaList(
     @Query('offset') String? offset,
     @Query('limit') int limit,
-    @Query('categoryId') int? categoryId,
+    @Query('category') int? categoryId,
   );
 
   @GET('/api/products/media/{id}')

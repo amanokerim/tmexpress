@@ -3,7 +3,7 @@ import '../../../domain/entities/bottom_tab.dart';
 import '../cart/cart_screen.dart';
 import '../category/category_screen.dart';
 import '../home/home_screen.dart';
-import '../media/medoa_page.dart';
+import '../media/media_list_page.dart';
 import '../profile/profile_screen.dart';
 
 final bottomTabs = <BottomTab>[
@@ -29,7 +29,7 @@ final bottomTabs = <BottomTab>[
     index: 2,
     title: S.current.media,
     icon: 'media',
-    screen: const MediaPage(),
+    screen: const MediaListPage(),
   ),
   BottomTab(
     index: 3,

@@ -8,6 +8,7 @@ import '../../presentation/utils/constants.dart';
 import '../error/exception_handler.dart';
 import '../network/common_network.dart';
 import '../network/response_models/media.dart';
+import '../network/response_models/media_category.dart';
 import '../network/response_models/pagination.dart';
 
 @LazySingleton(as: MediaRepository)
@@ -23,10 +24,22 @@ class MediaRepositoryImpl implements MediaRepository {
   final Box<Map<dynamic, dynamic>> favoritesBox;
 
   @override
+  Future<Either<AppError, List<MediaCategory>>> fetchMediaCategories() {
+    return _exception.handle(_commonNetwork.fetchMediaCategories);
+  }
+
+  @override
   Future<Either<AppError, Pagination<Media>>> fetchMediaList(
       String? next, int? categoryId) {
     return _exception.handle(
       () => _commonNetwork.fetchMediaList(_getOffset(next), kLimit, categoryId),
+    );
+  }
+
+  @override
+  Future<Either<AppError, Media>> fetchMedia(int id) {
+    return _exception.handle(
+      () => _commonNetwork.fetchMedia(id),
     );
   }
 
