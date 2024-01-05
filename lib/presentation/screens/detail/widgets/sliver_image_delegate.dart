@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Image;
 
+import '../../../../domain/entities/image.dart';
 import '../../../theme/app_theme.dart';
+import '../../../widgets/app_image.dart';
 import '../bloc/detail_bloc.dart';
 import '../detail_screen.dart';
 import 'photo_view_page.dart';
@@ -18,6 +20,8 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     final image =
         state.selectedColor ?? state.product.productImages.values.first;
+    final allImages = <Image>[];
+    state.product.productImages.values.forEach(allImages.addAll);
 
     return Container(
       color: AppColors.white,
@@ -30,20 +34,22 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<void>(
                             builder: (_) => PhotoViewPage(
-                                images: image, title: state.product.title),
+                                images: allImages, title: state.product.title),
                           ),
                         ),
                         child: CachedNetworkImage(
                           imageUrl: i.url,
                           fit: BoxFit.cover,
-                          placeholder: (_, __) => _noImage,
-                          errorWidget: (_, __, ___) => _noImage,
+                          placeholder: (_, __) => const AppImagePlaceholder(),
+                          errorWidget: (_, __, ___) =>
+                              const AppImagePlaceholder(),
                         ),
                       ))
                   .toList(),
               options: CarouselOptions(
                 autoPlay: false,
                 viewportFraction: 1,
+                enableInfiniteScroll: false,
                 aspectRatio: image.first.width / image.first.height,
               ),
             ),
@@ -101,11 +107,5 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
         boxShadow: [
           BoxShadow(color: Colors.white, blurRadius: 5, spreadRadius: 5)
         ],
-      );
-
-  Widget get _noImage => Image.asset(
-        'assets/logo-tr.png',
-        color: AppColors.lGrey,
-        fit: BoxFit.cover,
       );
 }

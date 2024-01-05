@@ -16,11 +16,13 @@ class ProductCard extends StatelessWidget {
     this.product, {
     this.imageSize = 180,
     this.aspectRatio = .6,
+    this.showAddToCartButton = true,
     Key? key,
   }) : super(key: key);
   final ProductMini product;
   final double imageSize;
   final double aspectRatio;
+  final bool showAddToCartButton;
 
   @override
   Widget build(BuildContext context) {
@@ -96,19 +98,20 @@ class ProductCard extends StatelessWidget {
                 ]
               ],
             ),
-            BlocBuilder<CartBloc, CartState>(
-              builder: (context, cart) {
-                final inCart =
-                    cart.items.any((e) => e.product.id == product.id);
-                return AppButton(
-                  label: imageSize <= 100 ? '' : S.current.addToCart,
-                  onPressed: null,
-                  iconFile: 'basket.png',
-                  type: inCart ? ButtonType.green : ButtonType.red,
-                  isMini: true,
-                );
-              },
-            )
+            if (showAddToCartButton)
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, cart) {
+                  final inCart =
+                      cart.items.any((e) => e.product.id == product.id);
+                  return AppButton(
+                    label: imageSize <= 100 ? '' : S.current.addToCart,
+                    onPressed: null,
+                    iconFile: 'basket.png',
+                    type: inCart ? ButtonType.green : ButtonType.red,
+                    isMini: true,
+                  );
+                },
+              )
           ],
         ),
       ),

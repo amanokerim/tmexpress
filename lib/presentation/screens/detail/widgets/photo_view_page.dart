@@ -32,7 +32,7 @@ class PhotoViewPage extends StatelessWidget {
               builder: (BuildContext context, int index) {
                 return PhotoViewGalleryPageOptions(
                   imageProvider: CachedNetworkImageProvider(images[index].url),
-                  initialScale: PhotoViewComputedScale.contained * 0.8,
+                  initialScale: PhotoViewComputedScale.contained * 1.0,
                 );
               },
               itemCount: images.length,
