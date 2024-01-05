@@ -8,11 +8,11 @@ import '../../repositories/product_repository.dart';
 import '../usecase.dart';
 
 @lazySingleton
-class FetchHotProducts extends UseCase<Pagination<ProductMini>, String?> {
+class FetchHotProducts extends UseCase<PaginationM<ProductMini>, String?> {
   FetchHotProducts(this._productRepository);
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<AppError, Pagination<ProductMini>>> call(String? next) =>
+  Future<Either<AppError, PaginationM<ProductMini>>> call(String? next) =>
       _productRepository.fetchHotProducts(next);
 }

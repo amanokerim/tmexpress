@@ -10,12 +10,13 @@ import '../usecase.dart';
 
 @lazySingleton
 class SearchProductsUseCase
-    extends UseCase<Pagination<ProductMini>, SearchParams> {
+    extends UseCase<PaginationM<ProductMini>, SearchParams> {
   SearchProductsUseCase(this._productRepository);
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<AppError, Pagination<ProductMini>>> call(SearchParams params) =>
+  Future<Either<AppError, PaginationM<ProductMini>>> call(
+          SearchParams params) =>
       params.query.isNotEmpty || params.title.isNotEmpty
           ? _productRepository.searchProducts(params)
           : _productRepository.fetchHotProducts(params.next);

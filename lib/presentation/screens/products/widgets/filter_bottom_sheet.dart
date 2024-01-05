@@ -6,7 +6,7 @@ import '../../../../domain/entities/product/filter_options.dart';
 import '../../../../domain/entities/product/size.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_error.dart';
-import '../../../widgets/app_progress_indicator.dart';
+import '../../../widgets/app_loader.dart';
 import '../../detail/widgets/size.w.dart';
 import '../bloc/filter/filter_bloc.dart';
 import 'sort_filter_bottom_sheet.dart';
@@ -71,7 +71,7 @@ class FilterBottomSheet extends StatelessWidget {
                 .add(FilterSizesRequested(subcategoryId)),
           );
         }
-        return const AppProgressIndicator(size: 80);
+        return const AppLoader(size: 80);
       },
     );
   }

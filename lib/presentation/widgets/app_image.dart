@@ -30,16 +30,36 @@ class AppImage extends StatelessWidget {
         width: width,
         color: color,
         imageUrl: url,
-        errorWidget: (_, __, ___) => noImage(),
-        placeholder: (_, __) => noImage(),
+        errorWidget: (_, __, ___) {
+          print(url);
+          return AppImagePlaceholder(height: placeholderHeight ?? height);
+        },
+        placeholder: (_, __) =>
+            AppImagePlaceholder(height: placeholderHeight ?? height),
       ),
     );
   }
+}
 
-  Container noImage() => Container(
-        height: placeholderHeight,
-        width: double.infinity,
-        color: AppColors.bg2,
-        child: Image.asset('assets/illustrations/logo-grey.jpeg'),
-      );
+class AppImagePlaceholder extends StatelessWidget {
+  const AppImagePlaceholder({
+    this.height,
+    this.borderRadius,
+    Key? key,
+  }) : super(key: key);
+  final double? height;
+  final BorderRadius? borderRadius;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.lGrey,
+        borderRadius: borderRadius ?? BorderRadius.circular(16),
+      ),
+      height: height,
+      width: double.infinity,
+      child: Image.asset('assets/logo-tr.png'),
+    );
+  }
 }

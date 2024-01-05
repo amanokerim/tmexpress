@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/generated/l10n.dart';
 import '../../../widgets/app_empty.dart';
 import '../../../widgets/app_error.dart';
-import '../../../widgets/app_progress_indicator.dart';
+import '../../../widgets/app_loader.dart';
 import '../../../widgets/primary_app_bar.dart';
 import '../bloc/profile_bloc.dart';
 import '../widgets/placed_order_card.dart';
@@ -41,7 +41,7 @@ class PlacedOrdersScreen extends StatelessWidget {
                   context.read<PlacedOrdersBloc>().add(PlacedOrdersStarted()),
             );
           }
-          return const AppProgressIndicator();
+          return const AppLoader();
         },
       ),
     );

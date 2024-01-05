@@ -6,7 +6,7 @@ class AppBottomNavBarItem extends BottomNavigationBarItem {
   AppBottomNavBarItem({required String iconFile})
       : super(
             icon: Image.asset('assets/icons/$iconFile.png',
-                color: AppColors.dark, width: 26),
+                color: AppColors.dark, width: iconFile == 'media' ? 24 : 26),
             activeIcon: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
@@ -14,7 +14,7 @@ class AppBottomNavBarItem extends BottomNavigationBarItem {
                 color: AppColors.secondary,
               ),
               child: Image.asset('assets/icons/$iconFile.png',
-                  color: AppColors.white, width: 26),
+                  color: AppColors.white, width: iconFile == 'media' ? 24 : 26),
             ),
             label: '');
 }

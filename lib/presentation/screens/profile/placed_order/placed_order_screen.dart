@@ -5,7 +5,7 @@ import '../../../../domain/entities/order/placed_order.dart';
 import '../../../utils/date_extension.dart';
 import '../../../widgets/app_empty.dart';
 import '../../../widgets/app_error.dart';
-import '../../../widgets/app_progress_indicator.dart';
+import '../../../widgets/app_loader.dart';
 import '../../../widgets/primary_app_bar.dart';
 import '../bloc/profile_bloc.dart';
 import '../widgets/placed_order_card.dart';
@@ -52,7 +52,7 @@ class PlacedOrderScreen extends StatelessWidget {
                         .read<PlacedOrderBloc>()
                         .add(PlacedOrderStarted(order.id)));
               }
-              return const AppProgressIndicator();
+              return const AppLoader();
             }),
           ),
         ],

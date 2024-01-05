@@ -90,6 +90,16 @@ class S {
     );
   }
 
+  /// `Media`
+  String get media {
+    return Intl.message(
+      'Media',
+      name: 'media',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sebet`
   String get cart {
     return Intl.message(
@@ -685,6 +695,16 @@ class S {
     return Intl.message(
       'Sebetde haryt ýok',
       name: 'cartEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Häzirlikçe bu ýeri boş`
+  String get empty {
+    return Intl.message(
+      'Häzirlikçe bu ýeri boş',
+      name: 'empty',
       desc: '',
       args: [],
     );

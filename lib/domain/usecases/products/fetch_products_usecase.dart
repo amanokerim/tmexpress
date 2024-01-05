@@ -12,12 +12,12 @@ import '../usecase.dart';
 
 @lazySingleton
 class FetchProductsUseCase
-    extends UseCase<Pagination<ProductMini>, FetchProductsParams> {
+    extends UseCase<PaginationM<ProductMini>, FetchProductsParams> {
   FetchProductsUseCase(this._productRepository);
   final ProductRepository _productRepository;
 
   @override
-  Future<Either<AppError, Pagination<ProductMini>>> call(
+  Future<Either<AppError, PaginationM<ProductMini>>> call(
           FetchProductsParams params) =>
       _productRepository.fetchProducts(params);
 }

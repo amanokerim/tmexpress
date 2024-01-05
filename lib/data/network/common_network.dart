@@ -3,6 +3,8 @@ import 'package:retrofit/retrofit.dart';
 
 import 'response_models/banner_response.dart';
 import 'response_models/category_response.dart';
+import 'response_models/media.dart';
+import 'response_models/pagination.dart';
 import 'response_models/pagination_response.dart';
 import 'response_models/product_mini_response.dart';
 import 'response_models/product_response.dart';
@@ -38,7 +40,7 @@ abstract class CommonNetwork {
 
   @GET('/api/products/productsSearchView/')
   Future<PaginationResponse<ProductMiniResponse>> searchProducts(
-    @Query('query') String query,
+    @Query('search_text') String query,
     @Query('offset') String? offset,
     @Query('limit') int limit,
     @Query('is_random') int? isRandom,
@@ -84,8 +86,20 @@ abstract class CommonNetwork {
     @Path() int id,
   );
 
-  @GET('/api//order/shipping-options/')
+  @GET('/api/order/shipping-options/')
   Future<PaginationResponse<ShippingOptionResponse>> fetchShippingOptions(
     @Query('limit') int limit,
+  );
+
+  @GET('/api/products/media/')
+  Future<Pagination<Media>> fetchMediaList(
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
+    @Query('categoryId') int? categoryId,
+  );
+
+  @GET('/api/products/media/{id}')
+  Future<Media> fetchMedia(
+    @Path('id') int id,
   );
 }

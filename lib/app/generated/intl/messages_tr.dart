@@ -77,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit": MessageLookupByLibrary.simpleMessage("Üýtgetmek"),
         "editProfile":
             MessageLookupByLibrary.simpleMessage("Maglumatlary üýtgetmek"),
+        "empty": MessageLookupByLibrary.simpleMessage("Häzirlikçe bu ýeri boş"),
         "favorites": MessageLookupByLibrary.simpleMessage("Halanlarym"),
         "fill": MessageLookupByLibrary.simpleMessage("Doldurmak"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtr"),
@@ -98,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "makeOrder": MessageLookupByLibrary.simpleMessage("Sargyt etmek"),
         "man": MessageLookupByLibrary.simpleMessage("Erkek"),
         "manat": MessageLookupByLibrary.simpleMessage("manat"),
+        "media": MessageLookupByLibrary.simpleMessage("Media"),
         "mr": MessageLookupByLibrary.simpleMessage("Mary"),
         "nMan": m0,
         "name": MessageLookupByLibrary.simpleMessage("Adyňyz"),

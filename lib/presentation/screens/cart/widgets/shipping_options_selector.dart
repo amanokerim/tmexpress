@@ -5,7 +5,7 @@ import '../../../../app/generated/l10n.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_error.dart';
 import '../../../widgets/app_image.dart';
-import '../../../widgets/app_progress_indicator.dart';
+import '../../../widgets/app_loader.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../../shipping_options/bloc/shipping_options_bloc.dart';
 import '../bloc/cart_bloc.dart';
@@ -97,7 +97,7 @@ class ShippingOptionsSelector extends StatelessWidget {
                   ),
                 );
               }
-              return const Center(child: AppProgressIndicator());
+              return const Center(child: AppLoader());
             },
           );
         } else if (state is ShippingOptionsLoadError) {
@@ -106,7 +106,7 @@ class ShippingOptionsSelector extends StatelessWidget {
             onPressed: () => context.read<ProfileBloc>().add(ProfileStarted()),
           );
         }
-        return const AppProgressIndicator();
+        return const AppLoader();
       },
     );
   }

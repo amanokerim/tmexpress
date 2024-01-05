@@ -16,21 +16,23 @@ class TagWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(tag.title, style: AppTextStyle.bold20),
-              TextButton(
-                  onPressed: onAllPressed ??
-                      () => Navigator.of(context).push(MaterialPageRoute<void>(
-                            builder: (_) => ProductsPage(productParent: tag),
-                          )),
-                  child: Text(S.current.all)),
-            ],
+        if (tag.title.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(tag.title, style: AppTextStyle.bold20),
+                TextButton(
+                    onPressed: onAllPressed ??
+                        () =>
+                            Navigator.of(context).push(MaterialPageRoute<void>(
+                              builder: (_) => ProductsPage(productParent: tag),
+                            )),
+                    child: Text(S.current.all)),
+              ],
+            ),
           ),
-        ),
         SizedBox(
           height: 280,
           child: ListView.separated(

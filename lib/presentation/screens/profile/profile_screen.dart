@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../app/generated/l10n.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_confirm_dialog.dart';
-import '../../widgets/app_progress_indicator.dart';
+import '../../widgets/app_loader.dart';
 import '../auth/auth_page.dart';
 import 'bloc/profile_bloc.dart';
 import 'favorites_screen.dart';
@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       } else if (state is ProfileLoadError) {
         return ProfileError(state.message);
       }
-      return const AppProgressIndicator();
+      return const AppLoader();
     });
   }
 

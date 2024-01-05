@@ -2,7 +2,6 @@ import 'package:injectable/injectable.dart';
 
 import '../../../app/env/env.dart';
 import '../../../domain/entities/product/product_mini.dart';
-import '../../../main.dart';
 import '../../network/response_models/product_mini_response.dart';
 import '../mapper.dart';
 
@@ -13,7 +12,8 @@ class ProductMiniResponseMapper
   ProductMini map(ProductMiniResponse? entity) {
     return ProductMini(
       id: entity?.id ?? 0,
-      title: (isRu ? entity?.titleRu : null) ?? entity?.title ?? '',
+      titleTm: entity?.title ?? '',
+      titleRu: entity?.titleRu,
       ourRating: entity?.ourRating ?? 0,
       discount: entity?.discount ?? 0,
       normalPrice: entity?.normalPrice ?? 0,

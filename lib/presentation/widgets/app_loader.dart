@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class AppProgressIndicator extends StatelessWidget {
-  const AppProgressIndicator({this.size = 100, Key? key}) : super(key: key);
+class AppLoader extends StatelessWidget {
+  const AppLoader({this.size = 100, Key? key}) : super(key: key);
   final double size;
 
   @override

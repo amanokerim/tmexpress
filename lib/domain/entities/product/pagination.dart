@@ -1,5 +1,5 @@
-class Pagination<T> {
-  const Pagination({
+class PaginationM<T> {
+  const PaginationM({
     required this.count,
     required this.next,
     required this.items,

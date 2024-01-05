@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../widgets/app_banner_b.dart';
 import '../../widgets/app_carousel_slider.dart';
 import '../../widgets/app_error.dart';
-import '../../widgets/app_progress_indicator.dart';
+import '../../widgets/app_loader.dart';
 import '../detail/widgets/random.w.dart';
 import 'bloc/home_bloc.dart';
 import 'widgets/tag.w.dart';
@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
             message: state.message,
             onPressed: () => context.read<HomeBloc>().add(HomeRequested()));
       }
-      return const AppProgressIndicator();
+      return const AppLoader();
     });
   }
 }

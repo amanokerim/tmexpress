@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/env/env.dart';
 import '../../widgets/app_error.dart';
-import '../../widgets/app_progress_indicator.dart';
+import '../../widgets/app_loader.dart';
 import 'bloc/detail_bloc.dart';
 import 'widgets/product_sizes.dart';
 import 'widgets/product_widgets.dart';
@@ -72,7 +72,7 @@ class DetailScreen extends StatelessWidget {
               context.read<DetailBloc>().add(DetailRequested(productId)),
         ));
       }
-      return const Scaffold(body: AppProgressIndicator());
+      return const Scaffold(body: AppLoader());
     });
   }
 }

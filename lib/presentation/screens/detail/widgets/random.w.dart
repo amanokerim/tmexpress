@@ -5,7 +5,7 @@ import '../../../../app/generated/l10n.dart';
 import '../../../../app/injection/injection.dart';
 import '../../../../domain/entities/product/tag.dart';
 import '../../../../domain/usecases/products/search_product_usecase.dart';
-import '../../../widgets/app_progress_indicator.dart';
+import '../../../widgets/app_loader.dart';
 import '../../home/search/bloc/search_bloc.dart';
 import '../../home/search/search_page.dart';
 import '../../home/widgets/tag.w.dart';
@@ -29,7 +29,7 @@ class RandomW extends StatelessWidget {
                 MaterialPageRoute<void>(builder: (_) => SearchPage(params))),
           );
         }
-        return const AppProgressIndicator();
+        return const AppLoader();
       }),
     );
   }

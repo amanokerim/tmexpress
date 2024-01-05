@@ -9,7 +9,7 @@ import '../../../app/generated/l10n.dart';
 import '../../../app/injection/injection.dart';
 import '../../utils/app_flash.dart';
 import '../../utils/constants.dart';
-import '../../widgets/app_progress_indicator.dart';
+import '../../widgets/app_loader.dart';
 import '../main/bloc/main_bloc.dart';
 import '../main/main_screen.dart';
 import 'bloc/start_bloc.dart';
@@ -75,7 +75,7 @@ class _StartScreenState extends State<StartScreen> {
                     return const Center(child: Text('Please Update an app'));
                   }
                   return const Scaffold(
-                    body: AppProgressIndicator(),
+                    body: AppLoader(),
                   );
                 },
               ),

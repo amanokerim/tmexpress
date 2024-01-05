@@ -12,5 +12,5 @@ abstract class OrderRepository {
 
   Future<Either<AppError, PlacedOrder>> getPlacedOrder(int id);
 
-  Future<Either<AppError, Pagination<ShippingOption>>> getShippingOptions();
+  Future<Either<AppError, PaginationM<ShippingOption>>> getShippingOptions();
 }

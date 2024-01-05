@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../widgets/app_error.dart';
-import '../../widgets/app_progress_indicator.dart';
+import '../../widgets/app_loader.dart';
 import 'bloc/shipping_options_bloc.dart';
 
 class ShippingOptionsScreen extends StatefulWidget {
@@ -42,7 +42,7 @@ class _ShippingOptionsScreenState extends State<ShippingOptionsScreen> {
                   Text(state.shippingOptions[index].title),
             );
           }
-          return const AppProgressIndicator();
+          return const AppLoader();
         },
       ),
     );

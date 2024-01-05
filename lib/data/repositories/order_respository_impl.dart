@@ -72,7 +72,7 @@ class OrderRepositoryImpl implements OrderRepository {
   }
 
   @override
-  Future<Either<AppError, Pagination<ShippingOption>>> getShippingOptions() {
+  Future<Either<AppError, PaginationM<ShippingOption>>> getShippingOptions() {
     return _exception.handle(() => _commonNetwork
         .fetchShippingOptions(kLimit)
         .then(_shippingOptionPaginationResponseMapper.map));

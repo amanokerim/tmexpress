@@ -15,5 +15,5 @@ extension StringX on String {
 String imageFromJson(String? s) {
   if ((s ?? '').isEmpty) return '';
 
-  return '${Env.value.baseUrl}$s';
+  return '${Env.value.baseUrl}media/$s';
 }

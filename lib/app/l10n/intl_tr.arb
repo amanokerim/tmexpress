@@ -5,6 +5,7 @@
   "homeScreen": "Baş sahypa",
   "categories": "Bölümler",
   "hot": "Gyzgyn harytlar",
+  "media": "Media",
   "cart": "Sebet",
   "profile": "Profil",
 
@@ -74,6 +75,7 @@
   "orderCreated": "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!",
   "ok": "Bolýar",
   "cartEmpty": "Sebetde haryt ýok",
+  "empty": "Häzirlikçe bu ýeri boş",
 
   "sort": "Tertip",
   "filter": "Filtr",

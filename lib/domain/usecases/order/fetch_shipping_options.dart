@@ -9,11 +9,11 @@ import '../usecase.dart';
 
 @lazySingleton
 class FetchShippingOptions
-    extends UseCaseWithoutParams<Pagination<ShippingOption>> {
+    extends UseCaseWithoutParams<PaginationM<ShippingOption>> {
   FetchShippingOptions(this._orderRepository);
   final OrderRepository _orderRepository;
 
   @override
-  Future<Either<AppError, Pagination<ShippingOption>>> call() =>
+  Future<Either<AppError, PaginationM<ShippingOption>>> call() =>
       _orderRepository.getShippingOptions();
 }

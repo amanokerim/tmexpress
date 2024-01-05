@@ -3,7 +3,7 @@ import '../../../domain/entities/bottom_tab.dart';
 import '../cart/cart_screen.dart';
 import '../category/category_screen.dart';
 import '../home/home_screen.dart';
-import '../hot/hot_screen.dart';
+import '../media/medoa_page.dart';
 import '../profile/profile_screen.dart';
 
 final bottomTabs = <BottomTab>[
@@ -19,11 +19,17 @@ final bottomTabs = <BottomTab>[
     icon: 'category',
     screen: const CategoryScreen(),
   ),
+  // BottomTab(
+  //   index: 2,
+  //   title: S.current.hot,
+  //   icon: 'fire',
+  //   screen: const HotScreen(),
+  // ),
   BottomTab(
     index: 2,
-    title: S.current.hot,
-    icon: 'fire',
-    screen: const HotScreen(),
+    title: S.current.media,
+    icon: 'media',
+    screen: const MediaPage(),
   ),
   BottomTab(
     index: 3,

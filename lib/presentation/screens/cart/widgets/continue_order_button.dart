@@ -7,7 +7,7 @@ import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_error.dart';
-import '../../../widgets/app_progress_indicator.dart';
+import '../../../widgets/app_loader.dart';
 import '../../main/bloc/main_bloc.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../../profile/widgets/profile_card.dart';
@@ -117,7 +117,7 @@ class ContinueOrderButton extends StatelessWidget {
                   context.read<ProfileBloc>().add(ProfileStarted()),
             );
           }
-          return const AppProgressIndicator();
+          return const AppLoader();
         },
       ),
     );

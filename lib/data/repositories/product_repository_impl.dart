@@ -75,7 +75,7 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<AppError, Pagination<ProductMini>>> fetchProducts(
+  Future<Either<AppError, PaginationM<ProductMini>>> fetchProducts(
       FetchProductsParams params) {
     return _exception.handle(() async {
       final offset = _getOffset(params.next);
@@ -134,7 +134,7 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<AppError, Pagination<ProductMini>>> fetchHotProducts(
+  Future<Either<AppError, PaginationM<ProductMini>>> fetchHotProducts(
       String? next) {
     return _exception.handle(() async => _commonNetwork
         .fetchHotProducts(_getOffset(next), kLimit)
@@ -156,7 +156,7 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<AppError, Pagination<ProductMini>>> searchProducts(
+  Future<Either<AppError, PaginationM<ProductMini>>> searchProducts(
       SearchParams params) {
     return _exception.handle(() => _commonNetwork
         .searchProducts(

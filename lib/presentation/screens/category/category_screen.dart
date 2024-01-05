@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_error.dart';
-import '../../widgets/app_progress_indicator.dart';
+import '../../widgets/app_loader.dart';
 import '../products/products_page.dart';
 import 'bloc/category_bloc.dart';
 import 'widgets/category.w.dart';
@@ -91,7 +91,7 @@ class CategoryScreen extends StatelessWidget {
               context.read<CategoryBloc>().add(CategoriesRequested()),
         );
       }
-      return const AppProgressIndicator();
+      return const AppLoader();
     });
   }
 }

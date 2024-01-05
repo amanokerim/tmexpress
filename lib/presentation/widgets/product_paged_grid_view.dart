@@ -4,7 +4,7 @@ import '../../app/generated/l10n.dart';
 import '../../domain/entities/product/product_mini.dart';
 import 'app_empty.dart';
 import 'app_error.dart';
-import 'app_progress_indicator.dart';
+import 'app_loader.dart';
 
 import 'product_card.dart';
 
@@ -27,10 +27,9 @@ class ProductPagedGridView extends StatelessWidget {
             onPressed: pagingController.retryLastFailedRequest,
           ),
         ),
-        firstPageProgressIndicatorBuilder: (_) => const AppProgressIndicator(),
+        firstPageProgressIndicatorBuilder: (_) => const AppLoader(),
         newPageProgressIndicatorBuilder: (_) => const Padding(
-            padding: EdgeInsets.fromLTRB(0, 30, 0, 50),
-            child: AppProgressIndicator()),
+            padding: EdgeInsets.fromLTRB(0, 30, 0, 50), child: AppLoader()),
         noItemsFoundIndicatorBuilder: (_) =>
             AppEmpty(message: S.current.noProducts),
       );

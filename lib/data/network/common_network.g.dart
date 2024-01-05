@@ -160,7 +160,7 @@ class _CommonNetwork implements CommonNetwork {
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'query': query,
+      r'search_text': query,
       r'offset': offset,
       r'limit': limit,
       r'is_random': isRandom,
@@ -414,7 +414,7 @@ class _CommonNetwork implements CommonNetwork {
     )
             .compose(
               _dio.options,
-              '/api//order/shipping-options/',
+              '/api/order/shipping-options/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -427,6 +427,72 @@ class _CommonNetwork implements CommonNetwork {
       _result.data!,
       (json) => ShippingOptionResponse.fromJson(json as Map<String, dynamic>),
     );
+    return value;
+  }
+
+  @override
+  Future<Pagination<Media>> fetchMediaList(
+    String? offset,
+    int limit,
+    int? categoryId,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit,
+      r'categoryId': categoryId,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<Pagination<Media>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/products/media/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = Pagination<Media>.fromJson(
+      _result.data!,
+      (json) => Media.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
+  Future<Media> fetchMedia(int id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Media>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/products/media/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = Media.fromJson(_result.data!);
     return value;
   }
 

@@ -16,13 +16,13 @@ abstract class ProductRepository {
 
   Future<Either<AppError, Home>> fetchHome();
 
-  Future<Either<AppError, Pagination<ProductMini>>> fetchProducts(
+  Future<Either<AppError, PaginationM<ProductMini>>> fetchProducts(
       FetchProductsParams params);
 
-  Future<Either<AppError, Pagination<ProductMini>>> fetchHotProducts(
+  Future<Either<AppError, PaginationM<ProductMini>>> fetchHotProducts(
       String? next);
 
-  Future<Either<AppError, Pagination<ProductMini>>> searchProducts(
+  Future<Either<AppError, PaginationM<ProductMini>>> searchProducts(
       SearchParams params);
 
   Future<Either<AppError, Product>> fetchProduct(int id);
