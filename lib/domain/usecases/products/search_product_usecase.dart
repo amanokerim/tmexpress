@@ -26,6 +26,7 @@ class SearchParams {
   SearchParams({
     required this.query,
     this.next,
+    this.nextRaw,
     this.title = '',
     this.isRandom,
     this.countryId,
@@ -42,6 +43,7 @@ class SearchParams {
 
   final String query;
   final String? next;
+  final String? nextRaw;
   final String title;
   final int? isRandom;
   final int? countryId;
@@ -49,6 +51,7 @@ class SearchParams {
   SearchParams copyWith({
     String? query,
     String? next,
+    String? nextRaw,
     String? title,
     int? isRandom,
     int? countryId,
@@ -56,6 +59,7 @@ class SearchParams {
     return SearchParams(
       query: query ?? this.query,
       next: next ?? this.next,
+      nextRaw: nextRaw ?? this.nextRaw,
       title: title ?? this.title,
       isRandom: isRandom ?? this.isRandom,
       countryId: countryId ?? this.countryId,

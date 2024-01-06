@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/env/env.dart';
+import '../../widgets/app_banner_b.dart';
 import '../../widgets/app_error.dart';
 import '../../widgets/app_loader.dart';
 import 'bloc/detail_bloc.dart';
@@ -37,7 +38,7 @@ class DetailScreen extends StatelessWidget {
                       ...productWidgets.images(),
                     ...ProductSizes(state).widgets(context),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 12),
+                      padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -45,14 +46,28 @@ class DetailScreen extends StatelessWidget {
                           ...productWidgets.prices(),
                           ...productWidgets.country(context),
                           ...productWidgets.description(),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 16),
+                        const AppBannerB(),
+                        SimilarProductsW(state.product.title),
+                        const RandomW(),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           if (state.product.video.length >
                               Env.value.baseUrl.length) ...[
                             const SizedBox(height: 16),
                             productWidgets.video(context),
                           ],
-                          SimilarProductsW(state.product.title),
-                          const RandomW(),
-                          const SizedBox(height: 16),
                           productWidgets.like(context),
                         ],
                       ),

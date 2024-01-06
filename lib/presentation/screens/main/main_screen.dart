@@ -53,11 +53,12 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
             body: AnimatedSwitcher(
-                duration: kAnimationDuration,
-                child: Container(
-                  key: ValueKey(tab.index),
-                  child: tab.screen,
-                )),
+              duration: kAnimationDuration,
+              child: Container(
+                key: ValueKey(tab.index),
+                child: tab.screen,
+              ),
+            ),
             bottomNavigationBar:
                 AppBottomNavigationBar(currentIndex: tab.index),
           );

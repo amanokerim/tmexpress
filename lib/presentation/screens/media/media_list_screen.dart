@@ -72,7 +72,7 @@ class _MediaListScreenState extends State<MediaListScreen> {
               child: PagedListView.separated(
                 physics: const BouncingScrollPhysics(),
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                 pagingController: _pagingController,
                 separatorBuilder: (_, __) => const SizedBox(height: 16),
                 builderDelegate: PagedChildBuilderDelegate<Media>(

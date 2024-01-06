@@ -16,12 +16,13 @@ class HotScreen extends StatefulWidget {
 class _HotScreenState extends State<HotScreen> {
   PagingController<String?, ProductMini> pagingController =
       PagingController(firstPageKey: null);
+  int page = 1;
 
   @override
   void initState() {
     super.initState();
     pagingController.addPageRequestListener((next) {
-      context.read<HotBloc>().add(HotRequested(next: next));
+      context.read<HotBloc>().add(HotRequested(page.toString()));
     });
   }
 
@@ -37,11 +38,7 @@ class _HotScreenState extends State<HotScreen> {
       body: BlocListener<HotBloc, HotState>(
         listener: (_, state) {
           if (state is HotLoadSuccess) {
-            if (state.next == null) {
-              pagingController.appendLastPage(state.products);
-            } else {
-              pagingController.appendPage(state.products, state.next);
-            }
+            pagingController.appendPage(state.products, (page++).toString());
           } else if (state is HotLoadError) {
             pagingController.error = state.message;
           }
@@ -50,8 +47,9 @@ class _HotScreenState extends State<HotScreen> {
           physics: const BouncingScrollPhysics(),
           slivers: [
             SliverPadding(
-                padding: const EdgeInsets.all(16),
-                sliver: ProductPagedGridView(pagingController)),
+              padding: const EdgeInsets.all(16),
+              sliver: ProductPagedGridView(pagingController),
+            ),
           ],
         ),
       ),

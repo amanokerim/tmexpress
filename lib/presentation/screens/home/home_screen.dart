@@ -22,6 +22,10 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 8),
             AppCarouselSlider(state.home.aBanners),
             const Shops(),
+            const Padding(
+              padding: EdgeInsets.only(top: 16),
+              child: AppBannerB(),
+            ),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

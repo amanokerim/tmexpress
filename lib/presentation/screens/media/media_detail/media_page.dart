@@ -7,24 +7,29 @@ import '../../../widgets/app_loader.dart';
 import 'cubit/media_cubit.dart';
 import 'media_screen.dart';
 
-class MediaDetailPage extends StatelessWidget {
-  const MediaDetailPage(this.id, {Key? key}) : super(key: key);
+class MediaPage extends StatelessWidget {
+  const MediaPage(this.id, {Key? key}) : super(key: key);
   final int id;
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<MediaCubit>(
-      create: (_) => getIt()..load(id),
-      child: BlocBuilder(builder: (_, state) {
-        if (state is MediaSuccess) {
-          return MediaScreen(media: state.media);
-        } else if (state is MediaError) {
-          return AppErrorScreen(
-              message: state.message,
-              onPressed: () => context.read<MediaCubit>().load(id));
-        }
-        return const AppLoader();
-      }),
+    return Scaffold(
+      body: BlocProvider<MediaCubit>(
+        create: (_) => getIt()..load(id),
+        child: BlocBuilder<MediaCubit, MediaState>(
+          builder: (_, state) {
+            if (state is MediaSuccess) {
+              return MediaScreen(media: state.media);
+            } else if (state is MediaError) {
+              return AppErrorScreen(
+                message: state.message,
+                onPressed: () => context.read<MediaCubit>().load(id),
+              );
+            }
+            return const AppLoader();
+          },
+        ),
+      ),
     );
   }
 }

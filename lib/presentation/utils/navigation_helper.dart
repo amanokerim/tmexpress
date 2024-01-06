@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../domain/entities/product/subcategory.dart';
 import '../../domain/entities/product/tag.dart';
 import '../screens/detail/detail_page.dart';
+import '../screens/media/media_detail/media_page.dart';
 import '../screens/products/products_page.dart';
 import 'constants.dart';
 
@@ -29,6 +30,9 @@ class NavigationHelper {
         case kSubcategoryPage:
           final sub = Subcategory(id: id, title: '', subCategoryImage: '');
           page = ProductsPage(productParent: sub);
+          break;
+        case kMediaPage:
+          page = MediaPage(id);
           break;
       }
       if (page != null) {

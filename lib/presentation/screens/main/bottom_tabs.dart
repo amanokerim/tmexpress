@@ -15,28 +15,22 @@ final bottomTabs = <BottomTab>[
   ),
   BottomTab(
     index: 1,
+    title: S.current.hot,
+    icon: 'fire',
+    screen: const HotScreen(),
+  ),
+  BottomTab(
+    index: 2,
     title: S.current.categories,
     icon: 'category',
     screen: const CategoryScreen(),
   ),
   BottomTab(
-    index: 2,
+    index: 3,
     title: S.current.media,
     icon: 'media',
     screen: const MediaListPage(),
   ),
-  BottomTab(
-    index: 3,
-    title: S.current.hot,
-    icon: 'fire',
-    screen: const HotScreen(),
-  ),
-  // BottomTab(
-  //   index: 3,
-  //   title: S.current.cart,
-  //   icon: 'basket',
-  //   screen: const CartScreen(),
-  // ),
   BottomTab(
     index: 4,
     title: S.current.profile,

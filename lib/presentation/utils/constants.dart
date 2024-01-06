@@ -7,7 +7,7 @@ const kToastDuration = Duration(seconds: 3);
 const kResendSeconds = 60;
 
 // Count of items in one page
-const kLimit = 15;
+const kLimit = 10;
 
 const kAppName = 'Yakynyol';
 const kVerificationPhone = '+99362820073';

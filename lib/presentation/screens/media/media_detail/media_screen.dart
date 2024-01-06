@@ -5,6 +5,7 @@ import 'package:video_player/video_player.dart';
 import '../../../../data/network/response_models/media.dart';
 import '../../../../domain/entities/product/tag.dart';
 import '../../../theme/app_theme.dart';
+import '../../../widgets/app_banner_b.dart';
 import '../../../widgets/app_image.dart';
 import '../../../widgets/primary_app_bar.dart';
 import '../../home/widgets/tag.w.dart';
@@ -88,8 +89,10 @@ class MediaScreenState extends State<MediaScreen> {
                 ),
               ),
             ],
+            const SizedBox(height: 16),
+            const AppBannerB(),
             if (widget.media.products.isNotEmpty) ...[
-              const SizedBox(height: 16),
+              const SizedBox(height: 20),
               TagWidget(
                 Tag(id: 0, title: '', products: widget.media.products),
               ),

@@ -24,7 +24,7 @@ import '../../data/mappers/response_mappers/category_response_mapper.dart'
 import '../../data/mappers/response_mappers/group_response_mapper.dart' as _i34;
 import '../../data/mappers/response_mappers/image_response_mapper.dart' as _i12;
 import '../../data/mappers/response_mappers/media_pagination_response_mapper.dart'
-    as _i20;
+    as _i19;
 import '../../data/mappers/response_mappers/placed_order_item_response_mapper.dart'
     as _i38;
 import '../../data/mappers/response_mappers/placed_order_response_mapper.dart'
@@ -32,7 +32,7 @@ import '../../data/mappers/response_mappers/placed_order_response_mapper.dart'
 import '../../data/mappers/response_mappers/product_mini_response_mapper.dart'
     as _i18;
 import '../../data/mappers/response_mappers/product_pagination_response_mapper.dart'
-    as _i19;
+    as _i20;
 import '../../data/mappers/response_mappers/product_response_mapper.dart'
     as _i40;
 import '../../data/mappers/response_mappers/profile_response_mapper.dart'
@@ -243,7 +243,7 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i46.CategoryResponseMapper>(),
           gh<_i5.BannerResponseMapper>(),
           gh<_i27.TagResponseMapper>(),
-          gh<_i19.ProductPaginationResponseMapper>(),
+          gh<_i20.ProductPaginationResponseMapper>(),
           gh<_i40.ProductResponseMapper>(),
           gh<_i25.SizeResponseMapper>(),
           gh<_i6.Box<Map<dynamic, dynamic>>>(),
@@ -286,7 +286,8 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i69.GetPlacedOrderUseCase>(
         () => _i69.GetPlacedOrderUseCase(gh<_i49.OrderRepository>()));
     gh.factory<_i70.HomeBloc>(() => _i70.HomeBloc(gh<_i61.FetchHomeUseCase>()));
-    gh.factory<_i71.HotBloc>(() => _i71.HotBloc(gh<_i62.FetchHotProducts>()));
+    gh.factory<_i71.HotBloc>(
+        () => _i71.HotBloc(gh<_i54.SearchProductsUseCase>()));
     gh.lazySingleton<_i72.LikeProductUseCase>(
         () => _i72.LikeProductUseCase(gh<_i51.ProductRepository>()));
     gh.factory<_i73.PlacedOrderBloc>(
