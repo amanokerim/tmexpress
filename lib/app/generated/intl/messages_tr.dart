@@ -180,6 +180,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shareContent": MessageLookupByLibrary.simpleMessage(
             "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Yakynyol\" programmasyny ýükläp alyp bilersiňiz!"),
         "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
+        "shops": MessageLookupByLibrary.simpleMessage("Dükanlar"),
         "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
             "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň."),
         "signInToAddToFavorites": MessageLookupByLibrary.simpleMessage(

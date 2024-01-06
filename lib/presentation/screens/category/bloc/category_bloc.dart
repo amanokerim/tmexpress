@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../domain/entities/product/category.dart';
+import '../../../../domain/entities/product/subcategory.dart';
 import '../../../../domain/usecases/products/fetch_categories_usecase.dart';
 
 part 'category_event.dart';
@@ -15,7 +15,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<CategoriesRequested>((event, emit) async {
       final result = await _fetchProductsUseCase();
       emit(result.fold(
-        (error) => CategoryLoadError(error.message, UniqueKey()),
+        (error) => CategoryLoadError(error.message),
         (categories) {
           this.categories = categories;
           selected = categories[0];

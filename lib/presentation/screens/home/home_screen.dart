@@ -7,6 +7,7 @@ import '../../widgets/app_error.dart';
 import '../../widgets/app_loader.dart';
 import '../detail/widgets/random.w.dart';
 import 'bloc/home_bloc.dart';
+import 'widgets/shops.dart';
 import 'widgets/tag.w.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,6 +21,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 8),
             AppCarouselSlider(state.home.aBanners),
+            const Shops(),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

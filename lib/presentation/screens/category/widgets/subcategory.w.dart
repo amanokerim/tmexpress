@@ -12,6 +12,7 @@ class SubcategoryW extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      borderRadius: BorderRadius.circular(20),
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
           builder: (_) => ProductsPage(productParent: sub),

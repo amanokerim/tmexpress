@@ -8,6 +8,7 @@ import 'app/env/env.dart';
 import 'app/generated/l10n.dart';
 import 'app/injection/injection.dart';
 import 'presentation/screens/cart/bloc/cart_bloc.dart';
+import 'presentation/screens/category/bloc/category_bloc.dart';
 import 'presentation/screens/home/bloc/home_bloc.dart';
 import 'presentation/screens/main/bloc/main_bloc.dart';
 import 'presentation/screens/profile/bloc/profile_bloc.dart';
@@ -38,6 +39,8 @@ class FlutterApp extends StatelessWidget {
           BlocProvider<MainBloc>(create: (_) => getIt()),
           BlocProvider<ProfileBloc>(
               create: (context) => getIt()..add(ProfileStarted()), lazy: false),
+          BlocProvider<CategoryBloc>(
+              create: (context) => getIt()..add(CategoriesRequested())),
         ],
         child: MaterialApp(
             title: kAppName,

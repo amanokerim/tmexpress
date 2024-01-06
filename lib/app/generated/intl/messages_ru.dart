@@ -174,6 +174,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shareContent": MessageLookupByLibrary.simpleMessage(
             "Если хотите покупать товары из Китая и Турции оптом и в розницу скачайте приложение \"Yakynyol\" из Google Play или App Store!"),
         "shipping": MessageLookupByLibrary.simpleMessage("В пути"),
+        "shops": MessageLookupByLibrary.simpleMessage("Магазины"),
         "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
             "Чтобы заказать войдите или создайте аккаунт"),
         "signInToAddToFavorites": MessageLookupByLibrary.simpleMessage(
