@@ -6,36 +6,54 @@ import '../../../../domain/entities/image.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/primary_app_bar.dart';
 
-class PhotoViewPage extends StatelessWidget {
+class PhotoViewPage extends StatefulWidget {
   const PhotoViewPage({
     required this.title,
     this.image,
     this.images = const [],
+    this.initialIndex = 0,
   });
+
   final String title;
   final String? image;
   final List<Image> images;
+  final int initialIndex;
+
+  @override
+  State<PhotoViewPage> createState() => _PhotoViewPageState();
+}
+
+class _PhotoViewPageState extends State<PhotoViewPage> {
+  late PageController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = PageController(initialPage: widget.initialIndex);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBar(label: title),
-      body: image != null
+      appBar: PrimaryAppBar(label: widget.title),
+      body: widget.image != null
           ? PhotoView(
-              imageProvider: CachedNetworkImageProvider(image!),
+              imageProvider: CachedNetworkImageProvider(widget.image!),
               backgroundDecoration: const BoxDecoration(
                 color: Colors.transparent,
               ),
             )
           : PhotoViewGallery.builder(
+              pageController: controller,
               scrollPhysics: const BouncingScrollPhysics(),
               builder: (BuildContext context, int index) {
                 return PhotoViewGalleryPageOptions(
-                  imageProvider: CachedNetworkImageProvider(images[index].url),
+                  imageProvider:
+                      CachedNetworkImageProvider(widget.images[index].url),
                   initialScale: PhotoViewComputedScale.contained * 1.0,
                 );
               },
-              itemCount: images.length,
+              itemCount: widget.images.length,
               backgroundDecoration: BoxDecoration(
                 color: AppColors.white,
               ),

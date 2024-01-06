@@ -14,6 +14,8 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
   SliverImageDelegate(this.context, this.state);
   final BuildContext context;
   final DetailLoadSuccess state;
+  int selectedIndex = 0;
+  final carouselController = CarouselController();
 
   @override
   Widget build(
@@ -24,17 +26,23 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
     state.product.productImages.values.forEach(allImages.addAll);
 
     return Container(
+      key: ObjectKey(image),
       color: AppColors.white,
       child: Stack(
         children: [
           Positioned.fill(
             child: CarouselSlider(
+              carouselController: carouselController,
               items: image
                   .map((i) => GestureDetector(
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<void>(
                             builder: (_) => PhotoViewPage(
-                                images: allImages, title: state.product.title),
+                              images: allImages,
+                              title: state.product.title,
+                              initialIndex:
+                                  allImages.indexOf(image[selectedIndex]),
+                            ),
                           ),
                         ),
                         child: CachedNetworkImage(
@@ -51,6 +59,7 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
                 viewportFraction: 1,
                 enableInfiniteScroll: false,
                 aspectRatio: image.first.width / image.first.height,
+                onPageChanged: (index, reason) => selectedIndex = index,
               ),
             ),
           ),

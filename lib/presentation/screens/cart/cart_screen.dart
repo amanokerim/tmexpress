@@ -5,6 +5,7 @@ import '../../../app/generated/l10n.dart';
 import '../../utils/app_flash.dart';
 import '../../widgets/app_confirm_dialog.dart';
 import '../../widgets/app_empty.dart';
+import '../../widgets/primary_app_bar.dart';
 import '../profile/bloc/profile_bloc.dart';
 import '../start/bloc/start_bloc.dart';
 import 'bloc/cart_bloc.dart';
@@ -16,52 +17,56 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<CartBloc, CartState>(
-      listener: (_, state) async {
-        if (state.error != null) {
-          if (!state.error!.isAuth) {
-            context.read<StartBloc>().add(const StartNavigatedToHome(tab: 4));
-            context.read<ProfileBloc>().add(ProfileStarted());
-            Navigator.of(context).pop();
+    return Scaffold(
+      appBar: PrimaryAppBar(label: S.current.cart),
+      body: BlocConsumer<CartBloc, CartState>(
+        listener: (_, state) async {
+          if (state.error != null) {
+            if (!state.error!.isAuth) {
+              context.read<StartBloc>().add(const StartNavigatedToHome(tab: 4));
+              context.read<ProfileBloc>().add(ProfileStarted());
+              Navigator.of(context).pop();
+            }
+            await AppFlash.bigToast(
+                context: context, message: state.error!.message);
           }
-          await AppFlash.bigToast(
-              context: context, message: state.error!.message);
-        }
-        if (state.st == CartSt.done) {
-          Navigator.of(context).pop();
-          await showDialog<void>(
-            context: context,
-            builder: (_) => AppDialog(
-              content: S.current.orderCreated,
-              positiveButtonLabel: S.current.ok,
-              showNegativeButton: false,
-            ),
-          );
-          context.read<CartBloc>().add(CartCleared());
-        }
-      },
-      builder: (_, state) => state.items.isEmpty
-          ? AppEmpty(message: S.current.cartEmpty)
-          : Column(
-              children: [
-                Expanded(
-                  child: ListView.separated(
-                    physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.all(16),
-                    itemCount: state.items.length,
-                    itemBuilder: (_, index) => CartItemCard(state.items[index]),
-                    separatorBuilder: (_, __) => const SizedBox(height: 16),
+          if (state.st == CartSt.done) {
+            Navigator.of(context).pop();
+            await showDialog<void>(
+              context: context,
+              builder: (_) => AppDialog(
+                content: S.current.orderCreated,
+                positiveButtonLabel: S.current.ok,
+                showNegativeButton: false,
+              ),
+            );
+            context.read<CartBloc>().add(CartCleared());
+          }
+        },
+        builder: (_, state) => state.items.isEmpty
+            ? AppEmpty(message: S.current.cartEmpty)
+            : Column(
+                children: [
+                  Expanded(
+                    child: ListView.separated(
+                      physics: const BouncingScrollPhysics(),
+                      padding: const EdgeInsets.all(16),
+                      itemCount: state.items.length,
+                      itemBuilder: (_, index) =>
+                          CartItemCard(state.items[index]),
+                      separatorBuilder: (_, __) => const SizedBox(height: 16),
+                    ),
                   ),
-                ),
-                if (state.items.isNotEmpty)
-                  ContinueOrderButton(
-                    total: state.total,
-                    selectedShippingOption: state.shippingOption,
-                    allOnStock:
-                        state.items.every((item) => item.product.onStock),
-                  ),
-              ],
-            ),
+                  if (state.items.isNotEmpty)
+                    ContinueOrderButton(
+                      total: state.total,
+                      selectedShippingOption: state.shippingOption,
+                      allOnStock:
+                          state.items.every((item) => item.product.onStock),
+                    ),
+                ],
+              ),
+      ),
     );
   }
 }

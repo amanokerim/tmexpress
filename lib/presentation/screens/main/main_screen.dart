@@ -10,6 +10,7 @@ import '../../../main.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/constants.dart';
 import '../../widgets/app_bottom_navigation_bar.dart';
+import '../../widgets/app_cart_button.dart';
 import '../../widgets/primary_app_bar.dart';
 import '../../widgets/search_app_bar.dart';
 import '../category/bloc/category_bloc.dart';
@@ -43,25 +44,14 @@ class _MainScreenState extends State<MainScreen> {
           return Scaffold(
             backgroundColor: AppColors.bgMain,
             appBar: tab.index == 0
-                ? SearchAppBar(
-                    leading: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          final newL = language == 'tr' ? 'ru' : 'tr';
-                          S.load(Locale(newL));
-                          getIt<PreferencesRepository>()
-                              .setPreference(pLang, newL);
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Image.asset(
-                          'assets/icons/flag-$language.png',
-                        ),
-                      ),
+                ? _homeAppBar()
+                : PrimaryAppBar(
+                    label: tab.title,
+                    action: const Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: AppCartButton(size: 24),
                     ),
-                  )
-                : PrimaryAppBar(label: tab.title),
+                  ),
             body: AnimatedSwitcher(
                 duration: kAnimationDuration,
                 child: Container(
@@ -73,6 +63,27 @@ class _MainScreenState extends State<MainScreen> {
           );
         },
       ),
+    );
+  }
+
+  SearchAppBar _homeAppBar() {
+    return SearchAppBar(
+      leading: GestureDetector(
+        onTap: () {
+          setState(() {
+            final newL = language == 'tr' ? 'ru' : 'tr';
+            S.load(Locale(newL));
+            getIt<PreferencesRepository>().setPreference(pLang, newL);
+          });
+        },
+        child: SizedBox(
+          width: 44,
+          child: Image.asset(
+            'assets/icons/flag-$language.png',
+          ),
+        ),
+      ),
+      trailing: const AppCartButton(),
     );
   }
 }

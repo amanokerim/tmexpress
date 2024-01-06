@@ -13,12 +13,12 @@ import '../../../widgets/app_image.dart';
 import '../../cart/bloc/cart_bloc.dart';
 import '../../cart/widgets/cart_item_count.w.dart';
 import '../../home/search/search_page.dart';
-import 'video_player_screen.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../bloc/detail_bloc.dart';
 import 'color.w.dart';
 import 'photo_view_page.dart';
 import 'price.w.dart';
+import 'video_player_screen.dart';
 
 late Product _product;
 

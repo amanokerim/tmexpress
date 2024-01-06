@@ -40,6 +40,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
       borderSide:
           const BorderSide(color: Color.fromARGB(255, 7, 32, 200), width: 1),
     );
+
     return TextField(
       controller: _controller,
       decoration: InputDecoration(
