@@ -48,8 +48,8 @@ class _MainScreenState extends State<MainScreen> {
                 : PrimaryAppBar(
                     label: tab.title,
                     action: const Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: AppCartButton(size: 24),
+                      padding: EdgeInsets.only(right: 15),
+                      child: AppCartButton(size: 28),
                     ),
                   ),
             body: AnimatedSwitcher(
