@@ -54,7 +54,7 @@ android {
         applicationId "com.yakynyol.app"
         minSdkVersion 19
         targetSdkVersion 33
-        versionCode flutterVersionCode.toInteger()
+        versionCode 21
         versionName flutterVersionName
         multiDexEnabled true
     }
