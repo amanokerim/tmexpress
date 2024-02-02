@@ -36,7 +36,8 @@ class DetailScreen extends StatelessWidget {
                   children: [
                     if (state.product.productImages.length > 1)
                       ...productWidgets.images(),
-                    ...ProductSizes(state).widgets(context),
+                    if (state.product.size.isNotEmpty)
+                      ...ProductSizes(state).widgets(context),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 0),
                       child: Column(

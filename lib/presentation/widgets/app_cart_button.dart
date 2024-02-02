@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../app/generated/l10n.dart';
 import '../screens/cart/bloc/cart_bloc.dart';
 import '../screens/cart/cart_screen.dart';
+import '../screens/main/bloc/main_bloc.dart';
+import '../screens/profile/bloc/profile_bloc.dart';
 import '../theme/app_theme.dart';
+import '../utils/app_flash.dart';
 
 class AppCartButton extends StatelessWidget {
   const AppCartButton({this.size = 28, Key? key}) : super(key: key);
@@ -12,8 +16,21 @@ class AppCartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context)
-          .push(MaterialPageRoute<void>(builder: (_) => const CartScreen())),
+      onTap: () {
+        if(context.read<ProfileBloc>().profile != null){
+Navigator.of(context)
+          .push(MaterialPageRoute<void>(builder: (_) => const CartScreen()));
+
+        } else {
+AppFlash.bigToast(
+                        context: context,
+                        message: S.current.signInForMakeOrder);
+                    context
+                        .read<MainBloc>()
+                        .add(const MainTabChanged(index: 4));
+        
+        }
+      },
       child: SizedBox(
         width: size,
         child: BlocBuilder<CartBloc, CartState>(

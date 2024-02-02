@@ -1,10 +1,11 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Size;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../../domain/entities/cart_item.dart';
 import '../../../../domain/entities/product/product.dart';
+import '../../../../domain/entities/product/size.dart';
 import '../../../../domain/usecases/products/search_product_usecase.dart';
 import '../../../theme/app_theme.dart';
 import '../../../utils/app_flash.dart';
@@ -60,6 +61,7 @@ class ProductWidgets {
                       : () {
                           final multiColor =
                               state.product.productImages.length > 1;
+                          final noSize = state.product.size.isEmpty;
                           final multiSize = state.product.size.length > 1;
                           if (state.selectedColor == null && multiColor) {
                             AppFlash.toast(
@@ -73,11 +75,12 @@ class ProductWidgets {
                                 isError: true);
                           } else if ((state.selectedColor != null ||
                                   !multiColor) &&
-                              state.selectedSize != null) {
+                              (state.selectedSize != null || noSize)) {
                             final cartItem = CartItem(
                               product: _product,
                               count: 1,
-                              size: state.selectedSize ?? state.product.size[0],
+                              size: state.selectedSize ??
+                                  const Size(id: 196, title: '-'),
                               color: state.selectedColor?.first ??
                                   state
                                       .product.productImages.values.first.first,

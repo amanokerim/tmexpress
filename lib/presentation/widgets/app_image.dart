@@ -21,6 +21,9 @@ class AppImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (url.endsWith('null')) {
+      AppImagePlaceholder(height: placeholderHeight ?? height);
+    }
     return ClipRRect(
       borderRadius: borderRadius ?? BorderRadius.circular(16),
       child: CachedNetworkImage(
