@@ -4,6 +4,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../../../domain/entities/product/product_mini.dart';
 import '../../../../domain/usecases/products/search_product_usecase.dart';
+import '../../../widgets/app_cart_button.dart';
 import '../../../widgets/primary_app_bar.dart';
 import '../../../widgets/product_paged_grid_view.dart';
 import '../../../widgets/search_app_bar.dart';
@@ -39,7 +40,13 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: widget.params.title.isNotEmpty
-          ? PrimaryAppBar(label: widget.params.title)
+          ? PrimaryAppBar(
+              label: widget.params.title,
+              action: const Padding(
+                padding: EdgeInsets.only(right: 15),
+                child: AppCartButton(size: 28),
+              ),
+            )
           : SearchAppBar(query: widget.params.query),
       body: BlocListener<SearchBloc, SearchState>(
         listener: (_, state) {

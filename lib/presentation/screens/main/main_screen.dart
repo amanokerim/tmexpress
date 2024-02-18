@@ -39,6 +39,7 @@ class _MainScreenState extends State<MainScreen> {
         builder: (_, tab) {
           language =
               getIt<PreferencesRepository>().getStringPreference(pLang) ?? 'tr';
+          S.load(Locale(language));
           isRu = language == 'ru';
 
           return Scaffold(

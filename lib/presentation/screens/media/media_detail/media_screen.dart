@@ -6,6 +6,7 @@ import '../../../../data/network/response_models/media.dart';
 import '../../../../domain/entities/product/tag.dart';
 import '../../../theme/app_theme.dart';
 import '../../../widgets/app_banner_b.dart';
+import '../../../widgets/app_cart_button.dart';
 import '../../../widgets/app_image.dart';
 import '../../../widgets/primary_app_bar.dart';
 import '../../home/widgets/tag.w.dart';
@@ -56,7 +57,13 @@ class MediaScreenState extends State<MediaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBar(label: widget.media.title ?? ''),
+      appBar: PrimaryAppBar(
+        label: widget.media.title ?? '',
+        action: const Padding(
+          padding: EdgeInsets.only(right: 15),
+          child: AppCartButton(size: 28),
+        ),
+      ),
       body: SafeArea(
         child: ListView(
           children: [

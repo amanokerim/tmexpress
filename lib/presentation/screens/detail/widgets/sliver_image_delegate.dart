@@ -4,6 +4,7 @@ import 'package:flutter/material.dart' hide Image;
 
 import '../../../../domain/entities/image.dart';
 import '../../../theme/app_theme.dart';
+import '../../../widgets/app_cart_button.dart';
 import '../../../widgets/app_image.dart';
 import '../bloc/detail_bloc.dart';
 import '../detail_screen.dart';
@@ -90,6 +91,11 @@ class SliverImageDelegate extends SliverPersistentHeaderDelegate {
                 ],
               ),
             ),
+          ),
+          const Positioned(
+            top: 56,
+            right: 16,
+            child: AppCartButton(size: 28),
           ),
         ],
       ),

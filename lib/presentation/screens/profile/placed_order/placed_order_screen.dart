@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/entities/order/placed_order.dart';
 import '../../../utils/date_extension.dart';
+import '../../../widgets/app_cart_button.dart';
 import '../../../widgets/app_empty.dart';
 import '../../../widgets/app_error.dart';
 import '../../../widgets/app_loader.dart';
@@ -19,7 +20,13 @@ class PlacedOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBar(label: order.createdAt.dmYHm),
+      appBar: PrimaryAppBar(
+        label: order.createdAt.dmYHm,
+        action: const Padding(
+          padding: EdgeInsets.only(right: 15),
+          child: AppCartButton(size: 28),
+        ),
+      ),
       body: Column(
         children: [
           Padding(

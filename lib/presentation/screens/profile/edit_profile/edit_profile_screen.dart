@@ -8,6 +8,7 @@ import '../../../../domain/entities/profile.dart';
 import '../../../utils/app_flash.dart';
 import '../../../utils/app_validator.dart';
 import '../../../widgets/app_button.dart';
+import '../../../widgets/app_cart_button.dart';
 import '../../../widgets/app_drop_down.dart';
 import '../../../widgets/primary_app_bar.dart';
 import '../bloc/profile_bloc.dart';
@@ -43,7 +44,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBar(label: S.current.editProfile),
+      appBar: PrimaryAppBar(
+        label: S.current.editProfile,
+        action: const Padding(
+          padding: EdgeInsets.only(right: 15),
+          child: AppCartButton(size: 28),
+        ),
+      ),
       body: Form(
         key: _formKey,
         child: BlocConsumer<EditProfileBloc, EditProfileState>(

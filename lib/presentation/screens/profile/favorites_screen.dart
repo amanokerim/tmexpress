@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../../../app/generated/l10n.dart';
 import '../../../domain/entities/saved_product.dart';
 import '../../utils/constants.dart';
+import '../../widgets/app_cart_button.dart';
 import '../../widgets/app_empty.dart';
 import '../../widgets/primary_app_bar.dart';
 import 'widgets/saved_product_card.dart';
@@ -14,7 +15,13 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBar(label: S.current.favorites),
+      appBar: PrimaryAppBar(
+        label: S.current.favorites,
+        action: const Padding(
+          padding: EdgeInsets.only(right: 15),
+          child: AppCartButton(size: 28),
+        ),
+      ),
       body: ValueListenableBuilder<Box<Map<dynamic, dynamic>>>(
         valueListenable:
             Hive.box<Map<dynamic, dynamic>>(kFavoritesBox).listenable(),

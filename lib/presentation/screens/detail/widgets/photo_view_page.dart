@@ -4,6 +4,7 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import '../../../../domain/entities/image.dart';
 import '../../../theme/app_theme.dart';
+import '../../../widgets/app_cart_button.dart';
 import '../../../widgets/primary_app_bar.dart';
 
 class PhotoViewPage extends StatefulWidget {
@@ -35,7 +36,13 @@ class _PhotoViewPageState extends State<PhotoViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBar(label: widget.title),
+      appBar: PrimaryAppBar(
+        label: widget.title,
+        action: const Padding(
+          padding: EdgeInsets.only(right: 15),
+          child: AppCartButton(size: 28),
+        ),
+      ),
       body: widget.image != null
           ? PhotoView(
               imageProvider: CachedNetworkImageProvider(widget.image!),

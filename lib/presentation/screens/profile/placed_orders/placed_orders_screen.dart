@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/generated/l10n.dart';
+import '../../../widgets/app_cart_button.dart';
 import '../../../widgets/app_empty.dart';
 import '../../../widgets/app_error.dart';
 import '../../../widgets/app_loader.dart';
@@ -16,7 +17,13 @@ class PlacedOrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PrimaryAppBar(label: S.current.orders),
+      appBar: PrimaryAppBar(
+        label: S.current.orders,
+        action: const Padding(
+          padding: EdgeInsets.only(right: 15),
+          child: AppCartButton(size: 28),
+        ),
+      ),
       body: BlocConsumer<PlacedOrdersBloc, PlacedOrdersState>(
         listener: (_, state) {
           if (state is PlacedOrdersError && state.error.isAuth) {

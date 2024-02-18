@@ -36,7 +36,7 @@ class ProductWidgets {
             e.product.id == state.product.id &&
             (state.selectedColor?.contains(e.color) == true ||
                 state.product.productImages.values.length == 1) &&
-            e.size == state.selectedSize);
+            (e.size == state.selectedSize || state.product.size.isEmpty));
         return Padding(
           padding: const EdgeInsets.fromLTRB(10, 4, 20, 20),
           child: Row(
@@ -211,10 +211,12 @@ class ProductWidgets {
       ];
 
   List<Widget> description() => [
-        Text('${S.current.description}:', style: AppTextStyle.bold16),
-        const SizedBox(height: 8),
-        Text(_product.description, style: AppTextStyle.grey16),
-        const SizedBox(height: 20),
+        if (_product.description.isNotEmpty) ...[
+          Text('${S.current.description}:', style: AppTextStyle.bold16),
+          const SizedBox(height: 8),
+          Text(_product.description, style: AppTextStyle.grey16),
+          const SizedBox(height: 20),
+        ],
       ];
 
   List<Widget> prices() => [

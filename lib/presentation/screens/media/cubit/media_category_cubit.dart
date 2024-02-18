@@ -19,7 +19,8 @@ class MediaCategoryCubit extends Cubit<MediaCategoryState> {
     emit(r.fold(
       (e) => MediaCategoryError(e.message),
       (c) => MediaCategorySuccess([
-        MediaCategory(id: -1, titleTm: S.current.all, titleRu: '', icon: ''),
+        MediaCategory(
+            id: -1, titleTm: S.current.all, titleRu: S.current.all, icon: ''),
         ...c
       ]),
     ));

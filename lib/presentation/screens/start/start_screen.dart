@@ -15,8 +15,6 @@ import '../main/main_screen.dart';
 import 'bloc/start_bloc.dart';
 import 'onboarding_screen.dart';
 
-bool _backButtonPressedOneTime = false;
-
 class StartScreen extends StatefulWidget {
   const StartScreen({Key? key}) : super(key: key);
 
@@ -26,6 +24,9 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen> {
   // final _fcmHandler = FCMHandler();
+
+  DateTime? currentBackPressTime;
+  bool canPopNow = false;
 
   @override
   void initState() {
@@ -42,7 +43,8 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      onPopInvoked: (_) => _onWillPop(context),
+      canPop: canPopNow,
+      onPopInvoked: _onPopInvoked,
       child: BlocConsumer<StartBloc, StartState>(
         listener: (_, state) {
           // if (state is StartSetUpFCMListener) {
@@ -86,16 +88,17 @@ class _StartScreenState extends State<StartScreen> {
     );
   }
 
-  Future<bool> _onWillPop(BuildContext context) async {
-    if (_backButtonPressedOneTime) return true;
-    _backButtonPressedOneTime = true;
-
-    Future.delayed(
-      kToastDuration,
-      () => _backButtonPressedOneTime = false,
-    );
-    await AppFlash.toast(context: context, message: S.current.doubleBackToExit);
-
-    return false;
+  void _onPopInvoked(bool didPop) {
+    final now = DateTime.now();
+    if (currentBackPressTime == null ||
+        now.difference(currentBackPressTime!) > kToastDuration) {
+      currentBackPressTime = now;
+      AppFlash.bigToast(context: context, message: S.current.doubleBackToExit);
+      Future.delayed(
+        kToastDuration,
+        () => setState(() => canPopNow = false),
+      );
+      setState(() => canPopNow = true);
+    }
   }
 }
