@@ -5,7 +5,7 @@ description: An app for delivering goods from China
 
 publish_to: 'none'
 
-version: 1.0.4+23
+version: 1.0.5+24
 
 environment:
   sdk: '>=2.15.0 <3.0.0'
