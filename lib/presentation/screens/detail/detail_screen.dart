@@ -55,7 +55,10 @@ class DetailScreen extends StatelessWidget {
                       children: [
                         const SizedBox(height: 16),
                         const AppBannerB(),
-                        SimilarProductsW(state.product.title),
+                        SimilarProductsW(state.product.title
+                            .replaceAll('-', ' ')
+                            .split(' ')
+                            .last),
                         const RandomW(),
                       ],
                     ),

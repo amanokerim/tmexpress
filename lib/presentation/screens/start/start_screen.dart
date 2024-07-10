@@ -1,12 +1,9 @@
 import 'dart:async';
 
-import 'package:alice/alice.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/generated/l10n.dart';
-import '../../../app/injection/injection.dart';
 import '../../utils/app_flash.dart';
 import '../../utils/constants.dart';
 import '../../widgets/app_loader.dart';
@@ -51,36 +48,30 @@ class _StartScreenState extends State<StartScreen> {
           //   _fcmHandler.init(context, state.fcmStream);
           // }
         },
-        builder: (_, state) => GestureDetector(
-          onLongPress: () {
-            // TODO Remove on release
-            if (kDebugMode) getIt<Alice>().showInspector();
-          },
-          child: AnimatedSwitcher(
-            duration: kAnimationDuration,
-            // ignore: avoid_unnecessary_containers
-            child: Container(
-              // TODO Uncomment on production
-              // key: UniqueKey(),
-              child: Builder(
-                builder: (_) {
-                  if (state is StartShowOnboarding) {
-                    return const OnboardingScreen();
-                  } else if (state is StartShowHome) {
-                    context
-                        .read<MainBloc>()
-                        .add(MainTabChanged(index: state.tab));
-                    return const MainScreen();
-                  } else if (state is StartShowTechnicalWorksScreen) {
-                    return const Center(child: Text('Technical works'));
-                  } else if (state is StartShowUpdateScreen) {
-                    return const Center(child: Text('Please Update an app'));
-                  }
-                  return const Scaffold(
-                    body: AppLoader(),
-                  );
-                },
-              ),
+        builder: (_, state) => AnimatedSwitcher(
+          duration: kAnimationDuration,
+          // ignore: avoid_unnecessary_containers
+          child: Container(
+            // TODO Uncomment on production
+            // key: UniqueKey(),
+            child: Builder(
+              builder: (_) {
+                if (state is StartShowOnboarding) {
+                  return const OnboardingScreen();
+                } else if (state is StartShowHome) {
+                  context
+                      .read<MainBloc>()
+                      .add(MainTabChanged(index: state.tab));
+                  return const MainScreen();
+                } else if (state is StartShowTechnicalWorksScreen) {
+                  return const Center(child: Text('Technical works'));
+                } else if (state is StartShowUpdateScreen) {
+                  return const Center(child: Text('Please Update an app'));
+                }
+                return const Scaffold(
+                  body: AppLoader(),
+                );
+              },
             ),
           ),
         ),

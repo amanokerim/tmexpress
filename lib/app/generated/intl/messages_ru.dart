@@ -86,7 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "У вас нет прав для этой операции"),
         "gender": MessageLookupByLibrary.simpleMessage("Пол"),
         "homeScreen": MessageLookupByLibrary.simpleMessage("Главная"),
-        "hot": MessageLookupByLibrary.simpleMessage("Горячие товары"),
+        "hot": MessageLookupByLibrary.simpleMessage("Горячие"),
         "in_": MessageLookupByLibrary.simpleMessage("в"),
         "invalidFormat":
             MessageLookupByLibrary.simpleMessage("Неверный формат"),

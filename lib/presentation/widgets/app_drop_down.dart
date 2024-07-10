@@ -1,9 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:menu_button/menu_button.dart';
-
-import '../theme/app_theme.dart';
 
 class AppDropDown<T> extends StatelessWidget {
   const AppDropDown({
@@ -24,42 +19,38 @@ class AppDropDown<T> extends StatelessWidget {
   final double? height;
 
   @override
-  Widget build(BuildContext context) => MenuButton<T>(
-        popupHeight: min(height ?? 240, values.length * 54),
-        onItemSelected: onItemSelected,
-        topDivider: false,
-        showSelectedItemOnList: true,
-        child: Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-            decoration: inputDecoration,
-            child: Row(
-              children: [
-                Expanded(
-                  child: selected != null
-                      // ignore: null_check_on_nullable_type_parameter
-                      ? Text(toStr(selected!), style: AppTextStyle.dark16)
-                      : Text(label, style: AppTextStyle.grey16),
-                ),
-                Icon(Icons.keyboard_arrow_down_rounded, color: AppColors.dark)
-              ],
-            )),
-        scrollPhysics: const BouncingScrollPhysics(),
-        items: values,
-        itemBuilder: (tax) => Padding(
-          padding: const EdgeInsets.all(16),
-          child: Text(
-            toStr(tax),
-            style: AppTextStyle.dark16,
-          ),
-        ),
-        selectedItem: selected,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          backgroundBlendMode: BlendMode.color,
-        ),
-        divider: const Divider(height: .5),
-        menuButtonBackgroundColor: Colors.transparent,
-      );
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(right: 12),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: DropdownButton<T>(
+        isExpanded: true,
+        value: selected,
+        borderRadius: BorderRadius.circular(20),
+        hint: Text(label, style: const TextStyle(color: Colors.grey)),
+        icon:
+            const Icon(Icons.keyboard_arrow_down_rounded, color: Colors.black),
+        style: const TextStyle(color: Colors.black, fontSize: 16),
+        onChanged: (T? newValue) {
+          if (newValue != null) {
+            onItemSelected(newValue);
+          }
+        },
+        items: values.map<DropdownMenuItem<T>>((T value) {
+          return DropdownMenuItem<T>(
+            value: value,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(toStr(value)),
+            ),
+          );
+        }).toList(),
+        dropdownColor: Colors.white,
+        underline: const SizedBox(),
+      ),
+    );
+  }
 }

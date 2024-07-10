@@ -17,6 +17,7 @@ import '../category/bloc/category_bloc.dart';
 import '../home/bloc/home_bloc.dart';
 import '../hot/bloc/hot_bloc.dart';
 import 'bloc/main_bloc.dart';
+import 'bottom_tabs.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
             appBar: tab.index == 0
                 ? _homeAppBar()
                 : PrimaryAppBar(
-                    label: tab.title,
+                    label: bottomTabTitle(tab.index),
                     action: const Padding(
                       padding: EdgeInsets.only(right: 15),
                       child: AppCartButton(size: 28),

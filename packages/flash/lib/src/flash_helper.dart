@@ -340,9 +340,9 @@ extension FlashBarShortcuts on BuildContext {
               child: builder.call(context, controller, setState),
             );
             child = TextButtonTheme(
-              data: TextButtonThemeData(
-                style: TextButton.styleFrom(primary: $actionColor),
-              ),
+              data: const TextButtonThemeData(
+                  // style: TextButton.styleFrom(primary: $actionColor),
+                  ),
               child: child,
             );
             return child;
@@ -552,9 +552,9 @@ extension FlashDialogShortcuts on BuildContext {
               child: builder.call(context, controller, setState),
             );
             child = TextButtonTheme(
-              data: TextButtonThemeData(
-                style: TextButton.styleFrom(primary: $actionColor),
-              ),
+              data: const TextButtonThemeData(
+                  // style: TextButton.styleFrom(primary: $actionColor),
+                  ),
               child: child,
             );
             return child;
@@ -852,7 +852,7 @@ class FlashBarThemeData {
 
   /// Default value for [Flash.backgroundColor].
   ///
-  /// If null, [Flash] will default to inversion of [ThemeData.backgroundColor].
+  /// If null, [Flash] will default to inversion of
   final Color? backgroundColor;
 
   /// Default value for [Flash.backgroundGradient].

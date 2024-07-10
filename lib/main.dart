@@ -1,4 +1,3 @@
-import 'package:alice/alice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -46,7 +45,6 @@ class FlutterApp extends StatelessWidget {
           title: kAppName,
           supportedLocales: S.delegate.supportedLocales,
           debugShowCheckedModeBanner: false,
-          navigatorKey: getIt<Alice>().getNavigatorKey(),
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

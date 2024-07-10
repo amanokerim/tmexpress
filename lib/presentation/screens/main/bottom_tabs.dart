@@ -6,35 +6,39 @@ import '../hot/hot_screen.dart';
 import '../media/media_list_page.dart';
 import '../profile/profile_screen.dart';
 
-final bottomTabs = <BottomTab>[
+String bottomTabTitle(int index) {
+  if (index == 0) return S.current.homeScreen;
+  if (index == 1) return S.current.hot;
+  if (index == 2) return S.current.categories;
+  if (index == 3) return S.current.media;
+  if (index == 4) return S.current.profile;
+  return '';
+}
+
+const bottomTabs = <BottomTab>[
   BottomTab(
     index: 0,
-    title: S.current.homeScreen,
     icon: 'home',
-    screen: const HomeScreen(),
+    screen: HomeScreen(),
   ),
   BottomTab(
     index: 1,
-    title: S.current.hot,
     icon: 'fire',
-    screen: const HotScreen(),
+    screen: HotScreen(),
   ),
   BottomTab(
     index: 2,
-    title: S.current.categories,
     icon: 'category',
-    screen: const CategoryScreen(),
+    screen: CategoryScreen(),
   ),
   BottomTab(
     index: 3,
-    title: S.current.media,
     icon: 'media',
-    screen: const MediaListPage(),
+    screen: MediaListPage(),
   ),
   BottomTab(
     index: 4,
-    title: S.current.profile,
     icon: 'profile',
-    screen: const ProfileScreen(),
+    screen: ProfileScreen(),
   ),
 ];

@@ -12,6 +12,7 @@ class ProductSizes extends StatelessWidget {
 
   List<Widget> widgets(BuildContext context) {
     final sizes = state.product.size;
+
     return [
       Padding(
         padding: const EdgeInsets.fromLTRB(20, 24 - 6, 20, 10 - 6),
@@ -28,6 +29,7 @@ class ProductSizes extends StatelessWidget {
             selected: sizes[index] == state.selectedSize,
             onPressed: () =>
                 context.read<DetailBloc>().add(DetailSizeChanged(sizes[index])),
+            alignment: Alignment.center,
           ),
           scrollDirection: Axis.horizontal,
         ),

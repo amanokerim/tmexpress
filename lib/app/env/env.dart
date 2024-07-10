@@ -17,7 +17,6 @@ class Env {
 
   static late Env value;
   String baseUrl = '';
-  bool showAlice = false;
   bool writeLogs = false;
   EnvType envType = EnvType.unknown;
   // PendingDynamicLinkData? dynamicLinkData;
@@ -46,7 +45,6 @@ class Env {
 
     // BlocOverrides.runZoned(
     //   // () => runApp(DevicePreview(
-    //   //   enabled: value.showAlice,
     //   //   builder: (context) => FlutterApp(this),
     //   // )),
     //   () => runApp(FlutterApp(this)),

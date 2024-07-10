@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Gyzgyn harytlar`
+  /// `Gyzgyn`
   String get hot {
     return Intl.message(
-      'Gyzgyn harytlar',
+      'Gyzgyn',
       name: 'hot',
       desc: '',
       args: [],

@@ -85,7 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Bu amaly ýerine ýetirmek üçin sizde ýeterlik hukuk ýok"),
         "gender": MessageLookupByLibrary.simpleMessage("Jynsyňyz"),
         "homeScreen": MessageLookupByLibrary.simpleMessage("Baş sahypa"),
-        "hot": MessageLookupByLibrary.simpleMessage("Gyzgyn harytlar"),
+        "hot": MessageLookupByLibrary.simpleMessage("Gyzgyn"),
         "in_": MessageLookupByLibrary.simpleMessage("в"),
         "invalidFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
         "invalidVerificationCode":

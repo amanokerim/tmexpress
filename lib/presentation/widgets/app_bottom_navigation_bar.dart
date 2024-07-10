@@ -25,17 +25,18 @@ class AppBottomNavigationBar extends StatelessWidget {
         borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
         child: BottomNavigationBar(
           backgroundColor: AppColors.white,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
+          // showSelectedLabels: false,
+          // showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: AppColors.dark,
           currentIndex: currentIndex,
+          selectedLabelStyle: AppTextStyle.black16.copyWith(fontSize: 12),
           selectedFontSize: 12,
           unselectedFontSize: 12,
           onTap: (index) => homeBloc.add(MainTabChanged(index: index)),
           items: bottomTabs
-              .map<BottomNavigationBarItem>(
-                  (tab) => AppBottomNavBarItem(iconFile: tab.icon))
+              .map<BottomNavigationBarItem>((tab) => AppBottomNavBarItem(
+                  iconFile: tab.icon, label: bottomTabTitle(tab.index)))
               .toList(),
         ),
       ),

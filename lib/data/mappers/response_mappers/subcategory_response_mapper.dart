@@ -14,8 +14,9 @@ class SubcategoryResponseMapper
         id: entity?.id ?? 0,
         title: (entity?.title ?? '').isNotEmpty
             ? ((isRu ? entity?.titleRu : null) ?? entity!.title)!
-                .split(' > ')
+                .split('>')
                 .last
+                .trim()
             : '',
         subCategoryImage: '${Env.value.baseUrl}${entity?.subCategoryImage}',
       );

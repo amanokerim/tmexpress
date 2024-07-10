@@ -5,7 +5,7 @@ description: An app for delivering goods from China
 
 publish_to: 'none'
 
-version: 1.0.5+24
+version: 1.0.6+25
 
 environment:
   sdk: '>=2.15.0 <3.0.0'
@@ -17,7 +17,7 @@ dependencies:
     sdk: flutter
 
   # L10n
-  intl_utils: ^2.7.0
+  intl_utils: ^2.8.7
 
   # State management
   equatable: ^2.0.3
@@ -43,8 +43,7 @@ dependencies:
   carousel_slider: ^4.1.1
   lottie: ^2.4.0
   mask_text_input_formatter: ^2.3.0
-  share_plus: ^7.0.2
-  menu_button: ^1.4.2+1
+  share_plus: ^9.0.0
   introduction_screen: ^3.1.11
   chewie: ^1.7.1
   video_player: ^2.8.1
@@ -58,7 +57,6 @@ dependencies:
 
   # Misc
   dartz: ^0.10.1
-  analyzer: ^5.13.0
   package_info: ^2.0.2
   win32: ^5.0.5
 
@@ -90,7 +88,6 @@ dev_dependencies:
 
 
   # Network
-  alice: ^0.3.3
   logger: ^2.0.2+1
 
 flutter:

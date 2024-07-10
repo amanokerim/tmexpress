@@ -1,8 +1,6 @@
-import 'package:alice/alice.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_store.dart';
-import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,12 +19,6 @@ abstract class RegisterModule {
   Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
 
   @lazySingleton
-  Alice get alice => Alice(
-        showNotification: kDebugMode,
-        showInspectorOnShake: kDebugMode,
-      );
-
-  @lazySingleton
   Box<Map<dynamic, dynamic>> get favoritesBox => Hive.box(kFavoritesBox);
 
   @lazySingleton
@@ -39,7 +31,6 @@ abstract class RegisterModule {
   @lazySingleton
   CommonNetwork get commonNetwork {
     final dio = Dio(BaseOptions(contentType: 'application/json'))
-      ..interceptors.add(getIt<Alice>().getDioInterceptor())
       ..interceptors.add(DioCacheInterceptor(options: getIt<CacheOptions>()));
     return CommonNetwork(dio, baseUrl: Env.value.baseUrl);
   }
@@ -47,7 +38,6 @@ abstract class RegisterModule {
   @lazySingleton
   AuthNetwork get authNetwork {
     final dio = Dio(BaseOptions(contentType: 'application/json'));
-    dio.interceptors.add(getIt<Alice>().getDioInterceptor());
     dio.interceptors.add(getIt<AuthInterceptor>());
     return AuthNetwork(dio, baseUrl: Env.value.baseUrl);
   }

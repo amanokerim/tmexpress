@@ -4,18 +4,24 @@ import '../../../../domain/entities/product/size.dart';
 import '../../../theme/app_theme.dart';
 
 class SizeW extends StatelessWidget {
-  const SizeW(this.size,
-      {required this.onPressed, this.selected = false, Key? key})
-      : super(key: key);
+  const SizeW(
+    this.size, {
+    required this.onPressed,
+    this.selected = false,
+    this.alignment,
+    Key? key,
+  }) : super(key: key);
   final Size size;
   final bool selected;
   final VoidCallback onPressed;
+  final Alignment? alignment;
 
   @override
   Widget build(BuildContext context) {
     final title =
         size.title.contains('=') ? size.title.split('=').first : size.title;
     final subtitle = size.title.contains('=') ? size.title.split('=').last : '';
+
     return InkWell(
       borderRadius: BorderRadius.circular(12),
       onTap: onPressed,
@@ -28,25 +34,32 @@ class SizeW extends StatelessWidget {
               color: selected ? AppColors.secondary : AppColors.lGrey,
               width: 1),
         ),
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              title,
-              style: AppTextStyle.black16.copyWith(
-                color: selected ? AppColors.dark : AppColors.grey,
-              ),
-            ),
-            if (subtitle.isNotEmpty)
-              Text(
-                subtitle,
-                style: AppTextStyle.dark12.copyWith(
+        alignment: alignment,
+        child: subtitle.isNotEmpty
+            ? Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    title,
+                    style: AppTextStyle.black16.copyWith(
+                      color: selected ? AppColors.dark : AppColors.grey,
+                    ),
+                  ),
+                  if (subtitle.isNotEmpty)
+                    Text(
+                      subtitle,
+                      style: AppTextStyle.dark12.copyWith(
+                        color: selected ? AppColors.dark : AppColors.grey,
+                      ),
+                    ),
+                ],
+              )
+            : Text(
+                title,
+                style: AppTextStyle.black16.copyWith(
                   color: selected ? AppColors.dark : AppColors.grey,
                 ),
               ),
-          ],
-        ),
       ),
     );
   }

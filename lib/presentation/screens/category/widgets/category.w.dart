@@ -19,7 +19,7 @@ class CategoryW extends StatelessWidget {
           context.read<CategoryBloc>().add(CategorySelected(category.id)),
       child: Container(
         padding: const EdgeInsets.all(8),
-        height: 84,
+        height: 100,
         decoration: BoxDecoration(
             color: selected ? AppColors.white : AppColors.bg2,
             border: selected
@@ -28,11 +28,14 @@ class CategoryW extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AppImage(
-              category.categoryImage,
-              height: 30,
-              borderRadius: BorderRadius.circular(0),
-              color: selected ? AppColors.dark : AppColors.textSec,
+            Opacity(
+              opacity: selected ? 1 : .5,
+              child: AppImage(
+                category.categoryImage,
+                height: 45,
+                borderRadius: BorderRadius.circular(0),
+                // color: selected ? AppColors.dark : AppColors.textSec,
+              ),
             ),
             const SizedBox(height: 4),
             Text(
