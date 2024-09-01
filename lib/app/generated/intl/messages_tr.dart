@@ -51,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cartEmpty": MessageLookupByLibrary.simpleMessage("Sebetde haryt ýok"),
         "categories": MessageLookupByLibrary.simpleMessage("Bölümler"),
         "close": MessageLookupByLibrary.simpleMessage("Ýapmak"),
+        "code": MessageLookupByLibrary.simpleMessage("Kod"),
         "confirmDeleteAccount":
             MessageLookupByLibrary.simpleMessage("Hasabyňyzy pozmakçymy?"),
         "confirmDeleteAccountContent": MessageLookupByLibrary.simpleMessage(
@@ -66,10 +67,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "continueButton": MessageLookupByLibrary.simpleMessage("Dowam etmek"),
         "count": MessageLookupByLibrary.simpleMessage("sany"),
         "country": MessageLookupByLibrary.simpleMessage("Öndirilen ýurdy"),
-        "declined": MessageLookupByLibrary.simpleMessage("Kabul edilmedi"),
+        "declined": MessageLookupByLibrary.simpleMessage("Ýüz öwrüldi"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Hasaby pozmak"),
         "delivered": MessageLookupByLibrary.simpleMessage("Gowşyryldy"),
-        "delivering": MessageLookupByLibrary.simpleMessage("Gowşyrylýar"),
         "description": MessageLookupByLibrary.simpleMessage("Beýany"),
         "doubleBackToExit": MessageLookupByLibrary.simpleMessage(
             "Çykmak üçin ýene bir gezek basyň"),
@@ -116,7 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "open": MessageLookupByLibrary.simpleMessage("Açmak"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
-        "orderPlaced": MessageLookupByLibrary.simpleMessage("Sargyt edildi"),
+        "orderPlaced": MessageLookupByLibrary.simpleMessage("Barlanylýar"),
         "orders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
         "page1subtitle": MessageLookupByLibrary.simpleMessage(
             "öz halaýan harydyňyzy tapyň..."),
@@ -179,7 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "share": MessageLookupByLibrary.simpleMessage("Maslahat bermek"),
         "shareContent": MessageLookupByLibrary.simpleMessage(
             "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Yakynyol\" programmasyny ýükläp alyp bilersiňiz!"),
-        "shipping": MessageLookupByLibrary.simpleMessage("Ýolda"),
+        "shipping": MessageLookupByLibrary.simpleMessage("Ugradyldy"),
         "shops": MessageLookupByLibrary.simpleMessage("Dükanlar"),
         "signInForMakeOrder": MessageLookupByLibrary.simpleMessage(
             "Sargyt etmek üçin hasap dörediň ýa-da hasabyňyza giriň."),

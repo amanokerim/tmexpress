@@ -113,13 +113,12 @@
   "noFavorites": "У вас нет избранных товаров",
 
   "noOrders": "У вас пока нет заказов",
-  "orderPlaced": "Заказано",
+  "orderPlaced": "На проверке",
   "accepted": "Принято",
   "declined": "Не принято",
   "readyToShip": "Готово к отправке",
   "shipping": "В пути",
   "readyToDeliver": "Готово к доставке",
-  "delivering": "Доставляеться",
   "delivered": "ДОставлен",
   "returned": "Возвращен",
   "yes": "Да",
@@ -145,6 +144,7 @@
 
 
   "searchHint": "Поиск...",
+  "code": "Код",
   "description": "Описание",
   "country": "Страна производства",
   "shareContent": "Если хотите покупать товары из Китая и Турции оптом и в розницу скачайте приложение \"Yakynyol\" из Google Play или App Store!",

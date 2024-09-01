@@ -117,13 +117,12 @@
   "noFavorites": "Sizde halanan haryt ýok",
 
   "noOrders": "Häzirlikçe sizde sargyt ýok",
-  "orderPlaced": "Sargyt edildi",
+  "orderPlaced": "Barlanylýar",
   "accepted": "Kabul edildi",
-  "declined": "Kabul edilmedi",
+  "declined": "Ýüz öwrüldi",
   "readyToShip": "Ugradylmaga taýýar",
-  "shipping": "Ýolda",
+  "shipping": "Ugradyldy",
   "readyToDeliver": "Gowşyrylmaga taýýar",
-  "delivering": "Gowşyrylýar",
   "delivered": "Gowşyryldy",
   "returned": "Yzyna gaýtaryldy",
   "yes": "Hawa",
@@ -150,6 +149,7 @@
 
 
   "searchHint": "Gözleýän harydyňyzy ýazyň...",
+  "code": "Kod",
   "description": "Beýany",
   "country": "Öndirilen ýurdy",
   "shareContent": "Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan \"Yakynyol\" programmasyny ýükläp alyp bilersiňiz!",

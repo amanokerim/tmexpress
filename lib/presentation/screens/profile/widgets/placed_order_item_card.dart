@@ -26,10 +26,12 @@ class PlacedOrderItemCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 4),
-              Text('${S.current.size}: ${item.size.title}',
-                  style: AppTextStyle.grey14),
+              Text(
+                '${item.status.title}  |  '
+                '${S.current.size}: ${item.size.title}',
+                style: AppTextStyle.grey14,
+              ),
               const SizedBox(height: 4),
-              // TODO ask for price on placed order item
               Text('${item.qty} x ${item.price} man.',
                   style: AppTextStyle.black16),
             ],

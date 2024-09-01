@@ -218,6 +218,13 @@ class ProductWidgets {
           const SizedBox(height: 20),
         ],
       ];
+  List<Widget> id() => [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+          child: Text('${S.current.code}: ${_product.id}',
+              style: AppTextStyle.bold16),
+        ),
+      ];
 
   List<Widget> prices() => [
         Text('${S.current.productPrice}:', style: AppTextStyle.bold16),

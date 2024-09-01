@@ -14,6 +14,7 @@ class PlacedOrderItemResponse {
     this.size,
     this.color,
     this.productPrice,
+    this.status,
   });
 
   factory PlacedOrderItemResponse.fromJson(Map<String, dynamic> json) =>
@@ -25,4 +26,5 @@ class PlacedOrderItemResponse {
   final SizeResponse? size;
   final ImageResponse? color;
   final double? productPrice;
+  final String? status;
 }

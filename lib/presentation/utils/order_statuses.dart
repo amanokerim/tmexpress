@@ -9,7 +9,6 @@ final Map<String?, OrderStatus> orderStatuses = {
   'UGRADYLDY': OrderStatus(S.current.shipping, 'shipping.png'),
   'GOWŞURYLMAGA TAÝÝAR':
       OrderStatus(S.current.readyToDeliver, 'readytodeliver.png'),
-  'GOWŞURYLÝAR': OrderStatus(S.current.delivering, 'delivering.png'),
   'GOWŞURYLDY': OrderStatus(S.current.delivered, 'delivered.png'),
   'YZYNA GAÝTARYLDY': OrderStatus(S.current.returned, 'returned.png'),
 };

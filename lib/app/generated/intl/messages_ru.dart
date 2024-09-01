@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cartEmpty": MessageLookupByLibrary.simpleMessage("Корзина пуста"),
         "categories": MessageLookupByLibrary.simpleMessage("Категории"),
         "close": MessageLookupByLibrary.simpleMessage("Закрыть"),
+        "code": MessageLookupByLibrary.simpleMessage("Код"),
         "confirmDeleteAccount":
             MessageLookupByLibrary.simpleMessage("Удалить аккаунт?"),
         "confirmDeleteAccountContent": MessageLookupByLibrary.simpleMessage(
@@ -71,7 +72,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAccount":
             MessageLookupByLibrary.simpleMessage("Удалить аккаунт"),
         "delivered": MessageLookupByLibrary.simpleMessage("ДОставлен"),
-        "delivering": MessageLookupByLibrary.simpleMessage("Доставляеться"),
         "description": MessageLookupByLibrary.simpleMessage("Описание"),
         "doubleBackToExit":
             MessageLookupByLibrary.simpleMessage("Нажмите еще раз для выхода"),
@@ -116,7 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "open": MessageLookupByLibrary.simpleMessage("Открыть"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Ваш заказ получен. Вы можете следить за вашим заказом на экране заказов на профиле.\nБлагодарим за ваши покупки!"),
-        "orderPlaced": MessageLookupByLibrary.simpleMessage("Заказано"),
+        "orderPlaced": MessageLookupByLibrary.simpleMessage("На проверке"),
         "orders": MessageLookupByLibrary.simpleMessage("Заказы"),
         "page1subtitle":
             MessageLookupByLibrary.simpleMessage("найдите ваши любимые..."),

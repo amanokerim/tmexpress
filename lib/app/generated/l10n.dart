@@ -1090,10 +1090,10 @@ class S {
     );
   }
 
-  /// `Sargyt edildi`
+  /// `Barlanylýar`
   String get orderPlaced {
     return Intl.message(
-      'Sargyt edildi',
+      'Barlanylýar',
       name: 'orderPlaced',
       desc: '',
       args: [],
@@ -1110,10 +1110,10 @@ class S {
     );
   }
 
-  /// `Kabul edilmedi`
+  /// `Ýüz öwrüldi`
   String get declined {
     return Intl.message(
-      'Kabul edilmedi',
+      'Ýüz öwrüldi',
       name: 'declined',
       desc: '',
       args: [],
@@ -1130,10 +1130,10 @@ class S {
     );
   }
 
-  /// `Ýolda`
+  /// `Ugradyldy`
   String get shipping {
     return Intl.message(
-      'Ýolda',
+      'Ugradyldy',
       name: 'shipping',
       desc: '',
       args: [],
@@ -1145,16 +1145,6 @@ class S {
     return Intl.message(
       'Gowşyrylmaga taýýar',
       name: 'readyToDeliver',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Gowşyrylýar`
-  String get delivering {
-    return Intl.message(
-      'Gowşyrylýar',
-      name: 'delivering',
       desc: '',
       args: [],
     );
@@ -1375,6 +1365,16 @@ class S {
     return Intl.message(
       'Gözleýän harydyňyzy ýazyň...',
       name: 'searchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kod`
+  String get code {
+    return Intl.message(
+      'Kod',
+      name: 'code',
       desc: '',
       args: [],
     );

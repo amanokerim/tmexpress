@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/entities/order/placed_order_item.dart';
+import '../../../presentation/utils/order_statuses.dart';
 import '../../network/response_models/placed_order_item_response.dart';
 import '../mapper.dart';
 import 'image_response_mapper.dart';
@@ -19,9 +20,12 @@ class PlacedOrderItemResponseMapper
 
   @override
   PlacedOrderItem map(PlacedOrderItemResponse? entity) => PlacedOrderItem(
-      product: _productMiniResponseMapper.map(entity?.product),
-      qty: entity?.qty ?? 0,
-      size: _sizeResponseMapper.map(entity?.size),
-      color: _imageResponseMapper.map(entity?.color),
-      price: entity?.productPrice ?? 0);
+        product: _productMiniResponseMapper.map(entity?.product),
+        qty: entity?.qty ?? 0,
+        size: _sizeResponseMapper.map(entity?.size),
+        color: _imageResponseMapper.map(entity?.color),
+        price: entity?.productPrice ?? 0,
+        status:
+            orderStatuses[entity?.status] ?? orderStatuses.values.toList()[0],
+      );
 }

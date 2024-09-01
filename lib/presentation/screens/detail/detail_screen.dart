@@ -27,13 +27,16 @@ class DetailScreen extends StatelessWidget {
           body: CustomScrollView(
             slivers: [
               SliverPersistentHeader(
-                  delegate: SliverImageDelegate(context, state), pinned: true),
+                pinned: true,
+                delegate: SliverImageDelegate(context, state),
+              ),
               SliverToBoxAdapter(
                 child: ListView(
                   padding: const EdgeInsets.only(top: titleHeight),
                   shrinkWrap: true,
                   primary: false,
                   children: [
+                    ...productWidgets.id(),
                     if (state.product.productImages.length > 1)
                       ...productWidgets.images(),
                     if (state.product.size.isNotEmpty)
