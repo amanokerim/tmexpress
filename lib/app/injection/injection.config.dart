@@ -23,7 +23,7 @@ import '../../data/mappers/response_mappers/category_response_mapper.dart'
 import '../../data/mappers/response_mappers/group_response_mapper.dart' as _i33;
 import '../../data/mappers/response_mappers/image_response_mapper.dart' as _i11;
 import '../../data/mappers/response_mappers/media_pagination_response_mapper.dart'
-    as _i18;
+    as _i19;
 import '../../data/mappers/response_mappers/placed_order_item_response_mapper.dart'
     as _i37;
 import '../../data/mappers/response_mappers/placed_order_response_mapper.dart'
@@ -31,7 +31,7 @@ import '../../data/mappers/response_mappers/placed_order_response_mapper.dart'
 import '../../data/mappers/response_mappers/product_mini_response_mapper.dart'
     as _i17;
 import '../../data/mappers/response_mappers/product_pagination_response_mapper.dart'
-    as _i19;
+    as _i18;
 import '../../data/mappers/response_mappers/product_response_mapper.dart'
     as _i39;
 import '../../data/mappers/response_mappers/profile_response_mapper.dart'
@@ -241,7 +241,7 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i45.CategoryResponseMapper>(),
           gh<_i4.BannerResponseMapper>(),
           gh<_i26.TagResponseMapper>(),
-          gh<_i19.ProductPaginationResponseMapper>(),
+          gh<_i18.ProductPaginationResponseMapper>(),
           gh<_i39.ProductResponseMapper>(),
           gh<_i24.SizeResponseMapper>(),
           gh<_i5.Box<Map<dynamic, dynamic>>>(),

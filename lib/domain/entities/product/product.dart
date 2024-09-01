@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 import '../image.dart';
+import 'brand.dart';
 import 'country.dart';
 import 'size.dart';
 
@@ -21,6 +22,7 @@ class Product extends Equatable {
     required this.isLiked,
     required this.sizeTable,
     required this.country,
+    required this.brand,
     required this.onStock,
   });
 
@@ -40,6 +42,7 @@ class Product extends Equatable {
   final bool onStock;
   final String sizeTable;
   final Country? country;
+  final Brand? brand;
 
   double normalPriceByCount(int count) =>
       count >= wholesaleLimit ? normalPriceW : normalPrice;
@@ -64,6 +67,7 @@ class Product extends Equatable {
     bool? isLiked,
     String? sizeTable,
     Country? country,
+    Brand? brand,
     bool? onStock,
   }) {
     return Product(
@@ -82,6 +86,7 @@ class Product extends Equatable {
       isLiked: isLiked ?? this.isLiked,
       sizeTable: sizeTable ?? this.sizeTable,
       country: country ?? this.country,
+      brand: brand ?? this.brand,
       onStock: onStock ?? this.onStock,
     );
   }

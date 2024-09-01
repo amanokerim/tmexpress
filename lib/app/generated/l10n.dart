@@ -1400,6 +1400,16 @@ class S {
     );
   }
 
+  /// `Brend`
+  String get brand {
+    return Intl.message(
+      'Brend',
+      name: 'brand',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Yakynyol" programmasyny ýükläp alyp bilersiňiz!`
   String get shareContent {
     return Intl.message(

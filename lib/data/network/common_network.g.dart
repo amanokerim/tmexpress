@@ -157,6 +157,7 @@ class _CommonNetwork implements CommonNetwork {
     int limit,
     int? isRandom,
     int? country,
+    int? brand,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -165,6 +166,7 @@ class _CommonNetwork implements CommonNetwork {
       r'limit': limit,
       r'is_random': isRandom,
       r'country': country,
+      r'brand': brand,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

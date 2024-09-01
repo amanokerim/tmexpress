@@ -30,6 +30,7 @@ class SearchParams {
     this.title = '',
     this.isRandom,
     this.countryId,
+    this.brandId,
   });
 
   factory SearchParams.withNext(SearchParams params, String? next) =>
@@ -37,6 +38,7 @@ class SearchParams {
         query: params.query,
         next: next,
         countryId: params.countryId,
+        brandId: params.brandId,
         isRandom: params.isRandom,
         title: params.title,
       );
@@ -47,6 +49,7 @@ class SearchParams {
   final String title;
   final int? isRandom;
   final int? countryId;
+  final int? brandId;
 
   SearchParams copyWith({
     String? query,
@@ -55,6 +58,7 @@ class SearchParams {
     String? title,
     int? isRandom,
     int? countryId,
+    int? brandId,
   }) {
     return SearchParams(
       query: query ?? this.query,
@@ -63,6 +67,7 @@ class SearchParams {
       title: title ?? this.title,
       isRandom: isRandom ?? this.isRandom,
       countryId: countryId ?? this.countryId,
+      brandId: brandId ?? this.brandId,
     );
   }
 }

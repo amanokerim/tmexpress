@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../domain/entities/product/brand.dart';
 import '../../../domain/entities/product/country.dart';
 import 'image_response.dart';
 import 'size_response.dart';
@@ -27,6 +28,7 @@ class ProductResponse {
     this.wholesaleLimit,
     this.sizeTable,
     this.country,
+    this.brand,
     this.onStock = false,
   });
 
@@ -55,6 +57,7 @@ class ProductResponse {
   @JsonKey(name: 'size_table')
   final String? sizeTable;
   final Country? country;
+  final Brand? brand;
   @JsonKey(name: 'on_stock')
   final bool onStock;
 }

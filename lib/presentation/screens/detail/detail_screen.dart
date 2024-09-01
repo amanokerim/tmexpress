@@ -48,7 +48,7 @@ class DetailScreen extends StatelessWidget {
                         children: [
                           ...productWidgets.sizeTable(context),
                           ...productWidgets.prices(),
-                          ...productWidgets.country(context),
+                          ...productWidgets.brandAndCountry(context),
                           ...productWidgets.description(),
                         ],
                       ),

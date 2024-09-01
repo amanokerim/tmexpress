@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "all": MessageLookupByLibrary.simpleMessage("Все"),
         "apply": MessageLookupByLibrary.simpleMessage("Принять"),
         "bn": MessageLookupByLibrary.simpleMessage("Балкан"),
+        "brand": MessageLookupByLibrary.simpleMessage("Бренд"),
         "canNotVerify": MessageLookupByLibrary.simpleMessage(
             "Не удалось подтвердить ваш номер телефона. Пожалуйста убедитесь что написали номер правильно и у вас есть интернет соединенеие. Попробуйте заново..."),
         "cancel": MessageLookupByLibrary.simpleMessage("Завершить"),

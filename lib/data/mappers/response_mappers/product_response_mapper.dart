@@ -47,6 +47,7 @@ class ProductResponseMapper extends Mapper<ProductResponse, Product> {
           ? '${Env.value.baseUrl}${entity?.sizeTable}'
           : '',
       country: entity?.country,
+      brand: entity?.brand,
       onStock: entity?.onStock ?? false,
     );
   }

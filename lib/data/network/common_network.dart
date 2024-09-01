@@ -46,6 +46,7 @@ abstract class CommonNetwork {
     @Query('limit') int limit,
     @Query('is_random') int? isRandom,
     @Query('country') int? country,
+    @Query('brand') int? brand,
   );
 
   @GET('/api/products/tagProudcts/{id}/')

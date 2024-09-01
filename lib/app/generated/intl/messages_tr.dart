@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "all": MessageLookupByLibrary.simpleMessage("Ählisi"),
         "apply": MessageLookupByLibrary.simpleMessage("Kabul etmek"),
         "bn": MessageLookupByLibrary.simpleMessage("Balkan"),
+        "brand": MessageLookupByLibrary.simpleMessage("Brend"),
         "canNotVerify": MessageLookupByLibrary.simpleMessage(
             "Telefon belgiňizi tassyklap bolmady. Ony dogry ýazandygyňyza we internede birigendigiňize göz ýetirip, täzeden synanyşyp göriň"),
         "cancel": MessageLookupByLibrary.simpleMessage("Togtatmak"),

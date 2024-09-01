@@ -165,6 +165,7 @@ class ProductRepositoryImpl implements ProductRepository {
           kLimit,
           params.isRandom,
           params.countryId,
+          params.brandId,
         )
         .then(_productPaginationResponseMapper.map));
   }

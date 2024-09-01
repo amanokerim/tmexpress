@@ -184,30 +184,84 @@ class ProductWidgets {
         ),
       );
 
-  List<Widget> country(BuildContext context) => [
-        if (_product.country != null) ...[
-          Text('${S.current.country}:', style: AppTextStyle.bold16),
-          const SizedBox(height: 8),
-          GestureDetector(
-            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
-                builder: (_) => SearchPage(SearchParams(
-                    query: '',
-                    countryId: _product.country!.id,
-                    title: _product.country!.title)))),
-            child: Row(
-              children: [
-                AppImage(
-                  _product.country!.flag,
-                  width: 24,
-                  borderRadius: BorderRadius.circular(4),
+  List<Widget> brandAndCountry(BuildContext context) => [
+        if (_product.country != null || _product.brand != null) ...[
+          Row(
+            children: [
+              if (_product.brand != null)
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 3),
+                      Text('${S.current.brand}:', style: AppTextStyle.bold16),
+                      const SizedBox(height: 4),
+                      GestureDetector(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                              builder: (_) => SearchPage(SearchParams(
+                                  query: '',
+                                  brandId: _product.brand!.id,
+                                  title: _product.brand!.name))),
+                        ),
+                        child: Row(
+                          children: [
+                            AppImage(
+                              _product.brand!.image,
+                              width: 32,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                _product.brand!.name,
+                                style: AppTextStyle.grey16,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            const SizedBox(width: 12)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(width: 6),
-                Text(_product.country!.title, style: AppTextStyle.grey16),
-              ],
-            ),
+              if (_product.country != null)
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${S.current.country}:', style: AppTextStyle.bold16),
+                      const SizedBox(height: 8),
+                      GestureDetector(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                              builder: (_) => SearchPage(SearchParams(
+                                  query: '',
+                                  countryId: _product.country!.id,
+                                  title: _product.country!.title))),
+                        ),
+                        child: Row(
+                          children: [
+                            AppImage(
+                              _product.country!.flag,
+                              width: 24,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            const SizedBox(width: 6),
+                            Text(_product.country!.title,
+                                style: AppTextStyle.grey16),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 20),
-        ],
+        ]
       ];
 
   List<Widget> description() => [

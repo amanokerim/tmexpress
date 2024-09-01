@@ -32,6 +32,9 @@ ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) =>
       country: json['country'] == null
           ? null
           : Country.fromJson(json['country'] as Map<String, dynamic>),
+      brand: json['brand'] == null
+          ? null
+          : Brand.fromJson(json['brand'] as Map<String, dynamic>),
       onStock: json['on_stock'] as bool? ?? false,
     );
 
@@ -55,5 +58,6 @@ Map<String, dynamic> _$ProductResponseToJson(ProductResponse instance) =>
       'wholesaleLimit': instance.wholesaleLimit,
       'size_table': instance.sizeTable,
       'country': instance.country,
+      'brand': instance.brand,
       'on_stock': instance.onStock,
     };
