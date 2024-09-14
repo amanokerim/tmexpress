@@ -24,7 +24,7 @@ class GroupWidget extends StatelessWidget {
             crossAxisCount: 3,
             mainAxisSpacing: 8,
             crossAxisSpacing: 8,
-            childAspectRatio: .6,
+            childAspectRatio: .65,
           ),
           itemCount: group.subCategories.length,
           itemBuilder: (_, index) => SubcategoryW(group.subCategories[index]),

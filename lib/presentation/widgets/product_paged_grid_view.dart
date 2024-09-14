@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+
 import '../../app/generated/l10n.dart';
 import '../../domain/entities/product/product_mini.dart';
 import 'app_empty.dart';
 import 'app_error.dart';
 import 'app_loader.dart';
-
 import 'product_card.dart';
 
 class ProductPagedGridView extends StatelessWidget {
