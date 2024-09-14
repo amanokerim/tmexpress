@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../entities/product/brand.dart';
 import '../entities/product/category.dart';
 import '../entities/product/home.dart';
 import '../entities/product/pagination.dart';
@@ -13,6 +14,8 @@ import '../usecases/products/search_product_usecase.dart';
 
 abstract class ProductRepository {
   Future<Either<AppError, List<Category>>> fetchCategories();
+
+  Future<Either<AppError, PaginationM<Brand>>> fetchBrands(String? next);
 
   Future<Either<AppError, Home>> fetchHome();
 

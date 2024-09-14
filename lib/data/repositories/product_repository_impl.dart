@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/enums/sort_types.dart';
+import '../../domain/entities/product/brand.dart';
 import '../../domain/entities/product/category.dart';
 import '../../domain/entities/product/home.dart';
 import '../../domain/entities/product/pagination.dart';
@@ -59,6 +60,19 @@ class ProductRepositoryImpl implements ProductRepository {
           .then(_categoryResponseMapper.mapList);
       return categories;
     });
+  }
+
+  @override
+  Future<Either<AppError, PaginationM<Brand>>> fetchBrands(String? next) {
+    return _exception.handle(
+      () async => _commonNetwork.fetchBrands(_getOffset(next), kLimit).then(
+            (paginationResponse) => PaginationM<Brand>(
+              count: paginationResponse.count ?? 0,
+              next: paginationResponse.next,
+              items: paginationResponse.results ?? [],
+            ),
+          ),
+    );
   }
 
   @override

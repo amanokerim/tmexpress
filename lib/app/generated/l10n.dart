@@ -1410,6 +1410,16 @@ class S {
     );
   }
 
+  /// `Brendler`
+  String get brands {
+    return Intl.message(
+      'Brendler',
+      name: 'brands',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Hytaýdan we Türkiýeden islendik harydy bölek hem-de lomaý görnüşinde satyn almak isleseňiz Google Play we App Store-dan "Yakynyol" programmasyny ýükläp alyp bilersiňiz!`
   String get shareContent {
     return Intl.message(

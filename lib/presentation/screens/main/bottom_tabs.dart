@@ -1,6 +1,6 @@
 import '../../../app/generated/l10n.dart';
 import '../../../domain/entities/bottom_tab.dart';
-import '../category/categories_screen.dart';
+import '../category/category_and_brand_screen.dart';
 import '../home/home_screen.dart';
 import '../hot/hot_screen.dart';
 import '../media/media_list_page.dart';
@@ -29,7 +29,7 @@ const bottomTabs = <BottomTab>[
   BottomTab(
     index: 2,
     icon: 'category',
-    screen: CategoriesScreen(),
+    screen: CategoriesAndBrandsScreen(),
   ),
   BottomTab(
     index: 3,

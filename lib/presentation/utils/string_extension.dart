@@ -14,6 +14,7 @@ extension StringX on String {
 
 String imageFromJson(String? s) {
   if ((s ?? '').isEmpty) return '';
-  final media = (s ?? '').startsWith('/media') ? '' : 'media/';
+  if (s!.startsWith(Env.value.baseUrl)) return s;
+  final media = s.startsWith('/media') ? '' : 'media/';
   return '${Env.value.baseUrl}$media$s';
 }

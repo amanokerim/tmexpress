@@ -59,9 +59,9 @@ import '../../domain/repositories/preferences_repository.dart' as _i15;
 import '../../domain/repositories/product_repository.dart' as _i50;
 import '../../domain/repositories/profile_repository.dart' as _i40;
 import '../../domain/usecases/order/create_order_usecase.dart' as _i56;
-import '../../domain/usecases/order/fetch_orders_usecase.dart' as _i62;
-import '../../domain/usecases/order/fetch_shipping_options.dart' as _i65;
-import '../../domain/usecases/order/get_placed_order.dart' as _i68;
+import '../../domain/usecases/order/fetch_orders_usecase.dart' as _i63;
+import '../../domain/usecases/order/fetch_shipping_options.dart' as _i66;
+import '../../domain/usecases/order/get_placed_order.dart' as _i69;
 import '../../domain/usecases/preferences/get_bool_preference_usecase.dart'
     as _i29;
 import '../../domain/usecases/preferences/get_double_preference_usecase.dart'
@@ -71,27 +71,29 @@ import '../../domain/usecases/preferences/get_int_preference_usecase.dart'
 import '../../domain/usecases/preferences/get_string_preference_usecase.dart'
     as _i32;
 import '../../domain/usecases/preferences/set_preference_usecase.dart' as _i21;
-import '../../domain/usecases/products/fetch_categories_usecase.dart' as _i58;
+import '../../domain/usecases/products/fetch_brands_usecase.dart' as _i58;
+import '../../domain/usecases/products/fetch_categories_usecase.dart' as _i59;
 import '../../domain/usecases/products/fetch_favorite_products_usecase.dart'
-    as _i59;
-import '../../domain/usecases/products/fetch_home_usecase.dart' as _i60;
-import '../../domain/usecases/products/fetch_hot_products.dart' as _i61;
-import '../../domain/usecases/products/fetch_product_usecase.dart' as _i63;
-import '../../domain/usecases/products/fetch_products_usecase.dart' as _i64;
-import '../../domain/usecases/products/fetch_subcategory_sizes.dart' as _i66;
-import '../../domain/usecases/products/like_product_usecase.dart' as _i71;
+    as _i60;
+import '../../domain/usecases/products/fetch_home_usecase.dart' as _i61;
+import '../../domain/usecases/products/fetch_hot_products.dart' as _i62;
+import '../../domain/usecases/products/fetch_product_usecase.dart' as _i64;
+import '../../domain/usecases/products/fetch_products_usecase.dart' as _i65;
+import '../../domain/usecases/products/fetch_subcategory_sizes.dart' as _i67;
+import '../../domain/usecases/products/like_product_usecase.dart' as _i72;
 import '../../domain/usecases/products/search_product_usecase.dart' as _i53;
 import '../../domain/usecases/products/share_product_usecase.dart' as _i54;
 import '../../domain/usecases/profile/auth_usecase.dart' as _i44;
 import '../../domain/usecases/profile/edit_profile_usecase.dart' as _i46;
 import '../../domain/usecases/profile/fetch_profile_usecase.dart' as _i47;
 import '../../presentation/screens/auth/bloc/auth_bloc.dart' as _i55;
-import '../../presentation/screens/cart/bloc/cart_bloc.dart' as _i77;
-import '../../presentation/screens/category/bloc/category_bloc.dart' as _i78;
-import '../../presentation/screens/detail/bloc/detail_bloc.dart' as _i79;
-import '../../presentation/screens/home/bloc/home_bloc.dart' as _i69;
-import '../../presentation/screens/home/search/bloc/search_bloc.dart' as _i75;
-import '../../presentation/screens/hot/bloc/hot_bloc.dart' as _i70;
+import '../../presentation/screens/cart/bloc/cart_bloc.dart' as _i79;
+import '../../presentation/screens/category/bloc/brands_bloc.dart' as _i78;
+import '../../presentation/screens/category/bloc/category_bloc.dart' as _i80;
+import '../../presentation/screens/detail/bloc/detail_bloc.dart' as _i81;
+import '../../presentation/screens/home/bloc/home_bloc.dart' as _i70;
+import '../../presentation/screens/home/search/bloc/search_bloc.dart' as _i76;
+import '../../presentation/screens/hot/bloc/hot_bloc.dart' as _i71;
 import '../../presentation/screens/main/bloc/main_bloc.dart' as _i12;
 import '../../presentation/screens/media/bloc/media_list_bloc.dart' as _i36;
 import '../../presentation/screens/media/cubit/media_category_cubit.dart'
@@ -99,19 +101,19 @@ import '../../presentation/screens/media/cubit/media_category_cubit.dart'
 import '../../presentation/screens/media/media_detail/cubit/media_cubit.dart'
     as _i35;
 import '../../presentation/screens/products/bloc/filter/filter_bloc.dart'
-    as _i67;
-import '../../presentation/screens/products/bloc/products_bloc.dart' as _i74;
+    as _i68;
+import '../../presentation/screens/products/bloc/products_bloc.dart' as _i75;
 import '../../presentation/screens/profile/bloc/profile_bloc.dart' as _i52;
 import '../../presentation/screens/profile/edit_profile/bloc/edit_profile_bloc.dart'
     as _i57;
 import '../../presentation/screens/profile/placed_order/bloc/placed_order_bloc.dart'
-    as _i72;
-import '../../presentation/screens/profile/placed_orders/bloc/placed_orders_bloc.dart'
     as _i73;
+import '../../presentation/screens/profile/placed_orders/bloc/placed_orders_bloc.dart'
+    as _i74;
 import '../../presentation/screens/shipping_options/bloc/shipping_options_bloc.dart'
-    as _i76;
+    as _i77;
 import '../../presentation/screens/start/bloc/start_bloc.dart' as _i43;
-import 'register_module.dart' as _i80;
+import 'register_module.dart' as _i82;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -261,53 +263,57 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i56.CreateOrderUseCase(gh<_i48.OrderRepository>()));
     gh.factory<_i57.EditProfileBloc>(
         () => _i57.EditProfileBloc(gh<_i46.EditProfileUseCase>()));
-    gh.lazySingleton<_i58.FetchCategoriesUseCase>(
-        () => _i58.FetchCategoriesUseCase(gh<_i50.ProductRepository>()));
-    gh.lazySingleton<_i59.FetchFavoriteProductsUseCase>(
-        () => _i59.FetchFavoriteProductsUseCase(gh<_i50.ProductRepository>()));
-    gh.lazySingleton<_i60.FetchHomeUseCase>(
-        () => _i60.FetchHomeUseCase(gh<_i50.ProductRepository>()));
-    gh.lazySingleton<_i61.FetchHotProducts>(
-        () => _i61.FetchHotProducts(gh<_i50.ProductRepository>()));
-    gh.lazySingleton<_i62.FetchPlacedOrdersUseCase>(
-        () => _i62.FetchPlacedOrdersUseCase(gh<_i48.OrderRepository>()));
-    gh.lazySingleton<_i63.FetchProductUseCase>(
-        () => _i63.FetchProductUseCase(gh<_i50.ProductRepository>()));
-    gh.lazySingleton<_i64.FetchProductsUseCase>(
-        () => _i64.FetchProductsUseCase(gh<_i50.ProductRepository>()));
-    gh.lazySingleton<_i65.FetchShippingOptions>(
-        () => _i65.FetchShippingOptions(gh<_i48.OrderRepository>()));
-    gh.lazySingleton<_i66.FetchSubcategorySizesUseCase>(
-        () => _i66.FetchSubcategorySizesUseCase(gh<_i50.ProductRepository>()));
-    gh.factory<_i67.FilterBloc>(
-        () => _i67.FilterBloc(gh<_i66.FetchSubcategorySizesUseCase>()));
-    gh.lazySingleton<_i68.GetPlacedOrderUseCase>(
-        () => _i68.GetPlacedOrderUseCase(gh<_i48.OrderRepository>()));
-    gh.factory<_i69.HomeBloc>(() => _i69.HomeBloc(gh<_i60.FetchHomeUseCase>()));
-    gh.factory<_i70.HotBloc>(
-        () => _i70.HotBloc(gh<_i53.SearchProductsUseCase>()));
-    gh.lazySingleton<_i71.LikeProductUseCase>(
-        () => _i71.LikeProductUseCase(gh<_i50.ProductRepository>()));
-    gh.factory<_i72.PlacedOrderBloc>(
-        () => _i72.PlacedOrderBloc(gh<_i68.GetPlacedOrderUseCase>()));
-    gh.factory<_i73.PlacedOrdersBloc>(
-        () => _i73.PlacedOrdersBloc(gh<_i62.FetchPlacedOrdersUseCase>()));
-    gh.factory<_i74.ProductsBloc>(
-        () => _i74.ProductsBloc(gh<_i64.FetchProductsUseCase>()));
-    gh.factory<_i75.SearchBloc>(
-        () => _i75.SearchBloc(gh<_i53.SearchProductsUseCase>()));
-    gh.factory<_i76.ShippingOptionsBloc>(
-        () => _i76.ShippingOptionsBloc(gh<_i65.FetchShippingOptions>()));
-    gh.factory<_i77.CartBloc>(
-        () => _i77.CartBloc(gh<_i56.CreateOrderUseCase>()));
-    gh.factory<_i78.CategoryBloc>(
-        () => _i78.CategoryBloc(gh<_i58.FetchCategoriesUseCase>()));
-    gh.factory<_i79.DetailBloc>(() => _i79.DetailBloc(
-          gh<_i63.FetchProductUseCase>(),
-          gh<_i71.LikeProductUseCase>(),
+    gh.lazySingleton<_i58.FetchBrandsUseCase>(
+        () => _i58.FetchBrandsUseCase(gh<_i50.ProductRepository>()));
+    gh.lazySingleton<_i59.FetchCategoriesUseCase>(
+        () => _i59.FetchCategoriesUseCase(gh<_i50.ProductRepository>()));
+    gh.lazySingleton<_i60.FetchFavoriteProductsUseCase>(
+        () => _i60.FetchFavoriteProductsUseCase(gh<_i50.ProductRepository>()));
+    gh.lazySingleton<_i61.FetchHomeUseCase>(
+        () => _i61.FetchHomeUseCase(gh<_i50.ProductRepository>()));
+    gh.lazySingleton<_i62.FetchHotProducts>(
+        () => _i62.FetchHotProducts(gh<_i50.ProductRepository>()));
+    gh.lazySingleton<_i63.FetchPlacedOrdersUseCase>(
+        () => _i63.FetchPlacedOrdersUseCase(gh<_i48.OrderRepository>()));
+    gh.lazySingleton<_i64.FetchProductUseCase>(
+        () => _i64.FetchProductUseCase(gh<_i50.ProductRepository>()));
+    gh.lazySingleton<_i65.FetchProductsUseCase>(
+        () => _i65.FetchProductsUseCase(gh<_i50.ProductRepository>()));
+    gh.lazySingleton<_i66.FetchShippingOptions>(
+        () => _i66.FetchShippingOptions(gh<_i48.OrderRepository>()));
+    gh.lazySingleton<_i67.FetchSubcategorySizesUseCase>(
+        () => _i67.FetchSubcategorySizesUseCase(gh<_i50.ProductRepository>()));
+    gh.factory<_i68.FilterBloc>(
+        () => _i68.FilterBloc(gh<_i67.FetchSubcategorySizesUseCase>()));
+    gh.lazySingleton<_i69.GetPlacedOrderUseCase>(
+        () => _i69.GetPlacedOrderUseCase(gh<_i48.OrderRepository>()));
+    gh.factory<_i70.HomeBloc>(() => _i70.HomeBloc(gh<_i61.FetchHomeUseCase>()));
+    gh.factory<_i71.HotBloc>(
+        () => _i71.HotBloc(gh<_i53.SearchProductsUseCase>()));
+    gh.lazySingleton<_i72.LikeProductUseCase>(
+        () => _i72.LikeProductUseCase(gh<_i50.ProductRepository>()));
+    gh.factory<_i73.PlacedOrderBloc>(
+        () => _i73.PlacedOrderBloc(gh<_i69.GetPlacedOrderUseCase>()));
+    gh.factory<_i74.PlacedOrdersBloc>(
+        () => _i74.PlacedOrdersBloc(gh<_i63.FetchPlacedOrdersUseCase>()));
+    gh.factory<_i75.ProductsBloc>(
+        () => _i75.ProductsBloc(gh<_i65.FetchProductsUseCase>()));
+    gh.factory<_i76.SearchBloc>(
+        () => _i76.SearchBloc(gh<_i53.SearchProductsUseCase>()));
+    gh.factory<_i77.ShippingOptionsBloc>(
+        () => _i77.ShippingOptionsBloc(gh<_i66.FetchShippingOptions>()));
+    gh.factory<_i78.BrandsBloc>(
+        () => _i78.BrandsBloc(gh<_i58.FetchBrandsUseCase>()));
+    gh.factory<_i79.CartBloc>(
+        () => _i79.CartBloc(gh<_i56.CreateOrderUseCase>()));
+    gh.factory<_i80.CategoryBloc>(
+        () => _i80.CategoryBloc(gh<_i59.FetchCategoriesUseCase>()));
+    gh.factory<_i81.DetailBloc>(() => _i81.DetailBloc(
+          gh<_i64.FetchProductUseCase>(),
+          gh<_i72.LikeProductUseCase>(),
         ));
     return this;
   }
 }
 
-class _$RegisterModule extends _i80.RegisterModule {}
+class _$RegisterModule extends _i82.RegisterModule {}

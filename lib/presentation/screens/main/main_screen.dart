@@ -45,15 +45,17 @@ class _MainScreenState extends State<MainScreen> {
 
           return Scaffold(
             backgroundColor: AppColors.bgMain,
-            appBar: tab.index == 0
-                ? _homeAppBar()
-                : PrimaryAppBar(
-                    label: bottomTabTitle(tab.index),
-                    action: const Padding(
-                      padding: EdgeInsets.only(right: 15),
-                      child: AppCartButton(size: 28),
-                    ),
-                  ),
+            appBar: tab.index == 2
+                ? null
+                : tab.index == 0
+                    ? _homeAppBar()
+                    : PrimaryAppBar(
+                        label: bottomTabTitle(tab.index),
+                        action: const Padding(
+                          padding: EdgeInsets.only(right: 15),
+                          child: AppCartButton(size: 28),
+                        ),
+                      ),
             body: AnimatedSwitcher(
               duration: kAnimationDuration,
               child: Container(

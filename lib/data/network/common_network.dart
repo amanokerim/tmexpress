@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../domain/entities/product/brand.dart';
 import 'response_models/banner_response.dart';
 import 'response_models/category_response.dart';
 import 'response_models/media.dart';
@@ -67,6 +68,12 @@ abstract class CommonNetwork {
 
   @GET('/api/products/productsOrderByHotList/')
   Future<PaginationResponse<ProductMiniResponse>> fetchHotProducts(
+    @Query('offset') String? offset,
+    @Query('limit') int limit,
+  );
+
+  @GET('/api/products/brands/')
+  Future<PaginationResponse<Brand>> fetchBrands(
     @Query('offset') String? offset,
     @Query('limit') int limit,
   );
