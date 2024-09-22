@@ -4,19 +4,18 @@ import '../../../../domain/entities/product/group.dart';
 import '../../../theme/app_theme.dart';
 import 'subcategory.w.dart';
 
-class GroupWidget extends StatelessWidget {
-  const GroupWidget(this.group, {Key? key}) : super(key: key);
+class GroupExpansionTile extends StatelessWidget {
+  const GroupExpansionTile(this.group, {Key? key}) : super(key: key);
   final Group group;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ExpansionTile(
+      title: Text(group.title, style: AppTextStyle.bold20),
+      tilePadding: const EdgeInsets.symmetric(horizontal: 20),
+      childrenPadding: const EdgeInsets.symmetric(horizontal: 20),
+      backgroundColor: Colors.grey[50],
       children: [
-        if (!group.title.startsWith('_')) ...[
-          Text(group.title, style: AppTextStyle.bold20),
-          const SizedBox(height: 16)
-        ],
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
