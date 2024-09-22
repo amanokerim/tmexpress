@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import '../../domain/entities/enums/sort_types.dart';
 import '../../domain/entities/product/brand.dart';
 import '../../domain/entities/product/category.dart';
+import '../../domain/entities/product/group.dart';
 import '../../domain/entities/product/home.dart';
 import '../../domain/entities/product/pagination.dart';
 import '../../domain/entities/product/product.dart';
@@ -106,9 +107,12 @@ class ProductRepositoryImpl implements ProductRepository {
           : params.productParent is Category
               ? _commonNetwork.fetchCategoryProducts(
                   id, offset, kLimit, orderBy)
-              : _commonNetwork.fetchSubcategoryProducts(
-                  id, offset, kLimit, orderBy,
-                  isDiscounted: isDiscounted, sizes: sizes);
+              : params.productParent is Group
+                  ? _commonNetwork.fetchGroupProducts(
+                      id, offset, kLimit, orderBy)
+                  : _commonNetwork.fetchSubcategoryProducts(
+                      id, offset, kLimit, orderBy,
+                      isDiscounted: isDiscounted, sizes: sizes);
       final products =
           await response.then(_productPaginationResponseMapper.map);
       return products;
