@@ -118,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "open": MessageLookupByLibrary.simpleMessage("Açmak"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Sargydyňyz kabul edildi. Sargydyňyzy profildäki Sargytlarym bölüminden yzarlap bilersiňiz.\nSöwdanyň üçin sag boluň!"),
+        "orderId": MessageLookupByLibrary.simpleMessage("Sargyt ID"),
         "orderPlaced": MessageLookupByLibrary.simpleMessage("Barlanylýar"),
         "orders": MessageLookupByLibrary.simpleMessage("Sargytlarym"),
         "page1subtitle": MessageLookupByLibrary.simpleMessage(

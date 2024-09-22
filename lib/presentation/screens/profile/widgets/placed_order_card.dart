@@ -28,7 +28,13 @@ class PlacedOrderCard extends StatelessWidget {
       ),
       trailing: PriceW(S.current.total, order.totalPrice),
       title: Text(order.status.title, style: AppTextStyle.bold16),
-      subtitle: Text(order.createdAt.dmYHm, style: AppTextStyle.grey14),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(order.createdAt.dmYHm, style: AppTextStyle.dark14),
+          Text('${S.current.orderId}: ${order.id}', style: AppTextStyle.grey14),
+        ],
+      ),
     );
   }
 }

@@ -17,17 +17,18 @@ class CategoryW extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(8),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             AppImage(
               category.categoryImage,
-              height: 60,
-              borderRadius: BorderRadius.circular(0),
+              height: 98,
+              width: 98,
+              borderRadius: BorderRadius.circular(12),
             ),
             const SizedBox(height: 4),
             Text(
               category.title,
-              style: AppTextStyle.dark14,
+              style: AppTextStyle.bold14,
               maxLines: 2,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,

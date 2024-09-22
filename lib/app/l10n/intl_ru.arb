@@ -155,5 +155,6 @@
   "watchVideo": "Видео",
   "randomProducts": "Другие товары",
   "similarProducts": "Похожие товары",
-  "shops": "Магазины"
+  "shops": "Магазины",
+  "orderId": "ID заказa"
 }

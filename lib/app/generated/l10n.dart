@@ -1479,6 +1479,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Sargyt ID`
+  String get orderId {
+    return Intl.message(
+      'Sargyt ID',
+      name: 'orderId',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

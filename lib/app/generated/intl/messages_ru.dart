@@ -118,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "open": MessageLookupByLibrary.simpleMessage("Открыть"),
         "orderCreated": MessageLookupByLibrary.simpleMessage(
             "Ваш заказ получен. Вы можете следить за вашим заказом на экране заказов на профиле.\nБлагодарим за ваши покупки!"),
+        "orderId": MessageLookupByLibrary.simpleMessage("ID заказa"),
         "orderPlaced": MessageLookupByLibrary.simpleMessage("На проверке"),
         "orders": MessageLookupByLibrary.simpleMessage("Заказы"),
         "page1subtitle":
