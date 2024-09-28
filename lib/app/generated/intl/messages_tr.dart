@@ -217,6 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "watchVideo": MessageLookupByLibrary.simpleMessage("Wideo görmek"),
         "whatIsThis": MessageLookupByLibrary.simpleMessage("Bu näme?"),
         "woman": MessageLookupByLibrary.simpleMessage("Zenan"),
+        "wrongCode": MessageLookupByLibrary.simpleMessage("Nädogry kod"),
         "wrongEmail": MessageLookupByLibrary.simpleMessage("Nädogry email"),
         "wrongFormat": MessageLookupByLibrary.simpleMessage("Nädogry format"),
         "yes": MessageLookupByLibrary.simpleMessage("Hawa"),

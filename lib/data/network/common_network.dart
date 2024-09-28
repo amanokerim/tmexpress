@@ -98,6 +98,17 @@ abstract class CommonNetwork {
     @Query('userId') String? userId,
   );
 
+  @POST('/api/auth/start-sms-sign-in/')
+  Future<void> startSMSSignIn(
+    @Field('username') String phone,
+  );
+
+  @POST('/api/auth/sign-in-with-sms/')
+  Future<TokenResponse> signInWithSMS(
+    @Field('username') String phone,
+    @Field('password') String code,
+  );
+
   @GET('/api/products/subCategorySizes/{id}/')
   Future<SubcategoryResponse> fetchSubcategorySizes(
     @Path() int id,

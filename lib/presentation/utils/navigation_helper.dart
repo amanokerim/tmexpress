@@ -17,7 +17,6 @@ class NavigationHelper {
     Widget? page;
     if (idd is int) id = idd;
     if (idd is String) id = int.tryParse(idd);
-    print(pageType);
     if (id != null) {
       switch (pageType) {
         case kProductPage:

@@ -10,7 +10,7 @@ import '../mapper.dart';
 class ProfileResponseMapper extends Mapper<ProfileResponse, Profile> {
   @override
   Profile map(ProfileResponse? entity) {
-    final phone = entity?.username ?? '';
+    final phone = '+993${entity?.username ?? ''}';
     final formattedPhone = '${phone.substring(0, 4)} '
         '${phone.substring(4, 6)} ${phone.substring(6)} ';
 

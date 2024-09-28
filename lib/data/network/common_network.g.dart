@@ -452,6 +452,63 @@ class _CommonNetwork implements CommonNetwork {
   }
 
   @override
+  Future<void> startSMSSignIn(String phone) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = {'username': phone};
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/auth/start-sms-sign-in/',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+  }
+
+  @override
+  Future<TokenResponse> signInWithSMS(
+    String phone,
+    String code,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = {
+      'username': phone,
+      'password': code,
+    };
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<TokenResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/api/auth/sign-in-with-sms/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = TokenResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<SubcategoryResponse> fetchSubcategorySizes(int id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

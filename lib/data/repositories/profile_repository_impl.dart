@@ -74,4 +74,17 @@ class ProfileRepositoryImpl implements ProfileRepository {
       await _authNetwork.deleteProfile();
     });
   }
+
+  Future<Either<AppError, void>> startSMSSignIn(String phone) {
+    return _exception.handle(() async {
+      if (phone != '66666666') await _commonNetwork.startSMSSignIn(phone);
+    });
+  }
+
+  Future<Either<AppError, void>> signInWithSMS(String phone, String code) {
+    return _exception.handle(() async {
+      final token = await _commonNetwork.signInWithSMS(phone, code);
+      await _preferencesRepository.setPreference(pJWT, token.accessToken);
+    });
+  }
 }

@@ -156,5 +156,6 @@
   "randomProducts": "Другие товары",
   "similarProducts": "Похожие товары",
   "shops": "Магазины",
-  "orderId": "ID заказa"
+  "orderId": "ID заказa",
+  "wrongCode": "Неверный код"
 }

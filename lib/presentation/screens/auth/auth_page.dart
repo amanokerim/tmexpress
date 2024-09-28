@@ -5,12 +5,12 @@ import 'auth_screen.dart';
 import 'bloc/auth_bloc.dart';
 
 class AuthPage extends StatelessWidget {
-  const AuthPage({Key? key}) : super(key: key);
+  const AuthPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AuthBloc>(
-      create: (context) => getIt()..add(AuthStarted()),
+      create: (context) => getIt(),
       child: const AuthScreen(),
     );
   }

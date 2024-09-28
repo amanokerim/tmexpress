@@ -9,6 +9,6 @@ class TokenResponseMapper extends Mapper<TokenResponse, Token> {
   @override
   Token map(TokenResponse? entity) => Token(
         refresh: entity?.refresh ?? '',
-        access: entity?.access ?? '',
+        access: entity?.accessToken ?? '',
       );
 }

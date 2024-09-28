@@ -4,33 +4,31 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../../app/generated/l10n.dart';
 import '../../../utils/app_validator.dart';
-import '../../../utils/constants.dart';
 import '../../../widgets/app_button.dart';
-import '../../../widgets/app_info_card.dart';
 import '../bloc/auth_bloc.dart';
 
-class AuthForm extends StatefulWidget {
-  const AuthForm(this.state, {Key? key}) : super(key: key);
+class AuthPhoneForm extends StatefulWidget {
+  const AuthPhoneForm(this.state, {super.key});
 
   final AuthState state;
 
   @override
-  State<AuthForm> createState() => _AuthFormState();
+  State<AuthPhoneForm> createState() => _AuthPhoneFormState();
 }
 
-class _AuthFormState extends State<AuthForm> {
-  late TextEditingController _phoneController;
+class _AuthPhoneFormState extends State<AuthPhoneForm> {
+  late TextEditingController _phoneC;
   final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    _phoneController = TextEditingController();
+    _phoneC = TextEditingController();
   }
 
   @override
   void dispose() {
-    _phoneController.dispose();
+    _phoneC.dispose();
     super.dispose();
   }
 
@@ -41,7 +39,7 @@ class _AuthFormState extends State<AuthForm> {
         Form(
           key: _formKey,
           child: TextFormField(
-            controller: _phoneController,
+            controller: _phoneC,
             validator: AppValidator.phone,
             onFieldSubmitted: (_) => _submit(),
             inputFormatters: [MaskTextInputFormatter(mask: '## ######')],
@@ -54,22 +52,18 @@ class _AuthFormState extends State<AuthForm> {
           ),
         ),
         const SizedBox(height: 16),
-        AppInfoCard(S.current
-            .sendSmsExplanation(kVerificationPhone, widget.state.code!)),
-        const SizedBox(height: 16),
         AppButton(
-            label: S.current.sendSms,
-            onPressed: _submit,
-            type: ButtonType.black),
+          label: S.current.sendSms,
+          onPressed: _submit,
+          type: ButtonType.black,
+        ),
       ],
     );
   }
 
   void _submit() {
     if (_formKey.currentState?.validate() ?? false) {
-      context
-          .read<AuthBloc>()
-          .add(AuthVerificationStarted(phone: _phoneController.text));
+      context.read<AuthBloc>().add(AuthSMSSignInStarted(phone: _phoneC.text));
     }
   }
 }

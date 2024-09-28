@@ -34,7 +34,6 @@ class AppImage extends StatelessWidget {
         color: color,
         imageUrl: url,
         errorWidget: (_, __, ___) {
-          print(url);
           return AppImagePlaceholder(height: placeholderHeight ?? height);
         },
         placeholder: (_, __) =>
@@ -48,8 +47,8 @@ class AppImagePlaceholder extends StatelessWidget {
   const AppImagePlaceholder({
     this.height,
     this.borderRadius,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final double? height;
   final BorderRadius? borderRadius;
 

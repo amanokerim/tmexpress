@@ -15,13 +15,11 @@ class CategoryLoadSuccess extends CategoryState {
   ) {
     shops = [];
     final index = categories.indexWhere((e) => e.id == 26);
-    print('index $index');
     if (index != -1) {
       final shopCategory = categories[index];
       for (var i = 0; i < shopCategory.groups.length; i++) {
         shops.addAll(shopCategory.groups[i].subCategories);
       }
-      print(shops);
     }
   }
   final List<Category> categories;

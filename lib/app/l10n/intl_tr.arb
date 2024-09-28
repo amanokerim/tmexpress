@@ -160,5 +160,6 @@
   "randomProducts": "Başga harytlar",
   "similarProducts": "Meňzeş harytlar",
   "shops": "Dükanlar",
-  "orderId": "Sargyt ID"
+  "orderId": "Sargyt ID",
+  "wrongCode": "Nädogry kod"
 }

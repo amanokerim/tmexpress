@@ -5,10 +5,10 @@ description: An app for delivering goods from China
 
 publish_to: 'none'
 
-version: 1.0.7+28
+version: 1.0.7+29
 
 environment:
-  sdk: '>=2.15.0 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:

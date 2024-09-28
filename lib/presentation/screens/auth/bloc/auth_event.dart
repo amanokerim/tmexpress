@@ -5,18 +5,26 @@ abstract class AuthEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class AuthStarted extends AuthEvent {}
-
 class AuthCheckRequested extends AuthEvent {}
 
-class AuthVerificationStarted extends AuthEvent {
-  AuthVerificationStarted({
+class AuthSMSSignInStarted extends AuthEvent {
+  AuthSMSSignInStarted({
     required this.phone,
   });
   final String phone;
 
   @override
   List<Object?> get props => [phone];
+}
+
+class AuthSignInWithSMS extends AuthEvent {
+  AuthSignInWithSMS({
+    required this.code,
+  });
+  final String code;
+
+  @override
+  List<Object?> get props => [code];
 }
 
 class AuthVerificationCanceled extends AuthEvent {}

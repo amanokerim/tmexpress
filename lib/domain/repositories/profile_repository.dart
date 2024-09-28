@@ -12,4 +12,8 @@ abstract class ProfileRepository {
   Future<Either<AppError, void>> editProfile(Profile profile);
 
   Future<Either<AppError, void>> deleteProfile();
+
+  Future<Either<AppError, void>> startSMSSignIn(String phone);
+
+  Future<Either<AppError, void>> signInWithSMS(String phone, String code);
 }

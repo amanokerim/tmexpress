@@ -1489,6 +1489,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Nädogry kod`
+  String get wrongCode {
+    return Intl.message(
+      'Nädogry kod',
+      name: 'wrongCode',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

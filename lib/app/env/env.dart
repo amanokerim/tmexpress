@@ -23,12 +23,10 @@ class Env {
   String cacheDir = '';
 
   Future<dynamic> init() async {
-    print('WidgetsFlutterBinding.ensureInitialized();');
     WidgetsFlutterBinding.ensureInitialized();
 
     cacheDir = (await pp.getTemporaryDirectory()).path;
     configureDependencies();
-    print('configureDependencies();');
 
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     SystemChrome.setSystemUIOverlayStyle(

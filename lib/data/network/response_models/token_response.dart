@@ -5,7 +5,7 @@ part 'token_response.g.dart';
 class TokenResponse {
   const TokenResponse({
     this.refresh,
-    this.access,
+    this.accessToken,
   });
 
   factory TokenResponse.fromJson(Map<String, dynamic> json) =>
@@ -13,5 +13,6 @@ class TokenResponse {
   Map<String, dynamic> toJson() => _$TokenResponseToJson(this);
 
   final String? refresh;
-  final String? access;
+  @JsonKey(name: 'access_token')
+  final String? accessToken;
 }

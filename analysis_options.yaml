@@ -25,8 +25,6 @@ linter:
     always_declare_return_types: true
     # always_put_control_body_on_new_line: true
     always_put_required_named_parameters_first: true # not crucial and we do it all around
-    always_require_non_null_named_parameters: true
-    avoid_bool_literals_in_conditional_expressions: true
     # avoid_annotating_with_dynamic: true # we want to be explicit with dynamic
     # avoid_as: true
     avoid_catches_without_on_clauses: true

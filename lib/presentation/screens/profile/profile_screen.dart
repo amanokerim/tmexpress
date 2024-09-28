@@ -13,7 +13,7 @@ import 'widgets/profile_card.dart';
 import 'widgets/profile_error.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();

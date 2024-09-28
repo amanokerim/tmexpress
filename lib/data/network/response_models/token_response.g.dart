@@ -9,11 +9,11 @@ part of 'token_response.dart';
 TokenResponse _$TokenResponseFromJson(Map<String, dynamic> json) =>
     TokenResponse(
       refresh: json['refresh'] as String?,
-      access: json['access'] as String?,
+      accessToken: json['access_token'] as String?,
     );
 
 Map<String, dynamic> _$TokenResponseToJson(TokenResponse instance) =>
     <String, dynamic>{
       'refresh': instance.refresh,
-      'access': instance.access,
+      'access_token': instance.accessToken,
     };
