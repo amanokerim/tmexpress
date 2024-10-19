@@ -9,7 +9,7 @@ part of 'shipping_option_response.dart';
 ShippingOptionResponse _$ShippingOptionResponseFromJson(
         Map<String, dynamic> json) =>
     ShippingOptionResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       titleRu: json['title_ru'] as String?,
       image: json['image'] as String?,

@@ -8,6 +8,6 @@ import 'shipping_option_response_mapper.dart';
 @lazySingleton
 class ShippingOptionPaginationResponseMapper
     extends PaginationResponseMapper<ShippingOptionResponse, ShippingOption> {
-  ShippingOptionPaginationResponseMapper(ShippingOptionResponseMapper mapper)
-      : super(mapper);
+  ShippingOptionPaginationResponseMapper(
+      ShippingOptionResponseMapper super.mapper);
 }

@@ -7,11 +7,11 @@ part of 'product_mini.dart';
 // **************************************************************************
 
 ProductMini _$ProductMiniFromJson(Map<String, dynamic> json) => ProductMini(
-      id: json['id'] as int? ?? 0,
+      id: (json['id'] as num?)?.toInt() ?? 0,
       titleTm: json['title'] as String? ?? '',
       titleRu: json['title_ru'] as String?,
       ourRating: (json['ourRating'] as num?)?.toDouble() ?? 4,
-      discount: json['discount'] as int? ?? 0,
+      discount: (json['discount'] as num?)?.toInt() ?? 0,
       normalPrice: (json['normalPrice'] as num?)?.toDouble() ?? 0,
       imageMini: json['imageMini'] == null
           ? ''

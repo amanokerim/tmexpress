@@ -7,7 +7,7 @@ import '../media_detail/media_screen.dart';
 import 'video_player_card.dart';
 
 class MediaCard extends StatelessWidget {
-  const MediaCard(this.media, {Key? key}) : super(key: key);
+  const MediaCard(this.media, {super.key});
   final Media media;
 
   @override

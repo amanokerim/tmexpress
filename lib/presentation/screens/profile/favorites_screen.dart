@@ -10,7 +10,7 @@ import '../../widgets/primary_app_bar.dart';
 import 'widgets/saved_product_card.dart';
 
 class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({Key? key}) : super(key: key);
+  const FavoritesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

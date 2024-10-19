@@ -8,7 +8,7 @@ import '../../widgets/app_button.dart';
 import 'bloc/start_bloc.dart';
 
 class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({super.key});
 
   void onDone(BuildContext context) =>
       context.read<StartBloc>().add(StartOnboardingComplete());

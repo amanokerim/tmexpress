@@ -11,7 +11,7 @@ import '../../home/search/search_page.dart';
 import '../../home/widgets/tag.w.dart';
 
 class SimilarProductsW extends StatelessWidget {
-  const SimilarProductsW(this.query, {Key? key}) : super(key: key);
+  const SimilarProductsW(this.query, {super.key});
   final String query;
 
   @override

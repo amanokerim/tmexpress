@@ -5,7 +5,7 @@ import '../../../../domain/entities/enums/gender.dart';
 import '../edit_profile/bloc/edit_profile_bloc.dart';
 
 class EditProfileGender extends StatelessWidget {
-  const EditProfileGender(this.selectedGender, {Key? key}) : super(key: key);
+  const EditProfileGender(this.selectedGender, {super.key});
   final Gender? selectedGender;
 
   @override

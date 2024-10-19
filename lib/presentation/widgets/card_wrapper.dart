@@ -7,8 +7,8 @@ class CardWrapper extends StatelessWidget {
     required this.child,
     this.padding,
     this.backgroundColor,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final Widget child;
   final EdgeInsetsGeometry? padding;
   final Color? backgroundColor;

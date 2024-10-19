@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../theme/app_theme.dart';
 
 class PriceW extends StatelessWidget {
-  const PriceW(this.label, this.price, {Key? key}) : super(key: key);
+  const PriceW(this.label, this.price, {super.key});
   final String label;
   final double price;
 

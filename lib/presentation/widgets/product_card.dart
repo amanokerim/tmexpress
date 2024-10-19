@@ -17,8 +17,8 @@ class ProductCard extends StatelessWidget {
     this.imageSize = 180,
     this.aspectRatio = .6,
     this.showAddToCartButton = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final ProductMini product;
   final double imageSize;
   final double aspectRatio;

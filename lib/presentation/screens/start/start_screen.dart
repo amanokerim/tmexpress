@@ -1,9 +1,11 @@
 import 'dart:async';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/generated/l10n.dart';
+import '../../theme/app_theme.dart';
 import '../../utils/app_flash.dart';
 import '../../utils/constants.dart';
 import '../../widgets/app_loader.dart';
@@ -13,7 +15,7 @@ import 'bloc/start_bloc.dart';
 import 'onboarding_screen.dart';
 
 class StartScreen extends StatefulWidget {
-  const StartScreen({Key? key}) : super(key: key);
+  const StartScreen({super.key});
 
   @override
   State<StartScreen> createState() => _StartScreenState();
@@ -28,7 +30,29 @@ class _StartScreenState extends State<StartScreen> {
   @override
   void initState() {
     super.initState();
-    // DeepLinker.init(context);
+
+    // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    //   if (message.notification != null) {
+    //     showDialog<void>(
+    //       context: context,
+    //       builder: (context) => Dialog(
+    //         child: Column(
+    //           children: [
+    //             Text(
+    //               message.notification!.title ?? '',
+    //               style: AppTextStyle.bold16,
+    //             ),
+    //             const SizedBox(height: 8),
+    //             Text(
+    //               message.notification!.body ?? '',
+    //               style: AppTextStyle.dark16,
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //     );
+    //   }
+    // });
   }
 
   @override

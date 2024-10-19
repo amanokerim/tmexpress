@@ -7,7 +7,7 @@ part of 'tag_response.dart';
 // **************************************************************************
 
 TagResponse _$TagResponseFromJson(Map<String, dynamic> json) => TagResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       titleRu: json['title_ru'] as String?,
       product: (json['product'] as List<dynamic>?)

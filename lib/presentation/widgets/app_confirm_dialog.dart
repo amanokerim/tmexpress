@@ -9,8 +9,8 @@ class AppDialog extends StatelessWidget {
     required this.positiveButtonLabel,
     this.title,
     this.showNegativeButton = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final String content;
   final String positiveButtonLabel;
   final String? title;

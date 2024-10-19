@@ -9,8 +9,8 @@ import 'app_bottom_nav_bar_item.dart';
 class AppBottomNavigationBar extends StatelessWidget {
   const AppBottomNavigationBar({
     required this.currentIndex,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final int currentIndex;
 
   @override

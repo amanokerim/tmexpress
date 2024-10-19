@@ -12,7 +12,7 @@ import '../../../widgets/primary_app_bar.dart';
 import '../../home/widgets/tag.w.dart';
 
 class MediaScreen extends StatefulWidget {
-  const MediaScreen({required this.media, Key? key}) : super(key: key);
+  const MediaScreen({required this.media, super.key});
   final Media media;
 
   @override

@@ -8,7 +8,7 @@ part of 'product_response.dart';
 
 ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) =>
     ProductResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       titleRu: json['title_ru'] as String?,
       description: json['description'] as String?,
@@ -27,7 +27,7 @@ ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) =>
       normalPrice: (json['normalPrice'] as num?)?.toDouble(),
       expressPriceW: (json['expressPriceW'] as num?)?.toDouble(),
       normalPriceW: (json['normalPriceW'] as num?)?.toDouble(),
-      wholesaleLimit: json['wholesaleLimit'] as int?,
+      wholesaleLimit: (json['wholesaleLimit'] as num?)?.toInt(),
       sizeTable: json['size_table'] as String?,
       country: json['country'] == null
           ? null

@@ -8,8 +8,8 @@ class MediaCategories extends StatelessWidget {
   const MediaCategories({
     required this.selected,
     required this.onSelected,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final void Function(int, int) onSelected;
   final int selected;

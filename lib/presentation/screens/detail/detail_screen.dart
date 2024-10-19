@@ -15,7 +15,7 @@ import 'widgets/sliver_image_delegate.dart';
 const titleHeight = 53.0;
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen(this.productId, {Key? key}) : super(key: key);
+  const DetailScreen(this.productId, {super.key});
   final int productId;
 
   @override

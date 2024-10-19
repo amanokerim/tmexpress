@@ -11,7 +11,7 @@ import '../../home/search/search_page.dart';
 import '../../home/widgets/tag.w.dart';
 
 class RandomW extends StatelessWidget {
-  const RandomW({Key? key}) : super(key: key);
+  const RandomW({super.key});
 
   @override
   Widget build(BuildContext context) {

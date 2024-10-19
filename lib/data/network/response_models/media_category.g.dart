@@ -8,7 +8,7 @@ part of 'media_category.dart';
 
 MediaCategory _$MediaCategoryFromJson(Map<String, dynamic> json) =>
     MediaCategory(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       titleTm: json['title'] as String,
       titleRu: json['title_ru'] as String?,
       icon: json['icon'] as String? ?? '',

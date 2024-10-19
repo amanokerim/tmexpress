@@ -12,8 +12,8 @@ class AppErrorScreen extends StatelessWidget {
     required this.onPressed,
     this.height,
     this.padding = const EdgeInsets.all(16),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String message;
   final VoidCallback onPressed;

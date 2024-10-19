@@ -6,7 +6,7 @@ import 'bloc/detail_bloc.dart';
 import 'detail_screen.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage(this.productId, {Key? key}) : super(key: key);
+  const DetailPage(this.productId, {super.key});
   final int productId;
 
   @override

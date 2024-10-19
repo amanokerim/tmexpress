@@ -8,7 +8,7 @@ import '../utils/navigation_helper.dart';
 import 'app_image.dart';
 
 class AppBannerB extends StatelessWidget {
-  const AppBannerB({Key? key}) : super(key: key);
+  const AppBannerB({super.key});
 
   @override
   Widget build(BuildContext context) {

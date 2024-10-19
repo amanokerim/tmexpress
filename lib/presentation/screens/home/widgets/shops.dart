@@ -7,7 +7,7 @@ import '../../category/bloc/category_bloc.dart';
 import '../../category/widgets/subcategory.w.dart';
 
 class Shops extends StatelessWidget {
-  const Shops({Key? key}) : super(key: key);
+  const Shops({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,16 +4,11 @@ import 'package:flutter/material.dart';
 /// This widget solves problem below:
 class CustomMaterialPageRoute extends MaterialPageRoute<dynamic> {
   CustomMaterialPageRoute({
-    required WidgetBuilder builder,
-    RouteSettings? settings,
-    bool maintainState = true,
-    bool fullscreenDialog = false,
-  }) : super(
-          builder: builder,
-          settings: settings,
-          maintainState: maintainState,
-          fullscreenDialog: fullscreenDialog,
-        );
+    required super.builder,
+    super.settings,
+    super.maintainState,
+    super.fullscreenDialog,
+  });
 
   @protected
   bool get hasScopedWillPopCallback {

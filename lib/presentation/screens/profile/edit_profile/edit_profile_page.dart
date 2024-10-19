@@ -7,7 +7,7 @@ import 'bloc/edit_profile_bloc.dart';
 import 'edit_profile_screen.dart';
 
 class EditProfilePage extends StatelessWidget {
-  const EditProfilePage(this.profile, {Key? key}) : super(key: key);
+  const EditProfilePage(this.profile, {super.key});
   final Profile profile;
 
   @override

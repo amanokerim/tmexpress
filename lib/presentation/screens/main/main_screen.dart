@@ -20,7 +20,7 @@ import 'bloc/main_bloc.dart';
 import 'bottom_tabs.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();

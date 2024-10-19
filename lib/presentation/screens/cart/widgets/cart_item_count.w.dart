@@ -8,7 +8,7 @@ import '../../../widgets/app_confirm_dialog.dart';
 import '../bloc/cart_bloc.dart';
 
 class CartItemCountW extends StatelessWidget {
-  const CartItemCountW(this.cartItem, {Key? key}) : super(key: key);
+  const CartItemCountW(this.cartItem, {super.key});
   final CartItem cartItem;
 
   @override

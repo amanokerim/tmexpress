@@ -4,7 +4,7 @@ import '../../../../domain/entities/enums/gender.dart';
 import '../../../theme/app_theme.dart';
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar(this.gender, {Key? key}) : super(key: key);
+  const ProfileAvatar(this.gender, {super.key});
   final Gender gender;
 
   @override

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
-  const VideoPlayerScreen({required this.url, Key? key}) : super(key: key);
+  const VideoPlayerScreen({required this.url, super.key});
   final String url;
 
   @override

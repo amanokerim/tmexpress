@@ -11,8 +11,8 @@ import 'widgets/group_expansion_tile.dart';
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({
     required this.category,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final Category category;
 
   @override

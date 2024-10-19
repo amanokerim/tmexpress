@@ -7,7 +7,7 @@ part of 'media.dart';
 // **************************************************************************
 
 Media _$MediaFromJson(Map<String, dynamic> json) => Media(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       titleTm: json['title'] as String,
       titleRu: json['title_ru'] as String?,
       descriptionTm: json['description'] as String?,

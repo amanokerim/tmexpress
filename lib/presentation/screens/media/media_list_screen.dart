@@ -12,7 +12,7 @@ import 'widgets/media_card.dart';
 import 'widgets/media_categories.dart';
 
 class MediaListScreen extends StatefulWidget {
-  const MediaListScreen({Key? key}) : super(key: key);
+  const MediaListScreen({super.key});
 
   @override
   State<MediaListScreen> createState() => _MediaListScreenState();

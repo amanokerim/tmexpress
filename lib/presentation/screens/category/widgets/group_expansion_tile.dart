@@ -7,7 +7,7 @@ import '../../products/products_page.dart';
 import 'subcategory.w.dart';
 
 class GroupExpansionTile extends StatelessWidget {
-  const GroupExpansionTile(this.group, {Key? key}) : super(key: key);
+  const GroupExpansionTile(this.group, {super.key});
   final Group group;
 
   @override

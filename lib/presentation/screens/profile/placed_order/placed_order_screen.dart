@@ -14,7 +14,7 @@ import '../widgets/placed_order_item_card.dart';
 import 'bloc/placed_order_bloc.dart';
 
 class PlacedOrderScreen extends StatelessWidget {
-  const PlacedOrderScreen(this.order, {Key? key}) : super(key: key);
+  const PlacedOrderScreen(this.order, {super.key});
   final PlacedOrder order;
 
   @override

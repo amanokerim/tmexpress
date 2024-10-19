@@ -53,7 +53,7 @@ class AppButton extends ElevatedButton {
                       Image.asset(
                         'assets/icons/$iconFile',
                         color: type.foreground,
-                        width: 20,
+                        width: 18,
                       ),
                     if (label != null && (iconFile != null || isLoading))
                       const SizedBox(width: 8),

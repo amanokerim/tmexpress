@@ -11,7 +11,7 @@ import '../../../widgets/search_app_bar.dart';
 import 'bloc/search_bloc.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen(this.params, {Key? key}) : super(key: key);
+  const SearchScreen(this.params, {super.key});
   final SearchParams params;
 
   @override

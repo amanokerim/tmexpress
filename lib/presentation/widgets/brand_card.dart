@@ -9,8 +9,8 @@ import 'app_image.dart';
 class BrandCard extends StatelessWidget {
   const BrandCard({
     required this.brand,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final Brand brand;
 
   @override

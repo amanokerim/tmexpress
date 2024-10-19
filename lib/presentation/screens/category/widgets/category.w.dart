@@ -6,7 +6,7 @@ import '../../../widgets/app_image.dart';
 import '../category_screen.dart';
 
 class CategoryW extends StatelessWidget {
-  const CategoryW(this.category, {Key? key}) : super(key: key);
+  const CategoryW(this.category, {super.key});
   final Category category;
 
   @override

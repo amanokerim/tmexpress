@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class AppLoader extends StatelessWidget {
-  const AppLoader({this.size = 100, Key? key}) : super(key: key);
+  const AppLoader({this.size = 100, super.key});
   final double size;
 
   @override

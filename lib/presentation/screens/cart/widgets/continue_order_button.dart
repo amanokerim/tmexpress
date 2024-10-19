@@ -19,8 +19,8 @@ class ContinueOrderButton extends StatelessWidget {
     required this.total,
     required this.selectedShippingOption,
     required this.allOnStock,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final double total;
   final ShippingOption? selectedShippingOption;
   final bool allOnStock;

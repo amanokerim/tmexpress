@@ -8,7 +8,7 @@ part of 'subcategory_response.dart';
 
 SubcategoryResponse _$SubcategoryResponseFromJson(Map<String, dynamic> json) =>
     SubcategoryResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       titleRu: json['title_ru'] as String?,
       subCategoryImage: json['subCategoryImage'] as String?,

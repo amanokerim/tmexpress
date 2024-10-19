@@ -8,7 +8,7 @@ import '../search/bloc/search_bloc.dart';
 import '../search/search_page.dart';
 
 class SearchTextField extends StatefulWidget {
-  const SearchTextField(this.query, {Key? key}) : super(key: key);
+  const SearchTextField(this.query, {super.key});
 
   /// If query is null, it means this widget is created from home screen.
   /// From search screen initial query will be passed.

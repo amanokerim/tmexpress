@@ -8,8 +8,8 @@ class AppEmpty extends StatelessWidget {
   const AppEmpty({
     required this.message,
     this.padding = const EdgeInsets.all(16),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String message;
   final EdgeInsetsGeometry padding;

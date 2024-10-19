@@ -7,7 +7,7 @@ import 'bloc/search_bloc.dart';
 import 'search_screen.dart';
 
 class SearchPage extends StatelessWidget {
-  const SearchPage(this.params, {Key? key}) : super(key: key);
+  const SearchPage(this.params, {super.key});
   final SearchParams params;
 
   @override

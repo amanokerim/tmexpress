@@ -8,14 +8,14 @@ part of 'profile_response.dart';
 
 ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
     ProfileResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
-      gender: json['gender'] as int?,
-      region: json['region'] as int?,
+      gender: (json['gender'] as num?)?.toInt(),
+      region: (json['region'] as num?)?.toInt(),
       address: json['address'] as String?,
       username: json['username'] as String?,
       referalEarning: (json['referalEarning'] as num?)?.toDouble(),
-      referalUserCount: json['referalUserCount'] as int?,
+      referalUserCount: (json['referalUserCount'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$ProfileResponseToJson(ProfileResponse instance) =>

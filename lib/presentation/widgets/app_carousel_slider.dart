@@ -7,7 +7,7 @@ import '../theme/app_theme.dart';
 import '../utils/navigation_helper.dart';
 
 class AppCarouselSlider extends StatefulWidget {
-  const AppCarouselSlider(this.banners, {Key? key}) : super(key: key);
+  const AppCarouselSlider(this.banners, {super.key});
   final List<Banner> banners;
 
   @override

@@ -10,7 +10,7 @@ import '../theme/app_theme.dart';
 import '../utils/app_flash.dart';
 
 class AppCartButton extends StatelessWidget {
-  const AppCartButton({this.size = 28, Key? key}) : super(key: key);
+  const AppCartButton({this.size = 28, super.key});
   final double size;
 
   @override

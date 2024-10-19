@@ -6,7 +6,7 @@ import '../../../theme/app_theme.dart';
 import '../../../widgets/app_image.dart';
 
 class PlacedOrderItemCard extends StatelessWidget {
-  const PlacedOrderItemCard(this.item, {Key? key}) : super(key: key);
+  const PlacedOrderItemCard(this.item, {super.key});
   final PlacedOrderItem item;
 
   @override

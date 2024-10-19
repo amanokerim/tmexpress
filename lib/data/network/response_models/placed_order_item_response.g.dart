@@ -13,7 +13,7 @@ PlacedOrderItemResponse _$PlacedOrderItemResponseFromJson(
           ? null
           : ProductMiniResponse.fromJson(
               json['product'] as Map<String, dynamic>),
-      qty: json['qty'] as int?,
+      qty: (json['qty'] as num?)?.toInt(),
       size: json['size'] == null
           ? null
           : SizeResponse.fromJson(json['size'] as Map<String, dynamic>),

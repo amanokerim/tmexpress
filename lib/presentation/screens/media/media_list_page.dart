@@ -7,7 +7,7 @@ import 'cubit/media_category_cubit.dart';
 import 'media_list_screen.dart';
 
 class MediaListPage extends StatelessWidget {
-  const MediaListPage({Key? key}) : super(key: key);
+  const MediaListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

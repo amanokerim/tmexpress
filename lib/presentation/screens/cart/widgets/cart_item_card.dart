@@ -7,7 +7,7 @@ import '../../../widgets/app_image.dart';
 import 'cart_item_count.w.dart';
 
 class CartItemCard extends StatelessWidget {
-  const CartItemCard(this.cartItem, {Key? key}) : super(key: key);
+  const CartItemCard(this.cartItem, {super.key});
   final CartItem cartItem;
 
   @override

@@ -9,9 +9,9 @@ class AppImage extends StatelessWidget {
     this.width,
     this.color,
     this.borderRadius,
-    Key? key,
+    super.key,
     this.placeholderHeight,
-  }) : super(key: key);
+  });
   final String url;
   final double? height;
   final double? placeholderHeight;

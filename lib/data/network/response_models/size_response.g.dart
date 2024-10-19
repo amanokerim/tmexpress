@@ -7,7 +7,7 @@ part of 'size_response.dart';
 // **************************************************************************
 
 SizeResponse _$SizeResponseFromJson(Map<String, dynamic> json) => SizeResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
     );
 

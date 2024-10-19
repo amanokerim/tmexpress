@@ -24,7 +24,7 @@ bool isRu = false;
 Future<void> main() async => Development().init();
 
 class FlutterApp extends StatelessWidget {
-  const FlutterApp(this.env, {Key? key}) : super(key: key);
+  const FlutterApp(this.env, {super.key});
   final Env env;
 
   @override

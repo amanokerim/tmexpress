@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "18693864465",
+    "project_id": "yakyn-yol",
+    "storage_bucket": "yakyn-yol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18693864465:android:9fe59d71c2abfae8f145b0",
+        "android_client_info": {
+          "package_name": "com.yakynyol.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4kFAOpnF0r9q7G__Dj9sicaV-V_xW2VU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

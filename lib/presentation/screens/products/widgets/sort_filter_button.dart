@@ -7,8 +7,8 @@ class SortFilterButton extends StatelessWidget {
     this.title,
     this.iconFile,
     this.onPressed, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final String title;
   final String iconFile;
   final VoidCallback onPressed;

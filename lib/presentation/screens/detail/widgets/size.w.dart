@@ -9,8 +9,8 @@ class SizeW extends StatelessWidget {
     required this.onPressed,
     this.selected = false,
     this.alignment,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final Size size;
   final bool selected;
   final VoidCallback onPressed;

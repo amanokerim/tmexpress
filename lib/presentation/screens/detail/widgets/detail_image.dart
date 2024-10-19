@@ -5,7 +5,7 @@ import '../../../widgets/app_image.dart';
 import '../bloc/detail_bloc.dart';
 
 class DetailImage extends StatelessWidget {
-  const DetailImage(this.state, {Key? key}) : super(key: key);
+  const DetailImage(this.state, {super.key});
   final DetailLoadSuccess state;
 
   @override

@@ -11,7 +11,7 @@ Pagination<T> _$PaginationFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) =>
     Pagination<T>(
-      count: json['count'] as int? ?? 0,
+      count: (json['count'] as num?)?.toInt() ?? 0,
       results:
           (json['results'] as List<dynamic>?)?.map(fromJsonT).toList() ?? [],
       next: json['next'] as String?,

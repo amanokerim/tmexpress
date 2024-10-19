@@ -5,7 +5,7 @@ import '../../../../data/network/response_models/media.dart';
 import '../../../widgets/app_image.dart';
 
 class VideoPlayerCard extends StatefulWidget {
-  const VideoPlayerCard({required this.media, Key? key}) : super(key: key);
+  const VideoPlayerCard({required this.media, super.key});
   final Media media;
 
   @override

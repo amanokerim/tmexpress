@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 class AppInfoCard extends StatelessWidget {
-  const AppInfoCard(this.content, {Key? key}) : super(key: key);
+  const AppInfoCard(this.content, {super.key});
   final String content;
 
   @override

@@ -2,13 +2,22 @@ import 'dart:async';
 
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart' as pp;
 
 import '../../data/local/hive_boxes.dart';
+import '../../firebase_options.dart';
 import '../../main.dart';
 import '../injection/injection.dart';
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  await Firebase.initializeApp();
+}
 
 class Env {
   Env() {
@@ -27,6 +36,7 @@ class Env {
 
     cacheDir = (await pp.getTemporaryDirectory()).path;
     configureDependencies();
+    await initFirebase();
 
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     SystemChrome.setSystemUIOverlayStyle(
@@ -36,8 +46,6 @@ class Env {
     );
 
     await HiveBoxes.init();
-
-    _preCache();
 
     runApp(FlutterApp(this));
 
@@ -50,28 +58,23 @@ class Env {
     // );
   }
 
-  // Future<void> _initFirebase() async {
-  //   await Firebase.initializeApp(
-  //       options: DefaultFirebaseOptions.currentPlatform);
-  // }
+  Future<void> initFirebase() async {
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  void _preCache() {
-    // final svgList = [
-    //   'assets/illustrations/auth.svg',
-    //   'assets/illustrations/empty.svg',
-    //   'assets/illustrations/error.svg'
-    // ];
-    // Future.wait([
-    //   for (var svg in svgList)
-    //     precachePicture(
-    //         ExactAssetPicture(SvgPicture.svgStringDecoder, svg), null),
-    //   // TODO Precache
-    //   // assets/icons/home.png
-    //   // assets/icons/category.png
-    //   // assets/icons/fire.png
-    //   // assets/icons/basket.png
-    //   // assets/icons/profile.png
-    // ]);
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+
+    final messaging = FirebaseMessaging.instance;
+    await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
   }
 }
 

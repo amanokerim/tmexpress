@@ -12,8 +12,7 @@ import '../edit_profile/edit_profile_page.dart';
 import 'profile_image.dart';
 
 class ProfileCard extends StatelessWidget {
-  const ProfileCard(this.profile, {this.showAsSheet = false, Key? key})
-      : super(key: key);
+  const ProfileCard(this.profile, {this.showAsSheet = false, super.key});
   final Profile profile;
   final bool showAsSheet;
 

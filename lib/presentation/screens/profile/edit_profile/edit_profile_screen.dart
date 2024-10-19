@@ -16,7 +16,7 @@ import '../widgets/gender_radio.dart';
 import 'bloc/edit_profile_bloc.dart';
 
 class EditProfileScreen extends StatefulWidget {
-  const EditProfileScreen(this.profile, {Key? key}) : super(key: key);
+  const EditProfileScreen(this.profile, {super.key});
   final Profile profile;
 
   @override

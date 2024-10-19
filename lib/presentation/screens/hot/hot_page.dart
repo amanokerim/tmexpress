@@ -6,7 +6,7 @@ import 'bloc/hot_bloc.dart';
 import 'hot_screen.dart';
 
 class HotPage extends StatelessWidget {
-  const HotPage({Key? key}) : super(key: key);
+  const HotPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import '../../widgets/app_loader.dart';
 import 'bloc/shipping_options_bloc.dart';
 
 class ShippingOptionsScreen extends StatefulWidget {
-  const ShippingOptionsScreen({Key? key}) : super(key: key);
+  const ShippingOptionsScreen({super.key});
 
   @override
   State<ShippingOptionsScreen> createState() => _ShippingOptionsScreenState();

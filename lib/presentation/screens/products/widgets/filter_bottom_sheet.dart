@@ -12,7 +12,7 @@ import '../bloc/filter/filter_bloc.dart';
 import 'sort_filter_bottom_sheet.dart';
 
 class FilterBottomSheet extends StatelessWidget {
-  const FilterBottomSheet(this.subcategoryId, {Key? key}) : super(key: key);
+  const FilterBottomSheet(this.subcategoryId, {super.key});
   final int subcategoryId;
 
   @override

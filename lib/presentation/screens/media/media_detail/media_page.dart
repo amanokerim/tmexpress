@@ -8,7 +8,7 @@ import 'cubit/media_cubit.dart';
 import 'media_screen.dart';
 
 class MediaPage extends StatelessWidget {
-  const MediaPage(this.id, {Key? key}) : super(key: key);
+  const MediaPage(this.id, {super.key});
   final int id;
 
   @override

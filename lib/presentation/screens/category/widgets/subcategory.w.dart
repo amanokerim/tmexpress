@@ -6,7 +6,7 @@ import '../../../widgets/app_image.dart';
 import '../../products/products_page.dart';
 
 class SubcategoryW extends StatelessWidget {
-  const SubcategoryW(this.sub, {Key? key}) : super(key: key);
+  const SubcategoryW(this.sub, {super.key});
   final Subcategory sub;
 
   @override

@@ -8,7 +8,7 @@ part of 'group_response.dart';
 
 GroupResponse _$GroupResponseFromJson(Map<String, dynamic> json) =>
     GroupResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       titleRu: json['title_ru'] as String?,
       subCategories: (json['subCategories'] as List<dynamic>?)

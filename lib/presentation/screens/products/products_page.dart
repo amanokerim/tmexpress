@@ -8,7 +8,7 @@ import 'bloc/products_bloc.dart';
 import 'products_screen.dart';
 
 class ProductsPage extends StatelessWidget {
-  const ProductsPage({required this.productParent, Key? key}) : super(key: key);
+  const ProductsPage({required this.productParent, super.key});
   final SubTag productParent;
 
   @override

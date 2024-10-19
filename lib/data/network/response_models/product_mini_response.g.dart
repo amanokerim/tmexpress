@@ -8,11 +8,11 @@ part of 'product_mini_response.dart';
 
 ProductMiniResponse _$ProductMiniResponseFromJson(Map<String, dynamic> json) =>
     ProductMiniResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String?,
       titleRu: json['title_ru'] as String?,
       ourRating: (json['ourRating'] as num?)?.toDouble(),
-      discount: json['discount'] as int?,
+      discount: (json['discount'] as num?)?.toInt(),
       normalPrice: (json['normalPrice'] as num?)?.toDouble(),
       imageMini: json['imageMini'] as String?,
       country: json['country'] == null

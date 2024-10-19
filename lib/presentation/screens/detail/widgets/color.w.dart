@@ -7,8 +7,7 @@ import '../../../widgets/app_image.dart';
 import '../bloc/detail_bloc.dart';
 
 class ColorW extends StatelessWidget {
-  const ColorW(this.image, {required this.isSelected, Key? key})
-      : super(key: key);
+  const ColorW(this.image, {required this.isSelected, super.key});
   final List<Image> image;
   final bool isSelected;
 

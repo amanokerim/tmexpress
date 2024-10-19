@@ -13,7 +13,7 @@ import 'widgets/cart_item_card.dart';
 import 'widgets/continue_order_button.dart';
 
 class CartScreen extends StatelessWidget {
-  const CartScreen({Key? key}) : super(key: key);
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

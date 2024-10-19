@@ -7,7 +7,7 @@ import 'bloc/placed_order_bloc.dart';
 import 'placed_order_screen.dart';
 
 class PlacedOrderPage extends StatelessWidget {
-  const PlacedOrderPage(this.order, {Key? key}) : super(key: key);
+  const PlacedOrderPage(this.order, {super.key});
   final PlacedOrder order;
 
   @override

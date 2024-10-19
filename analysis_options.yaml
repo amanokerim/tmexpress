@@ -46,8 +46,6 @@ linter:
     avoid_relative_lib_imports: true
     avoid_renaming_method_parameters: false
     avoid_return_types_on_setters: true
-    avoid_returning_null: true # we do this commonly
-    avoid_returning_null_for_future: true
     avoid_returning_null_for_void: true
     avoid_returning_this: true
     avoid_setters_without_getters: true
@@ -79,7 +77,6 @@ linter:
     # flutter_style_todos: true # don't need those for now
     hash_and_equals: true
     implementation_imports: true
-    invariant_booleans: true
     join_return_with_assignment: true
     leading_newlines_in_multiline_strings: true
     library_names: true
@@ -111,9 +108,6 @@ linter:
     prefer_const_literals_to_create_immutables: true
     prefer_constructors_over_static_methods: true
     prefer_contains: true
-    # prefer_double_quotes: true #We use single quotes
-    prefer_equal_for_default_values: true
-    # prefer_expression_function_bodies: true # conflicts with https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo#consider-using--for-short-functions-and-methods
     prefer_final_fields: true
     prefer_final_in_for_each: true
     prefer_final_locals: true

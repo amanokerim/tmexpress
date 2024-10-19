@@ -8,7 +8,7 @@ import '../../../widgets/card_wrapper.dart';
 import '../../detail/detail_page.dart';
 
 class SavedProductCard extends StatelessWidget {
-  const SavedProductCard(this.product, {Key? key}) : super(key: key);
+  const SavedProductCard(this.product, {super.key});
   final SavedProduct product;
 
   @override

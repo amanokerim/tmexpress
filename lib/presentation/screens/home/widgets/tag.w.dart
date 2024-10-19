@@ -7,7 +7,7 @@ import '../../../widgets/product_card.dart';
 import '../../products/products_page.dart';
 
 class TagWidget extends StatelessWidget {
-  const TagWidget(this.tag, {this.onAllPressed, Key? key}) : super(key: key);
+  const TagWidget(this.tag, {this.onAllPressed, super.key});
   final Tag tag;
   final VoidCallback? onAllPressed;
 

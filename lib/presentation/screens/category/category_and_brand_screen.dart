@@ -7,7 +7,7 @@ import 'brands_screen.dart';
 import 'categories_screen.dart';
 
 class CategoriesAndBrandsScreen extends StatelessWidget {
-  const CategoriesAndBrandsScreen({Key? key}) : super(key: key);
+  const CategoriesAndBrandsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

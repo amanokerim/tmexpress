@@ -12,7 +12,7 @@ import '../widgets/placed_order_card.dart';
 import 'bloc/placed_orders_bloc.dart';
 
 class PlacedOrdersScreen extends StatelessWidget {
-  const PlacedOrdersScreen({Key? key}) : super(key: key);
+  const PlacedOrdersScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

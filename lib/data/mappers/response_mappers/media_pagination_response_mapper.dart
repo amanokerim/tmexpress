@@ -8,6 +8,5 @@ import 'product_mini_response_mapper.dart';
 @lazySingleton
 class ProductPaginationResponseMapper
     extends PaginationResponseMapper<ProductMiniResponse, ProductMini> {
-  ProductPaginationResponseMapper(ProductMiniResponseMapper mapper)
-      : super(mapper);
+  ProductPaginationResponseMapper(ProductMiniResponseMapper super.mapper);
 }

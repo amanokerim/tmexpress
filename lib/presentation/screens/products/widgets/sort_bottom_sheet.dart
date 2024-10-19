@@ -5,7 +5,7 @@ import '../../../../domain/entities/enums/sort_types.dart';
 import 'sort_filter_bottom_sheet.dart';
 
 class SortBottomSheet extends StatefulWidget {
-  const SortBottomSheet({required this.sortType, Key? key}) : super(key: key);
+  const SortBottomSheet({required this.sortType, super.key});
   final SortType sortType;
 
   @override

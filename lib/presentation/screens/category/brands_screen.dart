@@ -12,7 +12,8 @@ import '../../widgets/brand_card.dart';
 import 'bloc/brands_bloc.dart';
 
 class BrandsScreen extends StatefulWidget {
-  const BrandsScreen({Key? key}) : super(key: key);
+  const BrandsScreen({super.key});
+
 
   @override
   State<BrandsScreen> createState() => _BrandsScreenState();

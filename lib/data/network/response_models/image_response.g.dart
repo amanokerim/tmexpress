@@ -8,7 +8,7 @@ part of 'image_response.dart';
 
 ImageResponse _$ImageResponseFromJson(Map<String, dynamic> json) =>
     ImageResponse(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       url: json['url'] as String?,
       urlMini: json['urlMini'] as String?,
       imageHeight: (json['imageHeight'] as num?)?.toDouble(),

@@ -7,7 +7,7 @@ import '../../widgets/product_paged_grid_view.dart';
 import 'bloc/hot_bloc.dart';
 
 class HotScreen extends StatefulWidget {
-  const HotScreen({Key? key}) : super(key: key);
+  const HotScreen({super.key});
 
   @override
   State<HotScreen> createState() => _HotScreenState();

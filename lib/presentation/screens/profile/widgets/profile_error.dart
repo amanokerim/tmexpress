@@ -7,7 +7,7 @@ import '../../../widgets/app_error.dart';
 import '../bloc/profile_bloc.dart';
 
 class ProfileError extends StatelessWidget {
-  const ProfileError(this.message, {Key? key}) : super(key: key);
+  const ProfileError(this.message, {super.key});
   final String message;
 
   @override

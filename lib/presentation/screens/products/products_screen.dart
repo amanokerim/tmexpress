@@ -11,8 +11,7 @@ import 'bloc/products_bloc.dart';
 import 'widgets/sort_filter_header.dart';
 
 class ProductsScreen extends StatefulWidget {
-  const ProductsScreen({required this.productParent, Key? key})
-      : super(key: key);
+  const ProductsScreen({required this.productParent, super.key});
   final SubTag productParent;
 
   @override

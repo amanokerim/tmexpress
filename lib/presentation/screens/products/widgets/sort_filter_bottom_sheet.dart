@@ -9,8 +9,8 @@ class SortFilterBottomSheet extends StatelessWidget {
     required this.title,
     required this.child,
     required this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final String title;
   final Widget child;
   final VoidCallback? onPressed;

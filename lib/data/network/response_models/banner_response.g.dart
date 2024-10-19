@@ -13,7 +13,7 @@ BannerResponse _$BannerResponseFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String?,
       type: json['type'] as String?,
       size: json['size'] as String?,
-      entityId: json['entityId'] as int?,
+      entityId: (json['entityId'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$BannerResponseToJson(BannerResponse instance) =>

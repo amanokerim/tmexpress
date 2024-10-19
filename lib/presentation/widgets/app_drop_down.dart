@@ -8,8 +8,8 @@ class AppDropDown<T> extends StatelessWidget {
     required this.onItemSelected,
     required this.toStr,
     this.height,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String label;
   final List<T> values;

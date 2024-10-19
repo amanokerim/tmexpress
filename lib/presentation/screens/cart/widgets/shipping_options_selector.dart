@@ -11,7 +11,7 @@ import '../../shipping_options/bloc/shipping_options_bloc.dart';
 import '../bloc/cart_bloc.dart';
 
 class ShippingOptionsSelector extends StatelessWidget {
-  const ShippingOptionsSelector({Key? key}) : super(key: key);
+  const ShippingOptionsSelector({super.key});
 
   @override
   Widget build(BuildContext context) {

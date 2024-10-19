@@ -9,8 +9,7 @@ import 'app_loader.dart';
 import 'product_card.dart';
 
 class ProductPagedGridView extends StatelessWidget {
-  const ProductPagedGridView(this.pagingController, {Key? key})
-      : super(key: key);
+  const ProductPagedGridView(this.pagingController, {super.key});
   final PagingController<String?, ProductMini> pagingController;
 
   PagedChildBuilderDelegate<ProductMini> get delegate =>

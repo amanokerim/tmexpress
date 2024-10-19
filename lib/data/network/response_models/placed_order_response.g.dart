@@ -8,8 +8,8 @@ part of 'placed_order_response.dart';
 
 PlacedOrderResponse _$PlacedOrderResponseFromJson(Map<String, dynamic> json) =>
     PlacedOrderResponse(
-      id: json['id'] as int?,
-      user: json['user'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      user: (json['user'] as num?)?.toInt(),
       status: json['status'] as String?,
       totalPrice: (json['totalPrice'] as num?)?.toDouble(),
       createdAt: json['createdAt'] as String?,

@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 class PrimaryAppBar extends AppBar {
-  PrimaryAppBar({required this.label, this.action, Key? key})
+  PrimaryAppBar({required this.label, this.action, super.key})
       : super(
-          key: key,
           elevation: 0,
           toolbarHeight: 54,
           centerTitle: false,

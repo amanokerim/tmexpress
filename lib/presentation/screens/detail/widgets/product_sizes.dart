@@ -7,7 +7,7 @@ import '../bloc/detail_bloc.dart';
 import 'size.w.dart';
 
 class ProductSizes extends StatelessWidget {
-  const ProductSizes(this.state, {Key? key}) : super(key: key);
+  const ProductSizes(this.state, {super.key});
   final DetailLoadSuccess state;
 
   List<Widget> widgets(BuildContext context) {
