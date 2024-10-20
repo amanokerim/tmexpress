@@ -27,10 +27,10 @@ PlacedOrderItemResponse _$PlacedOrderItemResponseFromJson(
 Map<String, dynamic> _$PlacedOrderItemResponseToJson(
         PlacedOrderItemResponse instance) =>
     <String, dynamic>{
-      'product': instance.product,
+      'product': instance.product?.toJson(),
       'qty': instance.qty,
-      'size': instance.size,
-      'color': instance.color,
+      'size': instance.size?.toJson(),
+      'color': instance.color?.toJson(),
       'product_price': instance.productPrice,
       'status': instance.status,
     };

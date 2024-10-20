@@ -27,5 +27,5 @@ Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
       'description_ru': instance.descriptionRu,
       'video': instance.video,
       'image': instance.image,
-      'products': instance.products,
+      'products': instance.products.map((e) => e.toJson()).toList(),
     };

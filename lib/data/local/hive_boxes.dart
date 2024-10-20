@@ -13,6 +13,7 @@ class HiveBoxes {
     await Hive.initFlutter(subDir);
     await Hive.openBox<Map<dynamic, dynamic>>(kFavoritesBox);
     await Hive.openBox<dynamic>(kDataBox);
+    await Hive.openBox<dynamic>(kCartBox);
   }
 
   Box<dynamic> getBox(String boxName) => Hive.box(boxName);

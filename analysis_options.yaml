@@ -2,8 +2,10 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   errors:
+    invalid_use_of_visible_for_testing_member: ignore
     missing_required_param: error
     missing_return: error
+    sort_constructors_first: ignore
     todo: ignore
   language:
     strict-inference: true

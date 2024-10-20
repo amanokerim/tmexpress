@@ -20,5 +20,5 @@ Map<String, dynamic> _$TagResponseToJson(TagResponse instance) =>
       'id': instance.id,
       'title': instance.title,
       'title_ru': instance.titleRu,
-      'product': instance.product,
+      'product': instance.product?.map((e) => e.toJson()).toList(),
     };

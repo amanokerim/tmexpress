@@ -23,6 +23,7 @@ const kFlutterMinimalVersion = 'flutterMinimalVersion';
 // Hive boxes
 const kFavoritesBox = 'favoritesBox';
 const kDataBox = 'dataBox';
+const kCartBox = 'cartBox';
 const kRegisterReferral = 'registerReferral';
 const kProductReferralUserId = 'productReferral';
 const kProductReferralDate = 'productReferralDate';

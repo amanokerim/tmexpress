@@ -29,5 +29,5 @@ Map<String, dynamic> _$PlacedOrderResponseToJson(
       'totalPrice': instance.totalPrice,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
-      'orderitems': instance.orderitems,
+      'orderitems': instance.orderitems?.map((e) => e.toJson()).toList(),
     };

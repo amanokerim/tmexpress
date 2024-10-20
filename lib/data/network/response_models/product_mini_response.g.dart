@@ -30,5 +30,5 @@ Map<String, dynamic> _$ProductMiniResponseToJson(
       'discount': instance.discount,
       'normalPrice': instance.normalPrice,
       'imageMini': instance.imageMini,
-      'country': instance.country,
+      'country': instance.country?.toJson(),
     };

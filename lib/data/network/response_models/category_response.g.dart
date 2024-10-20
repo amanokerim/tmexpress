@@ -23,5 +23,5 @@ Map<String, dynamic> _$CategoryResponseToJson(CategoryResponse instance) =>
       'title': instance.title,
       'title_ru': instance.titleRu,
       'categoryImage': instance.categoryImage,
-      'groups': instance.groups,
+      'groups': instance.groups?.map((e) => e.toJson()).toList(),
     };

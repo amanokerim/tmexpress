@@ -24,5 +24,6 @@ Map<String, dynamic> _$SubcategoryResponseToJson(
       'title': instance.title,
       'title_ru': instance.titleRu,
       'subCategoryImage': instance.subCategoryImage,
-      'subcategorysizes': instance.subcategorysizes,
+      'subcategorysizes':
+          instance.subcategorysizes?.map((e) => e.toJson()).toList(),
     };

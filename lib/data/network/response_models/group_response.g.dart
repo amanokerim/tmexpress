@@ -21,5 +21,5 @@ Map<String, dynamic> _$GroupResponseToJson(GroupResponse instance) =>
       'id': instance.id,
       'title': instance.title,
       'title_ru': instance.titleRu,
-      'subCategories': instance.subCategories,
+      'subCategories': instance.subCategories?.map((e) => e.toJson()).toList(),
     };

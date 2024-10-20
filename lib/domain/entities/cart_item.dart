@@ -1,9 +1,13 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import 'image.dart';
 import 'product/product.dart';
 import 'product/size.dart';
 
+part 'cart_item.g.dart';
+
+@JsonSerializable()
 class CartItem extends Equatable {
   const CartItem({
     required this.product,
@@ -13,6 +17,10 @@ class CartItem extends Equatable {
     required this.price,
     required this.expressPrice,
   });
+
+  factory CartItem.fromJson(Map<String, dynamic> json) =>
+      _$CartItemFromJson(json);
+  Map<String, dynamic> toJson() => _$CartItemToJson(this);
 
   final Product product;
   final int count;

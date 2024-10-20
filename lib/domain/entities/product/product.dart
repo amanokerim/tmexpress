@@ -1,10 +1,14 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import '../image.dart';
 import 'brand.dart';
 import 'country.dart';
 import 'size.dart';
 
+part 'product.g.dart';
+
+@JsonSerializable()
 class Product extends Equatable {
   const Product({
     required this.id,
@@ -90,4 +94,8 @@ class Product extends Equatable {
       onStock: onStock ?? this.onStock,
     );
   }
+
+  factory Product.fromJson(Map<String, dynamic> json) =>
+      _$ProductFromJson(json);
+  Map<String, dynamic> toJson() => _$ProductToJson(this);
 }

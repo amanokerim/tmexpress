@@ -307,8 +307,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i537.PlacedOrdersBloc(gh<_i169.FetchPlacedOrdersUseCase>()));
     gh.factory<_i1064.EditProfileBloc>(
         () => _i1064.EditProfileBloc(gh<_i493.EditProfileUseCase>()));
-    gh.factory<_i416.CartBloc>(
-        () => _i416.CartBloc(gh<_i875.CreateOrderUseCase>()));
+    gh.factory<_i416.CartBloc>(() => _i416.CartBloc(
+          gh<_i875.CreateOrderUseCase>(),
+          gh<_i450.HiveBoxes>(),
+        ));
     gh.factory<_i810.ProfileBloc>(() => _i810.ProfileBloc(
           gh<_i597.GetStringPreferenceUseCase>(),
           gh<_i1012.FetchProfileUseCase>(),
